@@ -16,4 +16,4 @@ master.license.text = \
 	"JSESSIONID" para identificar su sesión de trabajo, "remember" para mantener \
 	su información de autentificación, "language" para almacenar sus preferencias de \
 	lenguage, "XSRF-TOKEN" para tratar ataques CSRF, y "returnStack" para saber dónde \
-	volver al pulsar algunos botones.
+	volver al pulsar algunos botones. Prueba
