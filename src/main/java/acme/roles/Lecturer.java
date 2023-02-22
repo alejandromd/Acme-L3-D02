@@ -8,6 +8,8 @@ import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.URL;
+
 import acme.entities.Qualifications;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
@@ -32,6 +34,7 @@ public class Lecturer extends AbstractRole {
 	@Size(min = 0, max = 101)
 	protected String				resume;
 
+	@URL
 	protected String				link;
 
 	// Derived attributes -----------------------------------------------------
