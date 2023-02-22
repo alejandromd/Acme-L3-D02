@@ -31,9 +31,11 @@ public class Student extends AbstractRole {
 	protected String			link;
 
 	@Length(max = 101)
+	@NotBlank
 	protected String			strongFeatures;
 
 	@Length(max = 101)
+	@NotBlank
 	protected String			weakFeatures;
 
 	// Derived attributes -----------------------------------------------------
