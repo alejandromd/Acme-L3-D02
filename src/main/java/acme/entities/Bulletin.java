@@ -1,42 +1,46 @@
 
-package acme.roles;
+package acme.entities;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.data.AbstractRole;
+import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Lecturer extends AbstractRole {
+public class Bulletin extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
+	@Past
+	protected Date				instantiationMoment;
 
 	@NotBlank
-	@Size(min = 0, max = 76)
-	protected String			almaMater;
+	@Length(max = 75)
+	protected String			title;
 
 	@NotBlank
-	@Size(min = 0, max = 101)
-	protected String			resume;
+	@Length(max = 100)
+	protected String			message;
+
+	@NotNull
+	protected Boolean			isCritical;
 
 	@URL
 	protected String			link;
 
-	@NotBlank
-	@Length(max = 101)
-	protected String			qualifications;
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
