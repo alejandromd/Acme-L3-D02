@@ -3,7 +3,9 @@ package acme.roles;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
@@ -21,13 +23,18 @@ public class Assistant extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Size(max = 75)
+	@Length(max = 75)
 	protected String			supervisor;
 
 	@NotBlank
-	@Size(max = 100)
+	@Length(max = 100)
+	protected String			expertiseFields;
+
+	@NotBlank
+	@Length(max = 100)
 	protected String			resume;
 
+	@URL
 	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
