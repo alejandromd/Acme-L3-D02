@@ -24,17 +24,17 @@ public class Student extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Size(min = 0, max = 76)
+	@Size(min = 0, max = 75)
 	protected String			statement;
 
 	@URL
 	protected String			link;
 
-	@Length(max = 101)
+	@Length(max = 100)
 	@NotBlank
 	protected String			strongFeatures;
 
-	@Length(max = 101)
+	@Length(max = 100)
 	@NotBlank
 	protected String			weakFeatures;
 
