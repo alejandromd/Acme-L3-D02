@@ -13,9 +13,9 @@
 &lt;&lt;Role&gt;&gt;
 Auditor
 --
-+ firm String {NotBlank,Length(max = 76)}
-+ professionalId String {NotBlank, Length(max = 26)}
-+ certifications String {NotBlank, Length(max = 101)}
++ firm String {NotBlank,Length(max = 75)}
++ professionalId String {NotBlank, Length(max = 25)}
++ certifications String {NotBlank, Length(max = 100)}
 + link String {Optional=true}
 + average Double
 + deviation Double
@@ -50,9 +50,9 @@ Audit
 --
 + code String {NotBlank,
 Pattern(“[A-Z]{1,3}[0-9][0-9]{3}”),Unique}
-+ conclusion String {NotBlank, Length(max = 101)}
-+ strongPoints String {NotBlank, Length(max = 101)}
-+ weakPoints String {NotBlank, Length(max = 101)}</panel_attributes>
++ conclusion String {NotBlank, Length(max = 100)}
++ strongPoints String {NotBlank, Length(max = 100)}
++ weakPoints String {NotBlank, Length(max = 100)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -102,8 +102,8 @@ bg=yellow</panel_attributes>
 &lt;&lt;Entity&gt;&gt;
 Auditing record
 --
-+ subject String {NotBlank,Length(max = 76)}
-+ assessment String {NotBlank, Length(max = 101)}
++ subject String {NotBlank,Length(max = 75)}
++ assessment String {NotBlank, Length(max = 100)}
 + period LocalDate {inThePast}
 + mark String {Pattern((“A+”, “A”, “B”, “C”, “F”, or “F-“)}
 + link String {Optional = true}</panel_attributes>
