@@ -104,7 +104,7 @@ Auditing record
 --
 + subject String {NotBlank,Length(max = 75)}
 + assessment String {NotBlank, Length(max = 100)}
-+ period LocalDate {inThePast}
++ period Date {inThePast}
 + mark String {Pattern((“A+”, “A”, “B”, “C”, “F”, or “F-“)}
 + link String {Optional = true}</panel_attributes>
     <additional_attributes/>
