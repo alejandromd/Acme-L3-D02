@@ -59,7 +59,7 @@ Tutorial
 + title: String (NotBlank, Length(max = 75))
 + abstract: String (NotBlank, Length(max = 100))
 + goals: String (NotBlank, Length(max = 100))
-+ estimatedTime: Date (Temporal(spec = TIME))</panel_attributes>
++ estimatedTime: Date (NotNull, Temporal(spec = TIME))</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -325,9 +325,9 @@ Sessions
 --
 + title: String (NotBlank, Length(max = 75))
 + abstract: String (NotBlank, Length(max = 100))
-+ type: SessionType
-+ startTimestamp: Date (Temporal(spec = TIMESTAMP))
-+ endTimestamp: Date (Temporal(spec = TIMESTAMP))
++ type: SessionType (NotNull)
++ startTimestamp: Date (NotNull, Temporal(spec = TIMESTAMP))
++ endTimestamp: Date (NotNull, Temporal(spec = TIMESTAMP))
 + furtherInfo: String (URL)</panel_attributes>
     <additional_attributes/>
   </element>
