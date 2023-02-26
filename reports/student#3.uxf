@@ -26,10 +26,10 @@ AbstractRole</panel_attributes>
 &lt;&lt;Role&gt;&gt;
 Assistant
 --
-+ supervisor: String (NotBlank, Length(max = 75))
-+ expertiseFields: String (NotBlank, Length(max = 100))
-+ resume: String (NotBlank, Length(max = 100))
-+ furtherInfo: String (URL)</panel_attributes>
++ supervisor: String {NotBlank, Length(max = 75)}
++ expertiseFields: String {NotBlank, Length(max = 100)}
++ resume: String {NotBlank, Length(max = 100)}
++ furtherInfo: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -55,11 +55,11 @@ Assistant
 &lt;&lt;Entity&gt;&gt;
 Tutorial
 --
-+ code: String (NotBlank, Unique, Pattern(“[A-Z]{1,3}[0-9][0-9]{3}”))
-+ title: String (NotBlank, Length(max = 75))
-+ abstract: String (NotBlank, Length(max = 100))
-+ goals: String (NotBlank, Length(max = 100))
-+ estimatedTime: Date (NotNull, Temporal(spec = TIME))</panel_attributes>
++ code: String {NotBlank, Unique, Pattern(“[A-Z]{1,3}[0-9][0-9]{3}”)}
++ title: String {NotBlank, Length(max = 75)}
++ abstract: String {NotBlank, Length(max = 100)}
++ goals: String {NotBlank, Length(max = 100)}
++ estimatedTime: Date {NotNull, Temporal(spec = TIME)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -323,12 +323,12 @@ Administrator</panel_attributes>
 &lt;&lt;Entity&gt;&gt;
 Sessions
 --
-+ title: String (NotBlank, Length(max = 75))
-+ abstract: String (NotBlank, Length(max = 100))
-+ type: SessionType (NotNull)
-+ startTimestamp: Date (NotNull, Temporal(spec = TIMESTAMP))
-+ endTimestamp: Date (NotNull, Temporal(spec = TIMESTAMP))
-+ furtherInfo: String (URL)</panel_attributes>
++ title: String {NotBlank, Length(max = 75)}
++ abstract: String {NotBlank, Length(max = 100)}
++ type: SessionType {NotNull}
++ startTimestamp: Date {NotNull, Temporal(spec = TIMESTAMP)}
++ endTimestamp: Date {NotNull, Temporal(spec = TIMESTAMP)}
++ furtherInfo: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
