@@ -3,7 +3,6 @@ package acme.roles;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -24,7 +23,7 @@ public class Student extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Size(min = 0, max = 75)
+	@Length(max = 75)
 	protected String			statement;
 
 	@URL
