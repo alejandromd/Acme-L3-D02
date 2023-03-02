@@ -4,10 +4,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>272</y>
+      <x>264</x>
+      <y>224</y>
       <w>272</w>
-      <h>144</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Role&gt;&gt;
@@ -16,18 +16,14 @@ Auditor
 + firm String {NotBlank,Length(max = 75)}
 + professionalId String {NotBlank, Length(max = 25)}
 + certifications String {NotBlank, Length(max = 100)}
-+ link String {Optional=true}
-+ average Double
-+ deviation Double
-+ minimumTime LocalDate
-+ maximumTime LocalDate</panel_attributes>
++ link String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>296</x>
-      <y>176</y>
+      <x>520</x>
+      <y>128</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -39,8 +35,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>384</x>
-      <y>272</y>
+      <x>608</x>
+      <y>224</y>
       <w>264</w>
       <h>112</h>
     </coordinates>
@@ -58,8 +54,8 @@ Audit
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>208</y>
+      <x>392</x>
+      <y>160</y>
       <w>192</w>
       <h>80</h>
     </coordinates>
@@ -69,8 +65,8 @@ Audit
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>488</x>
-      <y>176</y>
+      <x>712</x>
+      <y>128</y>
       <w>88</w>
       <h>32</h>
     </coordinates>
@@ -82,8 +78,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>200</y>
+      <x>752</x>
+      <y>152</y>
       <w>24</w>
       <h>88</h>
     </coordinates>
@@ -93,8 +89,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>384</x>
-      <y>480</y>
+      <x>608</x>
+      <y>432</y>
       <w>280</w>
       <h>104</h>
     </coordinates>
@@ -106,14 +102,14 @@ Auditing record
 + assessment String {NotBlank, Length(max = 100)}
 + period Date {inThePast}
 + mark String {Pattern((“A+”, “A”, “B”, “C”, “F”, or “F-“)}
-+ link String {Optional = true}</panel_attributes>
++ link String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>240</y>
+      <x>752</x>
+      <y>192</y>
       <w>176</w>
       <h>256</h>
     </coordinates>
@@ -124,8 +120,8 @@ Auditing record
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>376</y>
+      <x>744</x>
+      <y>328</y>
       <w>40</w>
       <h>120</h>
     </coordinates>
@@ -137,8 +133,8 @@ m2=0..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>144</x>
-      <y>48</y>
+      <x>368</x>
+      <y>0</y>
       <w>88</w>
       <h>40</h>
     </coordinates>
@@ -150,8 +146,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>144</x>
-      <y>104</y>
+      <x>368</x>
+      <y>56</y>
       <w>88</w>
       <h>40</h>
     </coordinates>
@@ -163,8 +159,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>144</x>
-      <y>160</y>
+      <x>368</x>
+      <y>112</y>
       <w>88</w>
       <h>32</h>
     </coordinates>
@@ -176,8 +172,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>224</x>
-      <y>112</y>
+      <x>448</x>
+      <y>64</y>
       <w>144</w>
       <h>80</h>
     </coordinates>
@@ -187,8 +183,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>224</x>
-      <y>112</y>
+      <x>448</x>
+      <y>64</y>
       <w>64</w>
       <h>80</h>
     </coordinates>
@@ -198,8 +194,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>224</x>
-      <y>56</y>
+      <x>448</x>
+      <y>8</y>
       <w>64</w>
       <h>80</h>
     </coordinates>
@@ -209,21 +205,21 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>408</y>
+      <x>384</x>
+      <y>312</y>
       <w>240</w>
-      <h>160</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
 m1=1
 m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0;280.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0;280.0;230.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>304</x>
-      <y>312</y>
+      <x>528</x>
+      <y>264</y>
       <w>96</w>
       <h>32</h>
     </coordinates>
@@ -235,8 +231,8 @@ m2=0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>304</x>
-      <y>344</y>
+      <x>528</x>
+      <y>296</y>
       <w>96</w>
       <h>32</h>
     </coordinates>
@@ -244,5 +240,23 @@ m2=0..*</panel_attributes>
 m1=1
 m2=0..*</panel_attributes>
     <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>224</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Form&gt;&gt;
+Auditor dashboard
+--
++ average Double
++ deviation Double
++ minimumTime LocalDate
++ maximumTime LocalDate</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
