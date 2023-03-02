@@ -22,6 +22,7 @@ public class Auditor extends AbstractRole {
 
 	// Attributes -------------------------------------------------------------
 
+	@NotBlank
 	@Length(max = 75)
 	protected String			firm;
 
