@@ -1,14 +1,14 @@
 
 package acme.entities;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -24,14 +24,21 @@ public class Banner extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Past
-	protected Date				moment;
-
-	@Past
+	@NotNull
 	@Temporal(value = TemporalType.TIMESTAMP)
-	protected Date				displayPeriod;
+	@PastOrPresent
+	protected Date				instantiationMoment;
+
+	@NotNull
+	@Temporal(value = TemporalType.TIMESTAMP)
+	protected Date				displayPeriodBegin;
+
+	@NotNull
+	@Temporal(value = TemporalType.TIMESTAMP)
+	protected Date				displayPreriodFinish;
 
 	@URL
+	@NotBlank
 	protected String			picture;
 
 	@Length(max = 75)
@@ -39,14 +46,7 @@ public class Banner extends AbstractEntity {
 	protected String			slogan;
 
 	@URL
+	@NotBlank
 	protected String			linkWeb;
 
-
-	public void setDisplayPeriod(final Date date) {
-		final Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		calendar.add(Calendar.DAY_OF_YEAR, 7);
-		if (date.after(calendar.getTime()))
-			this.displayPeriod = date;
-	}
 }
