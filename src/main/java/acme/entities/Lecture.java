@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.LectureType;
+import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,7 +37,7 @@ public class Lecture extends AbstractEntity {
 	protected String			body;
 
 	@NotNull
-	protected LectureType		lectureType;
+	protected Nature		lectureType;
 
 	@URL
 	protected String			link;
