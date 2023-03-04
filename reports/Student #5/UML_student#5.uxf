@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>152</x>
+      <x>24</x>
       <y>248</y>
       <w>272</w>
       <h>96</h>
@@ -22,9 +22,9 @@ Auditor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>496</x>
+      <x>368</x>
       <y>248</y>
-      <w>264</w>
+      <w>272</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>bg=green
@@ -42,9 +42,9 @@ pattern(“[A-Z]{1,3}[0-9][0-9]{3}”),Unique}
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>496</x>
+      <x>368</x>
       <y>456</y>
-      <w>280</w>
+      <w>336</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>bg=green
@@ -53,16 +53,16 @@ Auditing record
 --
 + subject String {NotBlank,Length(max = 75)}
 + assessment String {NotBlank, Length(max = 100)}
-+ periodStart Date {NotBLank, Past}
-+ periodEnd: Date {NotBlank}
-+ mark String {Pattern((“A+”, “A”, “B”, “C”, “F”, or “F-“)}
++ periodStart Date {NotBLank, Past, Temporal(TIMESTAMP)}
++ periodEnd: Date {NotBlank, Temporal(TIMESTAMP)}
++ mark String {NotBlank, Pattern((“A+”, “A”, “B”, “C”, “F”, or “F-“)}
 + link String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>632</x>
+      <x>504</x>
       <y>352</y>
       <w>40</w>
       <h>120</h>
@@ -75,7 +75,7 @@ m2=0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>272</x>
+      <x>144</x>
       <y>336</y>
       <w>240</w>
       <h>208</h>
@@ -88,7 +88,7 @@ m2=0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>416</x>
+      <x>288</x>
       <y>320</y>
       <w>96</w>
       <h>32</h>
@@ -101,7 +101,7 @@ m2=0..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
+      <x>392</x>
       <y>72</y>
       <w>208</w>
       <h>88</h>
@@ -119,7 +119,7 @@ Auditor dashboard
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>808</x>
+      <x>760</x>
       <y>472</y>
       <w>160</w>
       <h>72</h>
@@ -133,20 +133,9 @@ bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>768</x>
-      <y>496</y>
-      <w>56</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>824</x>
+      <x>696</x>
       <y>272</y>
       <w>152</w>
       <h>56</h>
@@ -160,12 +149,23 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>752</x>
+      <x>632</x>
       <y>296</y>
-      <w>88</w>
+      <w>80</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>504</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
   </element>
 </diagram>
