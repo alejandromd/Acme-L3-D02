@@ -1,11 +1,13 @@
 
 package acme.entities;
 
+import java.time.Duration;
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -20,31 +22,33 @@ import lombok.Setter;
 public class Enrolment extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long		serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	@NotBlank
 	@Column(unique = true)
-	protected String			code;
+	protected String				code;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			motivation;
+	protected String				motivation;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			goals;
+	protected String				goals;
 
-	protected Integer			workTime;
+	protected Duration				workTime;
 
 	// Derived attributes -----------------------------------------------------
-
-	@OneToOne
-	@NotNull
-	protected Workbook			workbook;
+	//	public void setWorkTime() {
+	//		Collection<Activity> a = Activity.
+	//		
+	//	}
 
 	// Relationships ----------------------------------------------------------
+	@OneToMany(mappedBy = "workbook")
+	protected Collection<Activity>	workbook;
 
 }
