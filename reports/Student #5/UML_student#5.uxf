@@ -36,7 +36,7 @@ pattern(“[A-Z]{1,3}[0-9][0-9]{3}”),Unique}
 + conclusion: String {NotBlank, Length(max = 100)}
 + strongPoints: String {NotBlank, Length(max = 100)}
 + weakPoints: String {NotBlank, Length(max = 100)}
-+ mark: String</panel_attributes>
++ mark: Mark</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -51,12 +51,12 @@ pattern(“[A-Z]{1,3}[0-9][0-9]{3}”),Unique}
 &lt;&lt;Entity&gt;&gt;
 Auditing record
 --
-+ subject String {NotBlank,Length(max = 75)}
-+ assessment String {NotBlank, Length(max = 100)}
-+ periodStart Date {NotBLank, Past, Temporal(TIMESTAMP)}
++ subject: String {NotBlank,Length(max = 75)}
++ assessment: String {NotBlank, Length(max = 100)}
++ periodStart: Date {NotBLank, Past, Temporal(TIMESTAMP)}
 + periodEnd: Date {NotBlank, Temporal(TIMESTAMP)}
-+ mark Mark
-+ link String {URL}</panel_attributes>
++ mark: Mark
++ link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
