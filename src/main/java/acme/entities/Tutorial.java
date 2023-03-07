@@ -1,12 +1,12 @@
 
 package acme.entities;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -14,6 +14,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.framework.data.AbstractEntity;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,11 +46,16 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	@NotNull
-	@Temporal(TemporalType.TIME)
-	protected Date				estimatedTime;
+	@Min(0)
+	protected int				estimatedTime;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@OneToOne(optional = false)
+	@JoinColumn(name = "assistant_id", referencedColumnName = "id")
+	protected Assistant			assistant;
 }
