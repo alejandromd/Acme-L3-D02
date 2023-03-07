@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>32</x>
+      <x>0</x>
       <y>176</y>
       <w>272</w>
       <h>96</h>
@@ -22,7 +22,7 @@ Auditor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>376</x>
+      <x>344</x>
       <y>176</y>
       <w>272</w>
       <h>112</h>
@@ -42,7 +42,7 @@ pattern(“[A-Z]{1,3}[0-9][0-9]{3}”),Unique}
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>376</x>
+      <x>344</x>
       <y>384</y>
       <w>336</w>
       <h>120</h>
@@ -62,7 +62,7 @@ Auditing record
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>512</x>
+      <x>480</x>
       <y>280</y>
       <w>40</w>
       <h>120</h>
@@ -75,7 +75,7 @@ m2=0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>152</x>
+      <x>120</x>
       <y>264</y>
       <w>240</w>
       <h>208</h>
@@ -88,7 +88,7 @@ m2=0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
+      <x>264</x>
       <y>248</y>
       <w>96</w>
       <h>32</h>
@@ -101,7 +101,7 @@ m2=0..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
+      <x>368</x>
       <y>0</y>
       <w>208</w>
       <h>88</h>
@@ -119,7 +119,7 @@ Auditor dashboard
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>768</x>
+      <x>736</x>
       <y>400</y>
       <w>160</w>
       <h>72</h>
@@ -135,13 +135,13 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>704</x>
+      <x>672</x>
       <y>200</y>
       <w>152</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>mark se calcula a partir de
-el atributo mark de los
+la moda del atributo mark de los
 respectivos auditing records
 bg=blue</panel_attributes>
     <additional_attributes/>
@@ -149,7 +149,7 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
+      <x>608</x>
       <y>224</y>
       <w>80</w>
       <h>24</h>
@@ -160,7 +160,7 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>704</x>
+      <x>672</x>
       <y>432</y>
       <w>80</w>
       <h>24</h>
@@ -171,7 +171,7 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>256</x>
+      <x>224</x>
       <y>496</y>
       <w>80</w>
       <h>112</h>
