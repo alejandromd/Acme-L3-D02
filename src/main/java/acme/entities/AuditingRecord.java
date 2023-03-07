@@ -11,7 +11,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -48,9 +47,8 @@ public class AuditingRecord extends AbstractEntity {
 	@NotBlank
 	protected Date				periodEndDate;
 
-	@NotBlank
-	@Pattern(regexp = "(A+|A|B|C|D|F|F-)", message = "default.error.conversion")
-	protected String			mark;
+	@NotNull
+	protected Mark				mark;
 
 	@URL
 	protected String			link;
