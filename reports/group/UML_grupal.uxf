@@ -323,19 +323,6 @@ m2=0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>763</x>
-      <y>238</y>
-      <w>210</w>
-      <h>105</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>280.0;10.0;170.0;10.0;170.0;80.0;10.0;80.0;10.0;130.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>1134</x>
       <y>182</y>
       <w>224</w>
