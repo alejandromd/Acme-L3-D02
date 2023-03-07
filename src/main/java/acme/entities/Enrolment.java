@@ -17,6 +17,7 @@ import org.hibernate.validator.constraints.Length;
 
 import acme.framework.data.AbstractEntity;
 import acme.framework.helpers.MomentHelper;
+import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
 
