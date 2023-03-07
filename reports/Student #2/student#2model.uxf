@@ -320,7 +320,7 @@ Administrator</panel_attributes>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
-Workbook
+Activity
 --
 + title: String {NotBlank, Length(max = 75)}
 + abstract: String {NotBlank, Length(max = 100)}
@@ -375,12 +375,12 @@ bg=green</panel_attributes>
     <coordinates>
       <x>588</x>
       <y>455</y>
-      <w>28</w>
+      <w>35</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
 m1=1
-m2=1</panel_attributes>
+m2=1..*</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
