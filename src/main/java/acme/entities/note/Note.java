@@ -1,17 +1,15 @@
 
-package acme.entities;
+package acme.entities.note;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,17 +37,11 @@ public class Note extends AbstractEntity {
 	@Email
 	protected String			email;
 
-
-	// Derived attributes -----------------------------------------------------
 	@NotBlank
 	@Length(max = 75)
-	public String author() {
-		final String res = "<" + +"> - <" + +"," + +">";
-		return res;
-	}
+	String						author;
 
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-	@ManyToOne
-	protected Authenticated authenticated;
 }
