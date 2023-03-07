@@ -54,7 +54,7 @@ Auditing record
 + subject: String {NotBlank,Length(max = 75)}
 + assessment: String {NotBlank, Length(max = 100)}
 + periodStart: Date {NotBLank, Past, Temporal(TIMESTAMP)}
-+ periodEnd: Date {NotBlank, Temporal(TIMESTAMP)}
++ periodEnd: Date {NotBlank, Past, Temporal(TIMESTAMP)}
 + mark: Mark
 + link: String {URL}</panel_attributes>
     <additional_attributes/>
