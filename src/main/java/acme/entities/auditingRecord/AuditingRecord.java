@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.auditingRecord;
 
 import java.util.Date;
 
@@ -45,6 +45,7 @@ public class AuditingRecord extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotBlank
+	@Past
 	protected Date				periodEndDate;
 
 	@NotNull
