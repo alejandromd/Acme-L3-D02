@@ -8,7 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -34,20 +33,23 @@ public class Note extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 75)
-	@Pattern(regexp = "([a-z])/([-])/([A-Z]{1})/([a-z])/(,)/([a-z])")
-	protected String			author;
-
-	@NotBlank
 	@Length(max = 100)
 	protected String			message;
 
 	@Email
 	protected String			email;
 
+
 	// Derived attributes -----------------------------------------------------
+	@NotBlank
+	@Length(max = 75)
+	public String author() {
+		final String res = "<" + +"> - <" + +"," + +">";
+		return res;
+	}
+
 
 	// Relationships ----------------------------------------------------------
 	@ManyToOne
-	protected Authenticated		authenticated;
+	protected Authenticated authenticated;
 }
