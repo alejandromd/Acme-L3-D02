@@ -112,8 +112,8 @@ Auditor dashboard
 --
 + average: Double
 + deviation: Double
-+ minimumTime: LocalDate
-+ maximumTime: LocalDate</panel_attributes>
++ minimumTime: Date
++ maximumTime: Date</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
