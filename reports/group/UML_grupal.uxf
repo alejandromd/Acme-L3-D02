@@ -418,58 +418,6 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
-      <y>315</y>
-      <w>903</w>
-      <h>301</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>200.0;10.0;200.0;120.0;10.0;120.0;10.0;400.0;1270.0;400.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>441</x>
-      <y>140</y>
-      <w>245</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;70.0;250.0;70.0;250.0;10.0;330.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>420</x>
-      <y>315</y>
-      <w>322</w>
-      <h>147</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0;420.0;100.0;420.0;190.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>357</x>
-      <y>315</y>
-      <w>35</w>
-      <h>147</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>364</x>
       <y>539</y>
       <w>21</w>
