@@ -219,32 +219,6 @@ bg=blue
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1106</x>
-      <y>350</y>
-      <w>84</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>bg=yellow
-&lt;&lt;Entity&gt;&gt;
-Anonymous</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1134</x>
-      <y>371</y>
-      <w>35</w>
-      <h>168</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
       <x>728</x>
       <y>329</y>
       <w>77</w>
@@ -254,58 +228,6 @@ m2=0..*</panel_attributes>
 &lt;&lt;Entity&gt;&gt;
 Administrator</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>756</x>
-      <y>350</y>
-      <w>35</w>
-      <h>112</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>539</x>
-      <y>336</y>
-      <w>203</w>
-      <h>189</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>270.0;10.0;90.0;10.0;90.0;240.0;10.0;240.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>728</x>
-      <y>252</y>
-      <w>77</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>bg=yellow
-&lt;&lt;Entity&gt;&gt;
-Principal</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>749</x>
-      <y>189</y>
-      <w>35</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
