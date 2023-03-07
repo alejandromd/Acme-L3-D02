@@ -103,17 +103,21 @@ m2=0..*</panel_attributes>
     <coordinates>
       <x>368</x>
       <y>0</y>
-      <w>208</w>
-      <h>88</h>
+      <w>304</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Form&gt;&gt;
 Auditor dashboard
 --
-+ average: Double
-+ deviation: Double
-+ minimumTime: Date
-+ maximumTime: Date</panel_attributes>
++ averageNumberOfAuditingRecordsAudit: Double
++ deviationNumberOfAuditingRecordsAudit: Double
++ minimumNumberNumberOfAuditingRecordsAudit: Integer
++ maximumNumberOfAuditingRecordsAudit: Integer
++ averageTimeOfPeriodLengthAuditingRecords: Date
++ deviationTimeOfPeriodLengthAuditingRecords: Date
++ maximunmTimeOfPeriodLengthAuditingRecords: Date
++ minimunTimeOfPeriodLengthAuditingRecords: Date</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
