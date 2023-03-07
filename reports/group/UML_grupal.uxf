@@ -36,7 +36,7 @@ Bulletin
 + instantiationMoment: Date {NotBlank, Past}
 + title: String {NotBlank, Length(max = 75)}
 + message: String {NotBlank, Length(max = 100)}
-+ flag: bool
++ flag: boolean
 + link: String {Url}
 </panel_attributes>
     <additional_attributes/>
