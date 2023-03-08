@@ -1,6 +1,7 @@
 
 package acme.entities.auditingRecord;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -54,16 +56,32 @@ public class AuditingRecord extends AbstractEntity {
 	@URL
 	protected String			link;
 
+
 	// Derived attributes -----------------------------------------------------
+	@Min(1)
+	public Double duration() {
+
+		final Calendar cal1 = Calendar.getInstance();
+		cal1.setTime(this.periodEndDate);
+		final Calendar cal2 = Calendar.getInstance();
+		cal2.setTime(this.periodStartDate);
+
+		//calculate difference in milliseconds and then we transform it to hours.
+		final long differenceInMilliseconds = cal1.getTimeInMillis() - cal2.getTimeInMillis();
+		final double differenceHours = differenceInMilliseconds / (1000.0 * 60 * 60);
+
+		return differenceHours;
+	}
+
 
 	// Relationships ----------------------------------------------------------
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)
-	protected Audit				audit;
+	protected Audit		audit;
 
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)
-	protected Auditor			auditor;
+	protected Auditor	auditor;
 }
