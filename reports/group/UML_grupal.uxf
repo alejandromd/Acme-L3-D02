@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>959</x>
-      <y>427</y>
+      <x>665</x>
+      <y>448</y>
       <w>224</w>
       <h>105</h>
     </coordinates>
@@ -24,8 +24,8 @@ Peep
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>651</x>
-      <y>448</y>
+      <x>560</x>
+      <y>280</y>
       <w>224</w>
       <h>98</h>
     </coordinates>
@@ -214,19 +214,6 @@ solo tiene en cuenta las escritas
 en las ultimas 10 semanas.
 bg=blue
 </panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>728</x>
-      <y>329</y>
-      <w>77</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>bg=yellow
-&lt;&lt;Entity&gt;&gt;
-Administrator</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
