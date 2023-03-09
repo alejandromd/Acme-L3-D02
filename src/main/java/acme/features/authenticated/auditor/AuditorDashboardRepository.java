@@ -9,16 +9,30 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuditorDashboardRepository extends AbstractRepository {
 
-	@Query("select sum(sqrt(power((select count(ar) from AuditingRecord ar where ar.au.id = au.id) - (avg(select count(ar) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id)), 2)) / (select count(ar) from AuditingRecord ar where ar.audit.auditor.id = auditor.id) from Audit au where au.auditor.id = auditor.id")
+	@Query("select count(au) from Audit au where au.auditor.id = auditor.id")
+	Integer totalNumberOfAudits();
+
+	@Query("select stddev(select count(ar) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id")
 	Double deviationNumberOfAuditingRecordsAudit();
 
 	@Query("select avg(select count(ar) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id")
 	Double averageNumberOfAuditingRecordsAudit();
 
 	@Query("select max(select count(ar) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id")
-	Double maximunNumberOfAuditingRecordsAudit();
+	Integer maximunNumberOfAuditingRecordsAudit();
 
 	@Query("select min(select count(ar) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id")
-	Double minimunNumberOfAuditingRecordsAudit();
+	Integer minimunNumberOfAuditingRecordsAudit();
 
+	@Query("select avg(select sum(ar.duration) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id")
+	Double averageTimeOfPeriodLengthAuditingRecords();
+
+	@Query("select stddev(select sum(ar.duration) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id")
+	Double deviationTimeOfPeriodLengthAuditingRecords();
+
+	@Query("select min(select sum(ar.duration) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id")
+	Double minimunTimeOfPeriodLengthAuditingRecords();
+
+	@Query("select max(select sum(ar.duration) from AuditingRecord ar where ar.au.id = au.id) from Audit au where au.auditor.id = auditor.id")
+	Double maximunTimeOfPeriodLengthAuditingRecords();
 }
