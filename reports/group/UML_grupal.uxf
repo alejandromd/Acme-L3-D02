@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1029</x>
-      <y>525</y>
+      <x>959</x>
+      <y>427</y>
       <w>224</w>
       <h>105</h>
     </coordinates>
@@ -232,19 +232,6 @@ Administrator</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>798</x>
-      <y>287</y>
-      <w>238</w>
-      <h>77</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;80.0;300.0;80.0;300.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>1134</x>
       <y>182</y>
       <w>224</w>
@@ -263,19 +250,6 @@ m2=0..*</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>441</x>
-      <y>231</y>
-      <w>329</w>
-      <h>112</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;10.0;180.0;100.0;430.0;100.0;430.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
