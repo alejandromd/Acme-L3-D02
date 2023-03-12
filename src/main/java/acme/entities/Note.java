@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -45,7 +46,10 @@ public class Note extends AbstractEntity {
 	 */
 	@NotBlank
 	@Length(max = 75)
-	String						author;
+	protected String			author;
+
+	@URL
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
