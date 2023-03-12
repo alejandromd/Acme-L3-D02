@@ -42,6 +42,9 @@ public class Audit extends AbstractEntity {
 	@Length(max = 100)
 	protected String			weakPoints;
 
+	//en caso de que no haya todavía ningun auditing record asociado llevara el valor "N/A"
+	//se computa como un string compuesto de todas las calificaciones de los auditing records asociados
+	@NotBlank
 	protected String			mark;
 	// Derived attributes -----------------------------------------------------
 
