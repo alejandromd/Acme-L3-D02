@@ -37,6 +37,12 @@ public class Note extends AbstractEntity {
 	@Email
 	protected String			email;
 
+	/*
+	 * Se computa con la siguiente estructura "<username>-<surname,name>" siendo
+	 * username el nombre de usuario de la persona que escribe la nota y surname
+	 * name su respectivos nombre y apellidos este campo no se puede modificar
+	 * una vez computado
+	 */
 	@NotBlank
 	@Length(max = 75)
 	String						author;
