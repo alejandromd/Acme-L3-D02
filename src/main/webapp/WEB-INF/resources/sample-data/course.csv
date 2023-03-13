@@ -1,0 +1,3 @@
+key,code,title,summary,course_type,retail_price,link,key:lecturer
+course-01,AAA111,English course,The best course,HANDS_ON,EUR 20.0,null,lecturer-01
+course-02,BC234,Mathematics course,we will be mathematicians,HANDS_ON,EUR 19.0,null,lecturer-02
