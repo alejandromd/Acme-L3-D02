@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>7</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>98</x>
-      <y>182</y>
-      <w>245</w>
-      <h>84</h>
+      <x>0</x>
+      <y>144</y>
+      <w>210</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Role&gt;&gt;
@@ -22,10 +22,10 @@ Student
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>427</x>
-      <y>182</y>
-      <w>301</w>
-      <h>105</h>
+      <x>282</x>
+      <y>138</y>
+      <w>258</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
@@ -34,54 +34,37 @@ Enrolment
 + code: String {NotBlank, Unique, Pattern(“[A-Z]{1,3}[0-9][0-9]{3}”)}
 + motivation: String {NotBlank, Length(max = 75)}
 + goals: String {NotBlank, Length(max = 100)}
-+ workTime: Double {NotNull}
-+ workbook: List&lt;Activity&gt;
-+ / setWorkTime: {Transient}</panel_attributes>
++ workbook: List&lt;Activity&gt; {NotNull}
+/ workTime: Double {Transient}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>427</x>
-      <y>357</y>
-      <w>294</w>
-      <h>98</h>
+      <x>282</x>
+      <y>288</y>
+      <w>252</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Entity&gt;&gt;
 Activity
 --
 + title: String {NotBlank, Length(max = 75)}
-+ abstract: String {NotBlank, Length(max = 100)}
-+ indication: ActivityType {NotNull}
++ summary: String {NotBlank, Length(max = 100)}
++ activityType: Nature {NotNull}
 + startTimestamp: Date {NotNull, Temporal(spec = TIMESTAMP)}
 + endTimestamp: Date {NotNull, Temporal(spec = TIMESTAMP)}
 + link: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>777</x>
-      <y>392</y>
-      <w>84</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>bg=green
-&lt;&lt;Enum&gt;&gt;
-ActivityType
---
-+ THEORY
-+ HANDS_ON</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>140</x>
-      <y>308</y>
-      <w>168</w>
-      <h>49</h>
+      <x>36</x>
+      <y>276</y>
+      <w>144</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>startTimestamp can be either in
 the past or in the future 
@@ -91,57 +74,38 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>301</x>
-      <y>336</y>
-      <w>140</w>
-      <h>56</h>
+      <x>174</x>
+      <y>288</y>
+      <w>120</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>567</x>
-      <y>280</y>
-      <w>35</w>
-      <h>91</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
-m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;180.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>623</x>
-      <y>28</y>
-      <w>301</w>
-      <h>133</h>
+      <x>282</x>
+      <y>42</y>
+      <w>258</w>
+      <h>78</h>
     </coordinates>
-    <panel_attributes>bg=green
-&lt;&lt;Form&gt;&gt;
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
 StudentDashboard
 --
-+ numberOfActivities
-+ activityAveragePeriod
-+ activityDeviationPeriod
-+ activityMinimumPeriod	
-+ activityMaximumPeriod
-+ learningAverageTime
-+ learningDeviationTime
-+ learningMinimumTime
-+ learningMaximumTime</panel_attributes>
++ numOfActivitesByType: Map&lt;Nature, Integer&gt;
++ statisticsOfActivitityPeriod: Statistic
++ statisticsOfCoursesLearningTime: Statistic
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>140</x>
-      <y>434</y>
-      <w>168</w>
-      <h>49</h>
+      <x>36</x>
+      <y>360</y>
+      <w>144</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>endTimestamp should be dated 
 after startTimestamp
@@ -151,10 +115,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>301</x>
-      <y>427</y>
-      <w>140</w>
-      <h>49</h>
+      <x>174</x>
+      <y>348</y>
+      <w>120</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
     <additional_attributes>10.0;50.0;180.0;10.0</additional_attributes>
@@ -162,10 +126,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>140</x>
-      <y>371</y>
-      <w>168</w>
-      <h>49</h>
+      <x>36</x>
+      <y>318</y>
+      <w>144</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>endTimestamp can be either in
 the past or in the future
@@ -175,10 +139,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>301</x>
-      <y>392</y>
-      <w>140</w>
-      <h>21</h>
+      <x>174</x>
+      <y>330</y>
+      <w>120</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=..</panel_attributes>
     <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
@@ -186,14 +150,97 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>224</y>
-      <w>105</w>
-      <h>28</h>
+      <x>204</x>
+      <y>180</y>
+      <w>90</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 m1=1
 m2=0..*</panel_attributes>
     <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>138</y>
+      <w>300</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Course
+--
++ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9]{3}")}
++ title: String {NotBlank, Length(max = 75)}
++ summary: String {NotBlank, Length(max = 100)}
++ courseType: Nature {NotNull}
++ retailPrice: Money {NotNull}
++ link: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>534</x>
+      <y>174</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*
+</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>42</y>
+      <w>84</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Datatype&gt;&gt;
+Statistic
+--
++ count: int
++ average: Double
++ max: Double
++ min: Double
++ linDev: Double
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>54</x>
+      <y>60</y>
+      <w>84</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+Nature
+--
++ HANDS_ON
++ THEORETICAL
++ BALANCED
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>402</x>
+      <y>222</y>
+      <w>30</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
+m2=1..*
+bg=black</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
 </diagram>
