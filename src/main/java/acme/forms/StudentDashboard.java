@@ -3,7 +3,7 @@ package acme.forms;
 
 import java.util.Map;
 
-import acme.datatypes.ActivityType;
+import acme.datatypes.Nature;
 import acme.datatypes.Statistic;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
@@ -15,8 +15,8 @@ public class StudentDashboard extends AbstractForm {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	Map<ActivityType, Integer>	numActivityType;
-	Statistic					statisticActivities;
-	Statistic					statisticEnrolment;
+	Map<Nature, Integer>		numOfActivitesByType;
+	Statistic					statisticsOfActivitityPeriod;
+	Statistic					statisticsOfCoursesLearningTime;
 
 }
