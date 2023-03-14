@@ -1,7 +1,6 @@
 
 package acme.entities.auditingRecord;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -16,6 +15,7 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.Audit;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,12 +39,12 @@ public class AuditingRecord extends AbstractEntity {
 	protected String			assessment;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotBlank
+	@NotNull
 	@Past
 	protected Date				periodStartDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotBlank
+	@NotNull
 	@Past
 	protected Date				periodEndDate;
 
@@ -54,26 +54,11 @@ public class AuditingRecord extends AbstractEntity {
 	@URL
 	protected String			link;
 
-
 	// Derived attributes -----------------------------------------------------
-	public Double duration() {
-
-		final Calendar cal1 = Calendar.getInstance();
-		cal1.setTime(this.periodEndDate);
-		final Calendar cal2 = Calendar.getInstance();
-		cal2.setTime(this.periodStartDate);
-
-		//calculate difference in milliseconds and then we transform it to hours.
-		final long differenceInMilliseconds = cal1.getTimeInMillis() - cal2.getTimeInMillis();
-		final double differenceHours = differenceInMilliseconds / (1000.0 * 60 * 60);
-
-		return differenceHours;
-	}
-
 
 	// Relationships ----------------------------------------------------------
 	@Valid
 	@NotNull
 	@ManyToOne(optional = false)
-	protected Audit audit;
+	protected Audit				audit;
 }
