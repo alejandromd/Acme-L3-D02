@@ -32,7 +32,7 @@ Auditor
 Audit
 --
 + code: String {NotBlank,
-pattern(“[A-Z]{1,3}[0-9][0-9]{3}”),Unique}
+pattern(“[A-Z]{1,3}\\d\\d{3}”),Unique}
 + conclusion: String {NotBlank, Length(max = 100)}
 + strongPoints: String {NotBlank, Length(max = 100)}
 + weakPoints: String {NotBlank, Length(max = 100)}
@@ -53,8 +53,8 @@ Auditing record
 --
 + subject: String {NotBlank,Length(max = 75)}
 + assessment: String {NotBlank, Length(max = 100)}
-+ periodStart: Date {NotBLank, Past, Temporal(TIMESTAMP)}
-+ periodEnd: Date {NotBlank, Past, Temporal(TIMESTAMP)}
++ periodStart: Date {NotNull, Past, Temporal(TIMESTAMP)}
++ periodEnd: Date {NotNull, Past, Temporal(TIMESTAMP)}
 + mark: Mark
 + link: String {URL}</panel_attributes>
     <additional_attributes/>
@@ -77,21 +77,22 @@ m2=0..*</panel_attributes>
     <coordinates>
       <x>568</x>
       <y>24</y>
-      <w>304</w>
-      <h>144</h>
+      <w>312</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>bg=green
 &lt;&lt;Form&gt;&gt;
 Auditor dashboard
 --
++ totalNumberOfAuditingRecordsAudit: Integer
 + averageNumberOfAuditingRecordsAudit: Double
 + deviationNumberOfAuditingRecordsAudit: Double
 + minimumNumberNumberOfAuditingRecordsAudit: Integer
 + maximumNumberOfAuditingRecordsAudit: Integer
-+ averageTimeOfPeriodLengthAuditingRecords: Date
-+ deviationTimeOfPeriodLengthAuditingRecords: Date
-+ maximunmTimeOfPeriodLengthAuditingRecords: Date
-+ minimunTimeOfPeriodLengthAuditingRecords: Date</panel_attributes>
++ averageTimeOfPeriodLengthAuditingRecords: Double
++ deviationTimeOfPeriodLengthAuditingRecords: Double
++ maximunmTimeOfPeriodLengthAuditingRecords: Double
++ minimunTimeOfPeriodLengthAuditingRecords: Double</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -115,15 +116,16 @@ bg=blue</panel_attributes>
     <coordinates>
       <x>760</x>
       <y>256</y>
-      <w>168</w>
-      <h>88</h>
+      <w>208</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>mark se compone de un string
 con todas las calificaciones
 de cada uno de los auditing
 records asociados al audit
+separados por comas,
 siendo "N/A" cuando todavía
-no hay ningun audit asociado
+no hay ningun auditing record asociado
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
