@@ -13,7 +13,7 @@
 &lt;&lt;Entity&gt;&gt;
 Peep
 --
-+ instantiationMoment: Date {Past, NotBlank}
++ instantiationMoment: Date {Past, NotNull}
 + title: String {NotBlank, Length(max = 75)}
 + nick: String {NotBlank, Length(max = 75)}
 + message: String {NotBlank, Length(max = 100)}
@@ -33,10 +33,10 @@ Peep
 &lt;&lt;Entity&gt;&gt;
 Bulletin
 --
-+ instantiationMoment: Date {NotBlank, Past}
++ instantiationMoment: Date {NotNull, Past}
 + title: String {NotBlank, Length(max = 75)}
 + message: String {NotBlank, Length(max = 100)}
-+ flag: boolean
++ flag: boolean {NotNull}
 + link: String {Url}
 </panel_attributes>
     <additional_attributes/>
@@ -53,12 +53,12 @@ Bulletin
 &lt;&lt;Entity&gt;&gt;
 Offer
 --
-+ instantiationMoment: Date {NotBlank, Past}
++ instantiationMoment: Date {NotNull, Past}
 + heading: String {NotBlank,Length(max = 75)}
 + summary: String {NotBlank, Length(max = 100)}
-+ availabilityPeriodStart: Date {NotBlank, Temporal(TIMESTAMP)}
-+ availabilityPeriodEnd: Date {NotBlank,Temporal(TIMESTAMP)}
-+ price: Money
++ availabilityPeriodStart: Date {NotNull, Temporal(TIMESTAMP)}
++ availabilityPeriodEnd: Date {NotNull,Temporal(TIMESTAMP)}
++ price: Money {NotNull}
 + link: String {Url}
 </panel_attributes>
     <additional_attributes/>
@@ -75,7 +75,7 @@ Offer
 &lt;&lt;Entity&gt;&gt;
 Note
 --
-+ instantiationMoment: Date {NotBlank, Past}
++ instantiationMoment: Date {NotNull, Past}
 + title: String {NotBlank,Length(max = 75)}
 + author: String {NotBlank, Length(max = 75)}
 + message: String {NotBlank, Length(max = 100)}
@@ -107,9 +107,9 @@ Note
 &lt;&lt;Entity&gt;&gt;
 Banner
 --
-+ instantiation/update: Date {Past, NotBlank}
-+ displayPeriodStart: Date {Temporal(TIMESTAMP), NotBlank}
-+ displayPeriodEnd: Date {Temporal(TIMESTAMP), NotBlank}
++ instantiation/update: Date {Past, NotNull}
++ displayPeriodStart: Date {Temporal(TIMESTAMP), NotNull}
++ displayPeriodEnd: Date {Temporal(TIMESTAMP), NotNull}
 + linkPicture: String {NotBlank, Url}
 + slogan: String {NotBlank, Length(max = 75)}
 + linkDoc: String {NotBlank, Url}</panel_attributes>
