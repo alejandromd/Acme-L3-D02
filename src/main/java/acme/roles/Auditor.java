@@ -1,14 +1,8 @@
 
 package acme.roles;
 
-
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -28,7 +22,6 @@ public class Auditor extends AbstractRole {
 
 	// Attributes -------------------------------------------------------------
 
-
 	@Length(max = 75)
 	protected String			firm;
 
@@ -46,10 +39,5 @@ public class Auditor extends AbstractRole {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-  @NotBlank
-	@Size(min = 0, max = 101)
-	@ManyToMany(mappedBy = "auditors")
-	protected List<String>		certifications;
-
 
 }
