@@ -45,14 +45,12 @@ public class Enrolment extends AbstractEntity {
 	protected String			goals;
 
 	@NotNull
-	protected Double			workTime;
-
 	protected List<Activity>	workbook;
 
 
 	// Derived attributes -----------------------------------------------------
 	@Transient
-	public void setWorkTime() {
+	public Double workTime() {
 		final List<Activity> ls = this.workbook;
 		double res = 0.;
 		for (final Activity a : ls) {
@@ -60,14 +58,18 @@ public class Enrolment extends AbstractEntity {
 			final double horas = (double) d.toMinutes() / 60;
 			res += horas;
 		}
-		this.workTime = res;
+		return res;
 	}
 
-	// Relationships ----------------------------------------------------------
 
+	// Relationships ----------------------------------------------------------
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course	course;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Student student;
+	protected Student	student;
 }
