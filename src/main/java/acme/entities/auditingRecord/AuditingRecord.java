@@ -39,12 +39,12 @@ public class AuditingRecord extends AbstractEntity {
 	protected String			assessment;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotBlank
+	@NotNull
 	@Past
 	protected Date				periodStartDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotBlank
+	@NotNull
 	@Past
 	protected Date				periodEndDate;
 
