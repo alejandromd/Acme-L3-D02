@@ -209,7 +209,7 @@ Statistic
 + average: Double
 + max: Double
 + min: Double
-+ linDev: Double
++ devitation: Double
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
