@@ -1,3 +1,3 @@
-key,code,motivation,goals,key:student,key:course
-enrolment-01,AAA111222,Learn English,Improve your English level,student-01,course-01
-enrolment-02,BC123456,Learn Math,Improve your mathematical skills,student-02,course-02
+key,code,motivation,goals,workTime,key:student,key:course
+enrolment-01,AAA111222,Learn English,Improve your English level,1.5,student-01,course-01
+enrolment-02,BC123456,Learn Math,Improve your mathematical skills,2.5,student-02,course-02
