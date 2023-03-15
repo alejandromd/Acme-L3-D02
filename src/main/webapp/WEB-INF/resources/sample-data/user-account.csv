@@ -1,0 +1,3 @@
+key,enabled,identity,password,username
+user-account-administrator-03,true,"UserIdentity{name: 'Alejandro', surname: 'Medina', email: 'admin1@acme.com'}",administrator1,administrator1
+user-account-administrator-04,true,"UserIdentity{name: 'Gonzalo', surname: 'Campos', email: 'admin2@acme.com'}",administrator2,administrator2

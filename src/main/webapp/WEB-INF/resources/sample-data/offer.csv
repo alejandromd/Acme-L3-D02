@@ -1,0 +1,3 @@
+key,instantiation_moment,heading,summary,start_period,end_period,price,further_information
+offer-01,2020/06/01 10:00,Offer1,This is the first offer,2020/06/01 12:00,2020/06/02 12:00,EUR 15.0,null
+offer-02,2020/06/06 23:00,Offer2,This is the second offer,2020/06/06 12:00,2020/06/07 12:00,EUR 20.0,null
