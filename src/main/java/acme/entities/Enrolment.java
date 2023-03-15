@@ -39,6 +39,9 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+	@NotNull
+	protected Double			workTime;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
