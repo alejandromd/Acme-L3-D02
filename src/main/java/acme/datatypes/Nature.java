@@ -2,5 +2,5 @@
 package acme.datatypes;
 
 public enum Nature {
-	THEORICAL, HANDS_ON, BALANCED
+	THEORETICAL, HANDS_ON, BALANCED
 }
