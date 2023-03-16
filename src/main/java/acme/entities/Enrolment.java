@@ -26,7 +26,7 @@ public class Enrolment extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
 	@NotBlank
 	@Column(unique = true)
 	protected String			code;
