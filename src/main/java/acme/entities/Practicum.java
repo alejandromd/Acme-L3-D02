@@ -44,6 +44,7 @@ public class Practicum extends AbstractEntity {
 
 	protected Boolean			draftMode;
 
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
