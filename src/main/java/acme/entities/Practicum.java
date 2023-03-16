@@ -26,7 +26,7 @@ public class Practicum extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{1,3}\\d{3}$")
+	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
 	@Column(unique = true)
 	protected String			code;
 
@@ -42,7 +42,8 @@ public class Practicum extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	protected Boolean			draftmode;
+	protected Boolean			draftMode;
+
 
 	// Derived attributes -----------------------------------------------------
 
