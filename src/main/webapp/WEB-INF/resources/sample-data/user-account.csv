@@ -1,5 +1,11 @@
 key,enabled,identity,password,username
 user-account-auditor-01,true,"UserIdentity{name: 'Alvaro', surname: 'Fernandez', email: 'auditor1@acme.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor2@acme.com'}",auditor2,auditor2
+user-account-auditor-03,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor3@acme.com'}",auditor3,auditor3
+user-account-auditor-04,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor4@acme.com'}",auditor4,auditor4
+user-account-auditor-05,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor5@acme.com'}",auditor5,auditor5
+user-account-auditor-06,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor6@acme.com'}",auditor6,auditor6
+user-account-auditor-07,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor7@acme.com'}",auditor7,auditor7
+user-account-auditor-08,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor8@acme.com'}",auditor8,auditor8
 user-account-lecturer-01,true,"UserIdentity{name: 'Francisco', surname: 'Jimenez', email: 'lecturer2@acme.com'}",lecturer1,lecturer1
 user-account-lecturer-02,true,"UserIdentity{name: 'Fernando', surname: 'Romero', email: 'lecturer1@acme.com'}",lecturer2,lecturer2
