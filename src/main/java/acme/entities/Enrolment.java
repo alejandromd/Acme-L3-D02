@@ -1,3 +1,4 @@
+
 package acme.entities;
 
 import javax.persistence.Column;
@@ -9,47 +10,48 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Lecturer;
+import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Course extends AbstractEntity {
+public class Enrolment extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
 	protected static final long	serialVersionUID	= 1L;
 
-	@Column(unique = true)
-	@NotBlank
+	// Attributes -------------------------------------------------------------
+
 	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@NotBlank
+	@Column(unique = true)
 	protected String			code;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			title;
+	protected String			motivation;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
-
-	// Theoretical courses should be rejected
-	@NotNull
-	protected Nature		courseType;
+	protected String			goals;
 
 	@NotNull
-	protected Money				retailPrice;
+	protected Double			workTime;
 
-	@URL
-	protected String			link;
+	// Derived attributes -----------------------------------------------------
 
-	@ManyToOne(optional = false)
+	// Relationships ----------------------------------------------------------
 	@NotNull
 	@Valid
-	protected Lecturer			lecturer;
+	@ManyToOne(optional = false)
+	protected Course			course;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Student			student;
 }
