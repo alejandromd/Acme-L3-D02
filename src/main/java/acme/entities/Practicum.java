@@ -1,8 +1,6 @@
 
 package acme.entities;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -38,15 +36,13 @@ public class Practicum extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstractt;
+	protected String			abstractt; //
 
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
 
-	protected Date				initialTime;
-
-	protected Date				finalTime;
+	protected Boolean			draftmode;
 
 	// Derived attributes -----------------------------------------------------
 

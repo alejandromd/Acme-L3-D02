@@ -31,7 +31,7 @@ public class PracticumSession extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstractt;
+	protected String			summary;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
