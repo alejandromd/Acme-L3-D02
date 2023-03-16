@@ -1,3 +1,3 @@
-key,instantiationMoment,displayPeriodBegin,displayPeriodFinish,picture,slogan,linkWeb
-banner-01,2021/07/07 11:00,2021/07/07 11:00,2021/07/07 12:00,null,Slogan,null
-banner-02,2021/07/08 00:00,2021/07/08 11:00,2021/07/08 12:00,null,Slogan,null
+key,instantiation-moment,display-period-begin,display-period-finish,picture,slogan,linkWeb
+banner-01,2021/07/07 11:00,2021/07/07 11:00,2021/07/07 12:00,https://www.example.com,Slogan,https://www.example.com
+banner-02,2021/07/08 00:00,2021/07/08 11:00,2021/07/08 12:00,https://www.example.com,Slogan,https://www.example.com
