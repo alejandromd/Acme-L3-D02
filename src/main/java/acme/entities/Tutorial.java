@@ -1,35 +1,36 @@
-
 package acme.entities;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Bulletin extends AbstractEntity {
+public class Tutorial extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				instantiationMoment;
+
+	@NotBlank
+	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
+	@Column(unique = true)
+	protected String			code;
 
 	@NotBlank
 	@Length(max = 75)
@@ -37,15 +38,27 @@ public class Bulletin extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			message;
+	protected String			informativeAbstract;
 
-	protected boolean			isCritical;
+	@NotBlank
+	@Length(max = 100)
+	protected String			goals;
 
-	@URL
-	protected String			link;
+	@Min(0)
+	protected int				estimatedTime;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Assistant			assistant;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 }

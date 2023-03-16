@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -20,14 +21,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Bulletin extends AbstractEntity {
+public class Note extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
+	@Temporal(value = TemporalType.TIMESTAMP)
 	@NotNull
 	protected Date				instantiationMoment;
 
@@ -39,7 +40,18 @@ public class Bulletin extends AbstractEntity {
 	@Length(max = 100)
 	protected String			message;
 
-	protected boolean			isCritical;
+	@Email
+	protected String			email;
+
+	/*
+	 * Se computa con la siguiente estructura "<username>-<surname,name>" siendo
+	 * username el nombre de usuario de la persona que escribe la nota y surname
+	 * name su respectivos nombre y apellidos este campo no se puede modificar
+	 * una vez computado
+	 */
+	@NotBlank
+	@Length(max = 75)
+	protected String			author;
 
 	@URL
 	protected String			link;
@@ -47,5 +59,4 @@ public class Bulletin extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
 }
