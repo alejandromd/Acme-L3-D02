@@ -23,7 +23,11 @@ import lombok.Setter;
 @Setter
 public class Course extends AbstractEntity {
 
+	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
 	@NotBlank
@@ -47,6 +51,10 @@ public class Course extends AbstractEntity {
 
 	@URL
 	protected String			link;
+
+	protected boolean			draftMode;
+
+	// Relationships ----------------------------------------------------------
 
 	@ManyToOne(optional = false)
 	@NotNull
