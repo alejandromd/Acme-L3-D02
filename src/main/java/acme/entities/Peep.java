@@ -1,64 +1,58 @@
+
 package acme.entities;
 
-import javax.persistence.Column;
+import java.util.Date;
+
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.Min;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
-import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class Tutorial extends AbstractEntity {
+@Entity
+public class Peep extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
-	@Column(unique = true)
-	protected String			code;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	@NotNull
+	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 100)
-	protected String			informativeAbstract;
+	@Length(max = 75)
+	protected String			nick;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			goals;
+	protected String			message;
 
-	@Min(0)
-	protected int				estimatedTime;
+	@Email
+	protected String			email;
+
+	@URL
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Assistant			assistant;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Course			course;
 
 }
