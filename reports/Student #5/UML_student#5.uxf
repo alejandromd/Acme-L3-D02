@@ -175,12 +175,14 @@ bg=green
     <id>Relation</id>
     <coordinates>
       <x>488</x>
-      <y>64</y>
-      <w>24</w>
-      <h>184</h>
+      <y>72</y>
+      <w>40</w>
+      <h>176</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+    <panel_attributes>lt=&lt;-x
+m1=1
+m2=0..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -188,9 +190,11 @@ bg=green
       <x>456</x>
       <y>48</y>
       <w>80</w>
-      <h>24</h>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>Course</panel_attributes>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Course
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
