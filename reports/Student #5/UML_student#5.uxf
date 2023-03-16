@@ -69,7 +69,7 @@ Auditing record
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
 m1=1
-m2=0..*</panel_attributes>
+m2=1..*</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
