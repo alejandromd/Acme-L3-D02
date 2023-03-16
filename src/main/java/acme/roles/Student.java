@@ -1,3 +1,4 @@
+
 package acme.roles;
 
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Assistant extends AbstractRole {
+public class Student extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -23,20 +24,21 @@ public class Assistant extends AbstractRole {
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			supervisor;
-
-	@NotBlank
-	@Length(max = 100)
-	protected String			expertiseFields;
-
-	@NotBlank
-	@Length(max = 100)
-	protected String			resume;
+	protected String			statement;
 
 	@URL
 	protected String			link;
 
+	@Length(max = 100)
+	@NotBlank
+	protected String			strongFeatures;
+
+	@Length(max = 100)
+	@NotBlank
+	protected String			weakFeatures;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
 }

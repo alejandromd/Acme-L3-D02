@@ -1,45 +1,55 @@
 
-package acme.entities;
+package acme.entities.auditingRecord;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.Audit;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class Bulletin extends AbstractEntity {
+@Entity
+public class AuditingRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
-	protected String			title;
+	protected String			subject;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			message;
+	protected String			assessment;
 
-	protected boolean			isCritical;
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	@Past
+	protected Date				periodStartDate;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	@Past
+	protected Date				periodEndDate;
+
+	@NotNull
+	protected Mark				mark;
 
 	@URL
 	protected String			link;
@@ -47,5 +57,8 @@ public class Bulletin extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Audit				audit;
 }
