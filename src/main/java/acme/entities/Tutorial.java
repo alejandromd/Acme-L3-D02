@@ -4,30 +4,32 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Lecturer;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Course extends AbstractEntity {
+public class Tutorial extends AbstractEntity {
+
+	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@Column(unique = true)
+	// Attributes -------------------------------------------------------------
+
 	@NotBlank
 	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
+	@Column(unique = true)
 	protected String			code;
 
 	@NotBlank
@@ -36,20 +38,27 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
+	protected String			informativeAbstract;
 
-	// Theoretical courses should be rejected
-	@NotNull
-	protected Nature			courseType;
+	@NotBlank
+	@Length(max = 100)
+	protected String			goals;
 
-	@NotNull
-	protected Money				retailPrice;
+	@Min(0)
+	protected int				estimatedTime;
 
-	@URL
-	protected String			link;
+	// Derived attributes -----------------------------------------------------
 
-	@ManyToOne(optional = false)
+	// Relationships ----------------------------------------------------------
+
 	@NotNull
 	@Valid
-	protected Lecturer			lecturer;
+	@ManyToOne(optional = false)
+	protected Assistant			assistant;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
+
 }
