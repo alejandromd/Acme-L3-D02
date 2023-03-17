@@ -1,8 +1,8 @@
 key,enabled,identity,password,username
 user-account-anonymous-01,false,"UserIdentity{name: 'John', surname: 'Doe', email: 'john.doe@acme.com'}",HIDDEN-PASSWORD,anonymous
 user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
-user-account-assistant-01,true,"UserIdentity{name: 'Isabella', surname: 'Fernandez', email: 'isabella.fernandez@company.com'}",assist1,assist1
-user-account-assistant-02,true,"UserIdentity{name: 'Lucas', surname: 'Nguyen', email: 'lucas.nguyen@webmail.com'}",assist2,assist2
+user-account-assistant-01,true,"UserIdentity{name: 'Isabella', surname: 'Fernandez', email: 'isabella.fernandez@company.com'}",assistant1,assistant1
+user-account-assistant-02,true,"UserIdentity{name: 'Lucas', surname: 'Nguyen', email: 'lucas.nguyen@webmail.com'}",assistant2,assistant2
 user-account-assistant-03,true,"UserIdentity{name: 'Ava', surname: 'Kumar', email: 'ava.kumar@workplace.com'}",assist3,assist3
 user-account-assistant-04,true,"UserIdentity{name: 'Ethan', surname: 'Rodriguez', email: 'ethan.rodriguez@mydomain.com'}",assist4,assist4
 user-account-assistant-05,true,"UserIdentity{name: 'Emma', surname: 'Lee', email: 'emma.lee@internet.com'}",assist5,assist5
