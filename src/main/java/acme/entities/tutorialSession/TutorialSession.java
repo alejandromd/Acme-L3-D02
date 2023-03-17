@@ -1,36 +1,33 @@
-package acme.entities;
 
-import javax.persistence.Column;
+package acme.entities.tutorialSession;
+
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
+import acme.entities.Tutorial;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Tutorial extends AbstractEntity {
+public class TutorialSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
-	@Column(unique = true)
-	protected String			code;
-
 	@NotBlank
 	@Length(max = 75)
 	protected String			title;
@@ -39,26 +36,26 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			informativeAbstract;
 
-	@NotBlank
-	@Length(max = 100)
-	protected String			goals;
+	@NotNull
+	protected SessionType		type;
 
-	// Derived attributes ----------------------------------------------------
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				startTimestamp;
 
-	/*
-	 * protected Double estimatedTime;
-	 */
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				endTimestamp;
+
+	@URL
+	protected String			furtherInfo;
+
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Assistant			assistant;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Course			course;
-
+	protected Tutorial			tutorial;
 }
