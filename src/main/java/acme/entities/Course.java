@@ -53,8 +53,6 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected boolean			draftMode;
-
 	// Relationships ----------------------------------------------------------
 
 	@ManyToOne(optional = false)
