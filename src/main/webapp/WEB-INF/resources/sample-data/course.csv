@@ -1,19 +1,19 @@
 key,code,title,summary,course_type,retail_price,draft_mode,link,key:lecturer
 course-01,AAA111,English course,The best course,HANDS_ON,EUR 20.0,false,null,lecturer-01
-course-02,AAP112,English course2,The best course,HANDS_ON,EUR 20.0,false,null,lecturer-01
-course-03,ATA113,Dziękuję,The best course,HANDS_ON,EUR 20.0,false,null,lecturer-01
+course-02,AAP112,이 텍스트는 한국어로 작성되었습니다.,The best course,HANDS_ON,EUR 20.0,false,null,lecturer-01
+course-03,ATA113,m,The best course,HANDS_ON,EUR 20.0,false,null,lecturer-01
 course-04,AHA114,este curso tiene unе título que se  alargará hasta  llegar al tamaño máximo,The best course,HANDS_ON,EUR 20.0,false,null,lecturer-01
 course-05,MSA115,E,The best course,HANDS_ON,EUR 20.0,false,null,lecturer-01
 course-06,BDR234,cours3,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,HANDS_ON,EUR 19.0,false,null,lecturer-01
-course-07,BCY234,cours3,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementac,HANDS_ON,EUR 19.0,false,null,lecturer-01
+course-07,BCY234,cours3,这是另一种语言的测试数据的测试文本,HANDS_ON,EUR 19.0,false,null,lecturer-01
 course-08,ZZZ340,cours3,e,HANDS_ON,EUR 19.0,false,null,lecturer-01
 course-09,BC999,cours3,Dziękuję,HANDS_ON,EUR 19.0,false,null,lecturer-01
-course-10,B234,cours3,ñññ,HANDS_ON,EUR 19.0,false,null,lecturer-01
+course-10,B234,cours3,ñññ ~$,HANDS_ON,EUR 19.0,false,null,lecturer-01
 course-11,B111,cours3,we will be mathematicians,THEORETICAL,EUR 19.0,false,null,lecturer-01
-course-12,C222,cours3,we will be mathematicians,HANDS_ON,EUR 19.0,false,null,lecturer-01
+course-12,C222,cours3,we will be mathematicians,BALANCED,EUR 19.0,false,null,lecturer-01
 course-13,D444,cours3,we will be mathematicians,THEORETICAL,EUR 19.0,false,null,lecturer-01
 course-14,BZR777,cours3,we will be mathematicians,BALANCED,EUR 19.0,false,null,lecturer-01
-course-15,BO002,cours3,we will be mathematicians,BALANCED,EUR 19.0,false,null,lecturer-01
+course-15,BO002,cours3,we will be mathematicians,HANDS_ON,EUR 19.0,false,null,lecturer-01
 course-16,VGT777,cours3,we will be mathematicians,HANDS_ON,USD 1.0,false,null,lecturer-01
 course-17,LLA678,cours3,we will be mathematicians,HANDS_ON,GBP 0.1,false,null,lecturer-01
 course-18,FF234,cours3,we will be mathematicians,HANDS_ON,USD 109.0,false,null,lecturer-01

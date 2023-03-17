@@ -1,17 +1,18 @@
 key,title,summary,estimated_learning_time,body,lecture_type,link
-lecture-01,Lecture1,First lecture,1.0,presentation of the subject,BALANCED,null
-lecture-02,Lecture2,Second lecture,2.0,first part of theme 1,BALANCED,null
-lecture-03,mensaje de setenta  y cinco caracteres    para el título de lecture .......,Second lecture,2.0,first part of theme 1,BALANCED,null
-lecture-04,L,First lecture,1.0,presentation of the subject,BALANCED,null
-lecture-05,Lecture2,S,2.0,first part of theme 1,BALANCED,null
-lecture-06,Lecture1,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,1.0,presentation of the subject,BALANCED,null
-lecture-07,Lecture1,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,1.0,presentation of the subject,BALANCED,null
-lecture-08,Lecture1,First lecture,3.0,presentation of the subject,BALANCED,null
-lecture-09,Lecture1,Second lecture,0.99,first part of theme 1,BALANCED,null
-lecture-10,Lecture1,First lecture,1.01,presentation of the subject,BALANCED,null
-lecture-11,Lecture1,Second lecture,2.0,f,BALANCED,null
+lecture-01,Lecture1,First lecture,1.0,first part of theme 1,BALANCED,null
+lecture-02,подтверждение квалификации на другом языке,First lecture,2.0,first part of theme 1,BALANCED,null
+lecture-03,mensaje de setenta  y cinco caracteres    para el título de lecture .......,First lecture,1.0,first part of theme 1,BALANCED,null
+lecture-04,L,First lecture,1.0,first part of theme 1,BALANCED,null
+lecture-05,Lecture1,S,1.0,first part of theme 1,BALANCED,null
+lecture-06,Lecture1,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,1.0,first part of theme 1,BALANCED,null
+lecture-07,Lecture1,이 텍스트는 한국어로 작성되었습니다.,1.0,first part of theme 1,BALANCED,null
+lecture-08,Lecture1,First lecture,0.01,first part of theme 1,BALANCED,null
+lecture-09,Lecture1,First lecture,2.99,first part of theme 1,BALANCED,null
+lecture-10,Lecture1,First lecture,1.01,first part of theme 1,BALANCED,null
+lecture-11,Lecture1,First lecture,1.0,f,BALANCED,null
 lecture-12,Lecture1,First lecture,1.0,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,BALANCED,null
-lecture-13,Lecture1,Second lecture,2.0,first part of theme 1,HANDS_ON,null
-lecture-14,Lecture1,First lecture,1.0,presentation of the subject,THEORETICAL,null
-lecture-15,Lecture1,Second lecture,2.0,first part of theme 1,BALANCED,https://github.com/alejandromd/Acme-L3-D02
-lecture-16,Lecture1,First lecture,1.0,presentation of the subject,BALANCED,https://github.com/
+lecture-13,Lecture1,First lecture,1.0,이 텍스트는 한국어로 작성되었습니다.,BALANCED,null
+lecture-14,Lecture1,First lecture,1.0,first part of theme 1,THEORETICAL,null
+lecture-15,Lecture1,First lecture,1.0,first part of theme 1,HANDS_ON,null
+lecture-16,Lecture1,First lecture,1.0,first part of theme 1,BALANCED,https://www.eltiempo.es/sevilla.html
+lecture-17,Lecture1,First lecture,1.0,first part of theme 1,HANDS_ON,https://github.com/alejandromd/Acme-L3-D02
