@@ -1,3 +1,4 @@
+
 package acme.entities;
 
 import javax.persistence.Column;
@@ -55,7 +56,7 @@ public class Course extends AbstractEntity {
 	protected String			link;
 
 	// Relationships ----------------------------------------------------------
-  
+
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
