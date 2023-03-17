@@ -1,0 +1,16 @@
+key,code,title,informative_abstract,goals,key:assistant,key:course
+tutorial-01,ABC123,Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",assistant-01,course-01
+tutorial-02,AB123,Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",assistant-02,course-01
+tutorial-03,A123,Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",assistant-02,course-02
+tutorial-04,ABC321,Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",assistant-03,course-03
+tutorial-05,ABC000,T,Esto es un tutorial de prueba,"Aprender, Formación integral",assistant-05,course-05
+tutorial-06,ABC125,Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son 75.,Esto es un tutorial de prueba,"Aprender, Formación integral",assistant-03,course-04
+tutorial-07,ABC126,测试教程,Esto es un tutorial de prueba,"Aprender, Formación integral",assistant-11,course-11
+tutorial-08,ABC127,учебник по тестированию,Esto es un tutorial de prueba,"Aprender, Formación integral",assistant-12,course-01
+tutorial-09,ABC128,Tutorial de prueba,E,"Aprender, Formación integral",assistant-10,course-13
+tutorial-10,ABC129,Tutorial de prueba,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,"Aprender, Formación integral",assistant-14,course-14
+tutorial-11,ABC130,Tutorial de prueba,测试教程,"Aprender, Formación integral",assistant-07,course-07
+tutorial-12,ABC131,Tutorial de prueba,учебник по тестированию,"Aprender, Formación integral",assistant-02,course-05
+tutorial-13,ABC132,Tutorial de prueba,Esto es un tutorial de prueba,A,assistant-01,course-13
+tutorial-14,ABC133,Tutorial de prueba,Esto es un tutorial de prueba,测试教程,assistant-15,course-15
+tutorial-15,ABC999,Tutorial de prueba,Esto es un tutorial de prueba,учебник по тестированию,assistant-06,course-12
