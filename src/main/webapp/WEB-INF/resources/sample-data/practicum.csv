@@ -1,0 +1,14 @@
+key,code,title,summary,goals,draft_mode,key:company,key:course
+practicum-01,SAD359,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
+practicum-02,SA339,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
+practicum-03,S339,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
+practicum-04,SAD329,t,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
+practicum-05,SAD379,este es un titulo largo que ocupa el maximo de caracteres permitido en la b,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
+practicum-06,SAD399,Γεια σου κόσμε,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
+practicum-07,SAD356,titulo pequeño,p,"crecer, expandir, aprender",false,company-01,course-01
+practicum-08,SAD316,titulo pequeño,este es un resumen largo que ocupa el maximo de caracteres permitido en la base de datos para esta p,"crecer, expandir, aprender",false,company-01,course-01
+practicum-09,SAD392,titulo pequeño,Γεια σου κόσμε,"crecer, expandir, aprender",false,company-01,course-01
+practicum-10,SAD952,titulo pequeño,pequeña descripcion,c,false,company-01,course-01
+practicum-11,SAD863,titulo pequeño,pequeña descripcion,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,false,company-01,course-01
+practicum-12,SAD986,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",false,company-02,course-01
+practicum-13,SAD666,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-02

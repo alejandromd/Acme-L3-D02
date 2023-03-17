@@ -1,15 +1,19 @@
 
 package acme.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
-import javax.validation.constraints.Digits;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +21,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Lecture extends AbstractEntity {
+public class PracticumSession extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
@@ -29,16 +33,20 @@ public class Lecture extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
-	@Digits(integer = 3, fraction = 2)
-	protected double			estimatedLearningTime;
-
-	@NotBlank
-	@Length(max = 100)
-	protected String			body;
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				initialPeriod;
 
 	@NotNull
-	protected Nature			lectureType;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				finalPeriod;
 
 	@URL
 	protected String			link;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Practicum			practicum;
+
 }
