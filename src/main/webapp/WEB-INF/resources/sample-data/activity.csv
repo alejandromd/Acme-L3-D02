@@ -1,5 +1,5 @@
 key,title,summary,activityType,startPeriod,endPeriod,link,key:enrolment
-activity-01,English grammar,Some exercises to improve grammar,HANDS_ON,2023/03/14 10:00,2023/03/14 12:00,www.us.es,enrolment-01
+activity-01,English grammar,Some exercises to improve grammar,HANDS_ON,2023/03/14 10:00,2023/03/14 12:00,https://ev.us.es,enrolment-01
 activity-02,Math Lesson,Theory of some math concepts,THEORETICAL,2023/03/14 13:00,2023/03/14 17:00,null,enrolment-02
 activity-03,E,Some exercises to improve grammar,HANDS_ON,2023/03/14 10:00,2023/03/14 12:00,null,enrolment-01
 activity-04,Este mensaje tiene setenta y cinco caracteres se usa para validar mensajes.,Some exercises to improve grammar,THEORETICAL,2023/03/14 10:00,2023/03/14 12:00,null,enrolment-01
