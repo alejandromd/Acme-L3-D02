@@ -1,3 +1,4 @@
+
 package acme.entities;
 
 import javax.persistence.Column;
@@ -9,57 +10,52 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Lecturer;
+import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Course extends AbstractEntity {
+public class Audit extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
+	@Pattern(regexp = "[A-Z]{1,3}\\d\\d{3}", message = "default.error.conversion")
 	protected String			code;
 
 	@NotBlank
-	@Length(max = 75)
-	protected String			title;
+	@Length(max = 100)
+	protected String			conclusion;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
+	protected String			strongPoints;
 
-	// Theoretical courses should be rejected
-	@NotNull
-	protected Nature			courseType;
+	@NotBlank
+	@Length(max = 100)
+	protected String			weakPoints;
 
-	@NotNull
-	protected Money				retailPrice;
-
-	protected boolean			draftMode;
-
-	@URL
-	protected String			link;
-
-	protected boolean			draftMode;
+	//en caso de que no haya todavía ningun auditing record asociado llevara el valor "N/A"
+	//se computa como un string compuesto de todas las calificaciones de los auditing records asociados
+	@NotBlank
+	protected String			mark;
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-  
-	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
-	protected Lecturer			lecturer;
+	@ManyToOne(optional = false)
+	protected Auditor			auditor;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 }

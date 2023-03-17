@@ -1,65 +1,64 @@
-package acme.entities;
 
-import javax.persistence.Column;
+package acme.entities.auditingRecord;
+
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
-import acme.framework.components.datatypes.Money;
+import acme.entities.Audit;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class Course extends AbstractEntity {
+@Entity
+public class AuditingRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
-
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true)
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}\\d{3}")
-	protected String			code;
-
 	@NotBlank
 	@Length(max = 75)
-	protected String			title;
+	protected String			subject;
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			summary;
+	protected String			assessment;
 
-	// Theoretical courses should be rejected
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Nature			courseType;
+	@Past
+	protected Date				periodStartDate;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	@Past
+	protected Date				periodEndDate;
 
 	@NotNull
-	protected Money				retailPrice;
-
-	protected boolean			draftMode;
+	protected Mark				mark;
 
 	@URL
 	protected String			link;
 
-	protected boolean			draftMode;
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-  
-	@ManyToOne(optional = false)
-	@NotNull
 	@Valid
-	protected Lecturer			lecturer;
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Audit				audit;
 }
