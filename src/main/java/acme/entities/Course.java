@@ -1,3 +1,4 @@
+
 package acme.entities;
 
 import javax.persistence.Column;
@@ -40,13 +41,15 @@ public class Course extends AbstractEntity {
 
 	// Theoretical courses should be rejected
 	@NotNull
-	protected Nature		courseType;
+	protected Nature			courseType;
 
 	@NotNull
 	protected Money				retailPrice;
 
 	@URL
 	protected String			link;
+
+	protected Boolean			draftMode;
 
 	@ManyToOne(optional = false)
 	@NotNull
