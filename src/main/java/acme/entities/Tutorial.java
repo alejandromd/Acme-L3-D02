@@ -44,11 +44,11 @@ public class Tutorial extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+	// Derived attributes -----------------------------------------------------
+
 	/*
 	 * protected Double estimatedTime;
 	 */
-
-	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
