@@ -20,13 +20,14 @@ public class Company extends AbstractRole {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@NotBlank
-	@Length(max = 25)
-	protected Integer			vatNumber;
 
 	@NotBlank
 	@Length(max = 75)
 	protected String			name;
+
+	@NotBlank
+	@Length(max = 25)
+	protected String			vatNumber;
 
 	@NotBlank
 	@Length(max = 100)

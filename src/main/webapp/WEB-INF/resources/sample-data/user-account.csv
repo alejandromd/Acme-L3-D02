@@ -1,0 +1,13 @@
+key,enabled,identity,password,username
+user-account-company-01,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company1,company1
+user-account-company-02,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company2,company2
+user-account-company-03,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company3,company3
+user-account-company-04,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company4,company4
+user-account-company-05,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company5,company5
+user-account-company-06,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company6,company6
+user-account-company-07,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company7,company7
+user-account-company-08,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company8,company8
+user-account-company-09,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company9,company9
+user-account-company-10,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company10,company10
+user-account-company-11,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company11,company11
+user-account-company-12,true,"UserIdentity{name: 'Company', surname: 'Company', email: 'company@acme.com'}",company12,company12

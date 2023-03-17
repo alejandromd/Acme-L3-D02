@@ -1,13 +1,13 @@
 key,name,vatNumber,summary,link,key:userAccount
-company-01,CCSoft,2132123983429,Esto es una descripcion.,https://guguel.com/,user-account-company-01
+company-01,CCSoft,2132123983429,Esto es una descripcion.,https://guguel.com,user-account-company-01
 company-02,C,2132123983429,Esto es una descripcion.,https://guguel.com/,user-account-company-02
-company-03,Este es un nombre largo de empresa para comprobar que funciona todo bien y no hay proble,2132123983429,Esto es una descripcion.,https://guguel.com/,user-account-company-03
+company-03,Este es un nombre largo de empresa para comprobar que funciona todo bien,2132123983429,Esto es una descripcion.,https://guguel.com/,user-account-company-03
 company-04,Γεια σου κόσμε,2132123983429,Esto es una descripcion.,https://guguel.com/,user-account-company-04
 company-05,CCSoft,2,Esto es una descripcion.,https://guguel.com/,user-account-company-05
 company-06,CCSoft,9876543210123456789012345,Esto es una descripcion.,https://guguel.com/,user-account-company-06
 company-07,CCSoft,2132123983429,E,https://guguel.com/,user-account-company-07
-company-08,CCSoft,2132123983429,Esto es una descripcion muyy larga para comprobar que la base de datos soporta el maximo posible de caracteres definido en la entidad,https://guguel.com/,user-account-company-08
+company-08,CCSoft,2132123983429,Esto es una descripcion muy larga para comprobar que la base de datos soporta el maximo posible,https://guguel.com/,user-account-company-08
 company-09,CCSoft,2132123983429,ここはとても美しい公園で、四季折々の花々が咲き誇ります,https://guguel.com/,user-account-company-09
-company-10,CCSoft,2132123983429,Esto es una descripcion.,https://www.example.com/es/contenido/categoria/subcategoria/seccion/productos/2019/nuevo-producto-desarrollado-por-nuestro-equipo-de-investigacion-y-desarrollo-disponible-en-10-colores-diferentes-y-en-3-tamanos-diferentes-con-caracteristicas-y-funcionalidades-avanzadas-para-satisfacer-las-necesidades-de-los-clientes-y-mejorar-su-experiencia-de-uso/,user-account-company-10
+company-10,CCSoft,2132123983429,Esto es una descripcion.,https://www.example.com/es/contenido/categoria/subcategoria/seccion,user-account-company-10
 company-11,CCSoft,2132123983429,Esto es una descripcion.,https://a.org,user-account-company-11
 company-12,CCSoft,2132123983429,Esto es una descripcion.,null,user-account-company-12
