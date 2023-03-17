@@ -1,0 +1,20 @@
+key,code,motivation,goals,key:student,key:course
+enrolment-01,AAA111,Learn English,Improve your English level,student-01,course-01
+enrolment-02,BC121,L,Improve your mathematical skills,student-02,course-02
+enrolment-03,BC122,Este mensaje tiene setenta y cinco caracteres se usa para validar mensajes.,Improve your mathematical skills,student-03,course-02
+enrolment-04,BC134,!@#$%&/()=?¿,Improve your mathematical skills,student-04,course-02
+enrolment-05,BC167,שלום פקק,Improve your mathematical skills,student-05,course-02
+enrolment-06,BC143,Learn Math,I,student-02,course-01
+enrolment-07,BC133,Learn Math,Este mensaje tiene cien caracteres usado para validar cadenas con cien de longitud maximo y minimoss,student-02,course-01
+enrolment-08,BC234,Learn Math,輛黃色拖拉機,student-02,course-01
+enrolment-09,BC987,Learn Math,!@#$%&/()=?¿,student-08,course-02
+enrolment-10,BC113,Learn Math,שלום פקק,student-11,course-02
+enrolment-11,BC345,Learn Math,Improve your mathematical skills,student-02,course-02
+enrolment-12,BC654,Learn Math,Improve your mathematical skills,student-02,course-02
+enrolment-13,AAA222,Learn English,Improve your English level,student-01,course-01
+enrolment-14,AAA333,Learn English,Improve your English level,student-01,course-01
+enrolment-15,AAA444,Learn English,Improve your English level,student-01,course-01
+enrolment-16,AAA555,Learn English,Improve your English level,student-01,course-01
+enrolment-17,AAA666,Learn English,Improve your English level,student-01,course-01
+enrolment-18,AAA777,Learn English,Improve your English level,student-01,course-01
+enrolment-19,AAA888,Learn English,Improve your English level,student-01,course-01
