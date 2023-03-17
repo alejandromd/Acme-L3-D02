@@ -1,3 +1,10 @@
-key,instantiationMoment,title,message,isCritical,link
-bulletin-01,2020/02/14 11:20,First bulletin,This is my first bulletin,true,null
-bulletin-02,2020/02/14 15:00,Second bulletin,This is my second bulletin,true,null
+key,instantiation_moment,title,message,is_critical,link
+bulletin-01,2020/02/14 11:20,Bulletin de prueba,Esto es un bulletin de prueba,true,https://www.informatica.us.es
+bulletin-02,2020/02/14 00:00,Bulletin de prueba,Esto es un bulletin de prueba,true,https://www.informatica.us.es
+bulletin-03,2020/02/14 11:20,B,Esto es un bulletin de prueba,true,https://www.informatica.us.es
+bulletin-04,2020/02/14 11:20,Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son 75.,Esto es un bulletin de prueba,true,https://www.informatica.us.es
+bulletin-05,2020/02/14 11:20,Bulletin de prueba,E,true,https://www.informatica.us.es
+bulletin-06,2020/02/14 11:20,Bulletin de prueba,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,true,https://www.informatica.us.es
+bulletin-08,2020/02/14 11:20,Bulletin de prueba,Esto es un bulletin de prueba,false,https://www.informatica.us.es
+bulletin-09,2020/02/14 11:20,Bulletin de prueba,Esto es un bulletin de prueba,true,https://github.com/alejandromd/Acme-L3-D02/pull/156
+bulletin-10,2020/02/14 11:20,Bulletin de prueba,Esto es un bulletin de prueba,true,null
