@@ -67,6 +67,7 @@ user-account-lecturer-07,true,"UserIdentity{name: 'Rafael', surname: 'Fernández
 user-account-lecturer-08,true,"UserIdentity{name: 'Pablo', surname: 'Llanos', email: 'lecturer8@acme.com'}",lecturer8,lecturer8
 user-account-lecturer-09,true,"UserIdentity{name: 'Rodolfo', surname: 'Jimenez', email: 'lecturer9@acme.com'}",lecturer9,lecturer9
 user-account-lecturer-10,true,"UserIdentity{name: 'Albert', surname: 'Romero', email: 'lecturer10@acme.com'}",lecturer10,lecturer10
+user-account-lecturer-11,true,"UserIdentity{name: 'María', surname: 'Romero', email: 'lecturer11@acme.com'}",lecturer11,lecturer11
 user-account-assistant-01,true,"UserIdentity{name: 'Isabella', surname: 'Fernandez', email: 'isabella.fernandez@company.com'}",assistant1,assistant1
 user-account-assistant-02,true,"UserIdentity{name: 'Lucas', surname: 'Nguyen', email: 'lucas.nguyen@webmail.com'}",assistant2,assistant2
 user-account-assistant-03,true,"UserIdentity{name: 'Ava', surname: 'Kumar', email: 'ava.kumar@workplace.com'}",assist3,assist3
