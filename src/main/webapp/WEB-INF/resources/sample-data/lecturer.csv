@@ -1,12 +1,12 @@
 key,alma_mater,resume,qualifications,link,key:userAccount
 lecturer-01,Universidad de Sevilla,many years of experience with university students,C1English,null,user-account-lecturer-01
 lecturer-02,ñññ,teacher who enjoys his job,B2Ingles,null,user-account-lecturer-02
-lecturer-03,название теста для проверки правильности выполнения курса,teacher who enjoys his job,B2Ingles,null,user-account-lecturer-02
-lecturer-04,Universidad de Jaen,t,B2Ingles,null,user-account-lecturer-02
-lecturer-05,Universidad de Jaen,это сообщение длиной 100 символов будет добавлено к данным лекционного теста 123455677811.....,B2Ingles,null,user-account-lecturer-02
-lecturer-06,Universidad de Jaen,teacher who enjoys his job,это сообщение длиной 100 символов будет добавлено к данным лекционного теста 123455677811.....,null,user-account-lecturer-02
-lecturer-07,Universidad de Jaen,teacher who enjoys his job,B,null,user-account-lecturer-02
-lecturer-08,Universidad de Jaen,teacher who enjoys his job,B2Ingles,https://github.com/alejandromd/Acme-L3-D02,user-account-lecturer-02
-lecturer-09,Universidad de Jaen,teacher who enjoys his job,B2Ingles,https://www.twitch.tv/,user-account-lecturer-02
-lecturer-10,Universidad de Jaen,teacher who enjoys his job,B2Ingles,null,user-account-lecturer-01
-lecturer-11,Universidad de Jaen,teacher who enjoys his job,B2Ingles,null,user-account-lecturer-01
+lecturer-03,Selbstverständlich,teacher who enjoys his job,B2Ingles,null,user-account-lecturer-03
+lecturer-04,Universidad de Jaen,t,B2Ingles,null,user-account-lecturer-04
+lecturer-05,Universidad de Jaen,Selbstverständlich 123455677811.....,B2Ingles,null,user-account-lecturer-05
+lecturer-06,Universidad de Jaen,teacher who enjoys his job,Selbstverständlich 123455677811.....,null,user-account-lecturer-05
+lecturer-07,Universidad de Jaen,teacher who enjoys his job,B,null,user-account-lecturer-06
+lecturer-08,Universidad de Jaen,teacher who enjoys his job,B2Ingles,https://github.com/alejandromd/Acme-L3-D02,user-account-lecturer-07
+lecturer-09,Universidad de Jaen,teacher who enjoys his job,B2Ingles,https://www.twitch.tv/,user-account-lecturer-08
+lecturer-10,Universidad de Jaen,teacher who enjoys his job,B2Ingles,null,user-account-lecturer-09
+lecturer-11,Universidad de Jaen,teacher who enjoys his job,B2Ingles,null,user-account-lecturer-10
