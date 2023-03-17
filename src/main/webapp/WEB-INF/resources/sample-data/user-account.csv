@@ -12,5 +12,13 @@ user-account-auditor-10,true,"UserIdentity{name: 'Alejandro', surname: 'Merino',
 user-account-auditor-11,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor8@acme.com'}",auditor11,auditor11
 user-account-auditor-12,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor8@acme.com'}",auditor12,auditor12
 user-account-auditor-13,true,"UserIdentity{name: 'Alejandro', surname: 'Merino', email: 'auditor8@acme.com'}",auditor13,auditor13
-user-account-lecturer-01,true,"UserIdentity{name: 'Francisco', surname: 'Jimenez', email: 'lecturer2@acme.com'}",lecturer1,lecturer1
-user-account-lecturer-02,true,"UserIdentity{name: 'Fernando', surname: 'Romero', email: 'lecturer1@acme.com'}",lecturer2,lecturer2
+user-account-lecturer-01,true,"UserIdentity{name: 'Fernando', surname: 'Romero', email: 'lecturer1@acme.com'}",lecturer1,lecturer1
+user-account-lecturer-02,true,"UserIdentity{name: 'Francisco', surname: 'Jimenez', email: 'lecturer2@acme.com'}",lecturer2,lecturer2
+user-account-lecturer-03,true,"UserIdentity{name: 'Franc', surname: 'Fernández', email: 'lecturer3@acme.com'}",lecturer3,lecturer3
+user-account-lecturer-04,true,"UserIdentity{name: 'F', surname: 'Vargas', email: 'lecturer4@acme.com'}",lecturer4,lecturer4
+user-account-lecturer-05,true,"UserIdentity{name: 'Daniel', surname: 'Sanchez', email: 'lecturer5@acme.com'}",lecturer5,lecturer5
+user-account-lecturer-06,true,"UserIdentity{name: 'Francisco', surname: 'Prieto', email: 'lecturer6@acme.com'}",lecturer6,lecturer6
+user-account-lecturer-07,true,"UserIdentity{name: 'Rafael', surname: 'Fernández', email: 'lecturer7@acme.com'}",lecturer7,lecturer7
+user-account-lecturer-08,true,"UserIdentity{name: 'Pablo', surname: 'Llanos', email: 'lecturer8@acme.com'}",lecturer8,lecturer8
+user-account-lecturer-09,true,"UserIdentity{name: 'Rodolfo', surname: 'Jimenez', email: 'lecturer9@acme.com'}",lecturer9,lecturer9
+user-account-lecturer-10,true,"UserIdentity{name: 'Albert', surname: 'Romero', email: 'lecturer10@acme.com'}",lecturer10,lecturer10

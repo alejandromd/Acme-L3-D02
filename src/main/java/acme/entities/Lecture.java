@@ -27,7 +27,7 @@ public class Lecture extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			sumary;
+	protected String			summary;
 
 	@Digits(integer = 3, fraction = 2)
 	protected double			estimatedLearningTime;
@@ -37,7 +37,7 @@ public class Lecture extends AbstractEntity {
 	protected String			body;
 
 	@NotNull
-	protected Nature		lectureType;
+	protected Nature			lectureType;
 
 	@URL
 	protected String			link;
