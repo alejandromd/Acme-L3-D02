@@ -8,4 +8,28 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-23.1	This is the first version of Acme-L3-D01.
+English:
+
+		Acme-L3-D01 :
+		  - added redirect to favourite page
+
+		Acme-L3-D02 :
+		  - added entities: "practicum", "company", "auditor", "practicum", "lecturer",
+		 	 "course", "lecture", "auditing record", "enrolment", "student", "activity", "banner",
+		 	 "bulletin", "note", "offer", "peep", "assistant", "tutorial" y "sessions"
+		 	 
+		  - added dashboard: administrator dashboard, lecturer dashboard, student dashboard,
+		 	 assistant dashboard, auditor dashboard y company dashboard 
+		 	 
+Español:
+
+		Acme-L3-D01 :
+		  - añadido redirección a página favorita
+		 
+		Acme-L3-D02 :
+		  - añadido entidades "practicum", "company", "auditor", "practicum", "lecturer",
+		 	 "course", "lecture", "auditing record", "enrolment", "student", "activity", "banner",
+		 	 "bulletin", "note", "offer", "peep", "assistant", "tutorial" y "sessions"
+		 	 
+		  - añadido "dashboards": administrator dashboard, lecturer dashboard, student dashboard,
+		 	 assistant dashboard, auditor dashboard y company dashboard 
