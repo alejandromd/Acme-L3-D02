@@ -26,26 +26,26 @@ English:
 				operations on "course" as "lecturer", operations on "lecture" as "lecturer",
 				operations on "lecturer dashboard" as "lecturer".
 		   
-				- register as "student", operations on "enrolment" as "student", operations on "enrolment" as "student",
-				operations on "enrolment" as "student", operations on "course" as "student",
-				operations on "workbook" as "student", operations on "student dashboard" as "student".
-		    
-				- register as "assistant", editing of "assistant" profile,
-				operations on "tutorials", operations on "tutorials" as "assistant",
-				operations on "sessions" as "assistant", operations on "assistant dashboard" as "assistant".
-	    
-				- operations on "company", operations on "company", operations on "company" as "company", operations on "company" as "company",
-				operations on "practice", operations on "practice" as "company",
-				operations on "sessions" as "company", operations on "company dashboard" as "company".
-		    
-				- register as "auditor", operations on "auditor", operations on "audit", operations on "audit" as "auditor",
+				- register as "student",edit profile of "student", operations on "enrolment" as "student",
+				operations on "course" as "student", operations on "workbook" as "student",
+				operations on "student dashboard" as "student".
+				 
+				- register as "assistant",edit profile of "assistant", operations on "tutorials",
+				operations on "tutorials" as "assistant", operations on "sessions" as "assistant",
+				operations on "assistant dashboard" as "assistant".
+				 
+				- register as "company",edit profile of "company", operations on "practica",
+				operations on "practica" as "company", operations on "sessions" as "company",
+				operations on "company dashboard" as "company".
+				    
+				- register as "auditor",edit profile of "auditor", operations on "audit",
 				operations on "audit" as "auditor", operations on "auditing record" as "auditor",
 				operations on "auditor dashboard" as "auditor".
-		   
-				- operations on "peep", "bulletin", "offer", "notes" and "banner", operations on "bulletin" as "administrator", operations on "administrator" as "administrator", operations on "administrator" as "administrator", operations on "administrator" as "administrator".
-				as "administrator", operations on "offer" as "administrator",
-				operations on "banner" as "administrator", internationalisation, change of currency in the amount of a user's money, internationalisation 
-				the amount of a user's money, data considered as spam.
+					   
+				- operations on "peep", "bulletin", "offer", "notes" and "banner",
+				operations on "bulletin" as "administrator", operations on "offer" as "administrator",
+				operations on "banner" as "administrator", internationalisation,
+				change of currency in the amount of a user's money, data considered as spam.
 
 		 	 
 Español:
