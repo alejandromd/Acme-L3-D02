@@ -11,25 +11,80 @@
 English:
 
 		Acme-L3-D01 :
-		  - added redirect to favourite page
+		  - added redirect to favourite page.
 
 		Acme-L3-D02 :
 		  - added entities: "practicum", "company", "auditor", "practicum", "lecturer",
 		 	 "course", "lecture", "auditing record", "enrolment", "student", "activity", "banner",
-		 	 "bulletin", "note", "offer", "peep", "assistant", "tutorial" y "sessions"
+		 	 "bulletin", "note", "offer", "peep", "assistant", "tutorial" y "sessions".
 		 	 
 		  - added dashboard: administrator dashboard, lecturer dashboard, student dashboard,
-		 	 assistant dashboard, auditor dashboard y company dashboard 
+		 	 assistant dashboard, auditor dashboard y company dashboard.
+		 	 
+		Acme-L3-D03 : 
+		  - register as "lecturer",edit profile of "lecturer", operations on "course",
+		  operations on "course" as "lecturer", operations on "lecture" as "lecturer",
+		  operations on "lecturer dashboard" as "lecturer".
+		   
+		  - register as "student",edit profile of "student", operations on "enrolment" as "student",
+		  operations on "course" as "student", operations on "workbook" as "student",
+		  operations on "student dashboard" as "student".
+				 
+		  - register as "assistant",edit profile of "assistant", operations on "tutorials",
+		  operations on "tutorials" as "assistant", operations on "sessions" as "assistant",
+		  operations on "assistant dashboard" as "assistant".
+				 
+		  - register as "company",edit profile of "company", operations on "practica",
+		  operations on "practica" as "company", operations on "sessions" as "company",
+		  operations on "company dashboard" as "company".
+				    
+		  - register as "auditor",edit profile of "auditor", operations on "audit",
+		  operations on "audit" as "auditor", operations on "auditing record" as "auditor",
+		  operations on "auditor dashboard" as "auditor".
+					   
+		  - operations on "peep", "bulletin", "offer", "notes" and "banner",
+		  operations on "bulletin" as "administrator", operations on "offer" as "administrator",
+		  operations on "banner" as "administrator", internationalisation,
+		  change of currency in the amount of a user's money, data considered as spam.
+
 		 	 
 Español:
 
 		Acme-L3-D01 :
-		  - añadido redirección a página favorita
+		  - añadido redirección a página favorita.
 		 
 		Acme-L3-D02 :
 		  - añadido entidades "practicum", "company", "auditor", "practicum", "lecturer",
 		 	 "course", "lecture", "auditing record", "enrolment", "student", "activity", "banner",
-		 	 "bulletin", "note", "offer", "peep", "assistant", "tutorial" y "sessions"
+		 	 "bulletin", "note", "offer", "peep", "assistant", "tutorial" y "sessions".
 		 	 
 		  - añadido "dashboards": administrator dashboard, lecturer dashboard, student dashboard,
-		 	 assistant dashboard, auditor dashboard y company dashboard 
+		 	 assistant dashboard, auditor dashboard y company dashboard. 
+
+		Acme-L3-D03 :
+		  - registrarse como "lecturer",edición de perfil de "lecturer", operaciones sobre "course",
+		  operaciones sobre "course" como "lecturer",operaciones sobre "lecture" como "lecturer",
+		   operaciones sobre "lecturer dashboard" como "lecturer".
+		   
+		  - registrarse como "student",edición de perfil de "student",
+		   operaciones sobre "enrolment" como "student", operaciones sobre "course" como "student",
+		   operaciones sobre "workbook" como "student", operaciones sobre "student dashboard" como "student".
+		    
+		  - registrarse como "assistant",edición de perfil de "assistant",
+		   operaciones sobre "tutorials", operaciones sobre "tutorials" como "assistant",
+		   operaciones sobre "sessions" como "assistant", operaciones sobre "assistant dashboard" como "assistant".
+	    
+		  - registrarse como "company",edición de perfil de "company",
+		   operaciones sobre "practica", operaciones sobre "practica" como "company",
+		   operaciones sobre "sessions" como "company", operaciones sobre "company dashboard" como "company".
+		    
+		  - registrarse como "auditor",edición de perfil de "auditor",operaciones sobre "audit",
+		   operaciones sobre "audit" como "auditor", operaciones sobre "auditing record" como "auditor",
+		   operaciones sobre "auditor dashboard" como "auditor".
+		   
+		  - operaciones sobre "peep","bulletin","offer","notes" y "banner", operaciones sobre "bulletin"
+		  como "administrator", operaciones sobre "offer" como "administrator",
+		  operaciones sobre "banner" como "administrator", internacionalización, cambio de divisa en 
+		  la cantidad de dinero de un usuario, datos considerados spam.
+		  
+		 	 
