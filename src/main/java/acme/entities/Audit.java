@@ -4,6 +4,7 @@ package acme.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -46,16 +47,29 @@ public class Audit extends AbstractEntity {
 	//se computa como un string compuesto de todas las calificaciones de los auditing records asociados
 	@NotBlank
 	protected String			mark;
+
+	protected boolean			draftMode;
+
+
 	// Derived attributes -----------------------------------------------------
+	@Transient
+	public boolean isAvailable() {
+		boolean result;
+
+		result = !this.draftMode;
+
+		return result;
+	}
+
 
 	// Relationships ----------------------------------------------------------
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Auditor			auditor;
+	protected Auditor	auditor;
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Course			course;
+	protected Course	course;
 }
