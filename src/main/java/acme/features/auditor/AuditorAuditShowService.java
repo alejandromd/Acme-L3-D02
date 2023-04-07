@@ -1,16 +1,18 @@
 
-package acme.features.authenticated.audit;
+package acme.features.auditor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Audit;
-import acme.framework.components.accounts.Authenticated;
+import acme.features.authenticated.audit.AuthenticatedAuditRepository;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Auditor;
 
 @Service
-public class AuthenticatedAuditShowService extends AbstractService<Authenticated, Audit> {
+public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -38,7 +40,9 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
-		status = !object.isDraftMode();
+		final Principal principal = super.getRequest().getPrincipal();
+		final int auditorId = principal.getAccountId();
+		status = object.getAuditor().getUserAccount().getId() == auditorId;
 
 		super.getResponse().setAuthorised(status);
 
@@ -52,6 +56,7 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
+
 		super.getBuffer().setData(object);
 	}
 
