@@ -26,6 +26,10 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="http://www.facebook.com/"/>
 		</acme:menu-option>
 
+		<acme:menu-option code="master.menu.any.list">
+			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
