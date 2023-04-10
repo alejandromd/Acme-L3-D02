@@ -1,0 +1,89 @@
+
+package acme.features.lecturer.course;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import acme.datatypes.Nature;
+import acme.entities.Course;
+import acme.entities.Lecture;
+import acme.framework.components.accounts.Principal;
+import acme.framework.components.models.Tuple;
+import acme.framework.services.AbstractService;
+import acme.roles.Lecturer;
+
+@Service
+public class CourseOfLecturePostService extends AbstractService<Lecturer, Course> {
+
+	@Autowired
+	protected CourseOfLectureRepository repository;
+
+	// AbstractService<Employer, Job> -------------------------------------
+
+
+	@Override
+	public void check() {
+		boolean status;
+		status = super.getRequest().hasData("id", int.class);
+		super.getResponse().setChecked(status);
+	}
+
+	@Override
+	public void authorise() {
+		Course object;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findCourseById(id);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+	}
+
+	@Override
+	public void load() {
+		Course object;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findCourseById(id);
+		super.getBuffer().setData(object);
+	}
+
+	@Override
+	public void bind(final Course object) {
+		assert object != null;
+		super.bind(object, "code", "title", "abstract$", "price", "furtherInformationLink");
+	}
+
+	@Override
+	public void validate(final Course object) {
+		assert object != null;
+		final Collection<Lecture> lectures = this.repository.findLecturesByCourse(object.getId());
+		super.state(!lectures.isEmpty(), "nature", "lecturer.course.error.lecture");
+		if (!lectures.isEmpty()) {
+			boolean existHandOn;
+			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
+			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");
+		}
+	}
+
+	@Override
+	public void perform(final Course object) {
+		object.setDraftMode(false);
+		this.repository.save(object);
+	}
+
+	@Override
+	public void unbind(final Course object) {
+		assert object != null;
+		Tuple tuple;
+		tuple = super.unbind(object, "code", "title", "abstract$", "price", "furtherInformationLink", "draftMode");
+		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
+		final Nature nature = object.courseTypeNature(lectures);
+		tuple.put("nature", nature);
+		super.getResponse().setData(tuple);
+	}
+}

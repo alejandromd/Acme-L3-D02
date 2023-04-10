@@ -56,3 +56,8 @@ master.menu.user-account.become-consumer = Hazte consumidor
 
 master.menu.any.course = Cursos
 master.menu.any.list = Lista 
+
+# master.menu.lecturer ####################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.course = Mis cursos
