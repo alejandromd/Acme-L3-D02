@@ -55,16 +55,19 @@ public class CourseOfLecturePostService extends AbstractService<Lecturer, Course
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-		super.bind(object, "code", "title", "abstract$", "price", "furtherInformationLink");
+		super.bind(object, "code", "title", "summary", "retailPrice", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
 		final Collection<Lecture> lectures = this.repository.findLecturesByCourse(object.getId());
-		super.state(!lectures.isEmpty(), "nature", "lecturer.course.error.lecture");
+		super.state(!lectures.isEmpty(), "lectureType", "lecturer.course.error.lecture");
 		if (!lectures.isEmpty()) {
 			boolean existHandOn;
+			final boolean publishedLectures = lectures.stream().allMatch(x -> x.isDraftMode() == false);
+			super.state(publishedLectures, "lectureType", "lecturer.course.error.draftMode");
+
 			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
 			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");
 		}
@@ -80,7 +83,7 @@ public class CourseOfLecturePostService extends AbstractService<Lecturer, Course
 	public void unbind(final Course object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "title", "abstract$", "price", "furtherInformationLink", "draftMode");
+		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode");
 		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
 		final Nature nature = object.courseTypeNature(lectures);
 		tuple.put("nature", nature);

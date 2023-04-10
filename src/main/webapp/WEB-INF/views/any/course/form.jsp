@@ -23,5 +23,4 @@
 	<acme:input-textbox code="any.course.form.label.link" path="link"/>	
 	<acme:input-textbox code="any.course.form.label.almaMater" path="almaMater"/>	
 	<acme:input-textbox code="any.course.form.label.courseType" path="courseType"/>
-	
 </acme:form>

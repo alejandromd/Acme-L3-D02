@@ -49,7 +49,7 @@ public class LectureOfLecturerUpdateService extends AbstractService<Lecturer, Le
 	@Override
 	public void bind(final Lecture object) {
 		assert object != null;
-		super.bind(object, "title", "summary", "estimatedLearningTime", "body", "nature", "furtherInformationLink");
+		super.bind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link");
 	}
 
 	@Override
@@ -57,8 +57,8 @@ public class LectureOfLecturerUpdateService extends AbstractService<Lecturer, Le
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
 			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTIme");
-		if (!super.getBuffer().getErrors().hasErrors("title"))
-			super.state(!object.getLectureType().equals(Nature.BALANCED), "nature", "lecturer.lecture.form.error.nature");
+		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
+			super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.nature");
 	}
 
 	@Override
@@ -71,11 +71,11 @@ public class LectureOfLecturerUpdateService extends AbstractService<Lecturer, Le
 	public void unbind(final Lecture object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "nature", "furtherInformationLink", "draftMode");
+		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode");
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getLectureType());
-		tuple.put("nature", choices.getSelected().getKey());
-		tuple.put("natures", choices);
+		tuple.put("lectureType", choices.getSelected().getKey());
+		tuple.put("lectureTypes", choices);
 		super.getResponse().setData(tuple);
 	}
 

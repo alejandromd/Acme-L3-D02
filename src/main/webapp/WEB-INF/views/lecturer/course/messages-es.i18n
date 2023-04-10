@@ -21,10 +21,11 @@ lecturer.course.form.label.draftMode = Modo borrador
 
 lecturer.course.error.lecture = Debe añadir alguna clase para publicar el curso
 lecturer.course.form.handsOn = El curso debe contener algunas clases prácticas
+lecturer.course.error.draftMode = No puede haber ninguna clase en modo borrador
 
 lecturer.course.lectures = Clases
 
 lecturer.course.create = Crear
-lecturer.course..delete = Borrar
+lecturer.course.delete = Borrar
 lecturer.course.update = Actualizar
 lecturer.course.publish = Publicar

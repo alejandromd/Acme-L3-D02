@@ -45,10 +45,6 @@ public class Course extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
-	// Theoretical courses should be rejected
-	@NotNull
-	protected Nature			courseType;
-
 	@NotNull
 	protected Money				retailPrice;
 
@@ -65,6 +61,7 @@ public class Course extends AbstractEntity {
 	protected Lecturer			lecturer;
 
 
+	// Theoretical courses should be rejected
 	public Nature courseTypeNature(final List<Lecture> lectures) {
 		Nature nature = Nature.BALANCED;
 		if (!lectures.isEmpty()) {
@@ -73,7 +70,7 @@ public class Course extends AbstractEntity {
 			for (final Lecture l : lectures)
 				if (l.getLectureType().equals(Nature.THEORETICAL))
 					theoretical++;
-				else
+				else if (l.getLectureType().equals(Nature.HANDS_ON))
 					handsOn++;
 			if (theoretical > handsOn)
 				nature = Nature.THEORETICAL;
