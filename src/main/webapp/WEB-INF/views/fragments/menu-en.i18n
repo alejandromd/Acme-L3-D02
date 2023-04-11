@@ -24,6 +24,11 @@ master.menu.anonymous.favourite-link3 = 77934292B : Lopez-Benjumea Novella, Albe
 master.menu.anonymous.favourite-link4 = 32085666E : Medina Duran, Alejandro
 master.menu.anonymous.favourite-link5 = 29533138B : Vargas Castro, Francisco Jose
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.note.list = See notes
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -49,6 +54,19 @@ master.menu.authenticated = Sign up as
 master.menu.authenticated.lecturer.create = Become a lecturer
 master.menu.authenticated.lecturer.update = Update lecturer profile
 
+
+# master.menu.auditor ####################################################
+master.menu.auditor = Auditor
+master.menu.auditor.audit = Audits
+
+# master.menu.authenticated ####################################################
+
+master.menu.authenticated = Sign up as
+master.menu.authenticated.student.create = Become a student 
+master.menu.authenticated.student.update = Update student profile
+
+
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -58,14 +76,8 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 
-# master.menu.any.course ####################################################
+# master.menu.authenticated.course ####################################################
 
-master.menu.any.course = Courses
-master.menu.any.list = List
+master.menu.authenticated.course = Courses
+master.menu.authenticated.list = List
 
-# master.menu.lecturer ####################################################
-
-master.menu.lecturer = Lecturer
-master.menu.lecturer.course = My courses
-master.menu.lecturer.lecture = My lectures
-master.menu.lecturer.dashboard = Lecturer dashboard
