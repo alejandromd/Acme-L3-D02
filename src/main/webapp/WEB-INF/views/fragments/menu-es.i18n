@@ -24,6 +24,11 @@ master.menu.anonymous.favourite-link3 = 77934292B : Lopez-Benjumea Novella, Albe
 master.menu.anonymous.favourite-link4 = 32085666E : Medina Duran, Alejandro
 master.menu.anonymous.favourite-link5 = 29533138B : Vargas Castro, Francisco Jose
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autentificado
+master.menu.authenticated.note.list = Ver notas
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
@@ -43,11 +48,13 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
 # master.menu.authenticated ####################################################
 
 master.menu.authenticated = Registrarme como
 master.menu.authenticated.student.create = Hazte estudiante 
 master.menu.authenticated.student.update = Actualizar perfil del estudiante
+
 
 # master.menu.user-account ####################################################
 
@@ -57,3 +64,17 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.authenticated.auditor.become-auditor = Hazte auditor
+master.menu.authenticated.auditor.auditor = Datos de auditor
+
+# master.menu.any.course ####################################################
+
+master.menu.any.course = Cursos
+master.menu.any.list = Lista 
+
+# master.menu.lecturer ####################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.course = Mis cursos
+master.menu.lecturer.lecture = Mis clases
+master.menu.lecturer.dashboard = Tablero de profesor
