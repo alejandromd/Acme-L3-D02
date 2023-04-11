@@ -43,6 +43,12 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.authenticated ####################################################
+
+master.menu.authenticated = Registrarme como
+master.menu.authenticated.lecturer.create = Hazte profesor
+master.menu.authenticated.lecturer.update = Actualizar perfil de profesor
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
