@@ -21,7 +21,7 @@
 	<acme:input-textbox code="authenticated.note.form.label.author" path="author" readonly="true"/>
 	<acme:input-textbox code="authenticated.note.form.label.message" path="message"/>
 	<acme:input-email code="authenticated.note.form.label.email" path="email"/>
-	<acme:input-url code="authenticated.note.form.label.furtherInformationLink" path="furtherInformationLink"/>
+	<acme:input-url code="authenticated.note.form.label.link" path="link"/>
 	
 	<jstl:choose> 
 		<jstl:when test="${_command == 'create'}">

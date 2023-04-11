@@ -35,13 +35,13 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	public void load() {
 		Note object;
 		Principal principal;
-		int userAccountId;
+		int userId;
 		UserAccount userAccount;
 		Date moment;
 
 		principal = super.getRequest().getPrincipal();
-		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findOneUserAccountById(userAccountId);
+		userId = principal.getAccountId();
+		userAccount = this.repository.findOneUserAccountById(userId);
 		moment = MomentHelper.getCurrentMoment();
 
 		object = new Note();
@@ -83,6 +83,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		Tuple tuple;
 
 		tuple = super.unbind(object, "instantiationMoment", "title", "author", "message", "email", "link");
+		tuple.put("confirmation", false);
 
 		super.getResponse().setData(tuple);
 	}
