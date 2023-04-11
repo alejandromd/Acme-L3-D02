@@ -49,6 +49,7 @@ master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
 
+
 # master.menu.auditor ####################################################
 master.menu.auditor = Auditor
 master.menu.auditor.audit = Audits
@@ -58,6 +59,7 @@ master.menu.auditor.audit = Audits
 master.menu.authenticated = Sign up as
 master.menu.authenticated.lecturer.create = Become a lecturer
 master.menu.authenticated.lecturer.update = Update lecturer profile
+master.menu.authenticated.student.create = Sign up as a student
 
 
 # master.menu.user-account ####################################################

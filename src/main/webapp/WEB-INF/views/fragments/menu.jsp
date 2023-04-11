@@ -27,6 +27,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.student.create" action="/authenticated/student/create"/>
 			<acme:menu-suboption code="master.menu.authenticated.note.list" action="/authenticated/note/list"/>
 		</acme:menu-option>
 
