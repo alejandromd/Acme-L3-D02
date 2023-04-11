@@ -1,6 +1,7 @@
 
 package acme.features.lecturer.course;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,8 +22,6 @@ public class CourseOfLectureUpdateService extends AbstractService<Lecturer, Cour
 	@Autowired
 	protected CourseOfLectureRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
-
 
 	@Override
 	public void check() {
@@ -35,8 +34,7 @@ public class CourseOfLectureUpdateService extends AbstractService<Lecturer, Cour
 	@Override
 	public void authorise() {
 		Course object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
@@ -55,12 +53,20 @@ public class CourseOfLectureUpdateService extends AbstractService<Lecturer, Cour
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-		super.bind(object, "code", "title", "summary", "retailprice", "link");
+		super.bind(object, "code", "title", "summary", "retailPrice", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			final List<String> currencies = new ArrayList<>();
+			currencies.add("EUR");
+			currencies.add("USD");
+			currencies.add("GBP");
+			final Double amount = object.getRetailPrice().getAmount();
+			super.state(amount >= 0 && amount < 1000000 && currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.error.price");
+		}
 	}
 
 	@Override
@@ -72,8 +78,7 @@ public class CourseOfLectureUpdateService extends AbstractService<Lecturer, Cour
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
+		final Tuple tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
 		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
 		final Nature nature = object.courseTypeNature(lectures);
 		tuple.put("nature", nature);

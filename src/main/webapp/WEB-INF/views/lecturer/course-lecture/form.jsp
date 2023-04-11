@@ -24,11 +24,8 @@
 		<h2>
 			<acme:message code="lecturer.courseLecture.form.lecture.info"/>
 		</h2>
-
 	</jstl:when>		
 	
-
-
 </jstl:choose>
 	<table class="table table-sm">
 	<tr>

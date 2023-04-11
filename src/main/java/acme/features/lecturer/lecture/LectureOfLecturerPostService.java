@@ -20,8 +20,6 @@ public class LectureOfLecturerPostService extends AbstractService<Lecturer, Lect
 	@Autowired
 	protected LectureOfLecturerRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
-
 
 	@Override
 	public void check() {
@@ -33,8 +31,7 @@ public class LectureOfLecturerPostService extends AbstractService<Lecturer, Lect
 	@Override
 	public void authorise() {
 		Lecture object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
@@ -44,8 +41,7 @@ public class LectureOfLecturerPostService extends AbstractService<Lecturer, Lect
 	@Override
 	public void load() {
 		Lecture object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findLectureById(id);
 		super.getBuffer().setData(object);
 	}
@@ -70,8 +66,7 @@ public class LectureOfLecturerPostService extends AbstractService<Lecturer, Lect
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode");
+		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode");
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getLectureType());
 		tuple.put("lectureType", choices.getSelected().getKey());

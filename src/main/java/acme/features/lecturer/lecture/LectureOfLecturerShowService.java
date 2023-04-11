@@ -35,8 +35,7 @@ public class LectureOfLecturerShowService extends AbstractService<Lecturer, Lect
 	@Override
 	public void load() {
 		Lecture object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findLectureById(id);
 
 		super.getBuffer().setData(object);
@@ -45,8 +44,7 @@ public class LectureOfLecturerShowService extends AbstractService<Lecturer, Lect
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode");
+		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode");
 		tuple.put("confirmation", false);
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getLectureType());

@@ -33,7 +33,7 @@ public class LectureOfLecturerFindAllService extends AbstractService<Lecturer, L
 	@Override
 	public void load() {
 		Collection<Lecture> objects;
-		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		final Lecturer lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		objects = this.repository.findLecturesByLecturer(lecturer);
 		super.getBuffer().setData(objects);
 	}
@@ -41,8 +41,7 @@ public class LectureOfLecturerFindAllService extends AbstractService<Lecturer, L
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime");
+		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime");
 		super.getResponse().setGlobal("showCreate", false);
 		super.getResponse().setData(tuple);
 	}

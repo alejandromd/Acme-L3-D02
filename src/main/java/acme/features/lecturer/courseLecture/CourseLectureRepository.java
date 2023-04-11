@@ -16,21 +16,18 @@ import acme.roles.Lecturer;
 public interface CourseLectureRepository extends AbstractRepository {
 
 	@Query("select l from Lecturer l where l.id = :id")
-	Lecturer findOneLecturerById(int id);
-
-	@Query("select l from Lecture l where l.id = :id")
-	Lecture findOneLectureById(int id);
-
-	@Query("select c from Course c where c.id = :id")
-	Course findCourseById(int id);
+	Lecturer findLecturerById(int id);
 
 	@Query("select l from Lecture l where l.id = :id")
 	Lecture findLectureById(int id);
 
+	@Query("select c from Course c where c.id = :id")
+	Course findCourseById(int id);
+
 	@Query("select c from Course c inner join CourseLecture cl on c = cl.course inner join Lecture l on cl.lecture = l where l = :lecture")
 	Collection<Course> findCourseByLecture(Lecture lecture);
 
-	@Query("select c from Course c where c.lecturer = :lecturer")
+	@Query("select c from Course c where c.draftMode = true and c.lecturer = :lecturer")
 	Collection<Course> findCoursesByLecturer(Lecturer lecturer);
 
 	@Query("select l from Lecture l inner join CourseLecture cl on l = cl.lecture inner join Course c on cl.course = c where c.lecturer = :lecturer")
@@ -39,7 +36,7 @@ public interface CourseLectureRepository extends AbstractRepository {
 	@Query("select l from Lecture l inner join CourseLecture cl on l = cl.lecture inner join Course c on cl.course = c where c.id = :id")
 	Collection<Lecture> findLecturesByCourse(int id);
 
-	@Query("select cl from CourseLecture cl where cl.course = :course and cl.lecture = :lecture")
-	CourseLecture findCourseLectureByCourseAndLecture(Course course, Lecture lecture);
+	@Query("select cl from CourseLecture cl where cl.lecture = :lecture and cl.course = :course ")
+	CourseLecture findCourseLectureByLectureAndCourse(Course course, Lecture lecture);
 
 }

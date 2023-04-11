@@ -37,7 +37,7 @@ public class LectureOfLecturerCreateService extends AbstractService<Lecturer, Le
 		Lecture object;
 		object = new Lecture();
 		object.setDraftMode(true);
-		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		final Lecturer lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}
@@ -52,7 +52,7 @@ public class LectureOfLecturerCreateService extends AbstractService<Lecturer, Le
 	public void validate(final Lecture object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
-			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTIme");
+			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
 		if (!super.getBuffer().getErrors().hasErrors("title"))
 			if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 				super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.nature");
@@ -67,8 +67,7 @@ public class LectureOfLecturerCreateService extends AbstractService<Lecturer, Le
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
+		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getLectureType());
 		tuple.put("lectureType", choices.getSelected().getKey());

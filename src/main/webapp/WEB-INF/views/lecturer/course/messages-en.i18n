@@ -20,13 +20,13 @@ lecturer.course.form.label.courseType = Type of course
 lecturer.course.form.label.draftMode = Draft mode
 
 lecturer.course.error.lecture = Must add some lecture to publish the course
-lecturer.course.form.handsOn = The course should contain some lecture hands on
-lecturer.course.error.draftMode = There cannot be any class in draft mode
+lecturer.course.error.handsOn = The course should contain some lecture hands on
+lecturer.course.error.draftMode = There cannot be any lecture in draft mode
+lecturer.course.error.price = The price must be between 0 (inclusive) and 1000000 (not inclusive). Currencies must be EUR, GBP or USD
 
 lecturer.course.lectures = Lectures
 
 lecturer.course.create = Create
-lecturer.course..delete = Delete
+lecturer.course.delete = Delete
 lecturer.course.update = Update
 lecturer.course.publish = Publish
-lecturer.course.create = Create

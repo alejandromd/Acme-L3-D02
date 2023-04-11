@@ -9,27 +9,21 @@
 # they accept any liabilities with respect to them.
 
 
-lecturer.lecture.list.label.title= Título
-lecturer.lecture.list.label.summary = Resumen
-lecturer.lecture.list.label.estimatedLearningTime = Tiempo de Aprendizaje estimado
+lecturer.lecture.label.title= Título
+lecturer.lecture.label.summary = Resumen
+lecturer.lecture.label.estimatedLearningTime = Tiempo de aprendizaje estimado
+lecturer.lecture.label.body = Cuerpo
+lecturer.lecture.label.lectureType = Naturaleza
+lecturer.lecture.label.link = Información adicional
+lecturer.lecture.label.draftMode = Modo borrador
 
-lecturer.lecture.form.label.title = Título:
-lecturer.lecture.form.label.summary = Resumen:
-lecturer.lecture.form.label.estimatedLearningTime = Tiempo de aprendizaje estimado:
-lecturer.lecture.form.label.body = Cuerpo:
-lecturer.lecture.form.label.lectureType = Naturaleza:
-lecturer.lecture.form.label.link = Información adicional:
-lecturer.lecture.form.label.draftMode = Modo borrador:
-
-lecturer.lecture.list.button.create = Crear lección
-
-lecturer.lecture.form.error.spam = El texto introducido es considerado spam
 lecturer.lecture.form.error.nature = La naturaleza de una lección no puede ser balanceada
-lecturer.lecture.form.error.estimatedLearningTIme = El tiempo de aprendizaje estimado debe ser mayor o igual que 0.01
+lecturer.lecture.form.error.estimatedLearningTime = El tiempo de aprendizaje estimado debe ser mayor o igual que 0.01
 
-lecturer.lecture.list.button.add=Añadir lección a un curso
+lecturer.lecture.list.button.add = Añadir lección a un curso
+lecturer.lecture.list.button.delete = Quitar lección de un curso
 
-lecturer.lecture.list.button.deleteFromCourse = Quitar de un curso
+lecturer.lecture.button.create = Crear lección
 
 lecturer.lecture.form.button.update = Actualizar
 lecturer.lecture.form.button.delete = Borrar

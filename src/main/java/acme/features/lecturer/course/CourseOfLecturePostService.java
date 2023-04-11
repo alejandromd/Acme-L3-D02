@@ -65,8 +65,8 @@ public class CourseOfLecturePostService extends AbstractService<Lecturer, Course
 		super.state(!lectures.isEmpty(), "lectureType", "lecturer.course.error.lecture");
 		if (!lectures.isEmpty()) {
 			boolean existHandOn;
-			final boolean publishedLectures = lectures.stream().allMatch(x -> x.isDraftMode() == false);
-			super.state(publishedLectures, "lectureType", "lecturer.course.error.draftMode");
+			final boolean lecturesInDraftMode = lectures.stream().allMatch(x -> x.isDraftMode() == false);
+			super.state(lecturesInDraftMode, "draftMode", "lecturer.course.error.draftMode");
 
 			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
 			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");

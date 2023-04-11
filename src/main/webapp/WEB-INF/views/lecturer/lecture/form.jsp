@@ -16,13 +16,13 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="lecturer.lecture.form.label.title" path="title"/>	
-	<acme:input-textbox code="lecturer.lecture.form.label.summary" path="summary"/>	
-	<acme:input-double code="lecturer.lecture.form.label.estimatedLearningTime" path="estimatedLearningTime"/>	
-	<acme:input-textbox code="lecturer.lecture.form.label.body" path="body"/>	
-	<acme:input-select code="lecturer.lecture.form.label.lectureType" path="lectureType" choices="${lectureTypes}"/>	
-	<acme:input-textbox code="lecturer.lecture.form.label.link" path="link"/>
-	<acme:input-textbox code="lecturer.lecture.form.label.draftMode" path="draftMode" readonly="true"/>
+	<acme:input-textbox code="lecturer.lecture.label.title" path="title"/>	
+	<acme:input-textbox code="lecturer.lecture.label.summary" path="summary"/>	
+	<acme:input-double code="lecturer.lecture.label.estimatedLearningTime" path="estimatedLearningTime"/>	
+	<acme:input-textbox code="lecturer.lecture.label.body" path="body"/>	
+	<acme:input-select code="lecturer.lecture.label.lectureType" path="lectureType" choices="${lectureTypes}"/>	
+	<acme:input-textbox code="lecturer.lecture.label.link" path="link"/>
+	<acme:input-textbox code="lecturer.lecture.label.draftMode" path="draftMode" readonly="true"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == false}">	 
@@ -33,10 +33,10 @@
 			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture/delete"/>
 			<acme:submit code="lecturer.lecture.form.button.publish" action="/lecturer/lecture/publish"/>
 			<acme:button code="lecturer.lecture.list.button.add" action="/lecturer/course-lecture/create?lectureId=${id}"/>
-			<acme:button code="lecturer.lecture.list.button.deleteFromCourse" action="/lecturer/course-lecture/delete?lectureId=${id}"/>
+			<acme:button code="lecturer.lecture.list.button.delete" action="/lecturer/course-lecture/delete?lectureId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.lecture.form.button.create" action="/lecturer/lecture/create"/>
+			<acme:submit code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>
 		</jstl:when>		
 	</jstl:choose>
 	

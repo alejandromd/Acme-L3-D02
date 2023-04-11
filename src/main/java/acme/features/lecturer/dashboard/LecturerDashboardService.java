@@ -41,22 +41,22 @@ public class LecturerDashboardService extends AbstractService<Lecturer, Lecturer
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
 		final Lecturer lecturer = this.repository.findOneLecturerByUserAccountId(userAccountId);
-		//lecturesStats
+
 		final double averageLectureLearningTime = this.repository.findAverageLectureLearningTime(lecturer).orElse(0.0);
 		final double maxLectureLearningTime = this.repository.findMaxLectureLearningTime(lecturer).orElse(0.0);
 		final double minLectureLearningTime = this.repository.findMinLectureLearningTime(lecturer).orElse(0.0);
 		final double devLectureLearningTime = this.repository.findLinearDevLectureLearningTime(lecturer).orElse(0.0);
+
 		dashboard.setAverageTimeOfLectures(averageLectureLearningTime);
 		dashboard.setMinimumTimeOfLectures(minLectureLearningTime);
 		dashboard.setMaximumTimeOfLectures(maxLectureLearningTime);
 		dashboard.setDeviationTimeOfLectures(devLectureLearningTime);
 
-		//coursesStats
 		final Collection<Double> courseEstimatedLearningTime = this.repository.findEstimatedLearningTimeByCourse(lecturer);
-		dashboard.calcAverage(courseEstimatedLearningTime);
-		dashboard.calcMax(courseEstimatedLearningTime);
-		dashboard.calcMin(courseEstimatedLearningTime);
-		dashboard.calcLinDev(courseEstimatedLearningTime);
+		dashboard.calculateCourseAverage(courseEstimatedLearningTime);
+		dashboard.calculateCourseMax(courseEstimatedLearningTime);
+		dashboard.calculateCourseMin(courseEstimatedLearningTime);
+		dashboard.calculateCourseDev(courseEstimatedLearningTime);
 
 		//total lectures
 		final Integer handsOnLectures = this.repository.findNumOfLecturesByType(lecturer, Nature.HANDS_ON).orElse(0);
@@ -69,9 +69,8 @@ public class LecturerDashboardService extends AbstractService<Lecturer, Lecturer
 
 	@Override
 	public void unbind(final LecturerDashboard object) {
-		Tuple tuple;
-
-		tuple = super.unbind(object, "totalLectures", "averageTimeOfLectures", "deviationTimeOfLectures", "minimumTimeOfLectures", "maximumTimeOfLectures", "averageTimeOfCourses", "deviationTimeOfCourses", "minimumTimeOfCourses", "maximumTimeOfCourses");
+		final Tuple tuple = super.unbind(object, "totalLectures", "averageTimeOfLectures", "deviationTimeOfLectures", "minimumTimeOfLectures", "maximumTimeOfLectures", "averageTimeOfCourses", "deviationTimeOfCourses", "minimumTimeOfCourses",
+			"maximumTimeOfCourses");
 
 		super.getResponse().setData(tuple);
 	}

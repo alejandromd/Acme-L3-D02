@@ -35,8 +35,7 @@ public class CourseLectureDeleteService extends AbstractService<Lecturer, Course
 	@Override
 	public void authorise() {
 		Lecture object;
-		int id;
-		id = super.getRequest().getData("lectureId", int.class);
+		final int id = super.getRequest().getData("lectureId", int.class);
 		object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
@@ -45,12 +44,10 @@ public class CourseLectureDeleteService extends AbstractService<Lecturer, Course
 
 	@Override
 	public void load() {
-		CourseLecture object;
-		object = new CourseLecture();
+		final CourseLecture object = new CourseLecture();
 		final Lecture lecture;
-		int lectureId;
-		lectureId = super.getRequest().getData("lectureId", int.class);
-		lecture = this.repository.findOneLectureById(lectureId);
+		final int lectureId = super.getRequest().getData("lectureId", int.class);
+		lecture = this.repository.findLectureById(lectureId);
 		object.setLecture(lecture);
 		super.getBuffer().setData(object);
 	}
@@ -58,10 +55,8 @@ public class CourseLectureDeleteService extends AbstractService<Lecturer, Course
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
-		int courseId;
-		Course course;
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
+		final int courseId = super.getRequest().getData("course", int.class);
+		final Course course = this.repository.findCourseById(courseId);
 		super.bind(object, "id");
 		object.setCourse(course);
 	}
@@ -76,7 +71,7 @@ public class CourseLectureDeleteService extends AbstractService<Lecturer, Course
 	@Override
 	public void perform(final CourseLecture object) {
 		assert object != null;
-		final CourseLecture cl = this.repository.findCourseLectureByCourseAndLecture(object.getCourse(), object.getLecture());
+		final CourseLecture cl = this.repository.findCourseLectureByLectureAndCourse(object.getCourse(), object.getLecture());
 
 		this.repository.delete(cl);
 	}
@@ -84,19 +79,17 @@ public class CourseLectureDeleteService extends AbstractService<Lecturer, Course
 	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "lecture", "course");
+		final Tuple tuple = super.unbind(object, "lecture", "course");
 		final int lectureId = super.getRequest().getData("lectureId", int.class);
-		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
-		Collection<Course> courses;
-		courses = this.repository.findCourseByLecture(object.getLecture());
-		final Lecture lecture = this.repository.findOneLectureById(lectureId);
-		tuple.put("draftMode", lecture.isDraftMode());
+		final Collection<Course> courses = this.repository.findCourseByLecture(object.getLecture());
+		final Lecture lecture = this.repository.findLectureById(lectureId);
 		final SelectChoices choices;
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 		tuple.put("cursos", courses);
+		tuple.put("draftMode", lecture.isDraftMode());
+		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
 
 		super.getResponse().setData(tuple);
 	}

@@ -9,28 +9,21 @@
 # they accept any liabilities with respect to them.
 
 
-lecturer.lecture.list.label.title= Title
-lecturer.lecture.list.label.summary = Summary
-lecturer.lecture.list.label.estimatedLearningTime = Estimated learning time
-
-lecturer.lecture.form.label.title = Title:
-lecturer.lecture.form.label.summary = Summary:
-lecturer.lecture.form.label.estimatedLearningTime = Estimated learning Time:
-lecturer.lecture.form.label.body = Body:
-lecturer.lecture.form.label.lectureType = Nature:
-lecturer.lecture.form.label.link = Further information link:
-lecturer.lecture.form.label.draftMode = Draft mode:
-
-lecturer.lecture.list.button.create = Create lecture
-
-lecturer.lecture.form.error.spam = The introduced text is considered spam
+lecturer.lecture.label.title= Title
+lecturer.lecture.label.summary = Summary
+lecturer.lecture.label.estimatedLearningTime = Estimated learning time
+lecturer.lecture.label.body = Body
+lecturer.lecture.label.lectureType = Lecture type
+lecturer.lecture.label.link = link with more information
+lecturer.lecture.label.draftMode = Draft mode
 
 lecturer.lecture.form.error.nature = The nature of a lecture can't be BALANCED
 lecturer.lecture.form.error.estimatedLearningTIme = The estimated learning time must be bigger or equal to 0.01
 
 lecturer.lecture.list.button.add = Add lecture to a course
+lecturer.lecture.list.button.delete = Remove lecture from a course
 
-lecturer.lecture.list.button.deleteFromCourse = Remove from a course
+lecturer.lecture.button.create = Create lecture
 
 lecturer.lecture.form.button.update = Update
 lecturer.lecture.form.button.delete = Delete

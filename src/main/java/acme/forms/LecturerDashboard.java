@@ -28,7 +28,7 @@ public class LecturerDashboard extends AbstractForm {
 	Double						maximumTimeOfCourses;
 
 
-	public void calcAverage(final Collection<Double> values) {
+	public void calculateCourseAverage(final Collection<Double> values) {
 		Double res;
 		res = 0.0;
 		if (!values.isEmpty()) {
@@ -38,16 +38,16 @@ public class LecturerDashboard extends AbstractForm {
 		this.averageTimeOfCourses = res;
 	}
 
-	public void calcMax(final Collection<Double> values) {
+	public void calculateCourseMax(final Collection<Double> values) {
 		final Double max = values.stream().mapToDouble(Double::doubleValue).max().orElse(0.0);
 		this.maximumTimeOfCourses = max;
 	}
 
-	public void calcMin(final Collection<Double> values) {
+	public void calculateCourseMin(final Collection<Double> values) {
 		final Double min = values.stream().mapToDouble(Double::doubleValue).min().orElse(0.0);
 		this.minimumTimeOfCourses = min;
 	}
-	public void calcLinDev(final Collection<Double> values) {
+	public void calculateCourseDev(final Collection<Double> values) {
 		Double res;
 		Double aux;
 		res = 0.0;

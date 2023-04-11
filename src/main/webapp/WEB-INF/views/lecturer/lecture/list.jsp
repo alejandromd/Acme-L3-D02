@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="lecturer.lecture.list.label.title" path="title"  width="40%"/>
-	<acme:list-column code="lecturer.lecture.list.label.summary" path="summary" width="40%" />
-	<acme:list-column code="lecturer.lecture.list.label.estimatedLearningTime" path="estimatedLearningTime" width="20%" />
+	<acme:list-column code="lecturer.lecture.label.title" path="title"/>
+	<acme:list-column code="lecturer.lecture.label.summary" path="summary"/>
+	<acme:list-column code="lecturer.lecture.label.estimatedLearningTime" path="estimatedLearningTime"/>
 </acme:list>
 
-<acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create"/>
+<acme:button code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>

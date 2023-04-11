@@ -36,8 +36,7 @@ public class LectureOfLecturerDeleteService extends AbstractService<Lecturer, Le
 	@Override
 	public void authorise() {
 		Lecture object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
@@ -47,8 +46,7 @@ public class LectureOfLecturerDeleteService extends AbstractService<Lecturer, Le
 	@Override
 	public void load() {
 		Lecture object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findLectureById(id);
 		super.getBuffer().setData(object);
 	}
@@ -76,8 +74,7 @@ public class LectureOfLecturerDeleteService extends AbstractService<Lecturer, Le
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
+		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getLectureType());
 		tuple.put("lectureType", choices.getSelected().getKey());

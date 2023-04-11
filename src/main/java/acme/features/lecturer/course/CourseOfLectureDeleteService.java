@@ -24,16 +24,14 @@ public class CourseOfLectureDeleteService extends AbstractService<Lecturer, Cour
 
 	@Override
 	public void check() {
-		boolean status;
-		status = super.getRequest().hasData("id", int.class);
+		final boolean status = super.getRequest().hasData("id", int.class);
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		Course object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
@@ -43,8 +41,7 @@ public class CourseOfLectureDeleteService extends AbstractService<Lecturer, Cour
 	@Override
 	public void load() {
 		Course object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
 
 		super.getBuffer().setData(object);
@@ -73,8 +70,7 @@ public class CourseOfLectureDeleteService extends AbstractService<Lecturer, Cour
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "instantiationMoment", "endPeriod", "heading", "summary", "startPeriod", "retailPrice", "link");
+		final Tuple tuple = super.unbind(object, "instantiationMoment", "endPeriod", "heading", "summary", "startPeriod", "retailPrice", "link");
 		super.getResponse().setData(tuple);
 	}
 }

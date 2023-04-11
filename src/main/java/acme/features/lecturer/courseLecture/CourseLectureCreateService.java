@@ -34,12 +34,11 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 	@Override
 	public void authorise() {
 		Lecture object;
-		int id;
-		id = super.getRequest().getData("lectureId", int.class);
+		final int id = super.getRequest().getData("lectureId", int.class);
 		object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 	}
 
 	@Override
@@ -49,7 +48,7 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 		final Lecture lecture;
 		int lectureId;
 		lectureId = super.getRequest().getData("lectureId", int.class);
-		lecture = this.repository.findOneLectureById(lectureId);
+		lecture = this.repository.findLectureById(lectureId);
 		object.setLecture(lecture);
 		super.getBuffer().setData(object);
 	}
@@ -57,10 +56,8 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
-		int courseId;
-		Course course;
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
+		final int courseId = super.getRequest().getData("course", int.class);
+		final Course course = this.repository.findCourseById(courseId);
 		super.bind(object, "id");
 		object.setCourse(course);
 	}
@@ -85,14 +82,12 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "lecture", "course");
+		final Tuple tuple = super.unbind(object, "lecture", "course");
 		final int lectureId = super.getRequest().getData("lectureId", int.class);
 		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
-		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
-		Collection<Course> courses;
-		courses = this.repository.findCoursesByLecturer(lecturer);
-		final Lecture lecture = this.repository.findOneLectureById(lectureId);
+		final Lecturer lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		final Collection<Course> courses = this.repository.findCoursesByLecturer(lecturer);
+		final Lecture lecture = this.repository.findLectureById(lectureId);
 		tuple.put("draftMode", lecture.isDraftMode());
 
 		final SelectChoices choices;
