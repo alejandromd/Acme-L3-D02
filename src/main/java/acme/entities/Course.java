@@ -1,6 +1,8 @@
 
 package acme.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -43,10 +45,6 @@ public class Course extends AbstractEntity {
 	@Length(max = 100)
 	protected String			summary;
 
-	// Theoretical courses should be rejected
-	@NotNull
-	protected Nature			courseType;
-
 	@NotNull
 	protected Money				retailPrice;
 
@@ -61,4 +59,25 @@ public class Course extends AbstractEntity {
 	@NotNull
 	@Valid
 	protected Lecturer			lecturer;
+
+
+	// Theoretical courses should be rejected
+	public Nature courseTypeNature(final List<Lecture> lectures) {
+		Nature nature = Nature.BALANCED;
+		if (!lectures.isEmpty()) {
+			int theoretical = 0;
+			int handsOn = 0;
+			for (final Lecture l : lectures)
+				if (l.getLectureType().equals(Nature.THEORETICAL))
+					theoretical++;
+				else if (l.getLectureType().equals(Nature.HANDS_ON))
+					handsOn++;
+			if (theoretical > handsOn)
+				nature = Nature.THEORETICAL;
+			else if (handsOn > theoretical)
+				nature = Nature.HANDS_ON;
+		}
+		return nature;
+	}
+
 }

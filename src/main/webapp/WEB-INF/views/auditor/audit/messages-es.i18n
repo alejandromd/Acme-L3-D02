@@ -1,0 +1,15 @@
+auditor.audit.list.label.code = Código
+auditor.audit.list.label.conclusion = Conclusión
+auditor.audit.list.label.mark = Notas
+
+auditor.audit.form.label.strongPoints = Puntos fuertes
+auditor.audit.form.label.weakPoints = Puntos flojos
+auditor.audit.form.label.mark = Notas
+
+auditor.audit.form.error.code = El código ya existe
+auditor.audit.form.button.auditing-records = Registros de la auditoría
+
+auditor.audit.form.button.delete = Borrar
+auditor.audit.form.button.update = Actualizar
+auditor.audit.form.button.publish = Publicar
+auditor.audit.form.button.create = Crear

@@ -1,0 +1,14 @@
+authenticated.note.list.label.instantiationMoment = Fecha de creación de la nota
+authenticated.note.list.label.title = Título
+authenticated.note.list.label.author = Autor
+authenticated.note.list.button.create = Crear
+
+authenticated.note.form.label.instantiationMoment = Fecha de creación de la nota
+authenticated.note.form.label.title = Título
+authenticated.note.form.label.author = Autor
+authenticated.note.form.label.message = Mensaje
+authenticated.note.form.label.email = Email(Opcional)
+authenticated.note.form.label.furtherInformationLink = Más información(Opcional)
+
+authenticated.note.form.button.create = Crear
+authenticated.note.form.label.confirmation = Confirmar creación
