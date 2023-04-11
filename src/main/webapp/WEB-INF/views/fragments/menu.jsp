@@ -25,6 +25,10 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link4" action="http://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="http://www.facebook.com/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.note.list" action="/authenticated/note/list"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>

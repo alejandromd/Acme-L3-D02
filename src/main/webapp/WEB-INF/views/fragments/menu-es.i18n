@@ -24,6 +24,11 @@ master.menu.anonymous.favourite-link3 = 77934292B : Lopez-Benjumea Novella, Albe
 master.menu.anonymous.favourite-link4 = 32085666E : Medina Duran, Alejandro
 master.menu.anonymous.favourite-link5 = 29533138B : Vargas Castro, Francisco Jose
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autentificado
+master.menu.authenticated.note.list = Ver notas
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
