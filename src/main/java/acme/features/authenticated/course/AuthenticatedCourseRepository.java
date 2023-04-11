@@ -11,7 +11,7 @@ import acme.entities.Lecture;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface CourseRepository extends AbstractRepository {
+public interface AuthenticatedCourseRepository extends AbstractRepository {
 
 	@Query("select c from Course c")
 	Collection<Course> findAllCourses();

@@ -11,11 +11,13 @@ import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-public class CourseController extends AbstractController<Authenticated, Course> {
+public class AuthenticatedCourseController extends AbstractController<Authenticated, Course> {
 
 	@Autowired
-	protected CourseFindAllService	findAllService;
-	protected CourseService			showService;
+	protected AuthenticatedCourseFindAllService	findAllService;
+
+	@Autowired
+	protected AuthenticatedCourseService		showService;
 
 
 	@PostConstruct
