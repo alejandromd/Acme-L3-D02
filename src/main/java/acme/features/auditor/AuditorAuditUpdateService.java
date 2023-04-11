@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Audit;
 import acme.entities.Course;
-import acme.entities.auditingRecord.Mark;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -16,14 +15,14 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
+public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AuditorAuditRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Auditor, Audit> -------------------------------------
 
 
 	@Override
@@ -38,17 +37,17 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void authorise() {
 
-		boolean status;
-		int id;
 		Audit object;
+		int id;
 		Principal principal;
-		int auditorId;
+		int userId;
+		boolean status;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
 		principal = super.getRequest().getPrincipal();
-		auditorId = principal.getAccountId();
-		status = object.getAuditor().getUserAccount().getId() == auditorId;
+		userId = principal.getAccountId();
+		status = object.getAuditor().getUserAccount().getId() == userId && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 
@@ -59,11 +58,44 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 
 		Audit object;
 		int id;
+		int courseId;
+		Course course;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
 
+		object.setCourse(course);
 		super.getBuffer().setData(object);
+	}
+
+	@Override
+	public void bind(final Audit object) {
+
+		assert object != null;
+
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+
+	}
+
+	@Override
+	public void validate(final Audit object) {
+
+		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(this.repository.findAuditByCode(object.getCode()) == null, "code", "auditor.audit.form.error.code");
+
+	}
+
+	@Override
+	public void perform(final Audit object) {
+
+		assert object != null;
+
+		this.repository.save(object);
+
 	}
 
 	@Override
@@ -73,26 +105,13 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 
 		Tuple tuple;
 		Collection<Course> courses;
-		SelectChoices choice;
-		Collection<Mark> marks;
-		String markList;
-		int auditId;
+		SelectChoices choices;
 
 		courses = this.repository.findCoursesWithoutAudit();
-		auditId = object.getId();
-		marks = this.repository.findMarkByAuditId(auditId);
-
-		if (marks.isEmpty())
-			markList = "N/A";
-		else
-			markList = marks.toString();
-
-		choice = SelectChoices.from(courses, "code", object.getCourse());
-
-		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "mark", "conclusion");
-		tuple.put("course", choice.getSelected().getKey());
-		tuple.put("courses", choice);
-		tuple.put("mark", markList);
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
+		tuple.put("courses", courses);
+		tuple.put("course", choices.getSelected().getKey());
 
 		super.getResponse().setData(tuple);
 
