@@ -36,7 +36,7 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>classes</name>
+			<name>acme-framework</name>
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-23.3.0/target/classes</locationURI>
 		</link>
