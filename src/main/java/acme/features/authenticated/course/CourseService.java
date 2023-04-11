@@ -58,7 +58,7 @@ public class CourseService extends AbstractService<Authenticated, Course> {
 		Tuple tuple;
 		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link");
 		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
-		final Nature nature = object.getCourseType();
+		final Nature nature = object.courseTypeNature(lectures);
 		tuple.put("almaMater", object.getLecturer().getAlmaMater());
 		tuple.put("nature", nature);
 		for (final Lecture l : lectures)
