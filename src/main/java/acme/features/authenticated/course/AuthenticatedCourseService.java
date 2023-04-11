@@ -15,10 +15,10 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class CourseService extends AbstractService<Authenticated, Course> {
+public class AuthenticatedCourseService extends AbstractService<Authenticated, Course> {
 
 	@Autowired
-	protected CourseRepository repository;
+	protected AuthenticatedCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 

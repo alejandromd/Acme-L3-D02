@@ -13,10 +13,10 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class CourseFindAllService extends AbstractService<Authenticated, Course> {
+public class AuthenticatedCourseFindAllService extends AbstractService<Authenticated, Course> {
 
 	@Autowired
-	protected CourseRepository repository;
+	protected AuthenticatedCourseRepository repository;
 
 
 	@Override
