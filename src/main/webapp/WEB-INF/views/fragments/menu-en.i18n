@@ -46,7 +46,8 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.authenticated ####################################################
 
 master.menu.authenticated = Sign up as
-master.menu.authenticated.lecturer.create = Sign up as a lecturer
+master.menu.authenticated.lecturer.create = Become a lecturer
+master.menu.authenticated.lecturer.update = Update lecturer profile
 
 # master.menu.user-account ####################################################
 
