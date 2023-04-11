@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+lecturer.lecture.label.title= Title
+lecturer.lecture.label.summary = Summary
+lecturer.lecture.label.estimatedLearningTime = Estimated learning time
+lecturer.lecture.label.body = Body
+lecturer.lecture.label.lectureType = Lecture type
+lecturer.lecture.label.link = link with more information
+lecturer.lecture.label.draftMode = Draft mode
+
+lecturer.lecture.form.error.nature = The nature of a lecture can't be BALANCED
+lecturer.lecture.form.error.estimatedLearningTIme = The estimated learning time must be bigger or equal to 0.01
+
+lecturer.lecture.list.button.add = Add lecture to a course
+lecturer.lecture.list.button.delete = Remove lecture from a course
+
+lecturer.lecture.button.create = Create lecture
+
+lecturer.lecture.form.button.update = Update
+lecturer.lecture.form.button.delete = Delete
+lecturer.lecture.form.button.publish = Publish
+lecturer.lecture.form.button.create = Create

@@ -57,3 +57,15 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
+# master.menu.any.course ####################################################
+
+master.menu.any.course = Cursos
+master.menu.any.list = Lista 
+
+# master.menu.lecturer ####################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.course = Mis cursos
+master.menu.lecturer.lecture = Mis clases
+master.menu.lecturer.dashboard = Tablero de profesor
