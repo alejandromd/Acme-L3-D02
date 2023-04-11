@@ -68,6 +68,8 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.authenticated.auditor.become-auditor = Hazte auditor
+master.menu.authenticated.auditor.auditor = Datos de auditor
 
 # master.menu.any.course ####################################################
 

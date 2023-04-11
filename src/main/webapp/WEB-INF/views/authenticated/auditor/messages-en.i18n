@@ -1,0 +1,8 @@
+authenticated.auditor.form.label.firm = Firm
+authenticated.auditor.form.label.professionalId = Professional id
+authenticated.auditor.form.label.certifications = Certifications
+authenticated.auditor.form.label.link = link with more information
+	
+authenticated.auditor.form.button.create = Create
+authenticated.auditor.form.button.update = Update
+authenticated.auditor.form.error.professionalId = The professional id is duplicated
