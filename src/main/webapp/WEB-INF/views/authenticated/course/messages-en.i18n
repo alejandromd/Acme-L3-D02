@@ -10,10 +10,6 @@
 # they accept any liabilities with respect to them.
 
 
-any.course.form.label.code = Code
-any.course.form.label.title = Title
-any.course.form.label.summary = Summary
-any.course.form.label.retailPrice = Price
-any.course.form.label.link = link with more information
-any.course.form.label.almaMater = alma mater
-any.course.form.label.courseType = Type of course
+authenticated.course.form.label.title = Title
+authenticated.course.form.label.summary = Summary
+authenticated.course.form.label.retailPrice = Retail Price

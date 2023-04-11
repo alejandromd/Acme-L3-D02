@@ -14,12 +14,14 @@ import acme.framework.controllers.AbstractController;
 public class CourseController extends AbstractController<Authenticated, Course> {
 
 	@Autowired
-	protected CourseFindAllService findAllService;
+	protected CourseFindAllService	findAllService;
+	protected CourseService			showService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.findAllService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }

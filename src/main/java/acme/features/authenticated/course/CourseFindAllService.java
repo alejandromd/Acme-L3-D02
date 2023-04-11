@@ -21,11 +21,7 @@ public class CourseFindAllService extends AbstractService<Authenticated, Course>
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override

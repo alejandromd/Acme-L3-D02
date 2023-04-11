@@ -26,7 +26,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="http://www.facebook.com/"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.authenticated.list">
+		<acme:menu-option code="master.menu.authenticated.list" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.authenticated.course" action="/authenticated/course/list"/>
 		</acme:menu-option>
 		
