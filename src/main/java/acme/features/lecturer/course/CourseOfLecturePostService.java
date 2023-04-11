@@ -62,7 +62,7 @@ public class CourseOfLecturePostService extends AbstractService<Lecturer, Course
 	public void validate(final Course object) {
 		assert object != null;
 		final Collection<Lecture> lectures = this.repository.findLecturesByCourse(object.getId());
-		super.state(!lectures.isEmpty(), "lectureType", "lecturer.course.error.lecture");
+		super.state(!lectures.isEmpty(), "draftMode", "lecturer.course.error.lecture");
 		if (!lectures.isEmpty()) {
 			boolean existHandOn;
 			final boolean lecturesInDraftMode = lectures.stream().allMatch(x -> x.isDraftMode() == false);
