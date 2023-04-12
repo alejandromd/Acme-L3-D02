@@ -63,6 +63,8 @@ master.menu.authenticated.student.create = Become a student
 master.menu.authenticated.student.update = Update student profile
 master.menu.authenticated.bulletin.create = Create bulletin
 master.menu.authenticated.bulletin.list = Bulletins
+master.menu.authenticated.auditor.create = Become an auditor
+master.menu.authenticated.auditor.update = Update auditor profile
 
 # master.menu.user-account ####################################################
 
