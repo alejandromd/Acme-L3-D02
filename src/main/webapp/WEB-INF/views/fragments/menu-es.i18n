@@ -86,3 +86,8 @@ master.menu.lecturer = Profesor
 master.menu.lecturer.course = Mis cursos
 master.menu.lecturer.lecture = Mis clases
 master.menu.lecturer.dashboard = Tablero de profesor
+
+# master.menu.student ####################################################
+
+master.menu.student = Estudiantes
+master.menu.student.enrolment = Lista de inscripciones
