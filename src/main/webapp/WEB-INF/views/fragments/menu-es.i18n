@@ -74,6 +74,8 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.authenticated.auditor.become-auditor = Hazte auditor
 master.menu.authenticated.auditor.auditor = Datos de auditor
+master.menu.user-account.assistant.create = Hazte asistente
+master.menu.user-account.assistant.update = Actualizar perfil asistente
 
 # master.menu.any.course ####################################################
 
