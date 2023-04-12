@@ -43,7 +43,7 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 	@Override
 	public void bind(final Bulletin object) {
 		assert object != null;
-		super.bind(object, "instantiationMoment", "title", "message", "critical", "link");
+		super.bind(object, "title", "message", "critical", "link");
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 	@Override
 	public void unbind(final Bulletin object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "instantiationMoment", "title", "message", "critical", "link");
+		final Tuple tuple = super.unbind(object, "title", "message", "critical", "link");
 		tuple.put("confirmation", false);
 		super.getResponse().setData(tuple);
 

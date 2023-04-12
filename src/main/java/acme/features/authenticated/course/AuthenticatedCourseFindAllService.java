@@ -34,7 +34,7 @@ public class AuthenticatedCourseFindAllService extends AbstractService<Authentic
 	@Override
 	public void load() {
 		Collection<Course> objects;
-		objects = this.repository.findAllCourses();
+		objects = this.repository.findAllCoursesPublished();
 		super.getBuffer().setData(objects);
 	}
 

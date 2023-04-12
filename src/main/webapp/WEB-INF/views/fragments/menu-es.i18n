@@ -49,10 +49,6 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
-# master.menu.authenticated ####################################################
-
-master.menu.authenticated = Registrarme como
-
 
 # master.menu.authenticated ####################################################
 
@@ -88,3 +84,8 @@ master.menu.lecturer = Profesor
 master.menu.lecturer.course = Mis cursos
 master.menu.lecturer.lecture = Mis clases
 master.menu.lecturer.dashboard = Tablero de profesor
+
+# master.menu.authenticated.course ####################################################
+
+master.menu.authenticated.course = Cursos
+master.menu.authenticaed.list = Lista de cursos

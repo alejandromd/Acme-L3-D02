@@ -10,6 +10,11 @@
 # they accept any liabilities with respect to them.
 
 
+authenticated.course.form.label.code = Code
 authenticated.course.form.label.title = Title
 authenticated.course.form.label.summary = Summary
-authenticated.course.form.label.retailPrice = Retail Price
+authenticated.course.form.label.retailPrice = Price
+authenticated.course.form.label.link = link with further information
+authenticated.course.form.label.almaMater = Lecturers
+authenticated.course.form.label.courseType = Type of course
+authenticated.course.form.label.lecture = Lectures

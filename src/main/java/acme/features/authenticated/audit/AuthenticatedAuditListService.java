@@ -26,7 +26,7 @@ public class AuthenticatedAuditListService extends AbstractService<Authenticated
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("masterId", int.class);
 		super.getResponse().setChecked(status);
 	}
 
@@ -40,7 +40,7 @@ public class AuthenticatedAuditListService extends AbstractService<Authenticated
 		Collection<Audit> objects;
 		int courseId;
 
-		courseId = super.getRequest().getData("id", int.class);
+		courseId = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findAuditsByCourse(courseId);
 		super.getBuffer().setData(objects);
 
@@ -52,7 +52,7 @@ public class AuthenticatedAuditListService extends AbstractService<Authenticated
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "mark", "conclusion");
+		tuple = super.unbind(object, "code", "conclusion");
 
 		super.getResponse().setData(tuple);
 	}
