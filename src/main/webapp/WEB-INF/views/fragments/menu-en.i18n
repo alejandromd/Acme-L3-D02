@@ -77,8 +77,13 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 
-# master.menu.authenticated.course ####################################################
+# master.menu.any.course ####################################################
 
 master.menu.any.course = Courses
 master.menu.any.list = List of courses
+
+# master.menu.authenticated.course ####################################################
+
+master.menu.authenticated.course = Courses as student
+master.menu.authenticated.list = List of courses as student
 
