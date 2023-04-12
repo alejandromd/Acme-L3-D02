@@ -8,12 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+administrator.bulletin.instantiationMoment = Instantiation Moment
+administrator.bulletin.title = Title
+administrator.bulletin.message = Message
+administrator.bulletin.critical = Critical
+administrator.bulletin.link = link with more information
+administrator.bulletin.confirmation = Confirm
+administrator.bulletin.button.create = Post
 
-any.course.form.label.code = Code
-any.course.form.label.title = Title
-any.course.form.label.summary = Summary
-any.course.form.label.retailPrice = Price
-any.course.form.label.link = link with more information
-any.course.form.label.almaMater = alma mater
-any.course.form.label.courseType = Type of course
-any.audit.form.button.list = Audits
+administrator.bulletin.error.confirmation = You must confirm to be able to publish it as a bulletin cannot be deleted or edited.

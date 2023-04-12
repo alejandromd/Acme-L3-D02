@@ -42,19 +42,17 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void load() {
 		Audit object;
 		Auditor auditor;
+		String mark;
 		int auditorId;
-		int courseId;
-		Course course;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
 		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		auditor = this.repository.findOneAuditorById(auditorId);
+		mark = "N/A";
 
 		object = new Audit();
 		object.setAuditor(auditor);
 		object.setDraftMode(true);
-		object.setCourse(course);
+		object.setMark(mark);
 
 		super.getBuffer().setData(object);
 
@@ -64,14 +62,23 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void bind(final Audit object) {
 		assert object != null;
 
+		Course course;
+		int courseId;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
+
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		object.setCourse(course);
 	}
 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
+
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(this.repository.findAuditByCode(object.getCode()) == null, "code", "auditor.audit.form.error.code");
+
 	}
 
 	@Override

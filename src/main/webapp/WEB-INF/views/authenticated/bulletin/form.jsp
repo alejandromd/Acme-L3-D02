@@ -15,9 +15,10 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:list>
-	<acme:list-column code ="auditor.audit.list.label.code" path="code" width="20%"/>
-	<acme:list-column code ="auditor.audit.list.label.mark" path="mark" width="20%"/>
-	<acme:list-column code ="auditor.audit.list.label.conclusion" path="conclusion" width="20%"/>
-</acme:list>
-<acme:button code="auditor.audit.create" action="/auditor/audit/create"/>
+<acme:form>
+	<acme:input-textbox code="authenticated.bulletin.title" path="title"/>
+	<acme:input-textbox code="authenticated.bulletin.message" path="message"/>
+	<acme:input-textbox code="authenticated.bulletin.instantiationMoment" path="instantiationMoment"/>
+	<acme:input-textbox code="authenticated.bulletin.critical" path="critical"/>
+	<acme:input-textbox code="authenticated.bulletin.link" path="link"/>
+</acme:form>

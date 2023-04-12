@@ -8,12 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-
-any.course.form.label.code = Code
-any.course.form.label.title = Title
-any.course.form.label.summary = Summary
-any.course.form.label.retailPrice = Price
-any.course.form.label.link = link with more information
-any.course.form.label.almaMater = alma mater
-any.course.form.label.courseType = Type of course
-any.audit.form.button.list = Audits
+authenticated.bulletin.title = Title
+authenticated.bulletin.message = Message
+authenticated.bulletin.critical = Critical
+authenticated.bulletin.instantiationMoment = Instantiation Moment
+authenticated.bulletin.link = link with more information
