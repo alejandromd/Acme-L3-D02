@@ -84,3 +84,8 @@ master.menu.lecturer = Profesor
 master.menu.lecturer.course = Mis cursos
 master.menu.lecturer.lecture = Mis clases
 master.menu.lecturer.dashboard = Tablero de profesor
+
+# master.menu.authenticated.course ####################################################
+
+master.menu.authenticated.course = Cursos
+master.menu.authenticaed.list = Lista de cursos
