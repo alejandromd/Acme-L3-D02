@@ -49,12 +49,6 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
-# master.menu.authenticated ####################################################
-
-master.menu.authenticated = Sign up as
-master.menu.authenticated.lecturer.create = Become a lecturer
-master.menu.authenticated.lecturer.update = Update lecturer profile
-
 
 # master.menu.auditor ####################################################
 master.menu.auditor = Auditor
@@ -63,6 +57,8 @@ master.menu.auditor.audit = Audits
 # master.menu.authenticated ####################################################
 
 master.menu.authenticated = Sign up as
+master.menu.authenticated.lecturer.create = Become a lecturer
+master.menu.authenticated.lecturer.update = Update lecturer profile
 master.menu.authenticated.student.create = Become a student 
 master.menu.authenticated.student.update = Update student profile
 master.menu.authenticated.bulletin.create = Create bulletin
@@ -81,4 +77,7 @@ master.menu.user-account.become-consumer = Become a consumer
 
 master.menu.any.course = Courses
 master.menu.any.list = List of courses
-
+master.menu.lecturer = Lecturer
+master.menu.lecturer.course = My courses
+master.menu.lecturer.lecture = My lectures
+master.menu.lecturer.dashboard = Lecturer dashboard
