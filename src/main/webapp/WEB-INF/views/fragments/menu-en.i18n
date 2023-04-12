@@ -54,6 +54,8 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.authenticated = Sign up as
 master.menu.authenticated.lecturer.create = Become a lecturer
 master.menu.authenticated.lecturer.update = Update lecturer profile
+master.menu.authenticated.auditor.create = Become an auditor
+master.menu.authenticated.auditor.update = Update auditor profile
 
 
 # master.menu.auditor ####################################################
