@@ -14,7 +14,7 @@ master.menu.home = Inicio
 master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
-master.menu.list = Lista
+master.menu.list = Listas
 
 # master.menu.anonymous #######################################################
 
@@ -61,7 +61,7 @@ master.menu.authenticated.lecturer.create = Hazte profesor
 master.menu.authenticated.lecturer.update = Actualizar perfil de profesor
 master.menu.authenticated.student.create = Hazte estudiante 
 master.menu.authenticated.student.update = Actualizar perfil del estudiante
-master.menu.authenticated.bulletin.create = Crear bulletin
+master.menu.authenticated.bulletin.create = Crear boletín
 master.menu.authenticated.bulletin.list = Ver boletines
 master.menu.authenticated.auditor.create = Hazte auditor
 master.menu.authenticated.auditor.update = Actualizar perfil del auditor
