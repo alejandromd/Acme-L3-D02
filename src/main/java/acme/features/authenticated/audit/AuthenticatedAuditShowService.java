@@ -32,15 +32,7 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 	@Override
 	public void authorise() {
 
-		boolean status;
-		int id;
-		Audit object;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneAuditById(id);
-		status = !object.isDraftMode();
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 
 	}
 
