@@ -17,5 +17,5 @@
 
 <acme:list>
 	<acme:list-column code="authenticated.bulletin.title" path="title"/>
-	<acme:list-column code="authenticated.bulletin.message" path="message"/>
+	<acme:list-column code="authenticated.bulletin.message" path="message"/>	
 </acme:list>
