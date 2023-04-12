@@ -81,7 +81,7 @@ public class AuthenticatedAuditorCreateService extends AbstractService<Authentic
 	public void unbind(final Auditor object) {
 		Tuple tuple;
 
-		tuple = super.unbind(object, "firm", "professionalId", "certifications", "furtherInformationLink");
+		tuple = super.unbind(object, "firm", "professionalId", "certifications", "link");
 
 		super.getResponse().setData(tuple);
 	}
