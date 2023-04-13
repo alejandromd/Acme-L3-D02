@@ -42,17 +42,14 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void load() {
 		Audit object;
 		Auditor auditor;
-		String mark;
 		int auditorId;
 
 		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		auditor = this.repository.findOneAuditorById(auditorId);
-		mark = "N/A";
 
 		object = new Audit();
 		object.setAuditor(auditor);
 		object.setDraftMode(true);
-		object.setMark(mark);
 
 		super.getBuffer().setData(object);
 
