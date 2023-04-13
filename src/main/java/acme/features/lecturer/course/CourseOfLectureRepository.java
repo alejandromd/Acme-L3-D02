@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.Course;
 import acme.entities.CourseLecture;
 import acme.entities.Lecture;
+import acme.entities.SystemConfiguration;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 
@@ -30,4 +31,9 @@ public interface CourseOfLectureRepository extends AbstractRepository {
 	@Query("select cl from CourseLecture cl where cl.course = :course")
 	Collection<CourseLecture> findCourseLecturesByCourse(Course course);
 
+	@Query("select l from Lecturer l where l.userAccount.id = :id")
+	Lecturer findLecturerByIdUserAccount(int id);
+
+	@Query("select s from SystemConfiguration s")
+	SystemConfiguration findSystemConfiguration();
 }

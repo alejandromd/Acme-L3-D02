@@ -19,6 +19,9 @@ public interface AuthenticatedCourseRepository extends AbstractRepository {
 	@Query("select l from Lecture l inner join CourseLecture cl on l = cl.lecture inner join Course c on cl.course = c where c.id = :id")
 	Collection<Lecture> findLecturesByCourse(int id);
 
+	@Query("select c from Course c where c.draftMode = false")
+	Collection<Course> findAllCoursesPublished();
+
 	@Query("select c from Course c where c.id = :id and c.draftMode = false")
 	Course findCourseById(int id);
 }

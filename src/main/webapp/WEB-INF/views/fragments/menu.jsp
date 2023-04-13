@@ -27,15 +27,16 @@
 		</acme:menu-option>
 		
 
-		<acme:menu-option code="master.menu.authenticated.list" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.authenticated.course" action="/authenticated/course/list"/>
+		<acme:menu-option code="master.menu.list" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.course" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.note.list" action="/authenticated/note/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
 		</acme:menu-option>
 
 
 
-		<acme:menu-option code="master.menu.any.list">
-			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
+		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
+			<acme:menu-suboption code="master.menu.authenticated.course" action="/authenticated/course/list"/>
 		</acme:menu-option>
 
 		

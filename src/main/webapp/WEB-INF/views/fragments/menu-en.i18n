@@ -15,6 +15,7 @@ master.menu.sign-up = Sign up
 master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 master.menu.list = Lists
+master.menu.course = Courses
 
 # master.menu.anonymous #######################################################
 
@@ -49,15 +50,6 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
-# master.menu.authenticated ####################################################
-
-master.menu.authenticated = Sign up as
-master.menu.authenticated.lecturer.create = Become a lecturer
-master.menu.authenticated.lecturer.update = Update lecturer profile
-master.menu.authenticated.auditor.create = Become an auditor
-master.menu.authenticated.auditor.update = Update auditor profile
-
-
 # master.menu.auditor ####################################################
 master.menu.auditor = Auditor
 master.menu.auditor.audit = Audits
@@ -65,10 +57,14 @@ master.menu.auditor.audit = Audits
 # master.menu.authenticated ####################################################
 
 master.menu.authenticated = Sign up as
+master.menu.authenticated.lecturer.create = Become a lecturer
+master.menu.authenticated.lecturer.update = Update lecturer profile
 master.menu.authenticated.student.create = Become a student 
 master.menu.authenticated.student.update = Update student profile
 master.menu.authenticated.bulletin.create = Create bulletin
 master.menu.authenticated.bulletin.list = Bulletins
+master.menu.authenticated.auditor.create = Become an auditor
+master.menu.authenticated.auditor.update = Update auditor profile
 
 # master.menu.user-account ####################################################
 
@@ -78,9 +74,17 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.authenticated.auditor.become-auditor = Become a auditor
+master.menu.authenticated.auditor.auditor = Auditor data
 
 # master.menu.authenticated.course ####################################################
 
-master.menu.any.course = Courses
-master.menu.any.list = List of courses
+master.menu.lecturer = Lecturer
+master.menu.lecturer.course = My courses
+master.menu.lecturer.lecture = My lectures
+master.menu.lecturer.dashboard = Lecturer dashboard
 
+# master.menu.student ####################################################
+
+master.menu.student = Studiant
+master.menu.authenticated.course = Courses for students

@@ -29,7 +29,10 @@ public class LecturerDashboardService extends AbstractService<Lecturer, Lecturer
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		final Lecturer lecturer = this.repository.findLecturerByIdUserAccount(userAccountId);
+		super.getResponse().setAuthorised(lecturer != null);
 	}
 
 	@Override
