@@ -39,6 +39,14 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
+	protected Boolean			draftMode;
+
+	//Register a valid credit card
+
+	protected String			holderName;
+
+	protected Integer			lowerNibble;
+
 	// Derived attributes -----------------------------------------------------
 
 	//Double workTime; 

@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Enrolment;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
-public class EnrolmentServiceFindAll extends AbstractService<Authenticated, Enrolment> {
+public class EnrolmentServiceFindAll extends AbstractService<Student, Enrolment> {
 
 	@Autowired
 	protected EnrolmentRepository repository;
