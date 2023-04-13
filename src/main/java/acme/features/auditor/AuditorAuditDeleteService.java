@@ -89,10 +89,11 @@ public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
 
 		assert object != null;
 
-		final Collection<AuditingRecord> auditingRecords = this.repository.findAuditingRecordsByAudit(object);
-		for (final AuditingRecord ar : auditingRecords)
-			this.repository.delete(ar);
+		Collection<AuditingRecord> auditingRecords;
 
+		auditingRecords = this.repository.findManyAuditingRecordsByAuditId(object.getId());
+
+		this.repository.deleteAll(auditingRecords);
 		this.repository.delete(object);
 
 	}

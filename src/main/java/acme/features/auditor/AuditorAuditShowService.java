@@ -89,7 +89,7 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 
 		choice = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "conclusion");
+		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "conclusion", "draftMode");
 		tuple.put("course", choice.getSelected().getKey());
 		tuple.put("courses", choice);
 		tuple.put("mark", markList);

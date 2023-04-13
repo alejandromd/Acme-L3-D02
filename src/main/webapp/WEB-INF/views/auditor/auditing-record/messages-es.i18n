@@ -1,2 +1,15 @@
 auditor.auditingRecord.list.label.subject = Asignatura
 auditor.auditingRecord.list.label.mark = Nota
+
+auditor.auditing-record.form.label.subject = Asignatura
+auditor.auditing-record.form.label.assessment = Evaluación
+auditor.auditing-record.form.label.periodStartDate = Momento de comienzo del registro de auditoría
+auditor.auditing-record.form.label.periodEndDate = Momento de finalización del registro de auditoría
+auditor.auditing-record.form.label.mark = Nota
+auditor.auditing-record.form.label.link = Más información
+
+auditor.auditing-record.form.button.update = Actualizar
+auditor.auditing-record.form.button.delete = Borrar
+auditor.auditing-record.form.button.create = Crear
+auditor.auditing-record.form.button.create-correction = Crear un registro de auditoría de corrección
+auditor.auditing-record.form.button.confirmation = Confirmación

@@ -58,15 +58,12 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 		Audit object;
 		int id;
-		int courseId;
-		Course course;
+		final int courseId;
+		final Course course;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
 
-		object.setCourse(course);
 		super.getBuffer().setData(object);
 	}
 
@@ -75,7 +72,15 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 		assert object != null;
 
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
+
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+
+		object.setCourse(course);
 
 	}
 

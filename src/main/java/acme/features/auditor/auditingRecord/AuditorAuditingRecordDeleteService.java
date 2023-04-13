@@ -12,7 +12,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditingRecordShowService extends AbstractService<Auditor, AuditingRecord> {
+public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor, AuditingRecord> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -34,16 +34,16 @@ public class AuditorAuditingRecordShowService extends AbstractService<Auditor, A
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
+		int auditingRecordId;
 		Audit audit;
-		Principal principal;
 		int userId;
+		Principal principal;
 
-		id = super.getRequest().getData("id", int.class);
-		audit = this.repository.findOneAuditByAuditingRecordId(id);
+		auditingRecordId = super.getRequest().getData("id", int.class);
+		audit = this.repository.findOneAuditByAuditingRecordId(auditingRecordId);
 		principal = super.getRequest().getPrincipal();
 		userId = principal.getAccountId();
-		status = audit.getAuditor().getUserAccount().getId() == userId;
+		status = audit.isDraftMode() && audit.getAuditor().getUserAccount().getId() == userId;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,12 +60,31 @@ public class AuditorAuditingRecordShowService extends AbstractService<Auditor, A
 	}
 
 	@Override
+	public void bind(final AuditingRecord object) {
+		assert object != null;
+
+		super.bind(object, "subject", "mark");
+	}
+
+	@Override
+	public void validate(final AuditingRecord object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final AuditingRecord object) {
+		assert object != null;
+
+		this.repository.delete(object);
+	}
+
+	@Override
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "subject", "assessment", "periodStartDate", "mark", "periodEndDate", "link");
+		tuple = super.unbind(object, "subject", "mark");
 		tuple.put("masterId", object.getAudit().getId());
 		tuple.put("draftMode", object.getAudit().isDraftMode());
 
