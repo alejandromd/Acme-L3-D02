@@ -6,3 +6,5 @@ authenticated.audit.form.label.conclusion = Conclusión
 authenticated.audit.form.label.strongPoints = Puntos fuertes
 authenticated.audit.form.label.weakPoints = Puntos flojos
 authenticated.audit.form.label.mark = Nota
+
+authenticated.audit.list.label.auditor = Auditor
