@@ -2,6 +2,7 @@
 package acme.features.lecturer.course;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -30,4 +31,9 @@ public interface CourseOfLectureRepository extends AbstractRepository {
 	@Query("select cl from CourseLecture cl where cl.course = :course")
 	Collection<CourseLecture> findCourseLecturesByCourse(Course course);
 
+	@Query("select l from Lecturer l where l.userAccount.id = :id")
+	Lecturer findLecturerByIdUserAccount(int id);
+
+	@Query("select distinct(s.aceptedCurrencies) from SystemConfiguration s")
+	List<String> findAcceptedCurrencies();
 }

@@ -36,4 +36,6 @@ public interface LectureOfLecturerRepository extends AbstractRepository {
 	@Query("select cl from CourseLecture cl where cl.lecture = :lecture")
 	Collection<CourseLecture> findCourseLecturesByLecture(Lecture lecture);
 
+	@Query("select l from Lecturer l where l.userAccount.id = :id")
+	Lecturer findLecturerByIdUserAccount(int id);
 }
