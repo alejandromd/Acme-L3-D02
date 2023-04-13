@@ -22,7 +22,9 @@
 	<acme:input-moment code="auditor.auditing-record.form.label.periodEndDate" path="periodEndDate"/>
 	<acme:input-select code="auditor.auditing-record.form.label.mark" path="mark" choices="${marks}"/>
 	<acme:input-url code="auditor.auditing-record.form.label.link" path="link"/>
-		
+	<jstl:if test="${_command == 'show' && correction == true}">
+		<acme:input-textbox code="auditor.auditing-record.form.label.message" path="message" readonly="true"/>
+	</jstl:if>
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')&& draftMode == true}">
 			<acme:submit code="auditor.auditing-record.form.button.update" action="/auditor/auditing-record/update"/>
@@ -31,10 +33,10 @@
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.auditing-record.form.button.create" action="/auditor/auditing-record/create?masterId=${masterId}"/>
 		</jstl:when>	
-		<jstl:when test="${_command == 'create'&& draftMode == false}">
+		<jstl:when test="${_command == 'create-correction'&& draftMode == false}">
 			<acme:input-checkbox code="auditor.auditing-record.form.button.confirmation" path="confirmation"/>
-			<acme:submit code="auditor.auditing-record.form.button.create-correction" action="/auditor/auditing-record/create?masterId=${masterId}"/>
-		</jstl:when>	
+			<acme:submit code="auditor.auditing-record.form.button.create-correction" action="/auditor/auditing-record/create-correction?masterId=${masterId}"/>
+		</jstl:when>
 	</jstl:choose>
 	
 </acme:form>

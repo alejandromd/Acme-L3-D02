@@ -7,6 +7,7 @@ auditor.auditing-record.form.label.periodStartDate = Momento de comienzo del reg
 auditor.auditing-record.form.label.periodEndDate = Momento de finalización del registro de auditoría
 auditor.auditing-record.form.label.mark = Nota
 auditor.auditing-record.form.label.link = Más información
+auditor.auditing-record.form.label.message = Registro de auditoría de Corrección
 
 auditor.auditing-record.form.button.update = Actualizar
 auditor.auditing-record.form.button.delete = Borrar

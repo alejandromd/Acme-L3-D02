@@ -18,7 +18,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditingRecordCreateService extends AbstractService<Auditor, AuditingRecord> {
+public class AuditorAuditingRecordCreateCorrection extends AbstractService<Auditor, AuditingRecord> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -49,7 +49,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		audit = this.repository.findOneAuditById(masterId);
 		principal = super.getRequest().getPrincipal();
 		userId = principal.getAccountId();
-		status = audit.isDraftMode() && audit.getAuditor().getUserAccount().getId() == userId;
+		status = audit.getAuditor().getUserAccount().getId() == userId;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -64,7 +64,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		audit = this.repository.findOneAuditById(masterId);
 
 		object = new AuditingRecord();
-		object.setCorrection(false);
+		object.setCorrection(true);
 		object.setAudit(audit);
 
 		super.getBuffer().setData(object);
@@ -81,12 +81,17 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void validate(final AuditingRecord object) {
 		assert object != null;
 
+		boolean confirmation;
+
 		if (!super.getBuffer().getErrors().hasErrors("periodEndDate")) {
 			Date minimumPeriod;
 
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getPeriodStartDate(), 1, ChronoUnit.HOURS);
 			super.state(MomentHelper.isAfter(object.getPeriodEndDate(), minimumPeriod), "periodEndDate", "auditor.auditing-record.form.error.too-close");
 		}
+
+		confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override
@@ -107,6 +112,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		tuple = super.unbind(object, "subject", "assessment", "periodStartDate", "periodEndDate", "link");
 		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 		tuple.put("draftMode", object.getAudit().isDraftMode());
+		tuple.put("confirmation", false);
 		tuple.put("marks", choices);
 		tuple.put("mark", choices.getSelected().getKey());
 

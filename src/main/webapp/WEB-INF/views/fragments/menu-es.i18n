@@ -30,6 +30,11 @@ master.menu.anonymous.favourite-link5 = 29533138B : Vargas Castro, Francisco Jos
 master.menu.authenticated = Autentificado
 master.menu.authenticated.note.list = Ver notas
 
+# master.menu.auditor ####################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.audit = Auditorías
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador

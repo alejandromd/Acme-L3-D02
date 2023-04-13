@@ -7,6 +7,7 @@ auditor.auditing-record.form.label.periodStartDate = Starting moment of the audi
 auditor.auditing-record.form.label.periodEndDate = Ending moment of the auditing record
 auditor.auditing-record.form.label.mark = Mark
 auditor.auditing-record.form.label.link = More information
+auditor.auditing-record.form.label.message = Correction auditing record
 
 auditor.auditing-record.form.button.update = Update
 auditor.auditing-record.form.button.delete = Delete
