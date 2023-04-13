@@ -13,3 +13,5 @@ auditor.auditing-record.form.button.delete = Borrar
 auditor.auditing-record.form.button.create = Crear
 auditor.auditing-record.form.button.create-correction = Crear un registro de auditoría de corrección
 auditor.auditing-record.form.button.confirmation = Confirmación
+
+auditor.auditing-record.form.error.too-close = El periodo debe de ser de al menos una hora y el comienzo no puede ocurrir despues del final

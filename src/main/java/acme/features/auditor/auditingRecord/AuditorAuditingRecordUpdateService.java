@@ -18,7 +18,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditingRecordCreateService extends AbstractService<Auditor, AuditingRecord> {
+public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor, AuditingRecord> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -32,7 +32,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -40,13 +40,13 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int auditingRecordId;
 		Audit audit;
 		int userId;
 		Principal principal;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		audit = this.repository.findOneAuditById(masterId);
+		auditingRecordId = super.getRequest().getData("id", int.class);
+		audit = this.repository.findOneAuditByAuditingRecordId(auditingRecordId);
 		principal = super.getRequest().getPrincipal();
 		userId = principal.getAccountId();
 		status = audit.isDraftMode() && audit.getAuditor().getUserAccount().getId() == userId;
@@ -57,14 +57,10 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	@Override
 	public void load() {
 		AuditingRecord object;
-		int masterId;
-		Audit audit;
+		int id;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		audit = this.repository.findOneAuditById(masterId);
-
-		object = new AuditingRecord();
-		object.setAudit(audit);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneAuditingRecordById(id);
 
 		super.getBuffer().setData(object);
 	}
