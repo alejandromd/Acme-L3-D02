@@ -43,9 +43,10 @@ public class Enrolment extends AbstractEntity {
 
 	//Register a valid credit card
 
+	@Length(max = 75)
 	protected String			holderName;
 
-	protected Integer			lowerNibble;
+	protected String			lowerNibble;
 
 	// Derived attributes -----------------------------------------------------
 

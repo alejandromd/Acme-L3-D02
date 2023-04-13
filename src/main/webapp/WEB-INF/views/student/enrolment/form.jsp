@@ -18,7 +18,23 @@
 <acme:form>
 	<acme:input-textbox code="authenticated.enrolment.form.label.code" path="code"/>	
 	<acme:input-textbox code="authenticated.enrolment.form.label.motivation" path="motivation"/>	
-	<acme:input-textbox code="authenticated.enrolment.form.label.goals" path="goals"/>	
-	<acme:input-textbox code="authenticated.enrolment.form.label.student" path="student"/>	
-	<acme:input-textbox code="authenticated.enrolment.form.label.course" path="course"/>	
+	<acme:input-textbox code="authenticated.enrolment.form.label.goals" path="goals"/>
+	<acme:input-textbox code="authenticated.enrolment.form.label.goals" path="draftMode" readonly="true"/>			
+	<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courses}"/>
+	<acme:input-integer code="student.enrolment.form.label.workTime" path="workTime" readonly="true"/>
+		<br>
+	<h3><acme:message code="student.enrolment.form.message.creditCard"/></h3>
+	<acme:input-textbox code="student.enrolment.form.label.creditCardHolder" path="holderName"/>
+	<acme:input-textbox code="student.enrolment.form.label.creditCardNumber" path="lowerNibble"/>
+	
+	<jstl:choose>	 
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|finalise') && draftMode == true}">
+			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
+			<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
+			<acme:submit code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="student.enrolment.form.button.create" action="/student/enrolment/create"/>
+		</jstl:when>		
+	</jstl:choose>
 </acme:form>

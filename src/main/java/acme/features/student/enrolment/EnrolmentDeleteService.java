@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Activity;
+import acme.entities.Course;
 import acme.entities.Enrolment;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -55,6 +57,8 @@ public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> 
 	public void bind(final Enrolment object) {
 		assert object != null;
 		super.bind(object, "code", "motivation", "goals");
+		final Course course = this.repository.findCourseById(super.getRequest().getData("course", int.class));
+		object.setCourse(course);
 	}
 
 	@Override
@@ -77,7 +81,12 @@ public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> 
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "course", "student");
+		final Collection<Course> courses = this.repository.findAllCourses();
+		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
+
+		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
+		tuple.put("course", s.getSelected().getKey());
+		tuple.put("courses", s);
 
 		super.getResponse().setData(tuple);
 	}

@@ -1,11 +1,14 @@
 
 package acme.features.student.enrolment;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Enrolment;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -16,8 +19,6 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 	@Autowired
 	protected EnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------
-
 
 	@Override
 	public void check() {
@@ -26,7 +27,7 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(super.getRequest().getPrincipal().hasRole(Student.class));
 	}
 
 	@Override
@@ -35,10 +36,8 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 		object = new Enrolment();
 
 		final Student student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
-		final Course course = this.repository.findCourseById(super.getRequest().getData("course", int.class));
 
 		object.setStudent(student);
-		object.setCourse(course);
 		object.setDraftMode(true);
 
 		super.getBuffer().setData(object);
@@ -47,12 +46,23 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-		super.bind(object, "code", "motivation", "goals");
+
+		final Course course = this.repository.findCourseById(super.getRequest().getData("course", int.class));
+		object.setCourse(course);
+
+		super.bind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Enrolment enrolment;
+
+			enrolment = this.repository.findEnrolmentByCode(object.getCode());
+			super.state(enrolment == null || enrolment.equals(object), "code", "student.enrolment.form.error.code-duplicated");
+		}
 	}
 
 	@Override
@@ -65,7 +75,14 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 	public void unbind(final Enrolment object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "motivation", "goals", "course", "student");
+
+		final Collection<Course> courses = this.repository.findAllCourses();
+		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
+
+		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
+		tuple.put("course", s.getSelected().getKey());
+		tuple.put("courses", s);
+
 		super.getResponse().setData(tuple);
 	}
 

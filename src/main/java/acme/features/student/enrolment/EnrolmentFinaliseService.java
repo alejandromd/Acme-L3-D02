@@ -1,11 +1,14 @@
 
 package acme.features.student.enrolment;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Enrolment;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -55,17 +58,34 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-		super.bind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
+
+		super.bind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
 
-		if (object.getHolderName() == null)
-			super.state(false, "holderName", "message");
-		if (object.getLowerNibble() == null || object.getLowerNibble().toString().length() != 4)
-			super.state(false, "lowerNibble", "message");
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Enrolment enrolment;
+
+			enrolment = this.repository.findEnrolmentByCode(object.getCode());
+			super.state(enrolment == null || enrolment.equals(object), "code", "student.enrolment.form.error.code-duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("holderName")) {
+			String holderName;
+
+			holderName = super.getRequest().getData("holderName", String.class);
+			super.state(!holderName.equals(""), "holderName", "student.enrolment.form.error.null-creditCardHolder");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("lowerNibble")) {
+			String lowerNibble;
+
+			lowerNibble = super.getRequest().getData("lowerNibble", String.class);
+			super.state(lowerNibble.matches("\\d{4}"), "lowerNibble", "student.enrolment.form.error.null-creditCardHolder");
+		}
 
 	}
 
@@ -80,7 +100,12 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 		assert object != null;
 		Tuple tuple;
 
+		final Collection<Course> courses = this.repository.findAllCourses();
+		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
+
 		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
+		tuple.put("course", s.getSelected().getKey());
+		tuple.put("courses", s);
 
 		super.getResponse().setData(tuple);
 	}

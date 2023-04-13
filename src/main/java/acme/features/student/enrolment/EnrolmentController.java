@@ -26,7 +26,10 @@ public class EnrolmentController extends AbstractController<Student, Enrolment> 
 	protected EnrolmentUpdateService	updateEnrolment;
 
 	@Autowired
-	EnrolmentDeleteService				deleteEnrolment;
+	protected EnrolmentDeleteService	deleteEnrolment;
+
+	@Autowired
+	protected EnrolmentFinaliseService	finaliseEnrolment;
 
 
 	@PostConstruct
@@ -34,8 +37,9 @@ public class EnrolmentController extends AbstractController<Student, Enrolment> 
 		super.addBasicCommand("list", this.findAll);
 		super.addBasicCommand("show", this.showDetails);
 		super.addBasicCommand("create", this.createEnrolment);
-		super.addBasicCommand("update", this.createEnrolment);
-		super.addBasicCommand("delete", this.createEnrolment);
+		super.addBasicCommand("update", this.updateEnrolment);
+		super.addBasicCommand("delete", this.deleteEnrolment);
+		super.addCustomCommand("finalise", "update", this.finaliseEnrolment);
 
 	}
 }

@@ -20,3 +20,4 @@
 	<acme:list-column code="authenticated.enrolment.form.label.motivation" path="motivation"/>
 
 </acme:list>
+<acme:button code="lecturer.course.create" action="/student/enrolment/create"/>
