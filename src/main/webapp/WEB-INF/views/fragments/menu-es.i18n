@@ -15,6 +15,7 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 master.menu.list = Listas
+master.menu.course = Cursos
 
 # master.menu.anonymous #######################################################
 
@@ -49,6 +50,9 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.auditor ####################################################
+master.menu.auditor = Auditor
+master.menu.auditor.audit = Auditoría
 
 # master.menu.authenticated ####################################################
 
@@ -73,11 +77,6 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.authenticated.auditor.become-auditor = Hazte auditor
 master.menu.authenticated.auditor.auditor = Datos de auditor
 
-# master.menu.any.course ####################################################
-
-master.menu.any.course = Cursos
-master.menu.any.list = Lista de cursos 
-
 # master.menu.lecturer ####################################################
 
 master.menu.lecturer = Profesor
@@ -85,7 +84,7 @@ master.menu.lecturer.course = Mis cursos
 master.menu.lecturer.lecture = Mis clases
 master.menu.lecturer.dashboard = Tablero de profesor
 
-# master.menu.authenticated.course ####################################################
+# master.menu.student ####################################################
 
-master.menu.authenticated.course = Cursos
-master.menu.authenticaed.list = Lista de cursos
+master.menu.student = Estudiante
+master.menu.authenticated.course = Cursos para estudiantes

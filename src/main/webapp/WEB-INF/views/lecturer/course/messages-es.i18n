@@ -22,7 +22,8 @@ lecturer.course.form.label.draftMode = Modo borrador
 lecturer.course.error.lecture = Debe añadir alguna clase para publicar el curso
 lecturer.course.error.handsOn = El curso debe contener algunas clases prácticas
 lecturer.course.error.draftMode = No puede haber ninguna clase en modo borrador
-lecturer.course.error.price = El precio debe estar entre 0 (incluido) y 1000000 (no incluido). Las divisas deben ser EUR, GBP ó USD
+lecturer.course.error.price = El precio debe estar entre 0 (incluido) y 1000000 (no incluido)
+lecturer.course.error.currency = Las divisas deben ser EUR, GBP ó USD
 
 lecturer.course.lectures = Clases
 
