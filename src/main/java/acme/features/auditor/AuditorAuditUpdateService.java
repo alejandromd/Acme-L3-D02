@@ -22,7 +22,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Autowired
 	protected AuditorAuditRepository repository;
 
-	// AbstractService<Auditor, Audit> -------------------------------------
+	// AbstractService<Auditor, audit> -------------------------------------
 
 
 	@Override
@@ -36,30 +36,25 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void authorise() {
-
-		Audit object;
-		int id;
-		Principal principal;
-		int userId;
 		boolean status;
+		int masterId;
+		Audit audit;
+		int userId;
+		Principal principal;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneAuditById(id);
+		masterId = super.getRequest().getData("id", int.class);
+		audit = this.repository.findOneAuditById(masterId);
 		principal = super.getRequest().getPrincipal();
 		userId = principal.getAccountId();
-		status = object.getAuditor().getUserAccount().getId() == userId;
+		status = audit != null && audit.isDraftMode() && audit.getAuditor().getUserAccount().getId() == userId;
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
 	public void load() {
-
 		Audit object;
 		int id;
-		final int courseId;
-		final Course course;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
@@ -69,7 +64,6 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void bind(final Audit object) {
-
 		assert object != null;
 
 		int courseId;
@@ -79,14 +73,11 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		course = this.repository.findOneCourseById(courseId);
 
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
-
 		object.setCourse(course);
-
 	}
 
 	@Override
 	public void validate(final Audit object) {
-
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
@@ -96,30 +87,27 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void perform(final Audit object) {
-
 		assert object != null;
 
 		this.repository.save(object);
-
 	}
 
 	@Override
 	public void unbind(final Audit object) {
-
 		assert object != null;
 
-		Tuple tuple;
 		Collection<Course> courses;
 		SelectChoices choices;
+		Tuple tuple;
 
 		courses = this.repository.findCoursesWithoutAudit();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
+
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
-		tuple.put("courses", courses);
 		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
-
 	}
 
 }
