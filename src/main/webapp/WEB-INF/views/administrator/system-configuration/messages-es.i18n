@@ -11,3 +11,4 @@
 administrator.system-configuration.form.label.systemCurrency = Divisa del sistema
 administrator.system-configuration.form.label.acceptedCurrencies = Divisas aceptadas
 administrator.system-configuration.form.button.update = Actualizar
+administrator.system-configuration.form.error.system-currency = La divisa del sistema debe ser una de las divisas aceptadas
