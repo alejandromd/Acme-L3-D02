@@ -28,7 +28,11 @@
 	<acme:input-textbox code="student.enrolment.form.label.creditCardNumber" path="lowerNibble"/>
 	
 	<jstl:choose>	 
+		<jstl:when test="${_command == 'show' && draftMode == false}">
+			<acme:button code="student.enrolment.form.button.activities" action="/student/activity/list?enrolmentId=${id}"/>			
+		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|finalise') && draftMode == true}">
+			<acme:button code="student.enrolment.form.button.activities" action="/student/activity/list?enrolmentId=${id}"/>
 			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 			<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
 			<acme:submit code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise"/>
