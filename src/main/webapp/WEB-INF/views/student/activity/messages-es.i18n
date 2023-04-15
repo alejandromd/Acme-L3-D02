@@ -13,7 +13,7 @@ student.activity.form.label.summary = Resumen:
 student.activity.form.label.type = Tipo:
 student.activity.form.label.startDate = Fecha de inicio:
 student.activity.form.label.endDate = Fecha de fin:
-student.activity.form.label.moreInfo = Más información: (Opcional)
+student.activity.form.label.moreInfo = Más información: 
 
 student.activity.form.button.create = Crear
 student.activity.form.button.update = Actualizar

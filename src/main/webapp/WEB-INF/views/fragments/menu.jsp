@@ -25,11 +25,6 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link4" action="http://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="http://www.facebook.com/"/>
 		</acme:menu-option>
-		
-
-		<acme:menu-option code="master.menu.authenticated.list" access="hasRole('Student')">
-			<acme:menu-suboption code="master.menu.authenticated.course" action="/authenticated/course/list"/>
-		</acme:menu-option>
 
 
 
@@ -75,6 +70,7 @@
 		
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list"/>
+			<acme:menu-suboption code="master.menu.student.course" action="/student/course/list"/>
 		</acme:menu-option>
 		
 

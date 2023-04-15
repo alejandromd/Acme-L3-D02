@@ -90,4 +90,5 @@ master.menu.lecturer.dashboard = Tablero de profesor
 # master.menu.student ####################################################
 
 master.menu.student = Estudiantes
-master.menu.student.enrolment = Lista de inscripciones
+master.menu.student.enrolment = Mis inscripciones
+master.menu.student.course = Lista de cursos

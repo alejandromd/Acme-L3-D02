@@ -16,16 +16,16 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="authenticated.enrolment.form.label.code" path="code"/>	
-	<acme:input-textbox code="authenticated.enrolment.form.label.motivation" path="motivation"/>	
-	<acme:input-textbox code="authenticated.enrolment.form.label.goals" path="goals"/>
-	<acme:input-textbox code="authenticated.enrolment.form.label.goals" path="draftMode" readonly="true"/>			
+	<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>	
+	<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>	
+	<acme:input-textbox code="student.enrolment.form.label.goals" path="goals"/>
+	<acme:input-textbox code="student.enrolment.form.label.draftMode" path="draftMode" readonly="true"/>			
 	<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courses}"/>
 	<acme:input-integer code="student.enrolment.form.label.workTime" path="workTime" readonly="true"/>
 		<br>
 	<h3><acme:message code="student.enrolment.form.message.creditCard"/></h3>
-	<acme:input-textbox code="student.enrolment.form.label.creditCardHolder" path="holderName"/>
-	<acme:input-textbox code="student.enrolment.form.label.creditCardNumber" path="lowerNibble"/>
+	<acme:input-textbox code="student.enrolment.form.label.holderName" path="holderName"/>
+	<acme:input-textbox code="student.enrolment.form.label.lowerNibble" path="lowerNibble"/>
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">

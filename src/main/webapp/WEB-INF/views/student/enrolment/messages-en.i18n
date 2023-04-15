@@ -12,13 +12,12 @@ student.enrolment.form.label.code = Code:
 student.enrolment.form.label.motivation = Motivation:
 student.enrolment.form.label.goals = Goals:
 student.enrolment.form.label.course = Course:
-student.enrolment.form.label.workTime = Work time (hours):
-student.enrolment.form.label.creditCardHolder = Holder name:
-student.enrolment.form.label.creditCardNumber = Card number:
-student.enrolment.form.label.expiryDate = Expiry date:
-student.enrolment.form.label.cvc = CVC:
+student.enrolment.form.label.workTime = Work time (in hours):
+student.enrolment.form.label.holderName = Holder name:
+student.enrolment.form.label.lowerNibble = Lower Nibble(the last 4 digits):
+student.enrolment.form.label.draftMode = Draft mode:
 
-student.enrolment.form.message.creditCard = Provide a valid credit card if you want to finalise the enrolment:
+student.enrolment.form.message.creditCard = Provide a valid credit card to finalise this enrolment:
 
 student.enrolment.form.button.activities = Activities
 student.enrolment.form.button.update = Update
@@ -26,18 +25,12 @@ student.enrolment.form.button.delete = Delete
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.form.button.create = Create
 
-student.enrolment.form.error.null-creditCardHolder = Enter the card holder
-student.enrolment.form.error.code-duplicated = This code is taken
-student.enrolment.form.error.wrong-cardNumber = The card number must be composed of 16 digits
-student.enrolment.form.error.card-expired = This card is expired
-student.enrolment.form.error.null-expiryDate = Enter the expiry date
-student.enrolment.form.error.wrong-cvc = The CVC must be composed of 3 digits 
+student.enrolment.form.error.null-holderName = Enter a card holder name
+student.enrolment.form.error.code-duplicated = This code is duplicated
+student.enrolment.form.error.wrong-lowerNibble = The lower nibble must have 4 digits
 
 student.enrolment.list.label.code = Code
 student.enrolment.list.label.motivation = Motivation
-student.enrolment.list.label.goals = Goals
-student.enrolment.list.label.course = Course
-student.enrolment.list.label.workTime = Work time (hours)
 
 student.enrolment.list.button.create = Create
 

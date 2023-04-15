@@ -77,14 +77,14 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 			String holderName;
 
 			holderName = super.getRequest().getData("holderName", String.class);
-			super.state(!holderName.equals(""), "holderName", "student.enrolment.form.error.null-creditCardHolder");
+			super.state(!holderName.equals(""), "holderName", "student.enrolment.form.error.null-holderName");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("lowerNibble")) {
 			String lowerNibble;
 
 			lowerNibble = super.getRequest().getData("lowerNibble", String.class);
-			super.state(lowerNibble.matches("\\d{4}"), "lowerNibble", "student.enrolment.form.error.null-creditCardHolder");
+			super.state(lowerNibble.matches("\\d{4}"), "lowerNibble", "student.enrolment.form.error.wrong-lowerNibble");
 		}
 
 	}
