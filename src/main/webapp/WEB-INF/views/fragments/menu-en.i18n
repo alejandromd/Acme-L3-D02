@@ -80,6 +80,11 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.any.course = Courses
 master.menu.any.list = List of courses
 
+# master.menu.any.peep ####################################################
+
+master.menu.any.peep = Peeps
+master.menu.any.peep.list = List of peeps
+
 # master.menu.authenticated.course ####################################################
 
 master.menu.authenticated.course = Courses as student
