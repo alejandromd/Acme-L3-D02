@@ -20,26 +20,29 @@ public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> 
 	@Autowired
 	protected EnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------
-
 
 	@Override
 	public void check() {
 		boolean status;
+
 		status = super.getRequest().hasData("id", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		Enrolment object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
+		boolean status;
+		int masterId;
+		Enrolment enrolment;
+		Student student;
 
-		object = this.repository.findEnrolmentById(id);
-		final int userId = super.getRequest().getPrincipal().getAccountId();
+		masterId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(masterId);
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = enrolment != null && enrolment.getDraftMode() && super.getRequest().getPrincipal().hasRole(student);
 
-		super.getResponse().setAuthorised(object.getStudent().getUserAccount().getId() == userId && object.getDraftMode());
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -56,8 +59,13 @@ public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> 
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
+
+		Course course;
+
+		final int id = super.getRequest().getData("course", int.class);
+		course = this.repository.findCourseById(id);
+
 		super.bind(object, "code", "motivation", "goals");
-		final Course course = this.repository.findCourseById(super.getRequest().getData("course", int.class));
 		object.setCourse(course);
 	}
 
@@ -68,23 +76,25 @@ public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> 
 
 	@Override
 	public void perform(final Enrolment object) {
-
 		assert object != null;
+
 		final Collection<Activity> activities = this.repository.findActivitiesByEnrolment(object);
-		for (final Activity a : activities)
-			this.repository.delete(a);
+
+		this.repository.deleteAll(activities);
 		this.repository.delete(object);
 	}
 
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
+
+		Collection<Course> courses;
 		Tuple tuple;
 
-		final Collection<Course> courses = this.repository.findAllCourses();
+		courses = this.repository.findAllCourses();
 		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
+		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");
 		tuple.put("course", s.getSelected().getKey());
 		tuple.put("courses", s);
 
