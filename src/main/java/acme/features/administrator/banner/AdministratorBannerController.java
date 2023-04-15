@@ -19,11 +19,23 @@ public class AdministratorBannerController extends AbstractController<Administra
 	@Autowired
 	protected AdministratorBannerService		showDetails;
 
+	@Autowired
+	protected AdministratorBannerCreateService	createBanner;
+
+	@Autowired
+	protected AdministratorBannerUpdateService	updateBanner;
+
+	@Autowired
+	protected AdministratorBannerDeleteService	deleteBanner;
+
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.findAll);
 		super.addBasicCommand("show", this.showDetails);
+		super.addBasicCommand("create", this.createBanner);
+		super.addBasicCommand("update", this.updateBanner);
+		super.addBasicCommand("delete", this.deleteBanner);
 	}
 
 }

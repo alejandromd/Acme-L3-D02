@@ -8,12 +8,20 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.bulletin.instantiationMoment = Instantiation Moment
-administrator.bulletin.title = Title
-administrator.bulletin.message = Message
-administrator.bulletin.critical = Critical
-administrator.bulletin.link = link with more information
-administrator.bulletin.confirmation = Confirm
-administrator.bulletin.button.create = Post
+administrator.banner.form.label.moment = Instantiation moment:
+administrator.banner.form.label.slogan = Slogan:
+administrator.banner.form.label.displayStart = Begin period:
+administrator.banner.form.label.displayEnd = Finish period:
+administrator.banner.form.label.picture = Picture:
+administrator.banner.form.label.target = Link with further information:
 
-administrator.bulletin.error.confirmation = You must confirm to be able to publish it as a bulletin cannot be deleted or edited.
+administrator.banner.form.button.update = Update
+administrator.banner.form.button.delete = Delete
+administrator.banner.form.button.create = Create
+
+administrator.banner.form.error.wrong-displayStart = The display period must start after the current date
+administrator.banner.form.error.wrong-displayEnd = The display period must last for one week or more
+
+administrator.banner.list.label.slogan = Slogan
+
+administrator.banner.list.button.create = Create
