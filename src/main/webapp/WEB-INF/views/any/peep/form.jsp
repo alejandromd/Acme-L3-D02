@@ -15,7 +15,14 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:list>
-	<acme:list-column code ="authenticated.audit.list.label.code" path="code" width="20%"/>
-	<acme:list-column code ="authenticated.audit.list.label.conclusion" path="conclusion" width="20%"/>
-</acme:list>
+<acme:form> 
+	<acme:input-moment code="any.peep.form.label.moment" path="instantiationMoment" readonly="true"/>
+	<acme:input-textbox code="any.peep.form.label.title" path="title"/>
+	<acme:input-textbox code="any.peep.form.label.nick" path="nick"/>
+	<acme:input-textarea code="any.peep.form.label.message" path="message"/>
+	<acme:input-email code="any.peep.form.label.email" path="email"/>
+	<acme:input-url code="any.peep.form.label.moreInfo" path="link"/>
+	
+	<acme:submit test="${_command == 'create'}" code="any.peep.form.button.create" action="/any/peep/create"/>
+	
+</acme:form>

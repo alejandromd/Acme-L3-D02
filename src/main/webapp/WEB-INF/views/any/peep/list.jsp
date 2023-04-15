@@ -1,5 +1,5 @@
 <%--
-- form.jsp
+- list.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
 -
@@ -16,6 +16,8 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code ="authenticated.audit.list.label.code" path="code" width="20%"/>
-	<acme:list-column code ="authenticated.audit.list.label.conclusion" path="conclusion" width="20%"/>
+	<acme:list-column code="any.peep.list.label.moment" path="instantiationMoment" width="20%"/>
+	<acme:list-column code="any.peep.list.label.title" path="title" width="50%"/>
 </acme:list>
+
+<acme:button code="any.peep.list.button.create" action="/any/peep/create"/>

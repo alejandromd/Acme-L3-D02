@@ -38,9 +38,11 @@
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.authenticated.course" action="/authenticated/course/list"/>
 		</acme:menu-option>
-
 		
-		
+		<acme:menu-option code="master.menu.any.peep">
+			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
+		</acme:menu-option>
+			
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
