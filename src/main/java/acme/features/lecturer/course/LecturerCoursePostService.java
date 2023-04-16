@@ -1,6 +1,7 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -70,6 +71,16 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 
 			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
 			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			final Double amount = object.getRetailPrice().getAmount();
+			super.state(amount >= 0 && amount < 1000000, "retailPrice", "lecturer.course.error.price");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			final String aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
+			final List<String> currencies = Arrays.asList(aceptedCurrencies.split(","));
+			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.error.currency");
+			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", aceptedCurrencies);
 		}
 	}
 

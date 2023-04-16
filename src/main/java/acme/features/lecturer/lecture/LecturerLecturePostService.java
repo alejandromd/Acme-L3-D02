@@ -55,6 +55,11 @@ public class LecturerLecturePostService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
+			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			if (!super.getBuffer().getErrors().hasErrors("lectureType"))
+				super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.nature");
 	}
 
 	@Override
