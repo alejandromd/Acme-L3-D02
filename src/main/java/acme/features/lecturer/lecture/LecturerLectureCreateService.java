@@ -13,36 +13,36 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LectureOfLecturerPostService extends AbstractService<Lecturer, Lecture> {
+public class LecturerLectureCreateService extends AbstractService<Lecturer, Lecture> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LectureOfLecturerRepository repository;
+	protected LecturerLectureRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-		status = super.getRequest().hasData("id", int.class);
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		Lecture object;
-		final int id = super.getRequest().getData("id", int.class);
-		object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		final Lecturer lecturer = this.repository.findLecturerByIdUserAccount(userAccountId);
+		super.getResponse().setAuthorised(lecturer != null);
 	}
 
 	@Override
 	public void load() {
 		Lecture object;
-		final int id = super.getRequest().getData("id", int.class);
-		object = this.repository.findLectureById(id);
+		object = new Lecture();
+		object.setDraftMode(true);
+		final Lecturer lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}
 
@@ -55,18 +55,23 @@ public class LectureOfLecturerPostService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
+			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			if (!super.getBuffer().getErrors().hasErrors("lectureType"))
+				super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.nature");
 	}
 
 	@Override
 	public void perform(final Lecture object) {
-		object.setDraftMode(false);
+		assert object != null;
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode");
+		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getLectureType());
 		tuple.put("lectureType", choices.getSelected().getKey());

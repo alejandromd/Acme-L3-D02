@@ -17,10 +17,10 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class CourseOfLecturePostService extends AbstractService<Lecturer, Course> {
+public class LecturerCoursePostService extends AbstractService<Lecturer, Course> {
 
 	@Autowired
-	protected CourseOfLectureRepository repository;
+	protected LecturerCourseRepository repository;
 
 	// AbstractService<Employer, Job> -------------------------------------
 

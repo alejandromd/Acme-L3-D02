@@ -14,7 +14,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerDashboardService extends AbstractService<Lecturer, LecturerDashboard> {
+public class LecturerDashboardShowService extends AbstractService<Lecturer, LecturerDashboard> {
 
 	@Autowired
 	protected LecturerDashboardRepository repository;

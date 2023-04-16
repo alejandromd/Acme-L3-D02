@@ -9,7 +9,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 
 @Repository
-public interface LecturerRepository extends AbstractRepository {
+public interface AuthenticatedLecturerRepository extends AbstractRepository {
 
 	@Query("select u from UserAccount u where u.id = :id")
 	UserAccount findUserAccountById(int id);

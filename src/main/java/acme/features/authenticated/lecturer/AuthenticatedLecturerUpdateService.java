@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
-import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
@@ -14,11 +13,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class CreateLecturerService extends AbstractService<Authenticated, Lecturer> {
+public class AuthenticatedLecturerUpdateService extends AbstractService<Authenticated, Lecturer> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerRepository repository;
+	protected AuthenticatedLecturerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,7 +31,7 @@ public class CreateLecturerService extends AbstractService<Authenticated, Lectur
 	@Override
 	public void authorise() {
 		boolean status;
-		status = !super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -40,20 +40,16 @@ public class CreateLecturerService extends AbstractService<Authenticated, Lectur
 		Lecturer object;
 		Principal principal;
 		int userAccountId;
-		UserAccount userAccount;
-
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findUserAccountById(userAccountId);
-
-		object = new Lecturer();
-		object.setUserAccount(userAccount);
+		object = this.repository.findLecturerByUserAccountId(userAccountId);
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Lecturer object) {
 		assert object != null;
+
 		super.bind(object, "almaMater", "resume", "qualifications", "link");
 	}
 
@@ -71,7 +67,7 @@ public class CreateLecturerService extends AbstractService<Authenticated, Lectur
 	@Override
 	public void unbind(final Lecturer object) {
 		assert object != null;
-		final Tuple tuple;
+		Tuple tuple;
 		tuple = super.unbind(object, "almaMater", "resume", "qualifications", "link");
 		super.getResponse().setData(tuple);
 	}

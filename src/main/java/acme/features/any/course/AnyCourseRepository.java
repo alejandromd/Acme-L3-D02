@@ -11,7 +11,7 @@ import acme.entities.Lecture;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface CourseRepository extends AbstractRepository {
+public interface AnyCourseRepository extends AbstractRepository {
 
 	@Query("select c from Course c where c.draftMode = false and c.id = :id ")
 	Course findCourseById(int id);

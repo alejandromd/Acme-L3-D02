@@ -12,10 +12,10 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LectureOfLecturerFindAllService extends AbstractService<Lecturer, Lecture> {
+public class LecturerLectureFindAllService extends AbstractService<Lecturer, Lecture> {
 
 	@Autowired
-	protected LectureOfLecturerRepository repository;
+	protected LecturerLectureRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 

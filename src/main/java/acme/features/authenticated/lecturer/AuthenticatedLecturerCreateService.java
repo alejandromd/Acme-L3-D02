@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
@@ -13,12 +14,11 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class UpdateLecturerService extends AbstractService<Authenticated, Lecturer> {
-
+public class AuthenticatedLecturerCreateService extends AbstractService<Authenticated, Lecturer> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerRepository repository;
+	protected AuthenticatedLecturerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,8 +31,10 @@ public class UpdateLecturerService extends AbstractService<Authenticated, Lectur
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		super.getResponse().setAuthorised(status);
+		boolean isAuthenticated;
+		isAuthenticated = super.getRequest().getPrincipal().isAuthenticated();
+		status = !super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		super.getResponse().setAuthorised(status && isAuthenticated);
 	}
 
 	@Override
@@ -40,16 +42,20 @@ public class UpdateLecturerService extends AbstractService<Authenticated, Lectur
 		Lecturer object;
 		Principal principal;
 		int userAccountId;
+		UserAccount userAccount;
+
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		object = this.repository.findLecturerByUserAccountId(userAccountId);
+		userAccount = this.repository.findUserAccountById(userAccountId);
+
+		object = new Lecturer();
+		object.setUserAccount(userAccount);
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Lecturer object) {
 		assert object != null;
-
 		super.bind(object, "almaMater", "resume", "qualifications", "link");
 	}
 
@@ -67,7 +73,7 @@ public class UpdateLecturerService extends AbstractService<Authenticated, Lectur
 	@Override
 	public void unbind(final Lecturer object) {
 		assert object != null;
-		Tuple tuple;
+		final Tuple tuple;
 		tuple = super.unbind(object, "almaMater", "resume", "qualifications", "link");
 		super.getResponse().setData(tuple);
 	}
