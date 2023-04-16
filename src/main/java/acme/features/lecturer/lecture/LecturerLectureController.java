@@ -11,28 +11,28 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Lecturer;
 
 @Controller
-public class LectureOfLecturerController extends AbstractController<Lecturer, Lecture> {
+public class LecturerLectureController extends AbstractController<Lecturer, Lecture> {
 
 	@Autowired
-	protected LectureOfLecturerListService		listService;
+	protected LecturerLectureListService		listService;
 
 	@Autowired
-	protected LectureOfLecturerShowService		showService;
+	protected LecturerLectureShowService		showService;
 
 	@Autowired
-	protected LectureOfLecturerFindAllService	listAllService;
+	protected LecturerLectureFindAllService	listAllService;
 
 	@Autowired
-	protected LectureOfLecturerCreateService	createService;
+	protected LecturerLectureCreateService	createService;
 
 	@Autowired
-	protected LectureOfLecturerUpdateService	updateService;
+	protected LecturerLectureUpdateService	updateService;
 
 	@Autowired
-	protected LectureOfLecturerPostService		publishService;
+	protected LecturerLecturePostService		publishService;
 
 	@Autowired
-	protected LectureOfLecturerDeleteService	deleteService;
+	protected LecturerLectureDeleteService	deleteService;
 
 
 	@PostConstruct

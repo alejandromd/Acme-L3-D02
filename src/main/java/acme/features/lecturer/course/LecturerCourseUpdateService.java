@@ -17,10 +17,10 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class CourseOfLectureUpdateService extends AbstractService<Lecturer, Course> {
+public class LecturerCourseUpdateService extends AbstractService<Lecturer, Course> {
 
 	@Autowired
-	protected CourseOfLectureRepository repository;
+	protected LecturerCourseRepository repository;
 
 
 	@Override
@@ -67,6 +67,7 @@ public class CourseOfLectureUpdateService extends AbstractService<Lecturer, Cour
 			final String aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
 			final List<String> currencies = Arrays.asList(aceptedCurrencies.split(","));
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.error.currency");
+			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", aceptedCurrencies);
 		}
 	}
 

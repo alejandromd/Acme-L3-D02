@@ -11,13 +11,13 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Lecturer;
 
 @Controller
-public class LecturerController extends AbstractController<Authenticated, Lecturer> {
+public class AuthenticatedLecturerController extends AbstractController<Authenticated, Lecturer> {
 
 	@Autowired
-	protected CreateLecturerService	createService;
+	protected AuthenticatedLecturerCreateService	createService;
 
 	@Autowired
-	protected UpdateLecturerService	updateService;
+	protected AuthenticatedLecturerUpdateService	updateService;
 
 
 	@PostConstruct

@@ -14,10 +14,10 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class CourseService extends AbstractService<Any, Course> {
+public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 	@Autowired
-	protected CourseRepository repository;
+	protected AnyCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -32,9 +32,11 @@ public class CourseService extends AbstractService<Any, Course> {
 	@Override
 	public void authorise() {
 		Course object;
+		boolean status;
+		status = super.getRequest().getPrincipal().isAuthenticated();
 		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		super.getResponse().setAuthorised(!object.isDraftMode());
+		super.getResponse().setAuthorised(!object.isDraftMode() && status);
 	}
 
 	@Override
