@@ -1,0 +1,9 @@
+auditor.dashboard.form.label.totalNumberOfAudits = Total number of audits
+auditor.dashboard.form.label.averageNumberOfAuditingRecordsAudit = Average number of auditing records per audit
+auditor.dashboard.form.label.deviationNumberOfAuditingRecordsAudit = Deviation number of auditing records per audit
+auditor.dashboard.form.label.minimunNumberOfAuditingRecordsAudit = Minimum number of auditing records per audit
+auditor.dashboard.form.label.maximunNumberOfAuditingRecordsAudit = Maximum number of auditing records per audit
+auditor.dashboard.form.label.averageTimeOfPeriodLengthsAuditingRecords = Average time length of auditing records
+auditor.dashboard.form.label.deviationTimeOfPeriodLengthsAuditingRecords = Deviation time length of auditing records
+auditor.dashboard.form.label.minimunTimeOfPeriodLengthsAuditingRecords = Minimum time length of auditing records
+auditor.dashboard.form.label.maximunTimeOfPeriodLengthsAuditingRecords = Maximum time length of auditing records

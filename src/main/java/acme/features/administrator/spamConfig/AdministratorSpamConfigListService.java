@@ -1,23 +1,20 @@
 
-package acme.features.auditor;
-
-import java.util.Collection;
+package acme.features.administrator.spamConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Audit;
-import acme.framework.components.accounts.Principal;
+import acme.entities.SpamConfig;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
+public class AdministratorSpamConfigListService extends AbstractService<Administrator, SpamConfig> {
 
 	// Internal state ---------------------------------------------------------
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AdministratorSpamConfigRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,24 +31,20 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void load() {
-		Collection<Audit> objects;
-		int auditorId;
-		Principal principal;
+		SpamConfig object;
 
-		principal = super.getRequest().getPrincipal();
-		auditorId = principal.getAccountId();
-		objects = this.repository.findAuditsByAuditorId(auditorId);
-		super.getBuffer().setData(objects);
+		object = this.repository.findOneSpamConfig();
+		super.getBuffer().setData(object);
 
 	}
 
 	@Override
-	public void unbind(final Audit object) {
+	public void unbind(final SpamConfig object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "mark", "conclusion");
+		tuple = super.unbind(object, "threshold");
 
 		super.getResponse().setData(tuple);
 	}

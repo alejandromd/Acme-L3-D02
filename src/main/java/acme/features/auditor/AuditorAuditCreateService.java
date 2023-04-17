@@ -12,6 +12,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import filter.SpamFilter;
 
 @Service
 public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
@@ -78,6 +79,8 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(this.repository.findAuditByCode(object.getCode()) == null, "code", "auditor.audit.form.error.code");
+		if (!super.getBuffer().getErrors().hasErrors("conclusion"))
+			super.state(!SpamFilter.antiSpamFilter(object.getConclusion(), this.repository.findThreshold()), "conclusion", "auditor.audit.form.error.spam");
 
 	}
 
