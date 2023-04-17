@@ -1,6 +1,7 @@
 
 package acme.features.any.peep;
 
+import java.time.Instant;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,7 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 	@Override
 	public void perform(final Peep object) {
 		assert object != null;
-
+		object.setInstantiationMoment(Date.from(Instant.now()));
 		this.repository.save(object);
 	}
 
