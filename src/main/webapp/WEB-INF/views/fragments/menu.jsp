@@ -31,15 +31,10 @@
 			<acme:menu-suboption code="master.menu.course" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.note.list" action="/authenticated/note/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
-		</acme:menu-option>
-
-
-
-		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
-			<acme:menu-suboption code="master.menu.authenticated.course" action="/authenticated/course/list"/>
+			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.any.peep">
+		<acme:menu-option code="master.menu.any.peep" access="!isAuthenticated()">
 			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
 		</acme:menu-option>
 			
