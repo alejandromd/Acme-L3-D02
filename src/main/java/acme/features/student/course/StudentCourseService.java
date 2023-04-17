@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.course;
+package acme.features.student.course;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,15 +9,15 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Lecture;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
-public class AuthenticatedCourseService extends AbstractService<Authenticated, Course> {
+public class StudentCourseService extends AbstractService<Student, Course> {
 
 	@Autowired
-	protected AuthenticatedCourseRepository repository;
+	protected StudentCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 

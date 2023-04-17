@@ -83,14 +83,12 @@ master.menu.authenticated.auditor.auditor = Auditor data
 master.menu.any.peep = Peeps
 master.menu.any.peep.list = List of peeps
 
-# master.menu.authenticated.course ####################################################
+# master.menu.student ####################################################
 
+master.menu.student = Students
+master.menu.student.enrolment = My enrolments
+master.menu.student.course = List of courses
 master.menu.lecturer = Lecturer
 master.menu.lecturer.course = My courses
 master.menu.lecturer.lecture = My lectures
 master.menu.lecturer.dashboard = Lecturer dashboard
-
-# master.menu.student ####################################################
-
-master.menu.student = Studiant
-master.menu.authenticated.course = Courses for students

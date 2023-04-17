@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
@@ -87,5 +87,7 @@ master.menu.lecturer.dashboard = Tablero de profesor
 
 # master.menu.student ####################################################
 
-master.menu.student = Estudiante
+master.menu.student = Estudiantes
+master.menu.student.enrolment = Mis inscripciones
+master.menu.student.course = Lista de cursos
 master.menu.authenticated.course = Cursos para estudiantes
