@@ -23,4 +23,8 @@
 	<acme:input-textbox code="any.course.form.label.link" path="link"/>	
 	<acme:input-textbox code="any.course.form.label.almaMater" path="almaMater"/>	
 	<acme:input-textbox code="any.course.form.label.courseType" path="courseType"/>
+	
+	<acme:check-access test="isAuthenticated()">
+		<acme:button code="any.audit.form.button.list" action="/authenticated/audit/list?masterId=${id}"/>
+	</acme:check-access>
 </acme:form>

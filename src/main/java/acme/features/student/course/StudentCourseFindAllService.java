@@ -33,7 +33,7 @@ public class StudentCourseFindAllService extends AbstractService<Student, Course
 	@Override
 	public void load() {
 		Collection<Course> objects;
-		objects = this.repository.findAllCourses();
+		objects = this.repository.findAllCoursesPublished();
 		super.getBuffer().setData(objects);
 	}
 

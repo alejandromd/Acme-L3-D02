@@ -39,4 +39,6 @@ public interface LecturerDashboardRepository extends AbstractRepository {
 	@Query("select sum(l.estimatedLearningTime) from Course c join CourseLecture cl on c = cl.course join Lecture l on cl.lecture = l where c.lecturer = :lecturer group by c")
 	Collection<Double> findEstimatedLearningTimeByCourse(Lecturer lecturer);
 
+	@Query("select l from Lecturer l where l.userAccount.id = :id")
+	Lecturer findLecturerByIdUserAccount(int id);
 }

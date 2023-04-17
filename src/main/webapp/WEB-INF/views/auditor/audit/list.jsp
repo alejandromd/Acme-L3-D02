@@ -16,7 +16,8 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code ="authenticated.audit.list.label.code" path="code" width="20%"/>
-	<acme:list-column code ="authenticated.audit.list.label.mark" path="mark" width="20%"/>
-	<acme:list-column code ="authenticated.audit.list.label.conclusion" path="conclusion" width="20%"/>
+	<acme:list-column code ="auditor.audit.list.label.code" path="code" width="20%"/>
+	<acme:list-column code ="auditor.audit.list.label.mark" path="mark" width="20%"/>
+	<acme:list-column code ="auditor.audit.list.label.conclusion" path="conclusion" width="20%"/>
 </acme:list>
+<acme:button code="auditor.audit.create" action="/auditor/audit/create"/>

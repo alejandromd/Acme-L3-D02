@@ -24,7 +24,7 @@ public interface CourseLectureRepository extends AbstractRepository {
 	@Query("select c from Course c where c.id = :id")
 	Course findCourseById(int id);
 
-	@Query("select c from Course c inner join CourseLecture cl on c = cl.course inner join Lecture l on cl.lecture = l where l = :lecture")
+	@Query("select c from Course c inner join CourseLecture cl on c = cl.course inner join Lecture l on cl.lecture = l where l = :lecture and c.draftMode = true")
 	Collection<Course> findCourseByLecture(Lecture lecture);
 
 	@Query("select c from Course c where c.draftMode = true and c.lecturer = :lecturer")

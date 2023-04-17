@@ -19,5 +19,4 @@
 	<acme:list-column code="authenticated.course.form.label.title" path="title"/>
 	<acme:list-column code="authenticated.course.form.label.summary" path="summary"/>
 	<acme:list-column code="authenticated.course.form.label.retailPrice" path="retailPrice"/>
-
 </acme:list>

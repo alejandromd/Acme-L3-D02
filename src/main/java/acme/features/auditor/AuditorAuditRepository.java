@@ -25,8 +25,8 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select c from Course c where c.id = :courseId")
 	Course findOneCourseById(int courseId);
 
-	@Query("select a from Auditor a where a.id = :auditorId")
-	Auditor findOneAuditorById(int auditorId);
+	@Query("select a from Auditor a where a.id = :id")
+	Auditor findOneAuditorById(int id);
 
 	@Query("select au from Audit au where au.code = :code")
 	Audit findAuditByCode(String code);
@@ -37,7 +37,7 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select ar from AuditingRecord ar where ar.audit = :audit")
 	Collection<AuditingRecord> findAuditingRecordsByAudit(Audit audit);
 
-	@Query("select ar.mark from AuditingRecord ar where ar.audit.id = :auditId")
-	Collection<Mark> findMarkByAuditId(int auditId);
+	@Query("select ar.mark from AuditingRecord ar where ar.audit.id = :id")
+	Collection<Mark> findMarkByAuditId(int id);
 
 }

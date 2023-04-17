@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Bulletin;
 import acme.framework.components.accounts.Administrator;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -29,7 +30,10 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		final Administrator admin = this.repository.findAdminById(userAccountId);
+		super.getResponse().setAuthorised(admin != null);
 	}
 
 	@Override
@@ -43,7 +47,7 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 	@Override
 	public void bind(final Bulletin object) {
 		assert object != null;
-		super.bind(object, "instantiationMoment", "title", "message", "critical", "link");
+		super.bind(object, "title", "message", "critical", "link");
 	}
 
 	@Override
@@ -63,7 +67,7 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 	@Override
 	public void unbind(final Bulletin object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "instantiationMoment", "title", "message", "critical", "link");
+		final Tuple tuple = super.unbind(object, "title", "message", "critical", "link");
 		tuple.put("confirmation", false);
 		super.getResponse().setData(tuple);
 

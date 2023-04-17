@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.Nature;
 import acme.entities.Course;
 import acme.entities.Lecture;
 import acme.framework.components.models.Tuple;
@@ -54,15 +53,14 @@ public class StudentCourseService extends AbstractService<Student, Course> {
 
 	@Override
 	public void unbind(final Course object) {
+
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link");
+		final Tuple tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link");
 		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
-		final Nature nature = object.courseTypeNature(lectures);
 		tuple.put("almaMater", object.getLecturer().getAlmaMater());
-		tuple.put("nature", nature);
+		tuple.put("courseType", object.courseTypeNature(lectures));
 		for (final Lecture l : lectures)
-			tuple.put("title", l.getTitle());
+			tuple.put("lecture", l.getTitle());
 
 		super.getResponse().setData(tuple);
 	}
