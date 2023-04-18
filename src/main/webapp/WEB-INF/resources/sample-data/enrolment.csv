@@ -1,4 +1,4 @@
-key,code,motivation,goals,draftMode,holderName,lowerNibble,key:student,key:course
+key,code,motivation,goals,draft_mode,holder_name,lower_nibble,key:student,key:course
 enrolment-01,AAA111,Learn English,Improve your English level,true,Student1,1234,student-01,course-01
 enrolment-02,BC121,L,Improve your mathematical skills,true,null,null,student-02,course-02
 enrolment-03,BC122,Este mensaje tiene setenta y cinco caracteres se usa para validar mensajes.,Improve your mathematical skills,null,null,null,student-03,course-02
