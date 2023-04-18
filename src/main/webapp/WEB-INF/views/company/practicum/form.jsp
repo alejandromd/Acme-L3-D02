@@ -6,8 +6,9 @@
 <acme:form> 
 	<acme:input-textbox code="company.practicum.form.label.code" path="code"/>
 	<acme:input-textbox code="company.practicum.form.label.title" path="title"/>
-	<acme:input-textarea code="company.practicum.form.label.recap" path="recap"/>
+	<acme:input-textarea code="company.practicum.form.label.recap" path="summary"/>
 	<acme:input-textbox code="company.practicum.form.label.goals" path="goals"/>
+	<acme:input-select code = "company.practicum.form.label.course" path="course" choices="${courses}"/>
 	<acme:input-integer readonly = "true" code="company.practicum.form.label.totalTime" path="totalTime"/>
 	
 	<jstl:choose>

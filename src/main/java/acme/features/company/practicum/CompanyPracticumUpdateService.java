@@ -1,10 +1,14 @@
 
 package acme.features.company.practicum;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.Course;
 import acme.entities.Practicum;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -82,10 +86,15 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 	public void unbind(final Practicum object) {
 		assert object != null;
 
-		Tuple tuple;
+		final Tuple tuple;
+		Collection<Course> courses;
+		SelectChoices choices;
 
-		tuple = super.unbind(object, "code", "title", "summary", "goals", "draftMode");
-
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+		tuple = super.unbind(object, "title", "summary", "goals", "draftMode");
+		tuple.put("courses", choices);
+		tuple.put("course", choices.getSelected().getKey());
 		super.getResponse().setData(tuple);
 	}
 
