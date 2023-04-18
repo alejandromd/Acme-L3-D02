@@ -1,5 +1,5 @@
 key,code,title,summary,goals,draft_mode,key:company,key:course
-practicum-01,SAD359,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
+practicum-01,SAD359,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",true,company-01,course-01
 practicum-02,SA339,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
 practicum-03,S339,titulo pequeño,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
 practicum-04,SAD329,t,pequeña descripcion,"crecer, expandir, aprender",false,company-01,course-01
