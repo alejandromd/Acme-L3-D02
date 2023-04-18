@@ -14,7 +14,7 @@ import acme.roles.Lecturer;
 public class LecturerDashboardController extends AbstractController<Lecturer, LecturerDashboard> {
 
 	@Autowired
-	protected LecturerDashboardService showService;
+	protected LecturerDashboardShowService showService;
 
 	// Constructors -----------------------------------------------------------
 

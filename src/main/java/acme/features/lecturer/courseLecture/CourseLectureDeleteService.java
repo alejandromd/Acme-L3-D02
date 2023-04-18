@@ -63,7 +63,7 @@ public class CourseLectureDeleteService extends AbstractService<Lecturer, Course
 
 	@Override
 	public void validate(final CourseLecture object) {
-		assert object != null;
+		super.state(object.getCourse() != null, "course", "lecturer.courseLecture.form.error.course.null");
 		if (!super.getBuffer().getErrors().hasErrors("course"))
 			super.state(object.getCourse().isDraftMode(), "course", "lecturer.courseLecture.form.error.course");
 	}
