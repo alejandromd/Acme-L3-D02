@@ -39,6 +39,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.banner.list = List banners
 
 # master.menu.provider ########################################################
 
@@ -77,14 +78,17 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.authenticated.auditor.become-auditor = Become a auditor
 master.menu.authenticated.auditor.auditor = Auditor data
 
-# master.menu.authenticated.course ####################################################
+# master.menu.any.peep ####################################################
 
+master.menu.any.peep = Peeps
+master.menu.any.peep.list = List of peeps
+
+# master.menu.student ####################################################
+
+master.menu.student = Students
+master.menu.student.enrolment = My enrolments
+master.menu.student.course = List of courses
 master.menu.lecturer = Lecturer
 master.menu.lecturer.course = My courses
 master.menu.lecturer.lecture = My lectures
 master.menu.lecturer.dashboard = Lecturer dashboard
-
-# master.menu.student ####################################################
-
-master.menu.student = Studiant
-master.menu.authenticated.course = Courses for students
