@@ -1,3 +1,4 @@
+
 package acme.entities;
 
 import javax.persistence.Column;
@@ -42,6 +43,8 @@ public class Tutorial extends AbstractEntity {
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
+
+	protected boolean			draftMode;
 
 	// Derived attributes ----------------------------------------------------
 
