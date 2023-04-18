@@ -54,7 +54,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void validate(final Lecture object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
-			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTIme");
+			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
 		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
 			super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.nature");
 	}
