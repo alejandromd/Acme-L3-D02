@@ -16,6 +16,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import filter.SpamFilter;
 
 @Service
 public class AuditorAuditingRecordCreateCorrection extends AbstractService<Auditor, AuditingRecord> {
@@ -92,6 +93,10 @@ public class AuditorAuditingRecordCreateCorrection extends AbstractService<Audit
 
 		confirmation = super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+		if (!super.getBuffer().getErrors().hasErrors("subject"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSubject(), this.repository.findThreshold()), "subject", "auditor.auditing-record.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("assessment"))
+			super.state(!SpamFilter.antiSpamFilter(object.getAssessment(), this.repository.findThreshold()), "assessment", "auditor.auditing-record.form.error.spam");
 	}
 
 	@Override

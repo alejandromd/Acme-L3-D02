@@ -16,6 +16,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import filter.SpamFilter;
 
 @Service
 public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor, AuditingRecord> {
@@ -82,6 +83,10 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getPeriodStartDate(), 1, ChronoUnit.HOURS);
 			super.state(MomentHelper.isAfter(object.getPeriodEndDate(), minimumPeriod), "periodEndDate", "auditor.auditing-record.form.error.too-close");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("subject"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSubject(), this.repository.findThreshold()), "subject", "auditor.auditing-record.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("assessment"))
+			super.state(!SpamFilter.antiSpamFilter(object.getAssessment(), this.repository.findThreshold()), "assessment", "auditor.auditing-record.form.error.spam");
 	}
 
 	@Override

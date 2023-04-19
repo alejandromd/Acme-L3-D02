@@ -25,4 +25,7 @@ public interface AuditorAuditingRecordRepository extends AbstractRepository {
 	@Query("select ar from AuditingRecord ar where ar.id = :id")
 	AuditingRecord findOneAuditingRecordById(int id);
 
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
+
 }

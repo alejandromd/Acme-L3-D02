@@ -14,5 +14,6 @@ auditor.auditing-record.form.button.delete = Delete
 auditor.auditing-record.form.button.create = Create
 auditor.auditing-record.form.button.create-correction = Create a correctional auditing record
 auditor.auditing-record.form.button.confirmation = Confirmation
+auditor.auditing-record.form.error.spam = This message is considered spam
 
 auditor.auditing-record.form.error.too-close = The period must be at least one hour long and the start period can not be after the end period
