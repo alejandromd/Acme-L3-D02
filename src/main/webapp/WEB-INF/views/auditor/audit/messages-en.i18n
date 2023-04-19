@@ -12,6 +12,7 @@ auditor.audit.form.label.weakPoints = Weak points
 auditor.audit.form.label.mark = Marks
 
 auditor.audit.form.error.code = The code already exists
+auditor.audit.form.error.spam = The message is considered spam
 auditor.audit.form.button.auditing-records = Auditing records
 
 auditor.audit.form.button.delete = Delete

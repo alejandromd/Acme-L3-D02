@@ -54,7 +54,7 @@ public class LecturerDashboard extends AbstractForm {
 		if (!values.isEmpty()) {
 			aux = 0.0;
 			for (final Double value : values)
-				aux += Math.pow(value + this.averageTimeOfCourses, 2);
+				aux += Math.pow(value - this.averageTimeOfCourses, 2);
 			res = Math.sqrt(aux / values.size());
 		}
 		this.deviationTimeOfCourses = res;

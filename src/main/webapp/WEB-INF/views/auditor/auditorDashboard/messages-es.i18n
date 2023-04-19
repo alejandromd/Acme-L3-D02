@@ -1,0 +1,9 @@
+auditor.dashboard.form.label.totalNumberOfAudits = Numero total de auditorías
+auditor.dashboard.form.label.averageNumberOfAuditingRecordsAudit = Media de registros de auditorias por auditoría
+auditor.dashboard.form.label.deviationNumberOfAuditingRecordsAudit = Desviación tipica de registros de auditorias por auditoría
+auditor.dashboard.form.label.minimunNumberOfAuditingRecordsAudit = Mínimo de registros de auditorias por auditoría
+auditor.dashboard.form.label.maximunNumberOfAuditingRecordsAudit = Máximo de registros de auditorias por auditoría
+auditor.dashboard.form.label.averageTimeOfPeriodLengthsAuditingRecords = Media de duración de los registros de auditorías
+auditor.dashboard.form.label.deviationTimeOfPeriodLengthsAuditingRecords = Desviación típica de duración de los registros de auditorías
+auditor.dashboard.form.label.minimunTimeOfPeriodLengthsAuditingRecords = Mínimo de duración de los registros de auditorías
+auditor.dashboard.form.label.maximunTimeOfPeriodLengthsAuditingRecords = Máximo de duración de los registros de auditorías
