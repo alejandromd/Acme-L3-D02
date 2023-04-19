@@ -11,6 +11,7 @@ auditor.audit.form.label.code = Código
 auditor.audit.form.label.conclusion = Conclusión
 
 auditor.audit.form.error.code = El código ya existe
+auditor.audit.form.error.spam = El mensaje es considerado spam
 auditor.audit.form.button.auditing-records = Registros de la auditoría
 
 auditor.audit.form.button.delete = Borrar
