@@ -40,4 +40,7 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select ar.mark from AuditingRecord ar where ar.audit.id = :id")
 	Collection<Mark> findMarkByAuditId(int id);
 
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
+
 }
