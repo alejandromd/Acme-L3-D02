@@ -51,12 +51,8 @@ public class AuthenticatedAuditListService extends AbstractService<Authenticated
 		assert object != null;
 
 		Tuple tuple;
-		String auditor;
-
-		auditor = object.getAuditor().getUserAccount().getUsername();
 
 		tuple = super.unbind(object, "code", "conclusion");
-		tuple.put("auditor", auditor);
 
 		super.getResponse().setData(tuple);
 	}

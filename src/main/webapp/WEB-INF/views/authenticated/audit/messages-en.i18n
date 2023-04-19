@@ -7,4 +7,4 @@ authenticated.audit.form.label.strongPoints = Strong Points
 authenticated.audit.form.label.weakPoints = Weak Points
 authenticated.audit.form.label.mark = Mark
 
-authenticated.audit.list.label.auditor = Auditor
+authenticated.audit.form.label.auditor = Auditor
