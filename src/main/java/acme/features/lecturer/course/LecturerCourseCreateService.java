@@ -12,6 +12,7 @@ import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
+import filter.SpamFilter;
 
 @Service
 public class LecturerCourseCreateService extends AbstractService<Lecturer, Course> {
@@ -63,6 +64,11 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.error.currency");
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", aceptedCurrencies);
 		}
+		if (!super.getBuffer().getErrors().hasErrors("summary"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSummary(), this.repository.findThreshold()), "summary", "lecturer.course.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "lecturer.course.error.spam");
+
 	}
 
 	@Override

@@ -15,3 +15,5 @@ authenticated.lecturer.form.label.link = Link with more information
 
 authenticated.lecturer.form.button.create = Create
 authenticated.lecturer.form.button.update = Update
+
+authenticated.lecturer.error.spam = This text is considered spam

@@ -13,6 +13,7 @@ import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
+import filter.SpamFilter;
 
 @Service
 public class AdministratorBulletinPostService extends AbstractService<Administrator, Bulletin> {
@@ -55,6 +56,10 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 		assert object != null;
 		final boolean confirmation = super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "administrator.bulletin.error.confirmation");
+		if (!super.getBuffer().getErrors().hasErrors("message"))
+			super.state(!SpamFilter.antiSpamFilter(object.getMessage(), this.repository.findThreshold()), "message", "administrator.bulletin.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "administrator.bulletin.error.spam");
 	}
 
 	@Override

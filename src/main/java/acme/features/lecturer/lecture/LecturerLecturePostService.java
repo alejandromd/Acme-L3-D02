@@ -11,6 +11,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
+import filter.SpamFilter;
 
 @Service
 public class LecturerLecturePostService extends AbstractService<Lecturer, Lecture> {
@@ -57,9 +58,15 @@ public class LecturerLecturePostService extends AbstractService<Lecturer, Lectur
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
 			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
+		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
+			super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.nature");
+		if (!super.getBuffer().getErrors().hasErrors("summary"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSummary(), this.repository.findThreshold()), "summary", "lecturer.lecture.error.spam");
 		if (!super.getBuffer().getErrors().hasErrors("title"))
-			if (!super.getBuffer().getErrors().hasErrors("lectureType"))
-				super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.nature");
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "lecturer.lecture.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("body"))
+			super.state(!SpamFilter.antiSpamFilter(object.getBody(), this.repository.findThreshold()), "body", "lecturer.lecture.error.spam");
+
 	}
 
 	@Override

@@ -29,3 +29,5 @@ lecturer.lecture.form.button.update = Update
 lecturer.lecture.form.button.delete = Delete
 lecturer.lecture.form.button.publish = Publish
 lecturer.lecture.form.button.create = Create
+
+lecturer.lecture.error.spam = This text is considered spam
