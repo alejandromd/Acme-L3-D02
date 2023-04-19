@@ -30,10 +30,12 @@ public class AuthenticatedBulletinShowService extends AbstractService<Authentica
 	@Override
 	public void authorise() {
 		Bulletin object;
+		boolean status;
+		status = super.getRequest().getPrincipal().isAuthenticated();
 		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findBulletinById(id);
 		final Date date = new Date();
-		super.getResponse().setAuthorised(date.compareTo(object.getInstantiationMoment()) > 0);
+		super.getResponse().setAuthorised(date.compareTo(object.getInstantiationMoment()) > 0 && status);
 	}
 
 	@Override

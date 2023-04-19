@@ -12,6 +12,7 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import filter.SpamFilter;
 
 @Service
 public class AuthenticatedAuditorCreateService extends AbstractService<Authenticated, Auditor> {
@@ -68,6 +69,10 @@ public class AuthenticatedAuditorCreateService extends AbstractService<Authentic
 
 		if (!super.getBuffer().getErrors().hasErrors("professionalId"))
 			super.state(this.repository.findOneAuditorByProfessionalId(object.getProfessionalId()) == null, "professionalId", "authenticated.auditor.form.error.professionalId");
+		if (!super.getBuffer().getErrors().hasErrors("certifications"))
+			super.state(!SpamFilter.antiSpamFilter(object.getCertifications(), this.repository.findThreshold()), "certifications", "auditor.audit.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("firm"))
+			super.state(!SpamFilter.antiSpamFilter(object.getFirm(), this.repository.findThreshold()), "firm", "auditor.audit.form.error.spam");
 	}
 
 	@Override

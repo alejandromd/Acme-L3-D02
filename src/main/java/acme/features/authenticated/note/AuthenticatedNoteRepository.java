@@ -23,4 +23,7 @@ public interface AuthenticatedNoteRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
 
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
+
 }

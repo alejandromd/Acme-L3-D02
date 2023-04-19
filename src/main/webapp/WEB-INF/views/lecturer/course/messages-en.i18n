@@ -22,7 +22,8 @@ lecturer.course.form.label.draftMode = Draft mode
 lecturer.course.error.lecture = Must add some lecture to publish the course
 lecturer.course.error.handsOn = The course should contain some lecture hands on
 lecturer.course.error.draftMode = There cannot be any lecture in draft mode
-lecturer.course.error.price = The price must be between 0 (inclusive) and 1000000 (not inclusive). Currencies must be EUR, GBP or USD
+lecturer.course.error.price = The price must be between 0 (inclusive) and 1000000 (not inclusive)
+lecturer.course.error.currency = Invalid currency, enter one of the following currencies
 
 lecturer.course.lectures = Lectures
 
