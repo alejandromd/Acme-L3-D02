@@ -91,7 +91,7 @@ public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> 
 		Collection<Course> courses;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findPublishedCourses();
 		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");
