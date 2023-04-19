@@ -38,4 +38,7 @@ public interface LecturerLectureRepository extends AbstractRepository {
 
 	@Query("select l from Lecturer l where l.userAccount.id = :id")
 	Lecturer findLecturerByIdUserAccount(int id);
+
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
 }

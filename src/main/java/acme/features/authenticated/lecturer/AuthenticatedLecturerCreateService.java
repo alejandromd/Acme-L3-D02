@@ -12,6 +12,7 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
+import filter.SpamFilter;
 
 @Service
 public class AuthenticatedLecturerCreateService extends AbstractService<Authenticated, Lecturer> {
@@ -62,6 +63,13 @@ public class AuthenticatedLecturerCreateService extends AbstractService<Authenti
 	@Override
 	public void validate(final Lecturer object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("almaMater"))
+			super.state(!SpamFilter.antiSpamFilter(object.getAlmaMater(), this.repository.findThreshold()), "almaMater", "authenticated.lecturer.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("qualifications"))
+			super.state(!SpamFilter.antiSpamFilter(object.getQualifications(), this.repository.findThreshold()), "qualifications", "authenticated.lecturer.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("resume"))
+			super.state(!SpamFilter.antiSpamFilter(object.getResume(), this.repository.findThreshold()), "resume", "authenticated.lecturer.error.spam");
+
 	}
 
 	@Override

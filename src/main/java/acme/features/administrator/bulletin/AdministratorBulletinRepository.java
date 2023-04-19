@@ -21,4 +21,7 @@ public interface AdministratorBulletinRepository extends AbstractRepository {
 
 	@Query("select a from Administrator a where a.userAccount.id = :id")
 	Administrator findAdminById(int id);
+
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
 }
