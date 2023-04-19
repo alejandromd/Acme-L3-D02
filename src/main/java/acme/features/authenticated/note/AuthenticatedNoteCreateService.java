@@ -13,6 +13,7 @@ import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
+import filter.SpamFilter;
 
 @Service
 public class AuthenticatedNoteCreateService extends AbstractService<Authenticated, Note> {
@@ -67,6 +68,11 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 		confirmation = super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "auditor.audit.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("message"))
+			super.state(!SpamFilter.antiSpamFilter(object.getMessage(), this.repository.findThreshold()), "message", "auditor.audit.form.error.spam");
+
 	}
 
 	@Override
