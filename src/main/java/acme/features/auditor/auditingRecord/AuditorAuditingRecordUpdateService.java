@@ -77,7 +77,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 	public void validate(final AuditingRecord object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("periodEndDate")) {
+		if (!super.getBuffer().getErrors().hasErrors("periodEndDate") && !super.getBuffer().getErrors().hasErrors("periodStartDate")) {
 			Date minimumPeriod;
 
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getPeriodStartDate(), 1, ChronoUnit.HOURS);
