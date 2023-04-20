@@ -2,6 +2,8 @@
 package acme.entities;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import acme.framework.data.AbstractEntity;
@@ -17,6 +19,8 @@ public class SpamConfig extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotNull
+	@Min(0)
+	@Max(100)
 	protected Double			threshold;
 
 }
