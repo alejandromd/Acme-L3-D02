@@ -30,6 +30,9 @@ public interface EnrolmentRepository extends AbstractRepository {
 	@Query("select c from Course c")
 	Collection<Course> findAllCourses();
 
+	@Query("select c from Course c where c.draftMode = false")
+	Collection<Course> findPublishedCourses();
+
 	@Query("select a from Activity a where a.enrolment = :e")
 	Collection<Activity> findActivitiesByEnrolment(Enrolment e);
 

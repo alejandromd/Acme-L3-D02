@@ -53,7 +53,7 @@ public class EnrolmentService extends AbstractService<Student, Enrolment> {
 		assert object != null;
 		Tuple tuple;
 
-		final Collection<Course> courses = this.repository.findAllCourses();
+		final Collection<Course> courses = this.repository.findPublishedCourses();
 		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
 
 		final int workTime = this.getWorkTime(object);

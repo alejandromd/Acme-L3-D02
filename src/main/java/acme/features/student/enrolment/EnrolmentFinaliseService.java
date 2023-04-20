@@ -100,7 +100,7 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 		assert object != null;
 		Tuple tuple;
 
-		final Collection<Course> courses = this.repository.findAllCourses();
+		final Collection<Course> courses = this.repository.findPublishedCourses();
 		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
