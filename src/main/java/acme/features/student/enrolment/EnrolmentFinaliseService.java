@@ -12,6 +12,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
+import filter.SpamFilter;
 
 @Service
 public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
@@ -86,6 +87,13 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 			lowerNibble = super.getRequest().getData("lowerNibble", String.class);
 			super.state(lowerNibble.matches("\\d{4}"), "lowerNibble", "student.enrolment.form.error.wrong-lowerNibble");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("motivation"))
+			super.state(!SpamFilter.antiSpamFilter(object.getMotivation(), this.repository.findThreshold()), "motivation", "student.enrolment.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("goals"))
+			super.state(!SpamFilter.antiSpamFilter(object.getGoals(), this.repository.findThreshold()), "goals", "student.enrolment.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("holderName"))
+			super.state(!SpamFilter.antiSpamFilter(object.getHolderName(), this.repository.findThreshold()), "holderName", "student.enrolment.error.spam");
 
 	}
 

@@ -12,6 +12,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
+import filter.SpamFilter;
 
 @Service
 public class ActivityCreateService extends AbstractService<Student, Activity> {
@@ -68,6 +69,11 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
 			super.state(MomentHelper.isBefore(object.getStartPeriod(), object.getEndPeriod()), "endPeriod", "student.activity.form.error.wrong-dates");
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "student.activity.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("summary"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSummary(), this.repository.findThreshold()), "summary", "student.activity.error.spam");
+
 	}
 
 	@Override

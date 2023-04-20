@@ -13,6 +13,7 @@ import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
+import filter.SpamFilter;
 
 @Service
 public class AnyPeepPublishService extends AbstractService<Any, Peep> {
@@ -61,6 +62,13 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 	@Override
 	public void validate(final Peep object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "any.peep.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("nick"))
+			super.state(!SpamFilter.antiSpamFilter(object.getNick(), this.repository.findThreshold()), "nick", "any.peep.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("message"))
+			super.state(!SpamFilter.antiSpamFilter(object.getMessage(), this.repository.findThreshold()), "message", "any.peep.error.spam");
 	}
 
 	@Override

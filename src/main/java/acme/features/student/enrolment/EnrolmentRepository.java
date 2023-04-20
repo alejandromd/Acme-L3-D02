@@ -39,4 +39,7 @@ public interface EnrolmentRepository extends AbstractRepository {
 	@Query("select e from Enrolment e where e.code = :code")
 	Enrolment findEnrolmentByCode(String code);
 
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
+
 }

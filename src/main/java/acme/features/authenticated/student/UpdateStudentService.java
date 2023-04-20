@@ -11,6 +11,7 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
+import filter.SpamFilter;
 
 @Service
 public class UpdateStudentService extends AbstractService<Authenticated, Student> {
@@ -57,6 +58,13 @@ public class UpdateStudentService extends AbstractService<Authenticated, Student
 	@Override
 	public void validate(final Student object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("statement"))
+			super.state(!SpamFilter.antiSpamFilter(object.getStatement(), this.repository.findThreshold()), "statement", "authenticated.student.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("strongFeatures"))
+			super.state(!SpamFilter.antiSpamFilter(object.getStrongFeatures(), this.repository.findThreshold()), "strongFeatures", "authenticated.student.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("weakFeatures"))
+			super.state(!SpamFilter.antiSpamFilter(object.getWeakFeatures(), this.repository.findThreshold()), "weakFeatures", "authenticated.student.error.spam");
 	}
 
 	@Override

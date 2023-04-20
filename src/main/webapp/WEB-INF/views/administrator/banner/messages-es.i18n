@@ -27,3 +27,5 @@ administrator.banner.form.error.wrong-update = El banner no se puede actualizar 
 administrator.banner.list.label.slogan = Eslogan
 
 administrator.banner.list.button.create = Crear
+
+administrator.banner.error.spam = Este texto se considera spam

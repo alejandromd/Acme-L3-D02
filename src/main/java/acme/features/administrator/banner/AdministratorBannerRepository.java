@@ -18,4 +18,7 @@ public interface AdministratorBannerRepository extends AbstractRepository {
 	@Query("select b from Banner b")
 	Collection<Banner> findAllBanners();
 
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
+
 }

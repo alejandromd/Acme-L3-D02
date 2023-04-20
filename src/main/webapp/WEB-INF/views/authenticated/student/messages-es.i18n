@@ -15,3 +15,5 @@ authenticated.student.form.label.weakFeatures = Lista de cualidades débiles
 
 authenticated.student.form.button.create = Crear
 authenticated.student.form.button.update = Actualizar 
+
+authenticated.student.error.spam = Este texto se considera spam

@@ -13,6 +13,7 @@ import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
+import filter.SpamFilter;
 
 @Service
 public class AdministratorBannerUpdateService extends AbstractService<Administrator, Banner> {
@@ -79,6 +80,8 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 			super.state(MomentHelper.isAfterOrEqual(object.getDisplayPeriodFinish(), startOneWeek), "displayPeriodFinish", "administrator.banner.form.error.wrong-displayEnd");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("slogan"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSlogan(), this.repository.findThreshold()), "slogan", "administrator.banner.error.spam");
 	}
 
 	@Override
