@@ -79,6 +79,11 @@ master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.authenticated.auditor.become-auditor = Hazte auditor
 master.menu.authenticated.auditor.auditor = Datos de auditor
 
+# master.menu.any.peep ####################################################
+
+master.menu.any.peep = Peeps
+master.menu.any.peep.list = Lista de peeps
+
 # master.menu.lecturer ####################################################
 
 master.menu.lecturer = Profesor
@@ -92,9 +97,3 @@ master.menu.student = Estudiantes
 master.menu.student.dashboard = Tablero del estudiante 
 master.menu.student.enrolment = Mis inscripciones
 master.menu.student.course = Lista de cursos
-
-# master.menu.any.peep ####################################################
-
-master.menu.any.peep = Peeps
-master.menu.any.peep.list = Lista de peeps
-
