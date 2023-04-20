@@ -27,3 +27,5 @@ student.activity.list.label.startDate = Start period
 student.activity.list.label.endDate = End period
 
 student.activity.list.button.create = Create
+
+student.activity.error.spam = This text is considered spam

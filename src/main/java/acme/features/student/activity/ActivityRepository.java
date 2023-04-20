@@ -24,4 +24,7 @@ public interface ActivityRepository extends AbstractRepository {
 
 	@Query("select a.enrolment from Activity a where a.id = :id")
 	Enrolment findEnrolmentByActivityId(int id);
+
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
 }

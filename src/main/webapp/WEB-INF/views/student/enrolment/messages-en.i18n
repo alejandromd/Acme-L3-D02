@@ -34,4 +34,6 @@ student.enrolment.list.label.motivation = Motivation
 
 student.enrolment.list.button.create = Create
 
+student.enrolment.error.spam = This text is considered spam
+
 

@@ -18,4 +18,7 @@ public interface AnyPeepRepository extends AbstractRepository {
 	@Query("select p from Peep p where p.id = :id")
 	Peep findPeepById(int id);
 
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
+
 }

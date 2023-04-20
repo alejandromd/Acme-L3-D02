@@ -12,6 +12,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
+import filter.SpamFilter;
 
 @Service
 public class EnrolmentCreateService extends AbstractService<Student, Enrolment> {
@@ -63,6 +64,14 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 			enrolment = this.repository.findEnrolmentByCode(object.getCode());
 			super.state(enrolment == null || enrolment.equals(object), "code", "student.enrolment.form.error.code-duplicated");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("motivation"))
+			super.state(!SpamFilter.antiSpamFilter(object.getMotivation(), this.repository.findThreshold()), "motivation", "student.enrolment.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("goals"))
+			super.state(!SpamFilter.antiSpamFilter(object.getGoals(), this.repository.findThreshold()), "goals", "student.enrolment.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("holderName"))
+			if (object.getHolderName() != "")
+				super.state(!SpamFilter.antiSpamFilter(object.getHolderName(), this.repository.findThreshold()), "holderName", "student.enrolment.error.spam");
+
 	}
 
 	@Override
