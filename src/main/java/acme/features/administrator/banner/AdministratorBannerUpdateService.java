@@ -1,6 +1,7 @@
 
 package acme.features.administrator.banner;
 
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -54,6 +55,13 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin")) {
+			Date date;
+			date = Date.from(Instant.now());
+			super.state(!(date.after(object.getDisplayPeriodBegin()) && date.before(object.getDisplayPeriodFinish())), "displayPeriodBegin", "administrator.banner.form.error.wrong-update");
+		}
+		super.state(MomentHelper.isFuture(object.getDisplayPeriodBegin()), "displayPeriodBegin", "administrator.banner.form.error.wrong-displayStart");
 
 		if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin"))
 			super.state(MomentHelper.isFuture(object.getDisplayPeriodBegin()), "displayPeriodBegin", "administrator.banner.form.error.wrong-displayStart");
