@@ -21,6 +21,7 @@ administrator.banner.form.button.create = Create
 
 administrator.banner.form.error.wrong-displayStart = The display period must start after the current date
 administrator.banner.form.error.wrong-displayEnd = The display period must last for one week or more
+administrator.banner.form.error.wrong-update = The banner cannot be update while the display period
 
 administrator.banner.list.label.slogan = Slogan
 
