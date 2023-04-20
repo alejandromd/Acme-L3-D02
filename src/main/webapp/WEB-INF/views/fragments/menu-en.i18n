@@ -88,9 +88,14 @@ master.menu.any.peep.list = List of peeps
 # master.menu.student ####################################################
 
 master.menu.student = Students
+master.menu.student.dashboard = Student Dashboard
 master.menu.student.enrolment = My enrolments
 master.menu.student.course = List of courses
+
+# master.menu.lecturer ####################################################
+
 master.menu.lecturer = Lecturer
 master.menu.lecturer.course = My courses
 master.menu.lecturer.lecture = My lectures
 master.menu.lecturer.dashboard = Lecturer dashboard
+
