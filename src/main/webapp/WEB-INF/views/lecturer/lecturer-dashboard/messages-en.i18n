@@ -12,9 +12,9 @@
 lecturer.course.form.label.totalLectures = Total number of lectures
 lecturer.course.form.label.averageTimeOfLectures = Average time of lectures
 lecturer.course.form.label.deviationTimeOfLectures = Deviation time of lectures
-lecturer.course.form.label.minimumTimeOfLectures = Minimun time of lectures
-lecturer.course.form.label.maximumTimeOfLectures = Maximun time of lectures
+lecturer.course.form.label.minimumTimeOfLectures = Minimum time of lectures
+lecturer.course.form.label.maximumTimeOfLectures = Maximum time of lectures
 lecturer.course.form.label.averageTimeOfCourses = Average time of courses
 lecturer.course.form.label.deviationTimeOfCourses = Deviation time of courses
-lecturer.course.form.label.minimumTimeOfCourses = Minimun time of courses
-lecturer.course.form.label.maximumTimeOfCourses = Maximun time of courses
+lecturer.course.form.label.minimumTimeOfCourses = Minimum time of courses
+lecturer.course.form.label.maximumTimeOfCourses = Maximum time of courses

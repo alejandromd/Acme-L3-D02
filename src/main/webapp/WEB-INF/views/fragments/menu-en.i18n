@@ -42,7 +42,6 @@ master.menu.administrator.shut-down = Shut down
 master.menu.administrator.spam-config.list = Spam configuration
 master.menu.administrator.banner.list = List banners
 
-
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -85,13 +84,6 @@ master.menu.authenticated.auditor.auditor = Auditor data
 master.menu.any.peep = Peeps
 master.menu.any.peep.list = List of peeps
 
-# master.menu.student ####################################################
-
-master.menu.student = Students
-master.menu.student.dashboard = Student Dashboard
-master.menu.student.enrolment = My enrolments
-master.menu.student.course = List of courses
-
 # master.menu.lecturer ####################################################
 
 master.menu.lecturer = Lecturer
@@ -99,3 +91,9 @@ master.menu.lecturer.course = My courses
 master.menu.lecturer.lecture = My lectures
 master.menu.lecturer.dashboard = Lecturer dashboard
 
+# master.menu.student ####################################################
+
+master.menu.student = Students
+master.menu.student.dashboard = Student Dashboard
+master.menu.student.enrolment = My enrolments
+master.menu.student.course = List of courses
