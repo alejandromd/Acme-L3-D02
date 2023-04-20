@@ -88,7 +88,7 @@ public class AuditorAuditingRecordCreateCorrection extends AbstractService<Audit
 			Date minimumPeriod;
 
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getPeriodStartDate(), 1, ChronoUnit.HOURS);
-			super.state(MomentHelper.isAfter(object.getPeriodEndDate(), minimumPeriod), "periodEndDate", "auditor.auditing-record.form.error.too-close");
+			super.state(MomentHelper.isAfterOrEqual(object.getPeriodEndDate(), minimumPeriod), "periodEndDate", "auditor.auditing-record.form.error.too-close");
 		}
 
 		confirmation = super.getRequest().getData("confirmation", boolean.class);

@@ -81,7 +81,7 @@ public class AuditorAuditingRecordUpdateService extends AbstractService<Auditor,
 			Date minimumPeriod;
 
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getPeriodStartDate(), 1, ChronoUnit.HOURS);
-			super.state(MomentHelper.isAfter(object.getPeriodEndDate(), minimumPeriod), "periodEndDate", "auditor.auditing-record.form.error.too-close");
+			super.state(MomentHelper.isAfterOrEqual(object.getPeriodEndDate(), minimumPeriod), "periodEndDate", "auditor.auditing-record.form.error.too-close");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("subject"))
 			super.state(!SpamFilter.antiSpamFilter(object.getSubject(), this.repository.findThreshold()), "subject", "auditor.auditing-record.form.error.spam");
