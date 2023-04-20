@@ -1,20 +1,20 @@
 key,code,motivation,goals,draft_mode,holder_name,lower_nibble,key:student,key:course
 enrolment-01,AAA111,Learn English,Improve your English level,true,Student1,1234,student-01,course-01
 enrolment-02,BC121,L,Improve your mathematical skills,true,null,null,student-02,course-02
-enrolment-03,BC122,Este mensaje tiene setenta y cinco caracteres se usa para validar mensajes.,Improve your mathematical skills,null,null,null,student-03,course-02
-enrolment-04,BC134,!@#$%&/()=?¿,Improve your mathematical skills,null,null,null,student-04,course-02
+enrolment-03,BC122,Este mensaje tiene setenta y cinco caracteres se usa para validar mensajes.,Improve your mathematical skills,false,null,null,student-03,course-02
+enrolment-04,BC134,!@#$%&/()=?¿,Improve your mathematical skills,true,null,null,student-04,course-02
 enrolment-05,BC167,שלום פקק,Improve your mathematical skills,true,null,null,student-05,course-02
 enrolment-06,BC143,Learn Math,I,true,Student 2,3456,student-02,course-01
-enrolment-07,BC133,Learn Math,Este mensaje tiene cien caracteres usado para validar cadenas con cien de longitud maximo y minimoss,null,null,null,student-02,course-01
-enrolment-08,BC234,Learn Math,輛黃色拖拉機,null,null,null,student-02,course-01
-enrolment-09,BC987,Learn Math,!@#$%&/()=?¿,null,Student2,3456,student-08,course-02
-enrolment-10,BC113,Learn Math,שלום פקק,null,null,null,student-11,course-02
-enrolment-11,BC345,Learn Math,Improve your mathematical skills,null,null,null,student-02,course-02
-enrolment-12,BC654,Learn Math,Improve your mathematical skills,null,null,null,student-02,course-02
-enrolment-13,AAA222,Learn English,Improve your English level,null,null,null,student-01,course-01
-enrolment-14,AAA333,Learn English,Improve your English level,null,null,null,student-01,course-01
-enrolment-15,AAA444,Learn English,Improve your English level,null,null,null,student-01,course-01
-enrolment-16,AAA555,Learn English,Improve your English level,null,null,null,student-01,course-01
-enrolment-17,AAA666,Learn English,Improve your English level,null,null,null,student-01,course-01
-enrolment-18,AAA777,Learn English,Improve your English level,null,null,null,student-01,course-01
-enrolment-19,AAA888,Learn English,Improve your English level,null,null,null,student-01,course-01
+enrolment-07,BC133,Learn Math,Este mensaje tiene cien caracteres usado para validar cadenas con cien de longitud maximo y minimoss,false,null,null,student-02,course-01
+enrolment-08,BC234,Learn Math,輛黃色拖拉機,false,null,null,student-02,course-01
+enrolment-09,BC987,Learn Math,!@#$%&/()=?¿,false,Student2,3456,student-08,course-02
+enrolment-10,BC113,Learn Math,שלום פקק,true,null,null,student-11,course-02
+enrolment-11,BC345,Learn Math,Improve your mathematical skills,true,null,null,student-02,course-02
+enrolment-12,BC654,Learn Math,Improve your mathematical skills,false,null,null,student-02,course-02
+enrolment-13,AAA222,Learn English,Improve your English level,false,null,null,student-01,course-01
+enrolment-14,AAA333,Learn English,Improve your English level,false,null,null,student-01,course-01
+enrolment-15,AAA444,Learn English,Improve your English level,true,null,null,student-01,course-01
+enrolment-16,AAA555,Learn English,Improve your English level,true,null,null,student-01,course-01
+enrolment-17,AAA666,Learn English,Improve your English level,true,null,null,student-01,course-01
+enrolment-18,AAA777,Learn English,Improve your English level,false,null,null,student-01,course-01
+enrolment-19,AAA888,Learn English,Improve your English level,false,null,null,student-01,course-01
