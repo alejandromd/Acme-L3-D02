@@ -8,8 +8,28 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.enrolment.form.label.code = Código
-authenticated.enrolment.form.label.motivation = Motivación
-authenticated.enrolment.form.label.goals = Objetivos
-authenticated.enrolment.form.label.student = Estudiante propietario de la inscripción
-authenticated.enrolment.form.label.course = Curso de la inscripción
+student.enrolment.form.label.code = Código:
+student.enrolment.form.label.motivation = Motivación:
+student.enrolment.form.label.goals = Objetivos:
+student.enrolment.form.label.course = Curso:
+student.enrolment.form.label.workTime = Tiempo de trabajo (en horas):
+student.enrolment.form.label.holderName = Nombre en la tarjeta:
+student.enrolment.form.label.lowerNibble = Últimos 4 digitos:
+student.enrolment.form.label.draftMode = Modo borrador:
+
+student.enrolment.form.message.creditCard = Introduce una trajeta de crédito válida para finalizar la inscripción:
+
+student.enrolment.form.button.activities = Actividades
+student.enrolment.form.button.update = Actualizar
+student.enrolment.form.button.delete = Eliminar
+student.enrolment.form.button.finalise = Finalizar
+student.enrolment.form.button.create = Crear
+
+student.enrolment.form.error.null-holderName = Introduce un nombre para la tarjeta
+student.enrolment.form.error.code-duplicated = Este código está duplicado
+student.enrolment.form.error.wrong-lowerNibble = Debes introducir 4 digitos
+
+student.enrolment.list.label.code = Código
+student.enrolment.list.label.motivation = Motivación
+
+student.enrolment.list.button.create = Crear

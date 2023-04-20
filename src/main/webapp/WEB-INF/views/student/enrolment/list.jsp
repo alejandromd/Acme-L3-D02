@@ -16,8 +16,8 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.enrolment.form.label.code" path="code"/>
-	<acme:list-column code="authenticated.enrolment.form.label.motivation" path="motivation"/>
+	<acme:list-column code="student.enrolment.list.label.code" path="code"/>
+	<acme:list-column code="student.enrolment.list.label.motivation" path="motivation"/>
 
 </acme:list>
-<acme:button code="lecturer.course.create" action="/student/enrolment/create"/>
+<acme:button code="student.enrolment.list.button.create" action="/student/enrolment/create"/>

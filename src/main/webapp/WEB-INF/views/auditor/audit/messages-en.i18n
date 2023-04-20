@@ -1,12 +1,17 @@
 auditor.audit.list.label.code = Code
 auditor.audit.list.label.conclusion = Conclusion
 auditor.audit.list.label.mark = Marks
+auditor.audit.create = Create
 
+auditor.audit.form.label.course = Course
+auditor.audit.form.label.code = Code
+auditor.audit.form.label.conclusion = Conclusion
 auditor.audit.form.label.strongPoints = Strong points
 auditor.audit.form.label.weakPoints = Weak points
 auditor.audit.form.label.mark = Marks
 
 auditor.audit.form.error.code = The code already exists
+auditor.audit.form.error.spam = The message is considered spam
 auditor.audit.form.button.auditing-records = Auditing records
 
 auditor.audit.form.button.delete = Delete

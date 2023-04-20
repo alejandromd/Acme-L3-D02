@@ -8,8 +8,30 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.enrolment.form.label.code = Code
-authenticated.enrolment.form.label.motivation = Motivation
-authenticated.enrolment.form.label.goals = Goals
-authenticated.enrolment.form.label.student = Student that owns the enrolment
-authenticated.enrolment.form.label.course = Course of the enrolment
+student.enrolment.form.label.code = Code:
+student.enrolment.form.label.motivation = Motivation:
+student.enrolment.form.label.goals = Goals:
+student.enrolment.form.label.course = Course:
+student.enrolment.form.label.workTime = Work time (in hours):
+student.enrolment.form.label.holderName = Holder name:
+student.enrolment.form.label.lowerNibble = Lower Nibble(the last 4 digits):
+student.enrolment.form.label.draftMode = Draft mode:
+
+student.enrolment.form.message.creditCard = Provide a valid credit card to finalise this enrolment:
+
+student.enrolment.form.button.activities = Activities
+student.enrolment.form.button.update = Update
+student.enrolment.form.button.delete = Delete
+student.enrolment.form.button.finalise = Finalise
+student.enrolment.form.button.create = Create
+
+student.enrolment.form.error.null-holderName = Enter a card holder name
+student.enrolment.form.error.code-duplicated = This code is duplicated
+student.enrolment.form.error.wrong-lowerNibble = The lower nibble must have 4 digits
+
+student.enrolment.list.label.code = Code
+student.enrolment.list.label.motivation = Motivation
+
+student.enrolment.list.button.create = Create
+
+
