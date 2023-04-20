@@ -86,4 +86,5 @@ master.menu.any.list = List of courses
 
 master.menu.student = Students
 master.menu.student.enrolment = List of my enrolments
+master.menu.student.dashboard = Student Dashboard
 
