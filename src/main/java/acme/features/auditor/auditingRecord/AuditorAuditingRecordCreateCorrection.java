@@ -84,7 +84,7 @@ public class AuditorAuditingRecordCreateCorrection extends AbstractService<Audit
 
 		boolean confirmation;
 
-		if (!super.getBuffer().getErrors().hasErrors("periodEndDate")) {
+		if (!super.getBuffer().getErrors().hasErrors("periodEndDate") && !super.getBuffer().getErrors().hasErrors("periodStartDate")) {
 			Date minimumPeriod;
 
 			minimumPeriod = MomentHelper.deltaFromMoment(object.getPeriodStartDate(), 1, ChronoUnit.HOURS);
