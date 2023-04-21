@@ -40,6 +40,7 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.system-configuration = Configuración del sistema
 master.menu.administrator.spam-config.list = Configuración de filtro anti spam
 master.menu.administrator.banner.list = Listar banners
 master.menu.administrator.offers = Listar ofertas

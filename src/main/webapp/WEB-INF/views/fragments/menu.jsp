@@ -48,6 +48,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.offers"  action="/administrator/offer/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.create" action="/administrator/bulletin/create"/>
+			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show" access="isAuthenticated()"/>
 			<acme:menu-suboption code="master.menu.administrator.spam-config.list" action="/administrator/spam-config/list"/>
 			<acme:menu-suboption code="master.menu.administrator.banner.list" action="/administrator/banner/list"/>
 		</acme:menu-option>
