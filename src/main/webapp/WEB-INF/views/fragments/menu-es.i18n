@@ -31,6 +31,8 @@ master.menu.anonymous.favourite-link5 = 29533138B : Vargas Castro, Francisco Jos
 master.menu.authenticated = Autentificado
 master.menu.authenticated.note.list = Ver notas
 master.menu.authenticated.offers = Ver ofertas
+master.menu.authenticated.company.update = Informacion de la compañía
+master.menu.authenticated.company.create = Hazte compañía
 
 # master.menu.administrator ###################################################
 
@@ -111,3 +113,4 @@ master.menu.student.course = Lista de cursos
 
 master.menu.company = Compañia
 master.menu.Company.practicum = Mis practicas
+master.menu.company.practicum = Lista de practicas 
