@@ -61,7 +61,7 @@ public class Tutorial extends AbstractEntity {
 				final Duration duration = MomentHelper.computeDuration(session.getStartTimestamp(), session.getEndTimestamp());
 				result += (int) duration.toHours();
 			}
-		return 0;
+		return result;
 	}
 
 	// Relationships ----------------------------------------------------------
