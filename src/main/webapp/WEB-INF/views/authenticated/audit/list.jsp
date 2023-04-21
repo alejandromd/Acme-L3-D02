@@ -17,6 +17,5 @@
 
 <acme:list>
 	<acme:list-column code ="authenticated.audit.list.label.code" path="code" width="20%"/>
-	<acme:list-column code ="authenticated.audit.list.label.mark" path="mark" width="20%"/>
 	<acme:list-column code ="authenticated.audit.list.label.conclusion" path="conclusion" width="20%"/>
 </acme:list>

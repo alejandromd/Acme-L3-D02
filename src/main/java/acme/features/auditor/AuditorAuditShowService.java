@@ -78,7 +78,7 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		String markList;
 		int auditId;
 
-		courses = this.repository.findCoursesWithoutAudit();
+		courses = this.repository.findCoursesInDraftMode();
 		auditId = object.getId();
 		marks = this.repository.findMarkByAuditId(auditId);
 
@@ -89,7 +89,7 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 
 		choice = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "mark", "conclusion");
+		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "conclusion", "draftMode");
 		tuple.put("course", choice.getSelected().getKey());
 		tuple.put("courses", choice);
 		tuple.put("mark", markList);

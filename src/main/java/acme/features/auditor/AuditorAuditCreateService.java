@@ -12,6 +12,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import filter.SpamFilter;
 
 @Service
 public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
@@ -43,18 +44,13 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		Audit object;
 		Auditor auditor;
 		int auditorId;
-		int courseId;
-		Course course;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
 		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		auditor = this.repository.findOneAuditorById(auditorId);
 
 		object = new Audit();
 		object.setAuditor(auditor);
 		object.setDraftMode(true);
-		object.setCourse(course);
 
 		super.getBuffer().setData(object);
 
@@ -64,14 +60,29 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void bind(final Audit object) {
 		assert object != null;
 
+		Course course;
+		int courseId;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
+
 		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		object.setCourse(course);
 	}
 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
+
 		if (!super.getBuffer().getErrors().hasErrors("code"))
 			super.state(this.repository.findAuditByCode(object.getCode()) == null, "code", "auditor.audit.form.error.code");
+		if (!super.getBuffer().getErrors().hasErrors("conclusion"))
+			super.state(!SpamFilter.antiSpamFilter(object.getConclusion(), this.repository.findThreshold()), "conclusion", "auditor.audit.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("strongPoints"))
+			super.state(!SpamFilter.antiSpamFilter(object.getStrongPoints(), this.repository.findThreshold()), "strongPoints", "auditor.audit.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("weakPoints"))
+			super.state(!SpamFilter.antiSpamFilter(object.getWeakPoints(), this.repository.findThreshold()), "weakPoints", "auditor.audit.form.error.spam");
+
 	}
 
 	@Override
@@ -90,7 +101,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		Collection<Course> courses;
 		SelectChoices choices;
 
-		courses = this.repository.findCoursesWithoutAudit();
+		courses = this.repository.findCoursesInDraftMode();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");

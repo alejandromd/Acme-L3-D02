@@ -1,10 +1,13 @@
 
 package acme.features.authenticated.audit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Audit;
+import acme.entities.auditingRecord.Mark;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -32,15 +35,7 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 	@Override
 	public void authorise() {
 
-		boolean status;
-		int id;
-		Audit object;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneAuditById(id);
-		status = !object.isDraftMode();
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 
 	}
 
@@ -61,8 +56,23 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 		assert object != null;
 
 		Tuple tuple;
+		String auditor;
+		Collection<Mark> marks;
+		String markList;
+		int auditId;
 
-		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "mark", "conclusion");
+		auditId = object.getId();
+		marks = this.repository.findMarkByAuditId(auditId);
+		auditor = object.getAuditor().getUserAccount().getUsername();
+
+		if (marks.isEmpty())
+			markList = "N/A";
+		else
+			markList = marks.toString();
+
+		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "conclusion");
+		tuple.put("auditor", auditor);
+		tuple.put("mark", markList);
 
 		super.getResponse().setData(tuple);
 
