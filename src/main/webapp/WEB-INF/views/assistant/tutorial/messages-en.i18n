@@ -9,24 +9,21 @@
 # they accept any liabilities with respect to them.
 
 
-lecturer.course.form.label.code = Code
-lecturer.course.form.label.title = Title
-lecturer.course.form.label.summary = Summary
-lecturer.course.form.label.retailPrice = Price
-lecturer.course.form.label.link = link with more information
-lecturer.course.form.label.lecturer = Lecturer
-lecturer.course.form.label.almaMater = Alma mater
-lecturer.course.form.label.courseType = Type of course
-lecturer.course.form.label.draftMode = Draft mode
+assistant.tutorial.list.label.code = Code
+assistant.tutorial.list.label.title = Title
+assistant.tutorial.list.label.course = Course
 
-lecturer.course.error.lecture = Must add some lecture to publish the course
-lecturer.course.error.handsOn = The course should contain some lecture hands on
-lecturer.course.error.draftMode = There cannot be any lecture in draft mode
-lecturer.course.error.price = The price must be between 0 (inclusive) and 1000000 (not inclusive). Currencies must be EUR, GBP or USD
+assistant.tutorial.form.error.code-duplicated = A tutorial with this code already exists
 
-lecturer.course.lectures = Lectures
+assistant.tutorial.button.create = Create
 
-lecturer.course.create = Create
-lecturer.course.delete = Delete
-lecturer.course.update = Update
-lecturer.course.publish = Publish
+assistant.tutorial.form.button.create = Create
+assistant.tutorial.form.label.code = Code
+assistant.tutorial.form.label.title = Title
+assistant.tutorial.form.label.informativeAbstract = Abstract
+assistant.tutorial.form.label.goals = Goals
+assistant.tutorial.form.label.course = Course
+assistant.tutorial.form.label.estimatedTime = Estimated time
+assistant.tutorial.form.button.update = Update
+assistant.tutorial.form.button.delete = Delete
+assistant.tutorial.form.button.publish = Publish

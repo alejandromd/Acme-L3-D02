@@ -25,18 +25,22 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		boolean status;
 
 		status = super.getRequest().hasData("id", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+		int masterId;
 		Tutorial tutorial;
-		int tutorialId;
+		Assistant assistant;
 
-		tutorialId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(tutorialId);
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		masterId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialById(masterId);
+		assistant = tutorial == null ? null : tutorial.getAssistant();
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant);
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -55,8 +59,8 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	public void bind(final Tutorial object) {
 		assert object != null;
 
-		final Course course;
-		final int courseId;
+		int courseId;
+		Course course;
 
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
@@ -68,6 +72,13 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 	@Override
 	public void validate(final Tutorial object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Tutorial existing;
+
+			existing = this.repository.findOneTutorialByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.code-duplicated");
+		}
 	}
 
 	@Override
@@ -85,10 +96,10 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		Collection<Course> courses;
 		SelectChoices choices;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllPublishedCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "informativeAbstract", "goals");
+		tuple = super.unbind(object, "code", "title", "informativeAbstract", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

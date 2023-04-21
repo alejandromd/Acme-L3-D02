@@ -9,24 +9,21 @@
 # they accept any liabilities with respect to them.
 
 
-lecturer.course.form.label.code = Código
-lecturer.course.form.label.title = Título
-lecturer.course.form.label.summary = Resumen
-lecturer.course.form.label.retailPrice = Precio
-lecturer.course.form.label.link = link con información adicional
-lecturer.course.form.label.lecturer = Profesor
-lecturer.course.form.label.almaMater = Alma mater
-lecturer.course.form.label.courseType = Tipo de curso
-lecturer.course.form.label.draftMode = Modo borrador
+assistant.tutorial.list.label.code = Código
+assistant.tutorial.list.label.title = Título
+assistant.tutorial.list.label.course = Curso
 
-lecturer.course.error.lecture = Debe añadir alguna clase para publicar el curso
-lecturer.course.error.handsOn = El curso debe contener algunas clases prácticas
-lecturer.course.error.draftMode = No puede haber ninguna clase en modo borrador
-lecturer.course.error.price = El precio debe estar entre 0 (incluido) y 1000000 (no incluido). Las divisas deben ser EUR, GBP ó USD
+assistant.tutorial.form.error.code-duplicated = Ya existen un tutorial con este código
 
-lecturer.course.lectures = Clases
+assistant.tutorial.button.create = Crear
 
-lecturer.course.create = Crear
-lecturer.course.delete = Borrar
-lecturer.course.update = Actualizar
-lecturer.course.publish = Publicar
+assistant.tutorial.form.button.create = Crear
+assistant.tutorial.form.label.code = Código
+assistant.tutorial.form.label.title = Título
+assistant.tutorial.form.label.informativeAbstract = Descripción
+assistant.tutorial.form.label.goals = Objetivos
+assistant.tutorial.form.label.course = Curso
+assistant.tutorial.form.label.estimatedTime = Tiempo estimado
+assistant.tutorial.form.button.update = Actualizar
+assistant.tutorial.form.button.delete = Eliminar
+assistant.tutorial.form.button.publish = Publicar

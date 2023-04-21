@@ -32,7 +32,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 	@Override
 	public void load() {
-		final Tutorial object;
+		Tutorial object;
 		Assistant assistant;
 
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
@@ -60,6 +60,13 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void validate(final Tutorial object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Tutorial existing;
+
+			existing = this.repository.findOneTutorialByCode(object.getCode());
+			super.state(existing == null, "code", "assistant.tutorial.form.error.code-duplicated");
+		}
 	}
 
 	@Override
@@ -77,10 +84,10 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllPublishedCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "tile", "informativeAbstract", "goals");
+		tuple = super.unbind(object, "code", "title", "informativeAbstract", "goals");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

@@ -46,6 +46,17 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	}
 
 	@Override
+	public void load() {
+		Tutorial object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneTutorialById(id);
+
+		super.getBuffer().setData(object);
+	}
+
+	@Override
 	public void bind(final Tutorial object) {
 		assert object != null;
 
@@ -83,7 +94,7 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllPublishedCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "informativeAbstract", "goals");

@@ -15,14 +15,17 @@ import acme.roles.Assistant;
 @Repository
 public interface AssistantTutorialRepository extends AbstractRepository {
 
-	@Query("SELECT t FROM Tutorial t WHERE t.assistant.userAccount.id = :accountId")
-	Collection<Tutorial> findTutorialsByAccountId(int accountId);
+	@Query("SELECT t FROM Tutorial t WHERE t.assistant.id = :assistantId")
+	Collection<Tutorial> findManyTutorialsByAssistantId(int assistantId);
 
 	@Query("SELECT t FROM Tutorial t WHERE t.id = :tutorialId")
 	Tutorial findOneTutorialById(int tutorialId);
 
-	@Query("SELECT c FROM Course c")
-	Collection<Course> findAllCourses();
+	@Query("SELECT t FROM Tutorial t WHERE t.code = :code")
+	Tutorial findOneTutorialByCode(String code);
+
+	@Query("SELECT c FROM Course c WHERE c.draftMode = 0")
+	Collection<Course> findAllPublishedCourses();
 
 	@Query("SELECT c FROM Course c WHERE c.id = :courseId")
 	Course findOneCourseById(int courseId);
@@ -30,6 +33,6 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 	@Query("SELECT a FROM Assistant a WHERE a.id = :assistantId")
 	Assistant findOneAssistantById(int assistantId);
 
-	@Query("SELECT s FROM TutorialSession s WHERE s.tutorial.id =: tutorialId")
+	@Query("SELECT s FROM TutorialSession s WHERE s.tutorial.id = :tutorialId")
 	Collection<TutorialSession> findManySessionsByTutorialId(int tutorialId);
 }

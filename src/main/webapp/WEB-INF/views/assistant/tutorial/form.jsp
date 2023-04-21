@@ -18,20 +18,20 @@
 <acme:form>
 	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>	
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>	
-	<acme:input-textbox code="assistant.tutorial.form.label.abstract" path="informativeAbstract"/>	
+	<acme:input-textbox code="assistant.tutorial.form.label.informativeAbstract" path="informativeAbstract"/>	
 	<acme:input-textbox code="assistant.tutorial.form.label.goals" path="goals"/>
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
-	<acme:input-textbox code="assistant.tutorial.form.label.draftMode" path="draftMode" readonly="true"/>
+	<acme:input-integer code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime" readonly="true"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
 			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
 			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
-		</jstl:when>		
+		</jstl:when>	
 	</jstl:choose>	
 	
 </acme:form>

@@ -54,6 +54,10 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.auditor = Auditor
 master.menu.auditor.audit = Audits
 
+# master.menu.assistant ####################################################
+master.menu.assistant = Assistant
+master.menu.assistant.list-my-tutorials = Tutorials
+
 # master.menu.authenticated ####################################################
 
 master.menu.authenticated = Sign up as

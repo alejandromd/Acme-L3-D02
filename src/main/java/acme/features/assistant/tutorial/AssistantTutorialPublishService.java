@@ -62,7 +62,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		int courseId;
 		Course course;
 
-		courseId = super.getRequest().getData("courseId", int.class);
+		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
 		super.bind(object, "code", "title", "informativeAbstract", "goals");
@@ -72,6 +72,7 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 	@Override
 	public void validate(final Tutorial object) {
 		assert object != null;
+
 	}
 
 	@Override
@@ -90,10 +91,10 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllPublishedCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "informativeAbstract", "goals");
+		tuple = super.unbind(object, "code", "title", "informativeAbstract", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 
