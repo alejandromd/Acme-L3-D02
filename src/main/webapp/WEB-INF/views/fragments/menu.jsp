@@ -40,8 +40,7 @@
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.offers"  action="/authenticated/offer/list"/>
 			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
-			<acme:menu-suboption code="master.menu.authenticated.company.create" action="/authenticated/company/create" access="!hasRole('Company')"/>
-			<acme:menu-suboption code="master.menu.authenticated.company.update" action="/authenticated/company/update" access="hasRole('Company')"/>
+			
 		</acme:menu-option>
 		
 			
@@ -107,6 +106,8 @@
 			<acme:menu-suboption code="master.menu.authenticated.student.update" action="/authenticated/student/update" access="hasRole('Studentz')"/>
 			<acme:menu-suboption code="master.menu.authenticated.auditor.create" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.authenticated.auditor.update" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
+			<acme:menu-suboption code="master.menu.authenticated.company.create" action="/authenticated/company/create" access="!hasRole('Company')"/>
+			<acme:menu-suboption code="master.menu.authenticated.company.update" action="/authenticated/company/update" access="hasRole('Company')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
