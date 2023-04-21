@@ -78,7 +78,7 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		String markList;
 		int auditId;
 
-		courses = this.repository.findCoursesNotDraftMode();
+		courses = this.repository.findCoursesInDraftMode();
 		auditId = object.getId();
 		marks = this.repository.findMarkByAuditId(auditId);
 

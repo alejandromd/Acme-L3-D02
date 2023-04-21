@@ -17,11 +17,9 @@
 
 <acme:form readonly = "true">
 	<acme:input-textbox code="authenticated.audit.form.label.code" path="code"/>
-	<acme:input-textbox code="authenticated.audit.form.label.conclusion" path="conclusion"/>
 	<acme:input-textbox code="authenticated.audit.form.label.strongPoints" path="strongPoints"/>
 	<acme:input-textbox code="authenticated.audit.form.label.weakPoints" path="weakPoints"/>
-	<jstl:if test="${_command == 'show'}">
-			<acme:input-textbox code="auditor.audit.form.label.mark" path="mark" readonly="true"/>
-	</jstl:if>
+	<acme:input-textbox code="auditor.audit.form.label.mark" path="mark" readonly="true"/>
+	<acme:input-textbox code="authenticated.audit.form.label.conclusion" path="conclusion"/>
 	<acme:input-textbox code ="authenticated.audit.form.label.auditor" path="auditor"/>
 </acme:form>

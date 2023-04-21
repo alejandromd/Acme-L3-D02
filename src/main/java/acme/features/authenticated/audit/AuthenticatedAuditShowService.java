@@ -70,7 +70,7 @@ public class AuthenticatedAuditShowService extends AbstractService<Authenticated
 		else
 			markList = marks.toString();
 
-		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "mark", "conclusion");
+		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "conclusion");
 		tuple.put("auditor", auditor);
 		tuple.put("mark", markList);
 
