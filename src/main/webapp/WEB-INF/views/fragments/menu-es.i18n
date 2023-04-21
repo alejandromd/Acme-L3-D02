@@ -30,6 +30,7 @@ master.menu.anonymous.favourite-link5 = 29533138B : Vargas Castro, Francisco Jos
 
 master.menu.authenticated = Autentificado
 master.menu.authenticated.note.list = Ver notas
+master.menu.authenticated.offers = Ver ofertas
 
 # master.menu.administrator ###################################################
 
@@ -41,6 +42,7 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.spam-config.list = Configuración de filtro anti spam
 master.menu.administrator.banner.list = Listar banners
+master.menu.administrator.offers = Listar ofertas
 
 # master.menu.provider ########################################################
 

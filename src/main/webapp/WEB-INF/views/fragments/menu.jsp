@@ -33,6 +33,7 @@
 			<acme:menu-suboption code="master.menu.course" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.note.list" action="/authenticated/note/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.offers"  action="/authenticated/offer/list"/>
 			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
 		</acme:menu-option>
 		
@@ -45,6 +46,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.offers"  action="/administrator/offer/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.create" action="/administrator/bulletin/create"/>
 			<acme:menu-suboption code="master.menu.administrator.spam-config.list" action="/administrator/spam-config/list"/>
 			<acme:menu-suboption code="master.menu.administrator.banner.list" action="/administrator/banner/list"/>

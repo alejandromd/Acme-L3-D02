@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Banner;
 import acme.framework.components.accounts.Administrator;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -33,7 +34,15 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		int masterId;
+		final Principal principal = super.getRequest().getPrincipal();
+		masterId = super.getRequest().getData("id", int.class);
+		final int userAccountId = principal.getAccountId();
+		final Administrator admin = this.repository.findAdminById(userAccountId);
+		final Banner banner = this.repository.findBannerById(masterId);
+		final Date date = Date.from(Instant.now());
+		final boolean bool = banner.getDisplayPeriodBegin().before(date) && banner.getDisplayPeriodFinish().after(date);
+		super.getResponse().setAuthorised(admin != null && !bool);
 	}
 
 	@Override
