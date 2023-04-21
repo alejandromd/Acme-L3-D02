@@ -1,0 +1,19 @@
+auditor.auditingRecord.list.label.subject = Asignatura
+auditor.auditingRecord.list.label.mark = Nota
+
+auditor.auditing-record.form.label.subject = Asignatura
+auditor.auditing-record.form.label.assessment = Evaluación
+auditor.auditing-record.form.label.periodStartDate = Momento de comienzo del registro de auditoría
+auditor.auditing-record.form.label.periodEndDate = Momento de finalización del registro de auditoría
+auditor.auditing-record.form.label.mark = Nota
+auditor.auditing-record.form.label.link = Más información
+auditor.auditing-record.form.label.message = Registro de auditoría de Corrección
+
+auditor.auditing-record.form.button.update = Actualizar
+auditor.auditing-record.form.button.delete = Borrar
+auditor.auditing-record.form.button.create = Crear
+auditor.auditing-record.form.button.create-correction = Crear un registro de auditoría de corrección
+auditor.auditing-record.form.button.confirmation = Confirmación
+auditor.auditing-record.form.error.spam = Este mensaje es considerado spam
+
+auditor.auditing-record.form.error.too-close = El periodo debe de ser de al menos una hora y el comienzo no puede ocurrir despues del final

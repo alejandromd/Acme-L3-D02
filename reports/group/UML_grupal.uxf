@@ -1001,7 +1001,7 @@ bg=blue</panel_attributes>
 &lt;&lt;Entity&gt;&gt;
 SpamConfig
 --
-+ threshold: Double</panel_attributes>
++ threshold: Double {Min(0), Max(100)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
