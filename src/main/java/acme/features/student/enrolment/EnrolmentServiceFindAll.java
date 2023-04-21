@@ -26,7 +26,7 @@ public class EnrolmentServiceFindAll extends AbstractService<Student, Enrolment>
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(super.getRequest().getPrincipal().hasRole(Student.class));
 	}
 
 	@Override

@@ -37,7 +37,7 @@ public class StudentCourseService extends AbstractService<Student, Course> {
 		int id;
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		super.getResponse().setAuthorised(!object.isDraftMode());
+		super.getResponse().setAuthorised(!object.isDraftMode() && super.getRequest().getPrincipal().hasRole(Student.class));
 	}
 
 	@Override
