@@ -16,4 +16,7 @@ public interface StudentRepository extends AbstractRepository {
 
 	@Query("select s from Student s where s.userAccount.id = :id")
 	Student findStudentByUserAccountId(int id);
+
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
 }

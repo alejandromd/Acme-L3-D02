@@ -14,6 +14,7 @@ lecturer.courseLecture.form.lecture.summary = Summary of the lecture
 lecturer.courseLecture.form.lecture.lectureType = Lecture type
 lecturer.courseLecture.form.error.lecture = The lesson is already in the selected course
 lecturer.courseLecture.form.error.course = The selected course is not editable
+lecturer.courseLecture.form.error.course.null = Select a course
 lecturer.courseLecture.form.lecture.info = Add the following lecture to a course that is in draft mode
 lecturer.courseLecture.form.lecture.delete.info = Delete the next lesson from a course that is in draft mode
 

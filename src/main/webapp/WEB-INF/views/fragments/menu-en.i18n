@@ -15,6 +15,7 @@ master.menu.sign-up = Sign up
 master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 master.menu.list = Lists
+master.menu.course = Courses
 
 # master.menu.anonymous #######################################################
 
@@ -29,6 +30,7 @@ master.menu.anonymous.favourite-link5 = 29533138B : Vargas Castro, Francisco Jos
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.note.list = See notes
+master.menu.authenticated.offers = See offers
 
 # master.menu.administrator ###################################################
 
@@ -38,6 +40,9 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.spam-config.list = Spam configuration
+master.menu.administrator.banner.list = List banners
+master.menu.administrator.offers = List offers
 
 # master.menu.provider ########################################################
 
@@ -49,10 +54,13 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
-
 # master.menu.auditor ####################################################
 master.menu.auditor = Auditor
 master.menu.auditor.audit = Audits
+
+# master.menu.assistant ####################################################
+master.menu.assistant = Assistant
+master.menu.assistant.list-my-tutorials = Tutorials
 
 # master.menu.authenticated ####################################################
 
@@ -74,17 +82,29 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.authenticated.auditor.become-auditor = Become a auditor
+master.menu.authenticated.auditor.auditor = Auditor data
 
-# master.menu.any.course ####################################################
+# master.menu.any.peep ####################################################
 
-master.menu.any.course = Courses
-master.menu.any.list = List of courses
+master.menu.any.peep = Peeps
+master.menu.any.peep.list = List of peeps
 
-# master.menu.authenticated.course ####################################################
+# master.menu.lecturer ####################################################
 
-master.menu.authenticated.course = Courses as student
-master.menu.authenticated.list = List of courses as student
 master.menu.lecturer = Lecturer
 master.menu.lecturer.course = My courses
 master.menu.lecturer.lecture = My lectures
 master.menu.lecturer.dashboard = Lecturer dashboard
+
+# master.menu.student ####################################################
+
+master.menu.student = Students
+master.menu.student.dashboard = Student Dashboard
+master.menu.student.enrolment = My enrolments
+master.menu.student.course = List of courses
+
+# master.menu.company ####################################################
+
+master.menu.company = Company
+master.menu.Company.practicum = My practicum

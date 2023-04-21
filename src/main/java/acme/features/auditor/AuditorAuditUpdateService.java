@@ -13,6 +13,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
+import filter.SpamFilter;
 
 @Service
 public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
@@ -22,7 +23,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Autowired
 	protected AuditorAuditRepository repository;
 
-	// AbstractService<Auditor, Audit> -------------------------------------
+	// AbstractService<Auditor, audit> -------------------------------------
 
 
 	@Override
@@ -36,85 +37,84 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void authorise() {
-
-		Audit object;
-		int id;
-		Principal principal;
-		int userId;
 		boolean status;
+		int masterId;
+		Audit audit;
+		int userId;
+		Principal principal;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneAuditById(id);
+		masterId = super.getRequest().getData("id", int.class);
+		audit = this.repository.findOneAuditById(masterId);
 		principal = super.getRequest().getPrincipal();
 		userId = principal.getAccountId();
-		status = object.getAuditor().getUserAccount().getId() == userId;
+		status = audit != null && audit.isDraftMode() && audit.getAuditor().getUserAccount().getId() == userId;
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
 	public void load() {
-
 		Audit object;
 		int id;
-		int courseId;
-		Course course;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
 
-		object.setCourse(course);
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Audit object) {
-
 		assert object != null;
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		int courseId;
+		Course course;
 
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findOneCourseById(courseId);
+
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		object.setCourse(course);
 	}
 
 	@Override
 	public void validate(final Audit object) {
-
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
-			super.state(this.repository.findAuditByCode(object.getCode()) == null, "code", "auditor.audit.form.error.code");
+			super.state(this.repository.findAuditByCode(object.getCode()) == null || this.repository.findOneAuditById(object.getId()).getCode().equals(object.getCode()), "code", "auditor.audit.form.error.code");
+		if (!super.getBuffer().getErrors().hasErrors("conclusion"))
+			super.state(!SpamFilter.antiSpamFilter(object.getConclusion(), this.repository.findThreshold()), "conclusion", "auditor.audit.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("strongPoints"))
+			super.state(!SpamFilter.antiSpamFilter(object.getStrongPoints(), this.repository.findThreshold()), "strongPoints", "auditor.audit.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("weakPoints"))
+			super.state(!SpamFilter.antiSpamFilter(object.getWeakPoints(), this.repository.findThreshold()), "weakPoints", "auditor.audit.form.error.spam");
 
 	}
 
 	@Override
 	public void perform(final Audit object) {
-
 		assert object != null;
 
 		this.repository.save(object);
-
 	}
 
 	@Override
 	public void unbind(final Audit object) {
-
 		assert object != null;
 
-		Tuple tuple;
 		Collection<Course> courses;
 		SelectChoices choices;
+		Tuple tuple;
 
-		courses = this.repository.findCoursesWithoutAudit();
+		courses = this.repository.findCoursesInDraftMode();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
+
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
-		tuple.put("courses", courses);
 		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
-
 	}
 
 }

@@ -1,0 +1,30 @@
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+assistant.tutorialSession.list.label.title = Título
+assistant.tutorialSession.list.label.type = Tipo
+assistant.tutorialSession.list.label.startTimestamp = Fecha de inicio
+assistant.tutorialSession.list.label.endTimestamp = Fecha de fin
+
+assistant.tutorialSession.button.create = Craer
+
+assistant.tutorialSession.form.label.title = Título
+assistant.tutorialSession.form.label.informativeAbstract = Descripción
+assistant.tutorialSession.form.label.type = Tipo
+assistant.tutorialSession.form.label.startTimestamp = Fecha de inicio
+assistant.tutorialSession.form.label.endTimestamp = Fecha de fin
+assistant.tutorialSession.form.label.furtherInfo = Más información
+assistant.tutorialSession.form.button.update = Actualizar
+assistant.tutorialSession.form.button.delete = Eliminar
+assistant.tutorialSession.form.button.create = Crear
+
+assistant.tutorialSession.form.error.start-not-ahead = La fecha de inicio debe ser un día por delante de la fecha actual
+assistant.tutorialSession.form.error.end-not-after = La fecha de fin debe ser posterior a la fecha de inicio
+assistant.tutorialSession.form.error.invalid-duration = La duracion de la sesión debe ser de entre una y cinco horas
