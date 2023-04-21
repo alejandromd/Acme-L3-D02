@@ -1,0 +1,4 @@
+administrator.spam-config.button.update = Actualizar
+
+administrator.spam-config.threshold = Limite de spam
+administrator.spamConfig.list.label.threshold = Limite de spam

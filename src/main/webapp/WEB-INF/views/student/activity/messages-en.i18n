@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+student.activity.form.label.title = Title:
+student.activity.form.label.summary = Summary:
+student.activity.form.label.type = Activity Type:
+student.activity.form.label.startDate = Start period:
+student.activity.form.label.endDate = End period:
+student.activity.form.label.moreInfo = Link for further information:
+
+student.activity.form.button.create = Create
+student.activity.form.button.update = Update
+student.activity.form.button.delete = Delete
+
+student.activity.form.error.wrong-dates = The end period must be after the start period
+
+student.activity.list.label.title = Title
+student.activity.list.label.type = Activity Type
+student.activity.list.label.startDate = Start period
+student.activity.list.label.endDate = End period
+
+student.activity.list.button.create = Create
+
+student.activity.error.spam = This text is considered spam
