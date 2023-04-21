@@ -43,6 +43,7 @@ public class LecturerLectureFindAllService extends AbstractService<Lecturer, Lec
 		assert object != null;
 		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime");
 		super.getResponse().setGlobal("showCreate", false);
+		tuple.put("isViewable", true);
 		super.getResponse().setData(tuple);
 	}
 

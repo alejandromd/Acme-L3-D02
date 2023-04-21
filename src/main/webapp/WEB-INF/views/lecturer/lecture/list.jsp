@@ -21,4 +21,4 @@
 	<acme:list-column code="lecturer.lecture.label.estimatedLearningTime" path="estimatedLearningTime" width="20%"/>
 </acme:list>
 
-<acme:button code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>
+<acme:button test="${isViewable}" code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>

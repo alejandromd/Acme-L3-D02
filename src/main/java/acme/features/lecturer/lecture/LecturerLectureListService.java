@@ -67,6 +67,8 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 		final Course c = this.repository.findCourseById(masterId);
 		final boolean showCreate = c.isDraftMode();
 		super.getResponse().setGlobal("showCreate", showCreate);
+		super.getResponse().setGlobal("isViewable", false);
+
 	}
 
 }
