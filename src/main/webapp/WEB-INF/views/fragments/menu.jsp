@@ -70,7 +70,13 @@
 			<acme:menu-suboption code="master.menu.lecturer.lecture" action="/lecturer/lecture/list-all"/>
 			<acme:menu-suboption code="master.menu.lecturer.dashboard" action="/lecturer/lecturer-dashboard/show"/>
 		</acme:menu-option>
-		
+
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.list-my-tutorials" action="/assistant/tutorial/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.assistant.dashboard" action="/assistant/assistant-dashboard/show"/>
+		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list"/>
 			<acme:menu-suboption code="master.menu.student.dashboard" action="/student/student-dashboard/show"/>
@@ -80,7 +86,6 @@
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
 			<acme:menu-suboption code="master.menu.Company.practicum" action="/company/practicum/list"/>
 		</acme:menu-option>
-		
 
 	</acme:menu-left>
 
