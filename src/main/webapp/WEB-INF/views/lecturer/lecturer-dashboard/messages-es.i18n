@@ -10,6 +10,8 @@
 
 
 lecturer.course.form.label.totalLectures = Número total de clases
+lecturer.course.form.label.handsOnLectures = Clases prácticas
+lecturer.course.form.label.theoreticalLectures = Clases teóricas
 lecturer.course.form.label.averageTimeOfLectures = Tiempo medio de las clases
 lecturer.course.form.label.deviationTimeOfLectures = Desviación en clases
 lecturer.course.form.label.minimumTimeOfLectures = Tiempo minimo en clases

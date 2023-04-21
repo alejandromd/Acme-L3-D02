@@ -72,8 +72,18 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void unbind(final LecturerDashboard object) {
+		Principal principal;
+		int userAccountId;
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
+		final Lecturer lecturer = this.repository.findOneLecturerByUserAccountId(userAccountId);
+		final Integer handsOnLectures = this.repository.findNumOfLecturesByType(lecturer, Nature.HANDS_ON).orElse(0);
+		final Integer theoreticalLectures = this.repository.findNumOfLecturesByType(lecturer, Nature.THEORETICAL).orElse(0);
+
 		final Tuple tuple = super.unbind(object, "totalLectures", "averageTimeOfLectures", "deviationTimeOfLectures", "minimumTimeOfLectures", "maximumTimeOfLectures", "averageTimeOfCourses", "deviationTimeOfCourses", "minimumTimeOfCourses",
 			"maximumTimeOfCourses");
+		tuple.put("handsOnLectures", handsOnLectures);
+		tuple.put("theoreticalLectures", theoreticalLectures);
 
 		super.getResponse().setData(tuple);
 	}

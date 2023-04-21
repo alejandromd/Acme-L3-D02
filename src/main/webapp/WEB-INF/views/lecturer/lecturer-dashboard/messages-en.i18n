@@ -10,6 +10,8 @@
 
 
 lecturer.course.form.label.totalLectures = Total number of lectures
+lecturer.course.form.label.handsOnLectures = Hands on lectures
+lecturer.course.form.label.theoreticalLectures = Theoretical lectures 
 lecturer.course.form.label.averageTimeOfLectures = Average time of lectures
 lecturer.course.form.label.deviationTimeOfLectures = Deviation time of lectures
 lecturer.course.form.label.minimumTimeOfLectures = Minimum time of lectures
