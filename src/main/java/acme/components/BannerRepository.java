@@ -16,17 +16,17 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface BannerRepository extends AbstractRepository {
 
-	@Query("select count(b) from Banner b where b.displayPeriodBegin <= ?1 and b.displayPeriodFinish > ?1")
+	@Query("select count(b) from Banner b where b.displayPeriodBegin <= :date and b.displayPeriodFinish > :date")
 	int countBanner(Date date);
 
-	@Query("select b from Banner b")
-	List<Banner> findManyBanners(PageRequest pageRequest);
+	@Query("select b from Banner b where b.displayPeriodBegin <= :date and b.displayPeriodFinish > :date")
+	List<Banner> findManyBanners(Date date);
 
 	default Banner findRandomBanner() {
 		Banner result;
 		int count, index;
 		ThreadLocalRandom random;
-		PageRequest page;
+		final PageRequest page;
 		List<Banner> list;
 
 		count = this.countBanner(MomentHelper.getCurrentMoment());
@@ -36,9 +36,8 @@ public interface BannerRepository extends AbstractRepository {
 			random = ThreadLocalRandom.current();
 			index = random.nextInt(0, count);
 
-			page = PageRequest.of(index, 1);
-			list = this.findManyBanners(page);
-			result = list.isEmpty() ? null : list.get(0);
+			list = this.findManyBanners(MomentHelper.getCurrentMoment());
+			result = list.isEmpty() ? null : list.get(index);
 		}
 
 		return result;
