@@ -1,5 +1,5 @@
 <%--
-- form.jsp
+- list.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
 -
@@ -17,7 +17,7 @@
 
 <acme:list>
 	<acme:list-column code ="auditor.audit.list.label.code" path="code" width="20%"/>
-	<acme:list-column code ="auditor.audit.list.label.mark" path="mark" width="20%"/>
+	<acme:list-column code ="auditor.audit.list.label.courseTitle" path="courseTitle" width="20%"/>
 	<acme:list-column code ="auditor.audit.list.label.conclusion" path="conclusion" width="20%"/>
 </acme:list>
 <acme:button code="auditor.audit.create" action="/auditor/audit/create"/>

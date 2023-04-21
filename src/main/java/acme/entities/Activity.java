@@ -1,6 +1,7 @@
 
 package acme.entities;
 
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -13,9 +14,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
+import org.springframework.data.annotation.Transient;
 
 import acme.datatypes.Nature;
 import acme.framework.data.AbstractEntity;
+import acme.framework.helpers.MomentHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,9 +56,18 @@ public class Activity extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
+
+	@Transient
+	public Integer period() {
+		final Duration d = MomentHelper.computeDuration(this.startPeriod, this.endPeriod);
+		return (int) d.toHours();
+
+	}
+
+
 	// Relationships ----------------------------------------------------------
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Enrolment			enrolment;
+	protected Enrolment enrolment;
 }

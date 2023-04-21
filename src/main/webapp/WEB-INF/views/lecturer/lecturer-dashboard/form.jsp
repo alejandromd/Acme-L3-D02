@@ -16,6 +16,8 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 <acme:form>
 	<acme:input-textbox code="lecturer.course.form.label.totalLectures" path="totalLectures" readonly="true"/>	
+	<acme:input-textbox code="lecturer.course.form.label.handsOnLectures" path="handsOnLectures" readonly="true"/>
+	<acme:input-textbox code="lecturer.course.form.label.theoreticalLectures" path="theoreticalLectures" readonly="true"/>	
 	<acme:input-textbox code="lecturer.course.form.label.averageTimeOfLectures" path="averageTimeOfLectures" readonly="true"/>	
 	<acme:input-textbox code="lecturer.course.form.label.deviationTimeOfLectures" path="deviationTimeOfLectures" readonly="true"/>	
 	<acme:input-textbox code="lecturer.course.form.label.minimumTimeOfLectures" path="minimumTimeOfLectures" readonly="true"/>	

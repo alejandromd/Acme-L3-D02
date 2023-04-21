@@ -17,3 +17,4 @@ administrator.bulletin.confirmation = Confirm
 administrator.bulletin.button.create = Post
 
 administrator.bulletin.error.confirmation = You must confirm to be able to publish it as a bulletin cannot be deleted or edited.
+administrator.bulletin.error.spam = This text is considered spam
