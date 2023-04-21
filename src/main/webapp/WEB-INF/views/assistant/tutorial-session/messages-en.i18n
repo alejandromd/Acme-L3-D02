@@ -1,0 +1,31 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+assistant.tutorialSession.list.label.title = Title
+assistant.tutorialSession.list.label.type = Type
+assistant.tutorialSession.list.label.startTimestamp = Start timestamp
+assistant.tutorialSession.list.label.endTimestamp = End timestamp
+
+assistant.tutorialSession.button.create = Create
+
+assistant.tutorialSession.form.label.title = Title
+assistant.tutorialSession.form.label.informativeAbstract = Informative abstract
+assistant.tutorialSession.form.label.type = Type
+assistant.tutorialSession.form.label.startTimestamp = Start timestamp
+assistant.tutorialSession.form.label.endTimestamp = End timestamp
+assistant.tutorialSession.form.label.furtherInfo = Further info
+assistant.tutorialSession.form.button.update = Update
+assistant.tutorialSession.form.button.delete = Delete
+assistant.tutorialSession.form.button.create = Create
+
+assistant.tutorialSession.form.error.start-not-ahead = Start timestamp should be atleast one day ahead
+assistant.tutorialSession.form.error.end-not-after = End timestamp should be after start timestamp
+assistant.tutorialSession.form.error.invalid-duration = The duration of the session must be between one and five hours long

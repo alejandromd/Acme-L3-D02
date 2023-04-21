@@ -18,7 +18,6 @@
 <acme:form>
 	<acme:input-textbox code="administrator.bulletin.title" path="title" />
 	<acme:input-textbox code="administrator.bulletin.message" path="message" />
-	<acme:input-moment code="administrator.bulletin.instantiationMoment" path="instantiationMoment" readonly="true"/>	
 	<acme:input-checkbox code="administrator.bulletin.critical" path="critical" />
 	<acme:input-url code="administrator.bulletin.link" path="link" />
 	

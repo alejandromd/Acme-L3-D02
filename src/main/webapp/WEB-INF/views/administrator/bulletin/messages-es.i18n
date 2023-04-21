@@ -17,3 +17,4 @@ administrator.bulletin.confirmation = Confirmar
 administrator.bulletin.button.create = Publicar
 
 administrator.bulletin.error.confirmation = Debe confirmar para poder publicarlo ya que no se puede eliminar ni editar un boletín
+administrator.bulletin.error.spam = Este texto se considera spam

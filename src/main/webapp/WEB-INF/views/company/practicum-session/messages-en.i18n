@@ -1,0 +1,23 @@
+company.practicumSession.list.label.title = Title
+company.practicumSession.list.label.recap = Abstract
+company.practicumSession.list.duration = Duration (in hours)
+company.practicumSession.list.label.link = Link
+company.practicumSession.list.button.create = Create
+
+company.practicumSession.form.label.title = Title
+company.practicumSession.form.label.recap = Abstract
+company.practicumSession.form.label.startTime: Start time
+company.practicumSession.form.label.endTime: End time
+company.practicumSession.form.label.link = Link
+company.practicumSession.form.button.update = Update
+company.practicumSession.form.button.delete = Delete
+company.practicumSession.form.button.create = Create
+company.practicumSession.list.label.duration = Duration
+
+company.practicum-session.form.error.start-period = The start date must be at least 7 days ahead from the current date
+company.practicum-session.form.error.end-period = The end date must be at least 7 days ahead of the start date
+
+company.session.form.error.end-before-start = The end date must be after the start date
+
+company.practicum-session.form.message.addendum = Addendum session
+company.practicum-session.list.button.create.addendum = Create Addendum session
