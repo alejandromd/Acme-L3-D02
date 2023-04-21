@@ -77,6 +77,8 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 			practicum = this.repository.findPracticumByCode(code);
 			super.state(practicum == null, "code", "company.practicum.form.error.duplicated-code");
 		}
+		//if (!super.getBuffer().getErrors().hasErrors("title"))
+		//super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "conclusion", "auditor.audit.form.error.spam");
 	}
 
 	@Override
@@ -94,7 +96,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		Collection<Course> courses;
 		SelectChoices choices;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllCoursesNotPublished();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple = super.unbind(object, "title", "summary", "goals", "draftMode");
 		tuple.put("courses", choices);

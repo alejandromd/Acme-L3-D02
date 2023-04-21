@@ -89,3 +89,6 @@ master.menu.lecturer.dashboard = Tablero de profesor
 
 master.menu.authenticated.course = Cursos
 master.menu.authenticaed.list = Lista de cursos
+
+master.menu.company = Compañia
+master.menu.Company.practicum = Mis practicas

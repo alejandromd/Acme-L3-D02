@@ -63,7 +63,7 @@ public class CompanySessionListService extends AbstractService<Company, Practicu
 
 		duration = MomentHelper.computeDuration(object.getInitialPeriod(), object.getFinalPeriod());
 
-		tuple = super.unbind(object, "title", "summary", "link");
+		tuple = super.unbind(object, "title", "summary", "initialPeriod", "finalPeriod", "link");
 		tuple.put("duration", duration.toHours());
 
 		super.getResponse().setData(tuple);

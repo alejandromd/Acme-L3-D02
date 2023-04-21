@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.PracticumSession;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -60,6 +61,19 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 	@Override
 	public void validate(final PracticumSession object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("initialPeriod") && !super.getBuffer().getErrors().hasErrors("endTime"))
+			if (!MomentHelper.isBefore(object.getInitialPeriod(), object.getFinalPeriod()))
+				super.state(false, "finalPeriod", "company.session.form.error.end-before-start");
+			else {
+				final int days = (int) MomentHelper.computeDuration(MomentHelper.getCurrentMoment(), object.getInitialPeriod()).toDays();
+				if (days < 7)
+					super.state(false, "initialPeriod", "company.practicum-session.form.error.start-period");
+				else {
+					final int duracion = (int) MomentHelper.computeDuration(object.getInitialPeriod(), object.getFinalPeriod()).toDays();
+					if (duracion < 7)
+						super.state(false, "finalPeriod", "company.practicum-session.form.error.end-period");
+				}
+			}
 
 	}
 
@@ -77,7 +91,6 @@ public class CompanySessionUpdateService extends AbstractService<Company, Practi
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "summary", "initialPeriod", "finalPeriod", "link");
-		tuple.put("masterId", object.getPracticum().getId());
 		tuple.put("draftMode", object.getPracticum().getDraftMode());
 
 		super.getResponse().setData(tuple);

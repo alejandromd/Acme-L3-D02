@@ -78,12 +78,12 @@ public class CompanySessionCreateService extends AbstractService<Company, Practi
 				super.state(false, "finalPeriod", "company.session.form.error.end-before-start");
 			else {
 				final int days = (int) MomentHelper.computeDuration(MomentHelper.getCurrentMoment(), object.getInitialPeriod()).toDays();
-				if (days < 1)
-					super.state(false, "initialPeriod", "company.session.form.error.day-ahead");
+				if (days < 7)
+					super.state(false, "initialPeriod", "company.practicum-session.form.error.start-period");
 				else {
-					final int hours = (int) MomentHelper.computeDuration(object.getInitialPeriod(), object.getFinalPeriod()).toHours();
-					if (!(1 <= hours && hours <= 5))
-						super.state(false, "finalPeriod", "company.session.form.error.duration");
+					final int duracion = (int) MomentHelper.computeDuration(object.getInitialPeriod(), object.getFinalPeriod()).toDays();
+					if (duracion < 7)
+						super.state(false, "finalPeriod", "company.practicum-session.form.error.end-period");
 				}
 			}
 	}

@@ -12,3 +12,9 @@ company.practicumSession.form.label.link = Link
 company.practicumSession.form.button.update = Update
 company.practicumSession.form.button.delete = Delete
 company.practicumSession.form.button.create = Create
+company.practicumSession.list.label.duration = Duration
+
+company.practicum-session.form.error.start-period = The start date must be at least 7 days ahead from the current date
+company.practicum-session.form.error.end-period = The end date must be at least 7 days ahead of the start date
+
+company.session.form.error.end-before-start = The end date must be after the start date

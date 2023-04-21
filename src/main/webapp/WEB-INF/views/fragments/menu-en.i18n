@@ -88,3 +88,6 @@ master.menu.lecturer = Lecturer
 master.menu.lecturer.course = My courses
 master.menu.lecturer.lecture = My lectures
 master.menu.lecturer.dashboard = Lecturer dashboard
+
+master.menu.company = Company
+master.menu.Company.practicum = My practicum

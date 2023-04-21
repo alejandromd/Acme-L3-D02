@@ -90,7 +90,7 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 		Collection<Course> courses;
 		SelectChoices choices;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findAllCoursesNotPublished();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple = super.unbind(object, "title", "summary", "goals", "draftMode");
 		tuple.put("courses", choices);

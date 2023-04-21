@@ -3,6 +3,7 @@ company.practicum.list.label.title = Título
 company.practicum.list.label.course.code = Código del curso
 company.practicum.list.label.course.title = Título del curso
 company.practicum.list.button.create = Crear
+company.practicum.form.label.course = Curso
 
 company.practicum.form.label.code = Código
 company.practicum.form.label.title = Título
