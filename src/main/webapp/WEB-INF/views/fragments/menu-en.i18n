@@ -97,3 +97,8 @@ master.menu.student = Students
 master.menu.student.dashboard = Student Dashboard
 master.menu.student.enrolment = My enrolments
 master.menu.student.course = List of courses
+
+# master.menu.company ####################################################
+
+master.menu.company = Company
+master.menu.Company.practicum = My practicum

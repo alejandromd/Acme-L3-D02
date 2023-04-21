@@ -1,0 +1,18 @@
+company.practicum.list.label.code = Código
+company.practicum.list.label.title = Título
+company.practicum.list.label.course.code = Código del curso
+company.practicum.list.label.course.title = Título del curso
+company.practicum.list.button.create = Crear
+company.practicum.form.label.course = Curso
+
+company.practicum.form.label.code = Código
+company.practicum.form.label.title = Título
+company.practicum.form.label.recap = Resumen
+company.practicum.form.label.goals = Objetivos
+company.practicum.form.label.totalTime = Tiempo estimado (en horas)
+company.practicum.form.buttton.sessions = Sesiones
+company.practicum.form.button.create.session = Crear sesión
+company.practicum.form.button.update = Actualizar
+company.practicum.form.button.delete = Borrar
+company.practicum.form.button.publish = Publicar
+company.practicum.form.button.create = Crear

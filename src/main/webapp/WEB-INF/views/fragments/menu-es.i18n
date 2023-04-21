@@ -31,11 +31,6 @@ master.menu.anonymous.favourite-link5 = 29533138B : Vargas Castro, Francisco Jos
 master.menu.authenticated = Autentificado
 master.menu.authenticated.note.list = Ver notas
 
-# master.menu.auditor ####################################################
-
-master.menu.auditor = Auditor
-master.menu.auditor.audit = Auditorías
-
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
@@ -102,3 +97,8 @@ master.menu.student = Estudiantes
 master.menu.student.dashboard = Tablero del estudiante 
 master.menu.student.enrolment = Mis inscripciones
 master.menu.student.course = Lista de cursos
+
+# master.menu.company ####################################################
+
+master.menu.company = Compañia
+master.menu.Company.practicum = Mis practicas

@@ -24,6 +24,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link3" action="http://www.whatsapp.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link4" action="http://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link5" action="http://www.facebook.com/"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
 		</acme:menu-option>
 		
@@ -72,6 +73,10 @@
 			<acme:menu-suboption code="master.menu.student.enrolment" action="/student/enrolment/list"/>
 			<acme:menu-suboption code="master.menu.student.dashboard" action="/student/student-dashboard/show"/>
 			<acme:menu-suboption code="master.menu.student.course" action="/student/course/list"/>
+      </acme:menu-option>
+
+		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
+			<acme:menu-suboption code="master.menu.Company.practicum" action="/company/practicum/list"/>
 		</acme:menu-option>
 		
 
