@@ -35,7 +35,6 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 	@Override
 	public void load() {
 		Peep object;
-		String nick;
 
 		object = new Peep();
 
@@ -45,8 +44,9 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 		final Principal principal = super.getRequest().getPrincipal();
 
 		if (principal.isAuthenticated()) {
-			nick = principal.getUsername();
-			object.setNick(nick);
+			final int id = principal.getAccountId();
+			final String fullName = this.repository.findUserAccountById(id).getIdentity().getFullName();
+			object.setNick(fullName);
 		}
 
 		super.getBuffer().setData(object);

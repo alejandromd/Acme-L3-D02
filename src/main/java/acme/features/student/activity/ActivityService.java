@@ -29,7 +29,7 @@ public class ActivityService extends AbstractService<Student, Activity> {
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(super.getRequest().getPrincipal().hasRole(Student.class));
 	}
 
 	@Override

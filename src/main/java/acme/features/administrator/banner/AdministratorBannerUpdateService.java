@@ -57,29 +57,31 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin")) {
-			Date date;
-			date = Date.from(Instant.now());
-			super.state(!(date.after(object.getDisplayPeriodBegin()) && date.before(object.getDisplayPeriodFinish())), "displayPeriodBegin", "administrator.banner.form.error.wrong-update");
-		}
-		super.state(MomentHelper.isFuture(object.getDisplayPeriodBegin()), "displayPeriodBegin", "administrator.banner.form.error.wrong-displayStart");
+		if (object.getDisplayPeriodBegin() != null && object.getDisplayPeriodFinish() != null)
+			if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin")) {
+				Date date;
+				date = Date.from(Instant.now());
+				super.state(!(date.after(object.getDisplayPeriodBegin()) && date.before(object.getDisplayPeriodFinish())), "displayPeriodBegin", "administrator.banner.form.error.wrong-update");
+			}
 
-		if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin"))
-			super.state(MomentHelper.isFuture(object.getDisplayPeriodBegin()), "displayPeriodBegin", "administrator.banner.form.error.wrong-displayStart");
+		if (object.getDisplayPeriodBegin() != null)
+			if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin"))
+				super.state(MomentHelper.isFuture(object.getDisplayPeriodBegin()), "displayPeriodBegin", "administrator.banner.form.error.wrong-displayStart");
 
-		if (!super.getBuffer().getErrors().hasErrors("displayPeriodFinish")) {
-			Date start;
-			Date startOneWeek;
-			Calendar calendar;
+		if (object.getDisplayPeriodBegin() != null && object.getDisplayPeriodFinish() != null)
+			if (!super.getBuffer().getErrors().hasErrors("displayPeriodFinish")) {
+				Date start;
+				Date startOneWeek;
+				Calendar calendar;
 
-			start = object.getDisplayPeriodBegin();
-			calendar = Calendar.getInstance();
-			calendar.setTime(start);
-			calendar.add(Calendar.WEEK_OF_YEAR, 1);
-			startOneWeek = calendar.getTime();
+				start = object.getDisplayPeriodBegin();
+				calendar = Calendar.getInstance();
+				calendar.setTime(start);
+				calendar.add(Calendar.WEEK_OF_YEAR, 1);
+				startOneWeek = calendar.getTime();
 
-			super.state(MomentHelper.isAfterOrEqual(object.getDisplayPeriodFinish(), startOneWeek), "displayPeriodFinish", "administrator.banner.form.error.wrong-displayEnd");
-		}
+				super.state(MomentHelper.isAfterOrEqual(object.getDisplayPeriodFinish(), startOneWeek), "displayPeriodFinish", "administrator.banner.form.error.wrong-displayEnd");
+			}
 		if (!super.getBuffer().getErrors().hasErrors("slogan"))
 			super.state(!SpamFilter.antiSpamFilter(object.getSlogan(), this.repository.findThreshold()), "slogan", "administrator.banner.error.spam");
 	}
