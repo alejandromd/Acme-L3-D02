@@ -31,11 +31,11 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	@Query("select au from Audit au where au.code = :code")
 	Audit findAuditByCode(String code);
 
-	@Query("select c from Course c where c.draftMode = false")
-	Collection<Course> findCoursesWithoutAudit();
+	@Query("select c from Course c where c.draftMode = true")
+	Collection<Course> findCoursesNotDraftMode();
 
-	@Query("select ar from AuditingRecord ar where ar.audit = :audit")
-	Collection<AuditingRecord> findAuditingRecordsByAudit(Audit audit);
+	@Query("select ar from AuditingRecord ar where ar.audit.id = :id")
+	Collection<AuditingRecord> findManyAuditingRecordsByAuditId(int id);
 
 	@Query("select ar.mark from AuditingRecord ar where ar.audit.id = :id")
 	Collection<Mark> findMarkByAuditId(int id);

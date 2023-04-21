@@ -1,0 +1,19 @@
+auditor.auditingRecord.list.label.subject = Subject
+auditor.auditingRecord.list.label.mark = Mark
+
+auditor.auditing-record.form.label.subject = Subject
+auditor.auditing-record.form.label.assessment = Assessment
+auditor.auditing-record.form.label.periodStartDate = Starting moment of the auditing record
+auditor.auditing-record.form.label.periodEndDate = Ending moment of the auditing record
+auditor.auditing-record.form.label.mark = Mark
+auditor.auditing-record.form.label.link = More information
+auditor.auditing-record.form.label.message = Correction auditing record
+
+auditor.auditing-record.form.button.update = Update
+auditor.auditing-record.form.button.delete = Delete
+auditor.auditing-record.form.button.create = Create
+auditor.auditing-record.form.button.create-correction = Create a correctional auditing record
+auditor.auditing-record.form.button.confirmation = Confirmation
+auditor.auditing-record.form.error.spam = This message is considered spam
+
+auditor.auditing-record.form.error.too-close = The period must be at least one hour long and the start period can not be after the end period

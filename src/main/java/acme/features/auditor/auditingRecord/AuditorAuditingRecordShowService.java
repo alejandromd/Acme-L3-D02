@@ -1,13 +1,11 @@
 
-package acme.features.auditor;
-
-import java.util.Collection;
+package acme.features.auditor.auditingRecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Audit;
-import acme.entities.Course;
+import acme.entities.auditingRecord.AuditingRecord;
 import acme.entities.auditingRecord.Mark;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
@@ -16,12 +14,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
+public class AuditorAuditingRecordShowService extends AbstractService<Auditor, AuditingRecord> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AuditorAuditingRecordRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -37,65 +35,51 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void authorise() {
-
 		boolean status;
 		int id;
-		Audit object;
+		Audit audit;
 		Principal principal;
-		int auditorId;
+		int userId;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneAuditById(id);
+		audit = this.repository.findOneAuditByAuditingRecordId(id);
 		principal = super.getRequest().getPrincipal();
-		auditorId = principal.getAccountId();
-		status = object.getAuditor().getUserAccount().getId() == auditorId;
+		userId = principal.getAccountId();
+		status = audit.getAuditor().getUserAccount().getId() == userId;
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
 	public void load() {
-
-		Audit object;
+		AuditingRecord object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneAuditById(id);
+		object = this.repository.findOneAuditingRecordById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Audit object) {
-
+	public void unbind(final AuditingRecord object) {
 		assert object != null;
 
 		Tuple tuple;
-		Collection<Course> courses;
-		SelectChoices choice;
-		Collection<Mark> marks;
-		String markList;
-		int auditId;
+		String message;
+		SelectChoices choices;
+		choices = SelectChoices.from(Mark.class, object.getMark());
 
-		courses = this.repository.findCoursesNotDraftMode();
-		auditId = object.getId();
-		marks = this.repository.findMarkByAuditId(auditId);
-
-		if (marks.isEmpty())
-			markList = "N/A";
-		else
-			markList = marks.toString();
-
-		choice = SelectChoices.from(courses, "code", object.getCourse());
-
-		tuple = super.unbind(object, "code", "strongPoints", "weakPoints", "conclusion", "draftMode");
-		tuple.put("course", choice.getSelected().getKey());
-		tuple.put("courses", choice);
-		tuple.put("mark", markList);
+		message = "[X]";
+		tuple = super.unbind(object, "subject", "assessment", "periodStartDate", "mark", "periodEndDate", "link");
+		tuple.put("masterId", object.getAudit().getId());
+		tuple.put("draftMode", object.getAudit().isDraftMode());
+		tuple.put("correction", object.isCorrection());
+		tuple.put("message", message);
+		tuple.put("marks", choices);
+		tuple.put("mark", choices.getSelected().getKey());
 
 		super.getResponse().setData(tuple);
-
 	}
 
 }

@@ -43,17 +43,14 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	public void load() {
 		Audit object;
 		Auditor auditor;
-		String mark;
 		int auditorId;
 
 		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		auditor = this.repository.findOneAuditorById(auditorId);
-		mark = "N/A";
 
 		object = new Audit();
 		object.setAuditor(auditor);
 		object.setDraftMode(true);
-		object.setMark(mark);
 
 		super.getBuffer().setData(object);
 
@@ -104,7 +101,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		Collection<Course> courses;
 		SelectChoices choices;
 
-		courses = this.repository.findCoursesWithoutAudit();
+		courses = this.repository.findCoursesNotDraftMode();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
