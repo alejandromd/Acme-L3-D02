@@ -9,12 +9,12 @@
 # they accept any liabilities with respect to them.
 
 
-any.course.form.label.code = Código
-any.course.form.label.title = Título
-any.course.form.label.summary = Resumen
-any.course.form.label.retailPrice = Precio
-any.course.form.label.link = link con información adicional
-any.course.form.label.almaMater = alma mater
-any.course.form.label.courseType = Tipo de curso
-any.audit.form.button.list = Auditorias
-any.tutorials.form.button.list = Tutoriales
+authenticated.tutorial.list.label.title = Título
+authenticated.tutorial.list.label.code = Código
+authenticated.tutorial.list.label.abstract = Descripción
+
+authenticated.tutorial.form.label.code = Código
+authenticated.tutorial.form.label.title = Título
+authenticated.tutorial.form.label.abstract = Descripción
+authenticated.tutorial.form.label.goals = Objetivos
+authenticated.tutorial.form.label.assistant = Asistente
