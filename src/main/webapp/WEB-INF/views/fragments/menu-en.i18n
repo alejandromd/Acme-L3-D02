@@ -83,6 +83,8 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.assistant.create = Become an assistant
+master.menu.user-account.assistant.update = Update Assistant profile
 master.menu.authenticated.auditor.become-auditor = Become a auditor
 master.menu.authenticated.auditor.auditor = Auditor data
 
