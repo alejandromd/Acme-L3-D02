@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -20,5 +21,8 @@ public interface AdministratorBannerRepository extends AbstractRepository {
 
 	@Query("select sc.threshold from SpamConfig sc")
 	Double findThreshold();
+
+	@Query("select a from Administrator a where a.userAccount.id = :id")
+	Administrator findAdminById(int id);
 
 }
