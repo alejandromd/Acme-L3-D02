@@ -19,3 +19,6 @@ company.practicum-session.form.error.start-period = La fecha de inicio debe esta
 company.practicum-session.form.error.end-period = La fecha de fin debe estar al menos una semana por delante de la fecha de inicio
 
 company.session.form.error.end-before-start = La fecha de fin debe ser posterior a la fecha de inicio
+
+company.practicum-session.form.message.addendum = Sesión de adenda
+company.practicum-session.list.button.create.addendum = Crear sesión de adenda

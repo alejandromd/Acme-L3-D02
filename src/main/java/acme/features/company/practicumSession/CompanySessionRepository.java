@@ -22,7 +22,13 @@ public interface CompanySessionRepository extends AbstractRepository {
 	@Query("select ts from PracticumSession ts where ts.id = :id")
 	PracticumSession findOneSessionById(int id);
 
+	@Query("Select s From PracticumSession s Where s.practicum.id = :id And s.addendum = true")
+	Collection<PracticumSession> findAddendumSessionsByPracticumId(int id);
+
 	@Query("select ts.practicum from PracticumSession ts where ts.id = :id")
 	Practicum findOneSessionByPracticumId(int id);
+
+	@Query("Select p From Practicum p Where p.company.id = :id And p.draftMode = false")
+	Collection<Practicum> findManyPublishedPracticaByCompanyId(int id);
 
 }

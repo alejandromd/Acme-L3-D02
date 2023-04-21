@@ -1,12 +1,12 @@
-key,title,summary,initialPeriod,finalPeriod,link,key:practicum
-practicum-session-01,Titulo de práctica,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-01
-practicum-session-02,T,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-01
-practicum-session-03,Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son 75.,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-01
-practicum-session-04,Γεια σου κόσμε,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-01
-practicum-session-05,Titulo de práctica,E,2022/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-01
-practicum-session-06,Titulo de práctica,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-01
-practicum-session-07,Titulo de práctica,Γεια σου κόσμε,2022/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-01
-practicum-session-08,Titulo de práctica,Esto es una descripcion.,1987/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-01
-practicum-session-09,Titulo de práctica,Esto es una descripcion.,2023/03/17 10:00,2023/03/17 11:00,https://a.org,practicum-01
-practicum-session-10,Titulo de práctica,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://ev.us.es,practicum-01
-practicum-session-11,Titulo de práctica,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,practicum-02
+key,title,summary,initialPeriod,finalPeriod,link,addendum,draftMode,key:practicum
+practicum-session-01,Titulo de práctica,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,false, true,practicum-01
+practicum-session-02,T,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,false, false,practicum-01
+practicum-session-03,Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son 75.,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,false, false,practicum-01
+practicum-session-04,Γεια σου κόσμε,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,false, false,practicum-01
+practicum-session-05,Titulo de práctica,E,2022/03/25 14:00,2022/03/25 17:00,https://a.org,false, false,practicum-01
+practicum-session-06,Titulo de práctica,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,false, false,practicum-01
+practicum-session-07,Titulo de práctica,Γεια σου κόσμε,2022/03/25 14:00,2022/03/25 17:00,https://a.org,false, false,practicum-01
+practicum-session-08,Titulo de práctica,Esto es una descripcion.,1987/03/25 14:00,2022/03/25 17:00,https://a.org,false, false,practicum-01
+practicum-session-09,Titulo de práctica,Esto es una descripcion.,2023/03/17 10:00,2023/03/17 11:00,https://a.org,false, false,practicum-01
+practicum-session-10,Titulo de práctica,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://ev.us.es,false, false,practicum-01
+practicum-session-11,Titulo de práctica,Esto es una descripcion.,2022/03/25 14:00,2022/03/25 17:00,https://a.org,true, true,practicum-02

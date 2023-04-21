@@ -1,3 +1,14 @@
+/*
+ * AuthenticatedConsumerController.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.company.practicum;
 
@@ -9,7 +20,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.Course;
 import acme.entities.Practicum;
 import acme.entities.PracticumSession;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -17,13 +27,13 @@ import acme.roles.Company;
 
 @Service
 public class CompanyPracticumDeleteService extends AbstractService<Company, Practicum> {
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
 
+
 	// AbstractService interface ----------------------------------------------
-
-
 	@Override
 	public void check() {
 		boolean status;
@@ -36,15 +46,14 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	@Override
 	public void authorise() {
 		boolean status;
-		Practicum object;
-		Principal principal;
 		int practicumId;
+		Practicum practicum;
+		Company company;
 
 		practicumId = super.getRequest().getData("id", int.class);
-		object = this.repository.findPracticumById(practicumId);
-		principal = super.getRequest().getPrincipal();
-
-		status = object.getCompany().getId() == principal.getActiveRoleId();
+		practicum = this.repository.findPracticumById(practicumId);
+		company = practicum == null ? null : practicum.getCompany();
+		status = practicum != null && practicum.getDraftMode() && super.getRequest().getPrincipal().hasRole(company);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -70,23 +79,26 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findCourseById(courseId);
 
-		super.bind(object, "code", "title", "summary", "goals");
+		super.bind(object, "code", "title", "summary", "goals", "estimatedTime");
+
 		object.setCourse(course);
+
 	}
 
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+
 	}
 
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
+		Collection<PracticumSession> sessions;
 
-		Collection<PracticumSession> practicumSessions;
+		sessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
+		this.repository.deleteAll(sessions);
 
-		practicumSessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
-		this.repository.deleteAll(practicumSessions);
 		this.repository.delete(object);
 	}
 
@@ -96,14 +108,22 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 		Collection<Course> courses;
 		SelectChoices choices;
+		Collection<PracticumSession> sessions;
+		Double estimatedTime;
 		Tuple tuple;
+
+		sessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
+		estimatedTime = 0.;
+		if (!sessions.isEmpty())
+			estimatedTime = object.estimatedTime(sessions);
 
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "summary", "goals");
+		tuple = super.unbind(object, "code", "title", "summary", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("estimatedTime", estimatedTime);
 
 		super.getResponse().setData(tuple);
 	}

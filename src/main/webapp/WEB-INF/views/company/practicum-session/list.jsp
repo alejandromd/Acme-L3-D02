@@ -10,3 +10,4 @@
 </acme:list>
 
 <acme:button test="${showCreate}" code="company.practicumSession.list.button.create" action="/company/practicum-session/create?masterId=${masterId}"/>
+<acme:button code="company.practicum-session.list.button.create.addendum" action="/company/practicum-session/create-addendum"/>
