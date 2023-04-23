@@ -1,12 +1,14 @@
 
 package acme.features.administrator.banner;
 
+import java.time.Instant;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Banner;
 import acme.framework.components.accounts.Administrator;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
@@ -28,10 +30,7 @@ public class AdministratorBannerService extends AbstractService<Administrator, B
 
 	@Override
 	public void authorise() {
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		final Administrator admin = this.repository.findAdminById(userAccountId);
-		super.getResponse().setAuthorised(admin != null);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -47,10 +46,15 @@ public class AdministratorBannerService extends AbstractService<Administrator, B
 
 	@Override
 	public void unbind(final Banner object) {
-
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "instantiationMoment", "slogan", "displayPeriodBegin", "displayPeriodFinish", "picture", "linkWeb");
+		int masterId;
+		masterId = super.getRequest().getData("id", int.class);
+		final Banner banner = this.repository.findBannerById(masterId);
+		final Date date = Date.from(Instant.now());
+		final boolean bool = banner.getDisplayPeriodBegin().before(date) && banner.getDisplayPeriodFinish().after(date);
 
+		final Tuple tuple = super.unbind(object, "instantiationMoment", "slogan", "displayPeriodBegin", "displayPeriodFinish", "picture", "linkWeb");
+		super.getResponse().setGlobal("isViewable", !bool);
 		super.getResponse().setData(tuple);
 	}
 

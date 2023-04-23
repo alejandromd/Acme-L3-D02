@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import acme.datatypes.Nature;
 import acme.entities.Lecture;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -31,10 +30,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		final Lecturer lecturer = this.repository.findLecturerByIdUserAccount(userAccountId);
-		super.getResponse().setAuthorised(lecturer != null);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override

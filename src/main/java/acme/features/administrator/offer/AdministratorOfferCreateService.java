@@ -1,9 +1,12 @@
 
 package acme.features.administrator.offer;
 
+import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,10 +35,7 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -120,12 +120,22 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 			isValid = MomentHelper.isAfterOrEqual(object.getEndAvaliabilityPeriod(), earliestDate) && MomentHelper.isBeforeOrEqual(object.getEndAvaliabilityPeriod(), latestDate);
 			super.state(isValid, "endAvaliabilityPeriod", "administrator.offer.error.datelimits");
 		}
-
+		if (!super.getBuffer().getErrors().hasErrors("price")) {
+			final Double amount = object.getPrice().getAmount();
+			super.state(amount >= 0 && amount < 1000000, "price", "administrator.offer.error.price");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("price")) {
+			final String aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
+			final List<String> currencies = Arrays.asList(aceptedCurrencies.split(","));
+			super.state(currencies.contains(object.getPrice().getCurrency()), "price", "administrator.offer.error.currency");
+			super.state(currencies.contains(object.getPrice().getCurrency()), "price", aceptedCurrencies);
+		}
 	}
 
 	@Override
 	public void perform(final Offer object) {
 		assert object != null;
+		object.setInstantiationMoment(Date.from(Instant.now()));
 		this.repository.save(object);
 	}
 

@@ -1,6 +1,7 @@
 
 package acme.features.administrator.banner;
 
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Banner;
 import acme.framework.components.accounts.Administrator;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -29,10 +29,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Override
 	public void authorise() {
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		final Administrator admin = this.repository.findAdminById(userAccountId);
-		super.getResponse().setAuthorised(admin != null);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -46,7 +43,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		moment = MomentHelper.getCurrentMoment();
 
-		start = MomentHelper.getCurrentMoment();
+		start = Date.from(Instant.now());
 		start.setTime(start.getTime() + MILLIS_IN_ONE_MINUTE);
 
 		calendar = Calendar.getInstance();
@@ -103,7 +100,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		Date d;
 
-		d = MomentHelper.getCurrentMoment();
+		d = Date.from(Instant.now());
 		object.setInstantiationMoment(d);
 		this.repository.save(object);
 	}

@@ -37,16 +37,12 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 
 	@Override
 	public void authorise() {
-		boolean status;
 		int masterId;
 		Offer offer;
 		masterId = super.getRequest().getData("id", int.class);
 		offer = this.repository.findOneOfferById(masterId);
-		status = offer != null && super.getRequest().getPrincipal().hasRole(Administrator.class);
 		final Date date = Date.from(Instant.now());
-		final boolean bool = offer.getStartAvaliabilityPeriod().before(date) && offer.getEndAvaliabilityPeriod().after(date);
-
-		super.getResponse().setAuthorised(status && !bool);
+		super.getResponse().setAuthorised(offer != null && !(offer.getStartAvaliabilityPeriod().before(date) && offer.getEndAvaliabilityPeriod().after(date)));
 	}
 
 	@Override

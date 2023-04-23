@@ -23,6 +23,7 @@ administrator.banner.form.error.wrong-displayStart = El periodo de visualizació
 administrator.banner.form.error.wrong-displayEnd = El periodo de visualización debe durar una semana o más
 administrator.banner.form.error.wrong-update = El banner no se puede actualizar durante el período de visualización
 
+administrator.banner.form.notEditable = En periodo de exhibición no se puede modificar ni eliminar
 
 administrator.banner.list.label.slogan = Eslogan
 

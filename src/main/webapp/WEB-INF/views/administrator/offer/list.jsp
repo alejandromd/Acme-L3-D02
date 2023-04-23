@@ -18,7 +18,7 @@
 
 <acme:list>
 	<acme:list-column code="administrator.offer.list.label.heading" path="heading" width="20%"/>
-	<acme:list-column code="administrator.offer.list.label.startAvailable" path="instantiationMoment" width="40%"/>
+	<acme:list-column code="administrator.offer.list.label.startAvailable" path="startAvaliabilityPeriod" width="40%"/>
 	<acme:list-column code="administrator.offer.list.label.endAvailable" path="endAvaliabilityPeriod" width="40%"/>	
 	<acme:list-column code="administrator.offer.list.label.price" path="price" width="40%"/>		
 </acme:list>
