@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.bulletin.instantiationMoment = Instantiation Moment
+administrator.bulletin.instantiationMoment = Instantiation moment
 administrator.bulletin.title = Title
 administrator.bulletin.message = Message
 administrator.bulletin.critical = Critical

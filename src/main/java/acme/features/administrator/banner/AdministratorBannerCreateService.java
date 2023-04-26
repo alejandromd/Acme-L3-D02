@@ -1,7 +1,6 @@
 
 package acme.features.administrator.banner;
 
-import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -43,7 +42,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		moment = MomentHelper.getCurrentMoment();
 
-		start = Date.from(Instant.now());
+		start = MomentHelper.getCurrentMoment();
 		start.setTime(start.getTime() + MILLIS_IN_ONE_MINUTE);
 
 		calendar = Calendar.getInstance();
@@ -100,7 +99,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		Date d;
 
-		d = Date.from(Instant.now());
+		d = MomentHelper.getCurrentMoment();
 		object.setInstantiationMoment(d);
 		this.repository.save(object);
 	}

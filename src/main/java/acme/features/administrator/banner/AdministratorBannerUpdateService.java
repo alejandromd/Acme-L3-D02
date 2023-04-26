@@ -108,6 +108,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 		Tuple tuple;
 
 		tuple = super.unbind(object, "instantiationMoment", "slogan", "displayPeriodBegin", "displayPeriodFinish", "picture", "linkWeb");
+		super.getResponse().setGlobal("isViewable", true);
 		super.getResponse().setData(tuple);
 	}
 

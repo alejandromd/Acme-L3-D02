@@ -20,6 +20,7 @@
 	<acme:input-textbox code="any.peep.form.label.nick" path="nick"/>
 	<acme:input-textarea code="any.peep.form.label.message" path="message"/>
 	<acme:input-email code="any.peep.form.label.email" path="email"/>
+	<acme:input-textbox code="any.peep.form.label.moment" path="instantiationMoment" readonly="true"/>
 	<acme:input-url code="any.peep.form.label.moreInfo" path="link"/>
 	
 	<acme:submit test="${_command == 'create'}" code="any.peep.form.button.create" action="/any/peep/create"/>

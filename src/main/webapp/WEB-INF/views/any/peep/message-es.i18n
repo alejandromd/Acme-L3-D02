@@ -8,7 +8,7 @@
 any.peep.list.label.moment = Momento
 any.peep.list.label.title = Título
 
-any.peep.form.label.moment = Momento
+any.peep.form.label.moment = Momento de instanciación
 any.peep.form.label.title = Título
 any.peep.form.label.nick = Alias
 any.peep.form.label.message = Mensaje

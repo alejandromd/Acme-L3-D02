@@ -16,6 +16,7 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
+	<acme:input-textbox code="administrator.banner.form.label.moment" path="instantiationMoment" readonly="true"/>
 	<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan"/>
 	<acme:input-moment code="administrator.banner.form.label.displayStart" path="displayPeriodBegin"/>
 	<acme:input-moment code="administrator.banner.form.label.displayEnd" path="displayPeriodFinish"/>

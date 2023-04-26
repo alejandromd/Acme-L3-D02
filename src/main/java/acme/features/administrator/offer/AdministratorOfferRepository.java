@@ -21,4 +21,7 @@ public interface AdministratorOfferRepository extends AbstractRepository {
 
 	@Query("select s from SystemConfiguration s")
 	SystemConfiguration findSystemConfiguration();
+
+	@Query("select sc.threshold from SpamConfig sc")
+	Double findThreshold();
 }

@@ -1,9 +1,6 @@
 
 package acme.features.administrator.bulletin;
 
-import java.time.Instant;
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,7 +59,7 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 	@Override
 	public void perform(final Bulletin object) {
 		assert object != null;
-		object.setInstantiationMoment(Date.from(Instant.now()));
+		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
 		this.repository.save(object);
 	}
 

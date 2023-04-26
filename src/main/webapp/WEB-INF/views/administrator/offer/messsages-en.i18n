@@ -35,3 +35,5 @@ administrator.offer.error.datelimits = The date must be between 2000/01/01 00:00
 administrator.offer.error.currency = Invalid currency, enter one of the following currencies
 administrator.offer.error.price = The price must be between 0 (inclusive) and 1000000 (not inclusive)
 administrator.offer.form.notEditable = During the exhibition period it cannot be modified or deleted
+administrator.offer.error.notEmpty = Must not be blank
+administrator.offer.error.spam = This text is considered spam

@@ -44,7 +44,7 @@ public class AuthenticatedBulletinListService extends AbstractService<Authentica
 	@Override
 	public void unbind(final Bulletin object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "message");
+		final Tuple tuple = super.unbind(object, "title", "instantiationMoment");
 		super.getResponse().setData(tuple);
 	}
 

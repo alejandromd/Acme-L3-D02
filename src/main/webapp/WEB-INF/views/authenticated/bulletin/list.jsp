@@ -16,6 +16,6 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
+	<acme:list-column code="authenticated.bulletin.instantiationMoment" path="instantiationMoment"/>
 	<acme:list-column code="authenticated.bulletin.title" path="title"/>
-	<acme:list-column code="authenticated.bulletin.message" path="message"/>	
 </acme:list>
