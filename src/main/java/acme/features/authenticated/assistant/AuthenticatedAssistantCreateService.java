@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.accounts.UserAccount;
 import acme.framework.components.models.Tuple;
 import acme.framework.controllers.HttpMethod;
@@ -26,44 +27,57 @@ public class AuthenticatedAssistantCreateService extends AbstractService<Authent
 
 	@Override
 	public void authorise() {
-		boolean auth;
-		auth = !super.getRequest().getPrincipal().hasRole(Assistant.class);
-		super.getResponse().setAuthorised(auth);
+		boolean status;
+
+		status = !super.getRequest().getPrincipal().hasRole(Assistant.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Assistant object;
-		final int userAccountId = super.getRequest().getPrincipal().getAccountId();
-		final UserAccount userAccount = this.repository.findUserAccountById(userAccountId);
+		Principal principal;
+		int userAccountId;
+		UserAccount userAccount;
+
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
+		userAccount = this.repository.findOneUserAccountById(userAccountId);
+
 		object = new Assistant();
 		object.setUserAccount(userAccount);
+
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Assistant object) {
 		assert object != null;
+
 		super.bind(object, "supervisor", "expertiseFields", "resume", "link");
 	}
 
 	@Override
 	public void validate(final Assistant object) {
 		assert object != null;
-		// TODO
 	}
 
 	@Override
 	public void perform(final Assistant object) {
 		assert object != null;
+
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Assistant object) {
 		assert object != null;
-		final Tuple tuple;
+
+		Tuple tuple;
+
 		tuple = super.unbind(object, "supervisor", "expertiseFields", "resume", "link");
+
 		super.getResponse().setData(tuple);
 	}
 

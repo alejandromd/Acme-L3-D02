@@ -12,9 +12,9 @@ import acme.roles.Assistant;
 public interface AuthenticatedAssistantRepository extends AbstractRepository {
 
 	@Query("SELECT u FROM UserAccount u WHERE u.id = :id")
-	UserAccount findUserAccountById(int id);
+	UserAccount findOneUserAccountById(int id);
 
 	@Query("SELECT a FROM Assistant a WHERE a.userAccount.id = :id")
-	Assistant findAssistantByAccountId(int id);
+	Assistant findOneAssistantByUserAccountId(int id);
 
 }
