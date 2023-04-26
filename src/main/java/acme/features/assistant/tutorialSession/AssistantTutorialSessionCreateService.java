@@ -12,6 +12,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
+import filter.SpamFilter;
 
 @Service
 public class AssistantTutorialSessionCreateService extends AbstractService<Assistant, TutorialSession> {
@@ -80,6 +81,11 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 			final int hoursBetween = (int) MomentHelper.computeDuration(object.getStartTimestamp(), object.getEndTimestamp()).toHours();
 			super.state(hoursBetween >= 1 && hoursBetween <= 5, "endTimestamp", "assistant.tutorialSession.form.error.invalid-duration");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "assistant.tutorialSession.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("informativeAbstract"))
+			super.state(!SpamFilter.antiSpamFilter(object.getInformativeAbstract(), this.repository.findThreshold()), "informativeAbstract", "assistant.tutorialSession.form.error.spam");
 
 	}
 

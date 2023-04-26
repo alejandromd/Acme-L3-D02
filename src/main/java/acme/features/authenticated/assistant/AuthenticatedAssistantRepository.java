@@ -17,4 +17,7 @@ public interface AuthenticatedAssistantRepository extends AbstractRepository {
 	@Query("SELECT a FROM Assistant a WHERE a.userAccount.id = :id")
 	Assistant findOneAssistantByUserAccountId(int id);
 
+	@Query("SELECT sc.threshold FROM SpamConfig sc")
+	Double findThreshold();
+
 }

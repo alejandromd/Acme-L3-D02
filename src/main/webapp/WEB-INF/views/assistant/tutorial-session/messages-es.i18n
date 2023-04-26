@@ -13,7 +13,7 @@ assistant.tutorialSession.list.label.type = Tipo
 assistant.tutorialSession.list.label.startTimestamp = Fecha de inicio
 assistant.tutorialSession.list.label.endTimestamp = Fecha de fin
 
-assistant.tutorialSession.button.create = Craer
+assistant.tutorialSession.button.create = Crear
 
 assistant.tutorialSession.form.label.title = Título
 assistant.tutorialSession.form.label.informativeAbstract = Descripción
@@ -28,3 +28,4 @@ assistant.tutorialSession.form.button.create = Crear
 assistant.tutorialSession.form.error.start-not-ahead = La fecha de inicio debe ser un día por delante de la fecha actual
 assistant.tutorialSession.form.error.end-not-after = La fecha de fin debe ser posterior a la fecha de inicio
 assistant.tutorialSession.form.error.invalid-duration = La duracion de la sesión debe ser de entre una y cinco horas
+assistant.tutorialSession.form.error.spam = El texto es considerado como spam

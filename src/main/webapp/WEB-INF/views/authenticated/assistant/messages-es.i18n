@@ -14,3 +14,5 @@ authenticated.assistant.form.label.expertiseFields = Campos de especialización
 authenticated.assistant.form.label.link = Enlace con información adicional
 authenticated.assistant.form.button.create = Crear
 authenticated.assistant.form.button.update = Actualizar
+
+authenticated.assistant.form.error.spam = El texto es considerado como spam

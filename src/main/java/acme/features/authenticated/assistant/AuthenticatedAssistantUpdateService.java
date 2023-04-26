@@ -11,6 +11,7 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
+import filter.SpamFilter;
 
 @Service
 public class AuthenticatedAssistantUpdateService extends AbstractService<Authenticated, Assistant> {
@@ -56,6 +57,13 @@ public class AuthenticatedAssistantUpdateService extends AbstractService<Authent
 	@Override
 	public void validate(final Assistant object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("supervisor"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSupervisor(), this.repository.findThreshold()), "supervisor", "authenticated.assistant.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("expertiseFields"))
+			super.state(!SpamFilter.antiSpamFilter(object.getExpertiseFields(), this.repository.findThreshold()), "expertiseFields", "authenticated.assistant.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("resume"))
+			super.state(!SpamFilter.antiSpamFilter(object.getResume(), this.repository.findThreshold()), "resume", "authenticated.assistant.form.error.spam");
 	}
 
 	@Override

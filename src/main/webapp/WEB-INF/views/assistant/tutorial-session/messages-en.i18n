@@ -29,3 +29,4 @@ assistant.tutorialSession.form.button.create = Create
 assistant.tutorialSession.form.error.start-not-ahead = Start timestamp should be atleast one day ahead
 assistant.tutorialSession.form.error.end-not-after = End timestamp should be after start timestamp
 assistant.tutorialSession.form.error.invalid-duration = The duration of the session must be between one and five hours long
+assistant.tutorialSession.form.error.spam = The text is considered as spam

@@ -35,4 +35,7 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 
 	@Query("SELECT s FROM TutorialSession s WHERE s.tutorial.id = :tutorialId")
 	Collection<TutorialSession> findManySessionsByTutorialId(int tutorialId);
+
+	@Query("SELECT sc.threshold FROM SpamConfig sc")
+	Double findThreshold();
 }

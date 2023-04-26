@@ -14,6 +14,7 @@ assistant.tutorial.list.label.title = Title
 assistant.tutorial.list.label.course = Course
 
 assistant.tutorial.form.error.code-duplicated = A tutorial with this code already exists
+assistant.tutorial.form.error.spam = The text is considered as spam
 
 assistant.tutorial.button.create = Create
 

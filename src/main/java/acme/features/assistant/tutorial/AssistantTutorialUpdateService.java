@@ -12,6 +12,7 @@ import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
+import filter.SpamFilter;
 
 @Service
 public class AssistantTutorialUpdateService extends AbstractService<Assistant, Tutorial> {
@@ -79,6 +80,13 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 			existing = this.repository.findOneTutorialByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.code-duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "assistant.tutorial.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("informativeAbstract"))
+			super.state(!SpamFilter.antiSpamFilter(object.getInformativeAbstract(), this.repository.findThreshold()), "informativeAbstract", "assistant.tutorial.form.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("goals"))
+			super.state(!SpamFilter.antiSpamFilter(object.getGoals(), this.repository.findThreshold()), "goals", "assistant.tutorial.form.error.spam");
 	}
 
 	@Override
