@@ -27,9 +27,7 @@ public class AnyCourseFindAllService extends AbstractService<Any, Course> {
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().isAuthenticated();
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override

@@ -1,12 +1,15 @@
 
 package acme.features.administrator.offer;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -31,10 +34,7 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -54,8 +54,14 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 		assert object != null;
 
 		Tuple tuple;
+		int masterId;
+		masterId = super.getRequest().getData("id", int.class);
+		final Offer offer = this.repository.findOneOfferById(masterId);
+		final Date date = MomentHelper.getCurrentMoment();
+		final boolean bool = offer.getStartAvaliabilityPeriod().before(date) && offer.getEndAvaliabilityPeriod().after(date);
 
 		tuple = super.unbind(object, "instantiationMoment", "heading", "summary", "startAvaliabilityPeriod", "endAvaliabilityPeriod", "price", "furtherInformation");
+		tuple.put("isViewable", !bool);
 
 		super.getResponse().setData(tuple);
 	}

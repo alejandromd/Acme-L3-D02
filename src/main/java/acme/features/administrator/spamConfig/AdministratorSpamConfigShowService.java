@@ -31,9 +31,7 @@ public class AdministratorSpamConfigShowService extends AbstractService<Administ
 
 	@Override
 	public void authorise() {
-
 		super.getResponse().setAuthorised(true);
-
 	}
 
 	@Override

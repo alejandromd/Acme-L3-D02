@@ -27,9 +27,14 @@
 	
 	<jstl:choose>
 	<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
-			<acme:submit code="administrator.offer.form.button.update" action="/administrator/offer/update"/>
-			<acme:submit code="administrator.offer.form.button.delete" action="/administrator/offer/delete"/>
-		</jstl:when>
+			<acme:submit test="${isViewable}" code="administrator.offer.form.button.update" action="/administrator/offer/update"/>
+			<acme:submit test="${isViewable}" code="administrator.offer.form.button.delete" action="/administrator/offer/delete"/>
+			<jstl:choose>
+				<jstl:when test="${isViewable == false}">
+					<acme:message  code="administrator.offer.form.notEditable"/>
+				</jstl:when>
+			</jstl:choose>
+	</jstl:when>
 	<jstl:when test="${_command == 'create'}">
 			<acme:submit code="administrator.offer.form.button.create" action="/administrator/offer/create"/>
 		</jstl:when>		

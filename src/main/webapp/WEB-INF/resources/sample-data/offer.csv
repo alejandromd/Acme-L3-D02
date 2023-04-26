@@ -1,6 +1,6 @@
 key,instantiation-moment,heading,summary,start-avaliability-period,end-avaliability-period,price,further-information
 offer-01,2020/06/01 10:00,Offer,This is the first offer,2020/06/02 12:00,2020/06/10 12:00,EUR 15.0,https://www.example.com
-offer-02,2022/07/30 00:00,Offer,This is the first offer,2020/06/02 12:00,2020/06/10 12:00,EUR 15.0,https://www.example.com
+offer-02,2022/06/30 00:00,Offer,This is the first offer,2022/07/29 12:00,2022/08/29 12:00,EUR 15.0,https://www.example.com
 offer-03,2020/06/01 10:00,este es un heading con 75 caracteres porque hace falta testear las restricc,This is the first offer,2020/06/02 12:00,2020/06/10 12:00,EUR 15.0,https://www.example.com
 offer-04,2020/06/01 10:00,O,This is the first offer,2020/06/02 12:00,2020/06/10 12:00,EUR 15.0,https://www.example.com
 offer-05,2020/06/01 10:00,了,This is the first offer,2020/06/02 12:00,2020/06/10 12:00,EUR 15.0,https://www.example.com

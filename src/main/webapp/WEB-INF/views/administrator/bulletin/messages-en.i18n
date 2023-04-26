@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.bulletin.instantiationMoment = Instantiation Moment
+administrator.bulletin.instantiationMoment = Instantiation moment
 administrator.bulletin.title = Title
 administrator.bulletin.message = Message
 administrator.bulletin.critical = Critical
@@ -16,5 +16,5 @@ administrator.bulletin.link = link with more information
 administrator.bulletin.confirmation = Confirm
 administrator.bulletin.button.create = Post
 
-administrator.bulletin.error.confirmation = You must confirm to be able to publish it as a bulletin cannot be deleted or edited.
+administrator.bulletin.error.confirmation = You must confirm to be able to publish it as a bulletin cannot be deleted or edited
 administrator.bulletin.error.spam = This text is considered spam

@@ -1,7 +1,6 @@
 
 package acme.features.any.peep;
 
-import java.time.Instant;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +55,7 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 	public void bind(final Peep object) {
 		assert object != null;
 
-		super.bind(object, "instantiationMoment", "title", "nick", "message", "email", "link");
+		super.bind(object, "title", "nick", "message", "email", "link");
 	}
 
 	@Override
@@ -74,7 +73,7 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 	@Override
 	public void perform(final Peep object) {
 		assert object != null;
-		object.setInstantiationMoment(Date.from(Instant.now()));
+		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
 		this.repository.save(object);
 	}
 
@@ -84,7 +83,7 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "instantiationMoment", "title", "nick", "message", "email", "link");
+		tuple = super.unbind(object, "title", "nick", "message", "email", "link");
 
 		super.getResponse().setData(tuple);
 

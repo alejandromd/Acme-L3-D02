@@ -11,5 +11,5 @@
 authenticated.bulletin.title = Title
 authenticated.bulletin.message = Message
 authenticated.bulletin.critical = Critical
-authenticated.bulletin.instantiationMoment = Instantiation Moment
+authenticated.bulletin.instantiationMoment = Instantiation moment
 authenticated.bulletin.link = link with more information

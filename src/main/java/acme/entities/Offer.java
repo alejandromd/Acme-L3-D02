@@ -49,6 +49,7 @@ public class Offer extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endAvaliabilityPeriod;
 
+	@NotNull
 	protected Money				price;
 
 	@URL

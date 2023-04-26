@@ -11,7 +11,7 @@
 any.peep.list.label.moment = Moment
 any.peep.list.label.title = Title
 
-any.peep.form.label.moment = Moment
+any.peep.form.label.moment = Instantiation moment
 any.peep.form.label.title = Title
 any.peep.form.label.nick = Nick
 any.peep.form.label.message = Message

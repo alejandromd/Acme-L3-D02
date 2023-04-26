@@ -1,10 +1,11 @@
 
 package acme.features.administrator.offer;
 
-import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
+import filter.SpamFilter;
 
 @Service
 public class AdministratorOfferUpdateService extends AbstractService<Administrator, Offer> {
@@ -37,16 +39,12 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 
 	@Override
 	public void authorise() {
-		boolean status;
 		int masterId;
 		Offer offer;
 		masterId = super.getRequest().getData("id", int.class);
 		offer = this.repository.findOneOfferById(masterId);
-		status = offer != null && super.getRequest().getPrincipal().hasRole(Administrator.class);
-		final Date date = Date.from(Instant.now());
-		final boolean bool = offer.getStartAvaliabilityPeriod().before(date) && offer.getEndAvaliabilityPeriod().after(date);
-
-		super.getResponse().setAuthorised(status && !bool);
+		final Date date = MomentHelper.getCurrentMoment();
+		super.getResponse().setAuthorised(offer != null && !(offer.getStartAvaliabilityPeriod().before(date) && offer.getEndAvaliabilityPeriod().after(date)));
 	}
 
 	@Override
@@ -97,39 +95,59 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 		calendar.set(Calendar.MILLISECOND, 0);
 		earliestDate = new Date(calendar.getTimeInMillis());
 
-		if (!super.getBuffer().getErrors().hasErrors("moment") && !super.getBuffer().getErrors().hasErrors("startAvailable")) {
-			boolean isValid;
+		if (object.getStartAvaliabilityPeriod() != null && object.getEndAvaliabilityPeriod() != null) {
 
-			isValid = MomentHelper.isLongEnough(object.getInstantiationMoment(), object.getStartAvaliabilityPeriod(), 1, ChronoUnit.DAYS) && MomentHelper.isFuture(object.getStartAvaliabilityPeriod());
+			if (!super.getBuffer().getErrors().hasErrors("moment") && !super.getBuffer().getErrors().hasErrors("startAvailable")) {
+				boolean isValid;
 
-			super.state(isValid, "startAvailable", "administrator.offer.error.onedayfuture");
+				isValid = MomentHelper.isLongEnough(object.getInstantiationMoment(), object.getStartAvaliabilityPeriod(), 1, ChronoUnit.DAYS) && MomentHelper.isFuture(object.getStartAvaliabilityPeriod());
+
+				super.state(isValid, "startAvaliabilityPeriod", "administrator.offer.error.onedayfuture");
+			}
+
+			if (!super.getBuffer().getErrors().hasErrors("endAvaliabilityPeriod") && !super.getBuffer().getErrors().hasErrors("startAvailable")) {
+				boolean isValid;
+
+				isValid = MomentHelper.isLongEnough(object.getStartAvaliabilityPeriod(), object.getEndAvaliabilityPeriod(), 1, ChronoUnit.WEEKS) && MomentHelper.isBefore(object.getStartAvaliabilityPeriod(), object.getEndAvaliabilityPeriod());
+
+				super.state(isValid, "startAvaliabilityPeriod", "administrator.offer.error.oneweeklong");
+				super.state(isValid, "endAvaliabilityPeriod", "administrator.offer.error.oneweeklong");
+
+			}
+
+			if (!super.getBuffer().getErrors().hasErrors("startAvaliabilityPeriod")) {
+
+				boolean isValid;
+
+				isValid = MomentHelper.isBeforeOrEqual(object.getStartAvaliabilityPeriod(), latestDate);
+				super.state(isValid, "startAvaliabilityPeriod", "administrator.offer.error.datelimits");
+			}
+
+			if (!super.getBuffer().getErrors().hasErrors("endAvaliabilityPeriod")) {
+
+				boolean isValid;
+
+				isValid = MomentHelper.isAfterOrEqual(object.getEndAvaliabilityPeriod(), earliestDate) && MomentHelper.isBeforeOrEqual(object.getEndAvaliabilityPeriod(), latestDate);
+				super.state(isValid, "endAvaliabilityPeriod", "administrator.offer.error.datelimits");
+			}
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("endAvailable") && !super.getBuffer().getErrors().hasErrors("startAvailable")) {
-			boolean isValid;
-
-			isValid = MomentHelper.isLongEnough(object.getStartAvaliabilityPeriod(), object.getEndAvaliabilityPeriod(), 1, ChronoUnit.WEEKS) && MomentHelper.isBefore(object.getStartAvaliabilityPeriod(), object.getEndAvaliabilityPeriod());
-
-			super.state(isValid, "startAvailable", "administrator.offer.error.oneweeklong");
-			super.state(isValid, "endAvailable", "administrator.offer.error.oneweeklong");
-
+		if (object.getPrice() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("price")) {
+				final Double amount = object.getPrice().getAmount();
+				super.state(amount >= 0 && amount < 1000000, "price", "administrator.offer.error.price");
+			}
+			if (!super.getBuffer().getErrors().hasErrors("price")) {
+				final String aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
+				final List<String> currencies = Arrays.asList(aceptedCurrencies.split(","));
+				super.state(currencies.contains(object.getPrice().getCurrency()), "price", "administrator.offer.error.currency");
+				super.state(currencies.contains(object.getPrice().getCurrency()), "price", aceptedCurrencies);
+			}
 		}
+		if (!super.getBuffer().getErrors().hasErrors("heading"))
+			super.state(!SpamFilter.antiSpamFilter(object.getHeading(), this.repository.findThreshold()), "heading", "administrator.offer.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("summary"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSummary(), this.repository.findThreshold()), "summary", "administrator.offer.error.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("startAvailable")) {
-
-			boolean isValid;
-
-			isValid = MomentHelper.isBeforeOrEqual(object.getStartAvaliabilityPeriod(), latestDate);
-			super.state(isValid, "startAvailable", "administrator.offer.error.datelimits");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("endAvailable")) {
-
-			boolean isValid;
-
-			isValid = MomentHelper.isAfterOrEqual(object.getEndAvaliabilityPeriod(), earliestDate) && MomentHelper.isBeforeOrEqual(object.getEndAvaliabilityPeriod(), latestDate);
-			super.state(isValid, "endAvailable", "administrator.offer.error.datelimits");
-		}
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 
 package acme.features.administrator.offer;
 
-import java.time.Instant;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -34,16 +34,12 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 
 	@Override
 	public void authorise() {
-		boolean status;
 		int masterId;
 		Offer offer;
 		masterId = super.getRequest().getData("id", int.class);
 		offer = this.repository.findOneOfferById(masterId);
-		status = offer != null && super.getRequest().getPrincipal().hasRole(Administrator.class);
-		final Date date = Date.from(Instant.now());
-		final boolean bool = offer.getStartAvaliabilityPeriod().before(date) && offer.getEndAvaliabilityPeriod().after(date);
-
-		super.getResponse().setAuthorised(status && !bool);
+		final Date date = MomentHelper.getCurrentMoment();
+		super.getResponse().setAuthorised(offer != null && !(offer.getStartAvaliabilityPeriod().before(date) && offer.getEndAvaliabilityPeriod().after(date)));
 	}
 
 	@Override

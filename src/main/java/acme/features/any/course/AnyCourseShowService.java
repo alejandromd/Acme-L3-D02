@@ -32,11 +32,10 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	@Override
 	public void authorise() {
 		Course object;
-		boolean status;
-		status = super.getRequest().getPrincipal().isAuthenticated();
 		final int id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		super.getResponse().setAuthorised(!object.isDraftMode() && status);
+		super.getResponse().setAuthorised(!object.isDraftMode());
+
 	}
 
 	@Override
@@ -52,7 +51,6 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 		assert object != null;
 		final Tuple tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link");
 		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
-		tuple.put("almaMater", object.getLecturer().getAlmaMater());
 		tuple.put("courseType", object.courseTypeNature(lectures));
 
 		super.getResponse().setData(tuple);

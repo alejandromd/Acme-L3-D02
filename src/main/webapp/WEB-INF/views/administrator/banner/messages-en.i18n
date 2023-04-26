@@ -23,6 +23,8 @@ administrator.banner.form.error.wrong-displayStart = The display period must sta
 administrator.banner.form.error.wrong-displayEnd = The display period must last for one week or more
 administrator.banner.form.error.wrong-update = The banner cannot be update while the display period
 
+administrator.banner.form.notEditable = During the exhibition period it cannot be modified or deleted
+
 administrator.banner.list.label.slogan = Slogan
 
 administrator.banner.list.button.create = Create
