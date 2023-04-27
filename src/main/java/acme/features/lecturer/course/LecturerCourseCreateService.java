@@ -34,8 +34,11 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void load() {
-		final Course object = new Course();
-		final Lecturer lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		Course object;
+		Lecturer lecturer;
+
+		object = new Course();
+		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setLecturer(lecturer);
 		object.setDraftMode(true);
 		super.getBuffer().setData(object);
@@ -51,12 +54,15 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void validate(final Course object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			final Double amount = object.getRetailPrice().getAmount();
+			Double amount;
+			amount = object.getRetailPrice().getAmount();
 			super.state(amount >= 0 && amount < 1000000, "retailPrice", "lecturer.course.error.price");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			final String aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
-			final List<String> currencies = Arrays.asList(aceptedCurrencies.split(","));
+			String aceptedCurrencies;
+			List<String> currencies;
+			aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
+			currencies = Arrays.asList(aceptedCurrencies.split(","));
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.error.currency");
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", aceptedCurrencies);
 		}
@@ -76,7 +82,9 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
 		super.getResponse().setData(tuple);
 	}
 }

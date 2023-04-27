@@ -24,24 +24,31 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void check() {
-		final boolean status = super.getRequest().hasData("id", int.class);
+		boolean status;
+		status = super.getRequest().hasData("id", int.class);
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		Course object;
-		final int id = super.getRequest().getData("id", int.class);
+		int id;
+		Principal principal;
+		int userAccountId;
+
+		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 	}
 
 	@Override
 	public void load() {
 		Course object;
-		final int id = super.getRequest().getData("id", int.class);
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
 
 		super.getBuffer().setData(object);
@@ -61,7 +68,9 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
-		final Collection<CourseLecture> courseLectures = this.repository.findCourseLecturesByCourse(object);
+		Collection<CourseLecture> courseLectures;
+
+		courseLectures = this.repository.findCourseLecturesByCourse(object);
 		for (final CourseLecture cl : courseLectures)
 			this.repository.delete(cl);
 		this.repository.delete(object);
@@ -70,7 +79,9 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "instantiationMoment", "endPeriod", "heading", "summary", "startPeriod", "retailPrice", "link");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "instantiationMoment", "endPeriod", "heading", "summary", "startPeriod", "retailPrice", "link");
 		super.getResponse().setData(tuple);
 	}
 }

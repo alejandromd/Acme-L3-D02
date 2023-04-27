@@ -32,7 +32,9 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	@Override
 	public void authorise() {
 		Course object;
-		final int id = super.getRequest().getData("id", int.class);
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
 		super.getResponse().setAuthorised(!object.isDraftMode());
 
@@ -41,7 +43,9 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	@Override
 	public void load() {
 		Course object;
-		final int id = super.getRequest().getData("id", int.class);
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
 		super.getBuffer().setData(object);
 	}
@@ -49,8 +53,11 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link");
-		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
+		Tuple tuple;
+		List<Lecture> lectures;
+
+		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link");
+		lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
 		tuple.put("courseType", object.courseTypeNature(lectures));
 
 		super.getResponse().setData(tuple);

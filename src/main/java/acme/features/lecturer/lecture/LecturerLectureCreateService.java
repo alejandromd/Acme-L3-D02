@@ -36,9 +36,11 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void load() {
 		Lecture object;
+		Lecturer lecturer;
+
 		object = new Lecture();
 		object.setDraftMode(true);
-		final Lecturer lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setLecturer(lecturer);
 		super.getBuffer().setData(object);
 	}
@@ -74,7 +76,9 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getLectureType());
 		tuple.put("lectureType", choices.getSelected().getKey());

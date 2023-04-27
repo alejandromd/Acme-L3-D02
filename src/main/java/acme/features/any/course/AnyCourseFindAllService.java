@@ -40,7 +40,9 @@ public class AnyCourseFindAllService extends AbstractService<Any, Course> {
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "summary", "retailPrice");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "summary", "retailPrice");
 		super.getResponse().setData(tuple);
 	}
 }

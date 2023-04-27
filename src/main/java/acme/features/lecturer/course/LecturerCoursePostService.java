@@ -38,10 +38,13 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 	public void authorise() {
 		Course object;
 		int id;
+		Principal principal;
+		int userAccountId;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 	}
 
@@ -49,6 +52,7 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 	public void load() {
 		Course object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
 		super.getBuffer().setData(object);
@@ -63,23 +67,32 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
-		final Collection<Lecture> lectures = this.repository.findLecturesByCourse(object.getId());
+		Collection<Lecture> lectures;
+
+		lectures = this.repository.findLecturesByCourse(object.getId());
 		super.state(!lectures.isEmpty(), "draftMode", "lecturer.course.error.lecture");
 		if (!lectures.isEmpty()) {
 			boolean existHandOn;
-			final boolean lecturesInDraftMode = lectures.stream().allMatch(x -> x.isDraftMode() == false);
+			boolean lecturesInDraftMode;
+
+			lecturesInDraftMode = lectures.stream().allMatch(x -> x.isDraftMode() == false);
 			super.state(lecturesInDraftMode, "draftMode", "lecturer.course.error.draftMode");
 
 			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
 			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			final Double amount = object.getRetailPrice().getAmount();
+			Double amount;
+
+			amount = object.getRetailPrice().getAmount();
 			super.state(amount >= 0 && amount < 1000000, "retailPrice", "lecturer.course.error.price");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			final String aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
-			final List<String> currencies = Arrays.asList(aceptedCurrencies.split(","));
+			String aceptedCurrencies;
+			List<String> currencies;
+
+			aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
+			currencies = Arrays.asList(aceptedCurrencies.split(","));
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.error.currency");
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", aceptedCurrencies);
 		}
@@ -100,9 +113,12 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 	public void unbind(final Course object) {
 		assert object != null;
 		Tuple tuple;
+		List<Lecture> lectures;
+		Nature nature;
+
 		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode");
-		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
-		final Nature nature = object.courseTypeNature(lectures);
+		lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
+		nature = object.courseTypeNature(lectures);
 		tuple.put("nature", nature);
 		super.getResponse().setData(tuple);
 	}

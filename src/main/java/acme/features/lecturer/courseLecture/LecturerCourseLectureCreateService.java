@@ -16,10 +16,10 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class CourseLectureCreateService extends AbstractService<Lecturer, CourseLecture> {
+public class LecturerCourseLectureCreateService extends AbstractService<Lecturer, CourseLecture> {
 
 	@Autowired
-	protected CourseLectureRepository repository;
+	protected LecturerCourseLectureRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,10 +34,14 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 	@Override
 	public void authorise() {
 		Lecture object;
-		final int id = super.getRequest().getData("lectureId", int.class);
+		int id;
+		Principal principal;
+		int userAccountId;
+
+		id = super.getRequest().getData("lectureId", int.class);
 		object = this.repository.findLectureById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 	}
 
@@ -45,7 +49,7 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 	public void load() {
 		CourseLecture object;
 		object = new CourseLecture();
-		final Lecture lecture;
+		Lecture lecture;
 		int lectureId;
 		lectureId = super.getRequest().getData("lectureId", int.class);
 		lecture = this.repository.findLectureById(lectureId);
@@ -56,8 +60,11 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
-		final int courseId = super.getRequest().getData("course", int.class);
-		final Course course = this.repository.findCourseById(courseId);
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findCourseById(courseId);
 		super.bind(object, "id");
 		object.setCourse(course);
 	}
@@ -66,7 +73,9 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 	public void validate(final CourseLecture object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("lecture") && !super.getBuffer().getErrors().hasErrors("course")) {
-			final Collection<Lecture> lectures = this.repository.findLecturesByCourse(object.getCourse().getId());
+			Collection<Lecture> lectures;
+
+			lectures = this.repository.findLecturesByCourse(object.getCourse().getId());
 			super.state(lectures.isEmpty() || !lectures.contains(object.getLecture()), "course", "lecturer.courseLecture.form.error.lecture");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("course"))
@@ -82,12 +91,18 @@ public class CourseLectureCreateService extends AbstractService<Lecturer, Course
 	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "lecture", "course");
-		final int lectureId = super.getRequest().getData("lectureId", int.class);
+		Tuple tuple;
+		int lectureId;
+		Lecturer lecturer;
+		Collection<Course> courses;
+		Lecture lecture;
+
+		tuple = super.unbind(object, "lecture", "course");
+		lectureId = super.getRequest().getData("lectureId", int.class);
 		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
-		final Lecturer lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
-		final Collection<Course> courses = this.repository.findCoursesByLecturer(lecturer);
-		final Lecture lecture = this.repository.findLectureById(lectureId);
+		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		courses = this.repository.findCoursesByLecturer(lecturer);
+		lecture = this.repository.findLectureById(lectureId);
 		tuple.put("draftMode", lecture.isDraftMode());
 
 		final SelectChoices choices;

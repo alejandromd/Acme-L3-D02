@@ -34,6 +34,7 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 	@Override
 	public void load() {
 		Bulletin object;
+
 		object = new Bulletin();
 		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
 		super.getBuffer().setData(object);
@@ -48,7 +49,9 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 	@Override
 	public void validate(final Bulletin object) {
 		assert object != null;
-		final boolean confirmation = super.getRequest().getData("confirmation", boolean.class);
+		boolean confirmation;
+
+		confirmation = super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "administrator.bulletin.error.confirmation");
 		if (!super.getBuffer().getErrors().hasErrors("message"))
 			super.state(!SpamFilter.antiSpamFilter(object.getMessage(), this.repository.findThreshold()), "message", "administrator.bulletin.error.spam");
@@ -66,7 +69,9 @@ public class AdministratorBulletinPostService extends AbstractService<Administra
 	@Override
 	public void unbind(final Bulletin object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "message", "critical", "link");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "message", "critical", "link");
 		tuple.put("confirmation", false);
 		super.getResponse().setData(tuple);
 

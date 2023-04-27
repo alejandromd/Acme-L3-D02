@@ -32,17 +32,23 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void authorise() {
 		Course object;
-		final int masterId = super.getRequest().getData("masterId", int.class);
+		int masterId;
+		Principal principal;
+		int userAccountId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
 		object = this.repository.findCourseById(masterId);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 	}
 
 	@Override
 	public void load() {
 		Collection<Lecture> objects;
-		final int masterId = super.getRequest().getData("masterId", int.class);
+		int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findLecturesByCourse(masterId);
 		super.getBuffer().setData(objects);
 	}
@@ -50,22 +56,31 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime");
-		final int masterId = super.getRequest().getData("masterId", int.class);
+		Tuple tuple;
+		int masterId;
+		Course course;
+		boolean showCreate;
+
+		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime");
+		masterId = super.getRequest().getData("masterId", int.class);
 		super.getResponse().setGlobal("masterId", masterId);
 		tuple.put("masterId", masterId);
-		final Course c = this.repository.findCourseById(masterId);
-		final boolean showCreate = c.isDraftMode();
+		course = this.repository.findCourseById(masterId);
+		showCreate = course.isDraftMode();
 		super.getResponse().setGlobal("showCreate", showCreate);
 		super.getResponse().setData(tuple);
 	}
 	@Override
 	public void unbind(final Collection<Lecture> object) {
 		assert object != null;
-		final int masterId = super.getRequest().getData("masterId", int.class);
+		int masterId;
+		Course course;
+		boolean showCreate;
+
+		masterId = super.getRequest().getData("masterId", int.class);
 		super.getResponse().setGlobal("masterId", masterId);
-		final Course c = this.repository.findCourseById(masterId);
-		final boolean showCreate = c.isDraftMode();
+		course = this.repository.findCourseById(masterId);
+		showCreate = course.isDraftMode();
 		super.getResponse().setGlobal("showCreate", showCreate);
 		super.getResponse().setGlobal("isViewable", false);
 

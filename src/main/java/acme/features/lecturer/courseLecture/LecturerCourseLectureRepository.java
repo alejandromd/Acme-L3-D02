@@ -13,7 +13,7 @@ import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 
 @Repository
-public interface CourseLectureRepository extends AbstractRepository {
+public interface LecturerCourseLectureRepository extends AbstractRepository {
 
 	@Query("select l from Lecturer l where l.id = :id")
 	Lecturer findLecturerById(int id);
