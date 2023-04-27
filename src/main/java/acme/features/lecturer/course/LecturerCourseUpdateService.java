@@ -35,10 +35,14 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void authorise() {
 		Course object;
-		final int id = super.getRequest().getData("id", int.class);
+		int id;
+		Principal principal;
+		int userAccountId;
+
+		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 	}
 
@@ -61,12 +65,17 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void validate(final Course object) {
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			final Double amount = object.getRetailPrice().getAmount();
+			Double amount;
+
+			amount = object.getRetailPrice().getAmount();
 			super.state(amount >= 0 && amount < 1000000, "retailPrice", "lecturer.course.error.price");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
-			final String aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
-			final List<String> currencies = Arrays.asList(aceptedCurrencies.split(","));
+			String aceptedCurrencies;
+			List<String> currencies;
+
+			aceptedCurrencies = this.repository.findSystemConfiguration().getAceptedCurrencies();
+			currencies = Arrays.asList(aceptedCurrencies.split(","));
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", "lecturer.course.error.currency");
 			super.state(currencies.contains(object.getRetailPrice().getCurrency()), "retailPrice", aceptedCurrencies);
 		}
@@ -86,9 +95,13 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
-		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
-		final Nature nature = object.courseTypeNature(lectures);
+		Tuple tuple;
+		List<Lecture> lectures;
+		Nature nature;
+
+		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
+		lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
+		nature = object.courseTypeNature(lectures);
 		tuple.put("nature", nature);
 		super.getResponse().setData(tuple);
 	}

@@ -36,17 +36,23 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void authorise() {
 		Lecture object;
-		final int id = super.getRequest().getData("id", int.class);
+		int id;
+		Principal principal;
+		int userAccountId;
+
+		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findLectureById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
 	}
 
 	@Override
 	public void load() {
 		Lecture object;
-		final int id = super.getRequest().getData("id", int.class);
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findLectureById(id);
 		super.getBuffer().setData(object);
 	}
@@ -65,7 +71,9 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void perform(final Lecture object) {
 		assert object != null;
-		final Collection<CourseLecture> courseLectures = this.repository.findCourseLecturesByLecture(object);
+		Collection<CourseLecture> courseLectures;
+
+		courseLectures = this.repository.findCourseLecturesByLecture(object);
 		for (final CourseLecture cl : courseLectures)
 			this.repository.delete(cl);
 		this.repository.delete(object);
@@ -74,7 +82,10 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
+
 		final SelectChoices choices;
 		choices = SelectChoices.from(Nature.class, object.getLectureType());
 		tuple.put("lectureType", choices.getSelected().getKey());

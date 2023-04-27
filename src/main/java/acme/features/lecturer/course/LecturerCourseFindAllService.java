@@ -34,8 +34,11 @@ public class LecturerCourseFindAllService extends AbstractService<Lecturer, Cour
 	@Override
 	public void load() {
 		Collection<Course> objects;
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
+		Principal principal;
+		int userAccountId;
+
+		principal = super.getRequest().getPrincipal();
+		userAccountId = principal.getAccountId();
 		objects = this.repository.findCoursesByLecturerId(userAccountId);
 
 		super.getBuffer().setData(objects);
@@ -44,7 +47,9 @@ public class LecturerCourseFindAllService extends AbstractService<Lecturer, Cour
 	@Override
 	public void unbind(final Course object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "summary", "retailPrice");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "summary", "retailPrice");
 		super.getResponse().setData(tuple);
 	}
 }

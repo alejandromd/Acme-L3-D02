@@ -36,7 +36,9 @@ public class AuthenticatedBulletinListService extends AbstractService<Authentica
 	@Override
 	public void load() {
 		Collection<Bulletin> objects;
-		final Date date = new Date();
+		Date date;
+
+		date = new Date();
 		objects = this.repository.findAllBulletins(date);
 		super.getBuffer().setData(objects);
 	}
@@ -44,7 +46,9 @@ public class AuthenticatedBulletinListService extends AbstractService<Authentica
 	@Override
 	public void unbind(final Bulletin object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "instantiationMoment");
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "instantiationMoment");
 		super.getResponse().setData(tuple);
 	}
 
