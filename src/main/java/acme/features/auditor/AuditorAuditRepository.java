@@ -32,7 +32,7 @@ public interface AuditorAuditRepository extends AbstractRepository {
 	Audit findAuditByCode(String code);
 
 	@Query("select c from Course c where c.draftMode = false")
-	Collection<Course> findCoursesInDraftMode();
+	Collection<Course> findCoursesNotInDraftMode();
 
 	@Query("select ar from AuditingRecord ar where ar.audit.id = :id")
 	Collection<AuditingRecord> findManyAuditingRecordsByAuditId(int id);
