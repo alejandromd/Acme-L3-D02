@@ -47,9 +47,11 @@ public class AdministratorOfferListService extends AbstractService<Administrator
 		assert object != null;
 
 		Tuple tuple;
+		String payload;
 
 		tuple = super.unbind(object, "heading", "startAvaliabilityPeriod", "endAvaliabilityPeriod", "price");
-
+		payload = String.format("%s;%s;%s", object.getInstantiationMoment(), object.getSummary(), object.getFurtherInformation());
+		tuple.put("payload", payload);
 		super.getResponse().setData(tuple);
 	}
 

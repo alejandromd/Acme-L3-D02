@@ -42,9 +42,11 @@ public class AnyPeepFindAllService extends AbstractService<Any, Peep> {
 		assert object != null;
 
 		Tuple tuple;
+		String payload;
 
 		tuple = super.unbind(object, "instantiationMoment", "title");
-
+		payload = String.format("%s;%s;%s;%s", object.getNick(), object.getLink(), object.getMessage(), object.getEmail());
+		tuple.put("payload", payload);
 		super.getResponse().setData(tuple);
 	}
 
