@@ -21,4 +21,5 @@
 	<acme:list-column code="authenticated.offer.list.label.startAvailable" path="startAvaliabilityPeriod" width="40%"/>
 	<acme:list-column code="authenticated.offer.list.label.endAvailable" path="endAvaliabilityPeriod" width="40%"/>	
 	<acme:list-column code="authenticated.offer.list.label.price" path="price" width="40%"/>		
+	<acme:list-payload path="payload"/>
 </acme:list>

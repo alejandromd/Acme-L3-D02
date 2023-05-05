@@ -19,6 +19,7 @@
 	<acme:list-column code="authenticated.note.list.label.instantiationMoment" path="instantiationMoment" width="20%"/>
 	<acme:list-column code="authenticated.note.list.label.title" path="title" width="10%"/>
 	<acme:list-column code="authenticated.note.list.label.author" path="author" width="70%"/>
+	<acme:list-payload path="payload"/>
 </acme:list>
 
 <acme:button code="authenticated.note.list.button.create" action="/authenticated/note/create"/>
