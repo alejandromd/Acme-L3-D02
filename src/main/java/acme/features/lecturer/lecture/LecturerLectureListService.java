@@ -58,32 +58,16 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 		assert object != null;
 		Tuple tuple;
 		int masterId;
-		Course course;
-		boolean showCreate;
+		String payload;
 
 		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime");
 		masterId = super.getRequest().getData("masterId", int.class);
 		super.getResponse().setGlobal("masterId", masterId);
 		tuple.put("masterId", masterId);
-		course = this.repository.findCourseById(masterId);
-		showCreate = course.isDraftMode();
-		super.getResponse().setGlobal("showCreate", showCreate);
+		payload = String.format("%s;%s;%s;%s", object.getBody(), object.getLink(), object.getLectureType(), object.isDraftMode());
+		tuple.put("payload", payload);
+		super.getResponse().setGlobal("showCreate", false);
 		super.getResponse().setData(tuple);
-	}
-	@Override
-	public void unbind(final Collection<Lecture> object) {
-		assert object != null;
-		int masterId;
-		Course course;
-		boolean showCreate;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		super.getResponse().setGlobal("masterId", masterId);
-		course = this.repository.findCourseById(masterId);
-		showCreate = course.isDraftMode();
-		super.getResponse().setGlobal("showCreate", showCreate);
-		super.getResponse().setGlobal("isViewable", false);
-
 	}
 
 }

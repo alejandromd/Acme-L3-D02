@@ -48,8 +48,11 @@ public class LecturerCourseFindAllService extends AbstractService<Lecturer, Cour
 	public void unbind(final Course object) {
 		assert object != null;
 		Tuple tuple;
+		String payload;
 
 		tuple = super.unbind(object, "title", "summary", "retailPrice");
+		payload = String.format("%s;%s", object.getCode(), object.getLink());
+		tuple.put("payload", payload);
 		super.getResponse().setData(tuple);
 	}
 }

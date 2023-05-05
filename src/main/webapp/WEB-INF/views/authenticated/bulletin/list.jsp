@@ -18,4 +18,5 @@
 <acme:list>
 	<acme:list-column code="authenticated.bulletin.instantiationMoment" path="instantiationMoment"/>
 	<acme:list-column code="authenticated.bulletin.title" path="title"/>
+	<acme:list-payload path="payload"/>
 </acme:list>
