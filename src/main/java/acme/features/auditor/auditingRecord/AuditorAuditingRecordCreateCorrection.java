@@ -50,7 +50,7 @@ public class AuditorAuditingRecordCreateCorrection extends AbstractService<Audit
 		audit = this.repository.findOneAuditById(masterId);
 		principal = super.getRequest().getPrincipal();
 		userId = principal.getAccountId();
-		status = audit.getAuditor().getUserAccount().getId() == userId;
+		status = !audit.isDraftMode() && audit.getAuditor().getUserAccount().getId() == userId;
 
 		super.getResponse().setAuthorised(status);
 	}
