@@ -112,10 +112,8 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void perform(final Course object) {
-		if (object.isDraftMode()) {
-			object.setDraftMode(false);
-			this.repository.save(object);
-		}
+		object.setDraftMode(false);
+		this.repository.save(object);
 	}
 
 	@Override
