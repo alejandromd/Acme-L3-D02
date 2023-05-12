@@ -28,14 +28,15 @@
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="lecturer.course.lectures" action="/lecturer/lecture/list?masterId=${id}"/>			
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
 			<acme:button code="lecturer.course.lectures" action="/lecturer/lecture/list?masterId=${id}"/>
 			<acme:submit code="lecturer.course.update" action="/lecturer/course/update"/>
 			<acme:submit code="lecturer.course.delete" action="/lecturer/course/delete"/>
 			<acme:submit code="lecturer.course.publish" action="/lecturer/course/publish"/>
 		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.course.create" action="/lecturer/course/create"/>
+		<jstl:when test="${_command == 'publish'}">
+			<acme:button code="lecturer.course.cancelPublish" action="/lecturer/course/show?id=${id}"/>
+			<acme:submit code="lecturer.course.publish" action="/lecturer/course/publish"/>
 		</jstl:when>		
 	</jstl:choose>
 	

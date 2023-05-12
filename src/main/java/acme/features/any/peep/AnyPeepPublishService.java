@@ -73,7 +73,6 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 	@Override
 	public void perform(final Peep object) {
 		assert object != null;
-		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
 		this.repository.save(object);
 	}
 
@@ -83,7 +82,7 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "nick", "message", "email", "link");
+		tuple = super.unbind(object, "instantiationMoment", "title", "nick", "message", "email", "link");
 
 		super.getResponse().setData(tuple);
 

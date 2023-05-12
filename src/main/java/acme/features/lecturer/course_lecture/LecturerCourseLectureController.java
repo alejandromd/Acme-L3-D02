@@ -1,5 +1,5 @@
 
-package acme.features.lecturer.courseLecture;
+package acme.features.lecturer.course_lecture;
 
 import javax.annotation.PostConstruct;
 

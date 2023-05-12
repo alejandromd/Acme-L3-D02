@@ -39,4 +39,7 @@ public interface LecturerCourseRepository extends AbstractRepository {
 
 	@Query("select sc.threshold from SpamConfig sc")
 	Double findThreshold();
+
+	@Query("select c from Course c where c.code = :code")
+	Course findCourseByCode(String code);
 }

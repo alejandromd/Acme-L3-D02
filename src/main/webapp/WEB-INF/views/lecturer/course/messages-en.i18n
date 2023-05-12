@@ -22,8 +22,9 @@ lecturer.course.form.label.draftMode = Draft mode
 lecturer.course.error.lecture = Must add some lecture to publish the course
 lecturer.course.error.handsOn = The course should contain some lecture hands on
 lecturer.course.error.draftMode = There cannot be any lecture in draft mode
-lecturer.course.error.price = The price must be between 0 (inclusive) and 1000000 (not inclusive)
+lecturer.course.error.price = The price must be between 0  and 999,999.99 
 lecturer.course.error.currency = Invalid currency, enter one of the following currencies
+lecturer.course.form.error.code-duplicated = The code is duplicated
 
 lecturer.course.lectures = Lectures
 
@@ -31,5 +32,5 @@ lecturer.course.create = Create
 lecturer.course.delete = Delete
 lecturer.course.update = Update
 lecturer.course.publish = Publish
-
+lecturer.course.cancelPublish = Cancel publication
 lecturer.course.error.spam = This text is considered spam

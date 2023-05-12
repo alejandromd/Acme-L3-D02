@@ -22,4 +22,4 @@
 	<acme:list-payload path="payload"/>
 </acme:list>
 
-<acme:button test="${showCreate}" code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>
+<acme:button test="${showCreate == true}" code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>

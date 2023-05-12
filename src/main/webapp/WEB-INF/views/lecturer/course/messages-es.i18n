@@ -22,8 +22,9 @@ lecturer.course.form.label.draftMode = Modo borrador
 lecturer.course.error.lecture = Debe añadir alguna clase para publicar el curso
 lecturer.course.error.handsOn = El curso debe contener algunas clases prácticas
 lecturer.course.error.draftMode = No puede haber ninguna clase en modo borrador
-lecturer.course.error.price = El precio debe estar entre 0 (incluido) y 1000000 (no incluido)
+lecturer.course.error.price = El precio debe estar entre 0 y 999,999.99
 lecturer.course.error.currency = Divisa inválida, introduce una de las siguientes divisas
+lecturer.course.form.error.code-duplicated = El código esta duplicado
 
 lecturer.course.lectures = Clases
 
@@ -31,5 +32,6 @@ lecturer.course.create = Crear
 lecturer.course.delete = Borrar
 lecturer.course.update = Actualizar
 lecturer.course.publish = Publicar
+lecturer.course.cancelPublish = Cancelar publicación
 
 lecturer.course.error.spam = Este texto se considera spam
