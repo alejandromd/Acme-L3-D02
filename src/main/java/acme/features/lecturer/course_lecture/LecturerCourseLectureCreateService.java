@@ -27,90 +27,114 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 	@Override
 	public void check() {
 		boolean status;
-		status = super.getRequest().hasData("lectureId", int.class);
+
+		status = super.getRequest().hasData("courseId", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		Lecture object;
-		int id;
+		boolean status;
+		int courseId;
+		Course course;
 		Principal principal;
 		int userAccountId;
 
-		id = super.getRequest().getData("lectureId", int.class);
-		object = this.repository.findLectureById(id);
+		courseId = super.getRequest().getData("courseId", int.class);
+		course = this.repository.findCourseById(courseId);
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
+		status = course != null && course.isDraftMode() && course.getLecturer().getUserAccount().getId() == userAccountId;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		CourseLecture object;
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("courseId", int.class);
+		course = this.repository.findCourseById(courseId);
 		object = new CourseLecture();
-		Lecture lecture;
-		int lectureId;
-		lectureId = super.getRequest().getData("lectureId", int.class);
-		lecture = this.repository.findLectureById(lectureId);
-		object.setLecture(lecture);
+		object.setCourse(course);
+
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
-		int courseId;
-		Course course;
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
-		super.bind(object, "id");
-		object.setCourse(course);
+		int lectureId;
+		Lecture lecture;
+
+		lectureId = super.getRequest().getData("lecture", int.class);
+		lecture = this.repository.findLectureById(lectureId);
+
+		object.setLecture(lecture);
 	}
 
 	@Override
 	public void validate(final CourseLecture object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("lecture") && !super.getBuffer().getErrors().hasErrors("course")) {
-			Collection<Lecture> lectures;
 
-			lectures = this.repository.findLecturesByCourse(object.getCourse().getId());
-			super.state(lectures.isEmpty() || !lectures.contains(object.getLecture()), "course", "lecturer.courseLecture.form.error.lecture");
+		int lectureId;
+		int courseId;
+		CourseLecture lecture = null;
+
+		if (object.getLecture() != null) {
+			lectureId = object.getLecture().getId();
+			courseId = super.getRequest().getData("courseId", int.class);
+			lecture = this.repository.findOneCourseLectureByIds(courseId, lectureId);
+
+			super.state(object.getLecture().getLecturer().equals(object.getCourse().getLecturer()), "lecture", "lecturer.lecture-course.form.error.not-your-lecture");
+			super.state(lecture == null, "lecture", "lecturer.courseLecture.form.error.lecture");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("course"))
-			super.state(object.getCourse().isDraftMode(), "course", "lecturer.courseLecture.form.error.course");
+
+		super.state(object.getLecture() != null, "lecture", "lecturer.courseLecture.form.lecture.empty");
+
 	}
 
 	@Override
 	public void perform(final CourseLecture object) {
 		assert object != null;
+
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
-		Tuple tuple;
-		int lectureId;
-		Lecturer lecturer;
-		Collection<Course> courses;
-		Lecture lecture;
 
-		tuple = super.unbind(object, "lecture", "course");
-		lectureId = super.getRequest().getData("lectureId", int.class);
-		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
-		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
-		courses = this.repository.findCoursesByLecturer(lecturer);
-		lecture = this.repository.findLectureById(lectureId);
-		tuple.put("draftMode", lecture.isDraftMode());
+		int lecturerId;
+		Collection<Lecture> lectures;
+		final Tuple tuple;
+		SelectChoices choices;
+		int courseId;
 
-		final SelectChoices choices;
-		choices = SelectChoices.from(courses, "code", object.getCourse());
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		lectures = this.repository.findLecturesByLecturerId(lecturerId);
 
+		choices = SelectChoices.from(lectures, "title", object.getLecture());
+
+		tuple = new Tuple();
+		tuple.put("lecture", choices.getSelected().getKey());
+		tuple.put("lectures", choices);
+		courseId = super.getRequest().getData("courseId", int.class);
+		super.getResponse().setGlobal("courseId", courseId);
 		super.getResponse().setData(tuple);
+	}
+
+	@Override
+	public void unbind(final Collection<CourseLecture> objects) {
+		assert objects != null;
+		int courseId;
+
+		courseId = super.getRequest().getData("courseId", int.class);
+		super.getResponse().setGlobal("courseId", courseId);
 	}
 
 }

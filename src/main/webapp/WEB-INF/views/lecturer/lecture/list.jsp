@@ -22,4 +22,9 @@
 	<acme:list-payload path="payload"/>
 </acme:list>
 
-<acme:button test="${showCreate == true}" code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>
+<acme:button test="${_command == 'list-all'}" code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>
+<jstl:if test="${_command == 'list' && draftMode == true}">
+	<acme:button code="lecturer.lectureCourse.form.button.add" action="/lecturer/course-lecture/add?courseId=${courseId}"/>
+	<acme:button code="lecturer.lectureCourse.form.button.delete" action="/lecturer/course-lecture/delete?courseId=${courseId}"/>
+	
+</jstl:if>	

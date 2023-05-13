@@ -1,11 +1,10 @@
 
 package acme.features.lecturer.course_lecture;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.Course;
 import acme.entities.CourseLecture;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
@@ -13,13 +12,10 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer, CourseLecture> {
-	// Internal state ---------------------------------------------------------
+public class LecturerCourseLectureShowService extends AbstractService<Lecturer, CourseLecture> {
 
 	@Autowired
 	protected LecturerCourseLectureRepository repository;
-
-	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -43,7 +39,7 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 		userAccountId = principal.getAccountId();
 		courseLectureId = super.getRequest().getData("id", int.class);
 		courseLecture = this.repository.findOneLectureCourseById(courseLectureId);
-		status = courseLecture != null && courseLecture.getCourse().isDraftMode() && courseLecture.getCourse().getLecturer().getUserAccount().getId() == userAccountId && courseLecture.getLecture().getLecturer().getUserAccount().getId() == userAccountId;
+		status = courseLecture != null && courseLecture.getCourse().getLecturer().getUserAccount().getId() == userAccountId && courseLecture.getLecture().getLecturer().getUserAccount().getId() == userAccountId;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,47 +56,18 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 	}
 
 	@Override
-	public void bind(final CourseLecture object) {
-		assert object != null;
-
-	}
-
-	@Override
-	public void validate(final CourseLecture object) {
-		assert object != null;
-
-		super.state(object.getLecture() != null, "course", "lecturer.lecture-course.form.error.no-lecture-selected");
-		if (object.getLecture() != null)
-			super.state(object.getCourse().isDraftMode(), "course", "lecturer.lecture-course.form.error.published");
-	}
-
-	@Override
-	public void perform(final CourseLecture object) {
-		assert object != null;
-
-		CourseLecture courseLecture;
-
-		courseLecture = this.repository.findOneCourseLectureByIds(object.getCourse().getId(), object.getLecture().getId());
-
-		this.repository.delete(courseLecture);
-	}
-
-	@Override
 	public void unbind(final CourseLecture object) {
 		assert object != null;
 		Tuple tuple;
+		int id;
+		Course course;
 
+		id = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneLectureCourseById(id).getCourse();
 		tuple = super.unbind(object, "lecture.title", "course.code");
+		super.getResponse().setGlobal("showCreate", course.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
 
-	@Override
-	public void unbind(final Collection<CourseLecture> objects) {
-		assert objects != null;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		super.getResponse().setGlobal("id", id);
-	}
 }

@@ -25,20 +25,13 @@
 	<acme:input-textbox code="lecturer.lecture.label.draftMode" path="draftMode" readonly="true"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == false}">	 
-			<acme:button code="lecturer.lecture.list.button.add" action="/lecturer/course-lecture/create?lectureId=${id}"/>
-			<acme:button code="lecturer.lecture.list.button.delete" action="/lecturer/course-lecture/delete?lectureId=${id}"/>
-			
-		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="lecturer.lecture.form.button.update" action="/lecturer/lecture/update"/>
 			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture/delete"/>
 			<acme:submit code="lecturer.lecture.form.button.publish" action="/lecturer/lecture/publish"/>
-			<acme:button code="lecturer.lecture.list.button.add" action="/lecturer/course-lecture/create?lectureId=${id}"/>
-			<acme:button code="lecturer.lecture.list.button.delete" action="/lecturer/course-lecture/delete?lectureId=${id}"/>
-		</jstl:when>
+    	</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>
+			<acme:submit code="lecturer.lecture.list.button.add" action="/lecturer/lecture/create"/>
 		</jstl:when>		
 	</jstl:choose>
 	
