@@ -42,7 +42,7 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
 		courseLectureId = super.getRequest().getData("id", int.class);
-		courseLecture = this.repository.findOneLectureCourseById(courseLectureId);
+		courseLecture = this.repository.findOneCourseLectureById(courseLectureId);
 		status = courseLecture != null && courseLecture.getCourse().isDraftMode() && courseLecture.getCourse().getLecturer().getUserAccount().getId() == userAccountId && courseLecture.getLecture().getLecturer().getUserAccount().getId() == userAccountId;
 
 		super.getResponse().setAuthorised(status);
@@ -54,7 +54,7 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneLectureCourseById(id);
+		object = this.repository.findOneCourseLectureById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -69,9 +69,9 @@ public class LecturerCourseLectureDeleteService extends AbstractService<Lecturer
 	public void validate(final CourseLecture object) {
 		assert object != null;
 
-		super.state(object.getLecture() != null, "course", "lecturer.lecture-course.form.error.no-lecture-selected");
+		super.state(object.getLecture() != null, "course", "lecturer.courseLecture.form.lecture.empty");
 		if (object.getLecture() != null)
-			super.state(object.getCourse().isDraftMode(), "course", "lecturer.lecture-course.form.error.published");
+			super.state(object.getCourse().isDraftMode(), "course", "lecturer.courseLecture.form.error.course");
 	}
 
 	@Override

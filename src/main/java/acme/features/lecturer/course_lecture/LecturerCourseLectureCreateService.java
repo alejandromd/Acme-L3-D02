@@ -90,7 +90,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 			courseId = super.getRequest().getData("courseId", int.class);
 			lecture = this.repository.findOneCourseLectureByIds(courseId, lectureId);
 
-			super.state(object.getLecture().getLecturer().equals(object.getCourse().getLecturer()), "lecture", "lecturer.lecture-course.form.error.not-your-lecture");
+			super.state(object.getLecture().getLecturer().equals(object.getCourse().getLecturer()), "lecture", "lecturer.courseLecture.form.error.lecture");
 			super.state(lecture == null, "lecture", "lecturer.courseLecture.form.error.lecture");
 		}
 
@@ -111,7 +111,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 
 		int lecturerId;
 		Collection<Lecture> lectures;
-		final Tuple tuple;
+		Tuple tuple;
 		SelectChoices choices;
 		int courseId;
 
@@ -120,7 +120,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 
 		choices = SelectChoices.from(lectures, "title", object.getLecture());
 
-		tuple = new Tuple();
+		tuple = super.unbind(object, "lecture", "course");
 		tuple.put("lecture", choices.getSelected().getKey());
 		tuple.put("lectures", choices);
 		courseId = super.getRequest().getData("courseId", int.class);

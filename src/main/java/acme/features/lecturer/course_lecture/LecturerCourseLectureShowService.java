@@ -38,7 +38,7 @@ public class LecturerCourseLectureShowService extends AbstractService<Lecturer, 
 		principal = super.getRequest().getPrincipal();
 		userAccountId = principal.getAccountId();
 		courseLectureId = super.getRequest().getData("id", int.class);
-		courseLecture = this.repository.findOneLectureCourseById(courseLectureId);
+		courseLecture = this.repository.findOneCourseLectureById(courseLectureId);
 		status = courseLecture != null && courseLecture.getCourse().getLecturer().getUserAccount().getId() == userAccountId && courseLecture.getLecture().getLecturer().getUserAccount().getId() == userAccountId;
 
 		super.getResponse().setAuthorised(status);
@@ -50,7 +50,7 @@ public class LecturerCourseLectureShowService extends AbstractService<Lecturer, 
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneLectureCourseById(id);
+		object = this.repository.findOneCourseLectureById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -60,12 +60,17 @@ public class LecturerCourseLectureShowService extends AbstractService<Lecturer, 
 		assert object != null;
 		Tuple tuple;
 		int id;
+		CourseLecture courseLecture;
 		Course course;
+		int lectureId;
 
 		id = super.getRequest().getData("id", int.class);
-		course = this.repository.findOneLectureCourseById(id).getCourse();
-		tuple = super.unbind(object, "lecture.title", "course.code");
+		courseLecture = this.repository.findOneCourseLectureById(id);
+		course = courseLecture.getCourse();
+		lectureId = courseLecture.getLecture().getId();
+		tuple = super.unbind(object, "lecture", "course");
 		super.getResponse().setGlobal("showCreate", course.isDraftMode());
+		super.getResponse().setGlobal("lectureId", lectureId);
 
 		super.getResponse().setData(tuple);
 	}

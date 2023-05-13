@@ -69,11 +69,8 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 	public void unbind(final Collection<Lecture> objects) {
 		assert objects != null;
 		int courseId;
-		Course course;
 
 		courseId = super.getRequest().getData("courseId", int.class);
-		course = this.repository.findCourseById(courseId);
-		super.getResponse().setGlobal("draftMode", course.isDraftMode());
 		super.getResponse().setGlobal("courseId", courseId);
 	}
 }

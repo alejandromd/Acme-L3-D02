@@ -33,4 +33,5 @@ lecturer.course.delete = Delete
 lecturer.course.update = Update
 lecturer.course.publish = Publish
 lecturer.course.cancelPublish = Cancel publication
+
 lecturer.course.error.spam = This text is considered spam
