@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.Nature;
 import acme.entities.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -53,6 +54,12 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course course;
+
+			course = this.repository.findCourseByCode(object.getCode());
+			super.state(course == null || course.equals(object), "code", "lecturer.course.form.error.code-duplicated");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 			Double amount;
 			amount = object.getRetailPrice().getAmount();
@@ -85,6 +92,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
+		tuple.put("nature", Nature.BALANCED);
 		super.getResponse().setData(tuple);
 	}
 }

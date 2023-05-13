@@ -71,6 +71,7 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 
 		lectures = this.repository.findLecturesByCourse(object.getId());
 		super.state(!lectures.isEmpty(), "draftMode", "lecturer.course.error.lecture");
+
 		if (!lectures.isEmpty()) {
 			boolean existHandOn;
 			boolean lecturesInDraftMode;
@@ -80,6 +81,12 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 
 			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
 			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course course;
+
+			course = this.repository.findCourseByCode(object.getCode());
+			super.state(course == null || course.equals(object), "code", "lecturer.course.form.error.code-duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 			Double amount;
