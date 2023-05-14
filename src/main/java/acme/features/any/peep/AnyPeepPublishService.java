@@ -55,7 +55,7 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 	public void bind(final Peep object) {
 		assert object != null;
 
-		super.bind(object, "title", "nick", "message", "email", "link");
+		super.bind(object, "instantiationMoment", "title", "nick", "message", "email", "link");
 	}
 
 	@Override

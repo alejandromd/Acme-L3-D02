@@ -29,7 +29,14 @@ public class ActivityService extends AbstractService<Student, Activity> {
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(super.getRequest().getPrincipal().hasRole(Student.class));
+		Activity object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findActivityById(id);
+		final int userId = super.getRequest().getPrincipal().getAccountId();
+
+		super.getResponse().setAuthorised(object.getEnrolment().getStudent().getUserAccount().getId() == userId);
 	}
 
 	@Override

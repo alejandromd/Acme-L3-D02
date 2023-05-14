@@ -34,7 +34,14 @@ public class EnrolmentService extends AbstractService<Student, Enrolment> {
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(super.getRequest().getPrincipal().hasRole(Student.class));
+		Enrolment object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findEnrolmentById(id);
+		final int userId = super.getRequest().getPrincipal().getAccountId();
+
+		super.getResponse().setAuthorised(object.getStudent().getUserAccount().getId() == userId);
 	}
 
 	@Override
