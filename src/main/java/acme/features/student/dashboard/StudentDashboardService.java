@@ -70,15 +70,15 @@ public class StudentDashboardService extends AbstractService<Student, StudentDas
 
 		object = new StudentDashboard();
 		object.setTotalActivities(totalActivities);
-		object.setAveragePeriodOfActivities(averagePeriodOfActivities);
-		object.setMinimumPeriodOfActivities(minimumPeriodOfActivities);
-		object.setMaximumPeriodOfActivities(maximumPeriodOfActivities);
-		object.setDeviationPeriodOfActivities(deviationOfThePeriodActivities);
+		object.setAveragePeriodOfActivities(averagePeriodOfActivities == 0 ? null : averagePeriodOfActivities);
+		object.setMinimumPeriodOfActivities(minimumPeriodOfActivities == 0 ? null : minimumPeriodOfActivities);
+		object.setMaximumPeriodOfActivities(maximumPeriodOfActivities == 0 ? null : maximumPeriodOfActivities);
+		object.setDeviationPeriodOfActivities(deviationOfThePeriodActivities == 0 ? null : deviationOfThePeriodActivities);
 
-		object.setAverageLearningTime(averageLearningTime);
-		object.setMinimumLearningTime(minimumLearningTime);
-		object.setMaximunLearningTime(maximumLearningTime);
-		object.setDevitationLearningTime(deviationLearningTime);
+		object.setAverageLearningTime(averageLearningTime == 0 ? null : averageLearningTime);
+		object.setMinimumLearningTime(minimumLearningTime == 0 ? null : minimumLearningTime);
+		object.setMaximunLearningTime(maximumLearningTime == 0 ? null : maximumLearningTime);
+		object.setDevitationLearningTime(deviationLearningTime == 0 ? null : deviationLearningTime);
 
 		super.getBuffer().setData(object);
 	}
