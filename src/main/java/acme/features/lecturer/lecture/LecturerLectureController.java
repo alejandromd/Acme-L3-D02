@@ -26,7 +26,7 @@ public class LecturerLectureController extends AbstractController<Lecturer, Lect
 	protected LecturerLectureUpdateService	updateService;
 
 	@Autowired
-	protected LecturerLecturePostService	publishService;
+	protected LecturerLecturePublishService	publishService;
 
 	@Autowired
 	protected LecturerLectureDeleteService	deleteService;

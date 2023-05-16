@@ -1,0 +1,9 @@
+record-index,code,title,summary,retail_price,link
+0,AAA001,algorithms,The best course,EUR 18.5,
+1,AAA002,-$$$dcdc,The best course,EUR 18.9,
+0,AAA003,a,The best course,EUR 18.4,
+1,AAA004,añadiendo este mensaje al resumen de la asignatura hasta  llegar al maximo.,The best course,EUR 18.45,
+2,AAA005,`+ko,The best course,EUR 18.47,
+4,AAA006,bachillerato,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,EUR 18.53,
+18,AAA007,canvas,$+++0%&$,GBP 22.0,
+0,AAA009,¿el mejor curso?,Dziękuję,EUR 17.0,https://hola.com

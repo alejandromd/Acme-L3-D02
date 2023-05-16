@@ -1,7 +1,7 @@
 key,title,summary,estimated_learning_time,body,lecture_type,link,draft_mode,key:lecturer
 lecture-01,Lecture1,First lecture,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-01
 lecture-02,подтверждение квалификации на другом языке,First lecture,2.0,first part of theme 1,HANDS_ON,null,false,lecturer-01
-lecture-03,mensaje de setenta  y cinco caracteres    para el título de lecture .......,First lecture,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-01
+lecture-03,mensaje de setenta y cinco caracteres para comprobar el maximo de atributos,First lecture,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-01
 lecture-04,L,First lecture,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-01
 lecture-05,Lecture1,S,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-01
 lecture-06,Lecture1,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-01
@@ -12,8 +12,8 @@ lecture-10,Lecture1,First lecture,1.01,first part of theme 1,HANDS_ON,null,false
 lecture-11,Lecture1,First lecture,1.0,f,HANDS_ON,null,false,lecturer-01
 lecture-12,Lecture1,First lecture,1.0,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,HANDS_ON,null,false,lecturer-01
 lecture-13,Lecture1,First lecture,1.0,이 텍스트는 한국어로 작성되었습니다.,HANDS_ON,null,false,lecturer-01
-lecture-14,Lecture1,First lecture,1.0,first part of theme 1,THEORETICAL,null,false,lecturer-01
-lecture-15,Lecture1,First lecture,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-01
+lecture-14,Lecture1,First lecture,1.0,first part of theme 1,THEORETICAL,null,true,lecturer-01
+lecture-15,Lecture1,First lecture,1.0,first part of theme 1,THEORETICAL,null,false,lecturer-01
 lecture-16,Lecture1,First lecture,1.0,first part of theme 1,HANDS_ON,https://www.eltiempo.es/sevilla.html,false,lecturer-01
 lecture-17,Lecture1,First lecture,1.0,first part of theme 1,HANDS_ON,https://github.com/alejandromd/Acme-L3-D02,false,lecturer-01
 lecture-18,Lecture1,First lecture,1.0,first part of theme 1,HANDS_ON,null,true,lecturer-01
