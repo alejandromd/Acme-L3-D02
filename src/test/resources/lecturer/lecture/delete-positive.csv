@@ -1,2 +1,2 @@
-record-index,title,summary,estimated_learning_time,body,lecture_type,link
-0,test,First lecture,5.00,first part of theme 1,HANDS_ON,
+record-index,title,summary,estimated_learning_time,body,lecture_type,link,code
+0,test,First lecture,5.00,first part of theme 1,HANDS_ON,,K931

@@ -59,7 +59,7 @@ public class LecturerLectureDeleteTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test101Positive(final int recordIndex, final String title, final String summary, final String estimatedLearningTime, final String body, final String lectureType, final String link) {
+	public void test101Positive(final int recordIndex, final String title, final String summary, final String estimatedLearningTime, final String body, final String lectureType, final String link, final String code) {
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -81,7 +81,7 @@ public class LecturerLectureDeleteTest extends TestHarness {
 		super.checkListingExists();
 
 		Course course;
-		course = this.repository.findCourseByCode("K931");
+		course = this.repository.findCourseByCode(code);
 		String param;
 		param = String.format("courseId=%d", course.getId());
 		super.request("/lecturer/course-lecture/add", param);

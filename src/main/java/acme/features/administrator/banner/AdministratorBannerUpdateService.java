@@ -1,7 +1,6 @@
 
 package acme.features.administrator.banner;
 
-import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -36,7 +35,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 		int masterId;
 		masterId = super.getRequest().getData("id", int.class);
 		final Banner banner = this.repository.findBannerById(masterId);
-		final Date date = Date.from(Instant.now());
+		final Date date = MomentHelper.getCurrentMoment();
 		final boolean bool = banner.getDisplayPeriodBegin().before(date) && banner.getDisplayPeriodFinish().after(date);
 		super.getResponse().setAuthorised(!bool);
 	}
@@ -65,7 +64,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 		if (object.getDisplayPeriodBegin() != null && object.getDisplayPeriodFinish() != null)
 			if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin")) {
 				Date date;
-				date = Date.from(Instant.now());
+				date = MomentHelper.getCurrentMoment();
 				super.state(!(date.after(object.getDisplayPeriodBegin()) && date.before(object.getDisplayPeriodFinish())), "displayPeriodBegin", "administrator.banner.form.error.wrong-update");
 			}
 

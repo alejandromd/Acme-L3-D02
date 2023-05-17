@@ -17,11 +17,12 @@ public class LecturerCoursePublishTest extends TestHarness {
 	protected LecturerCourseTestRepository repository;
 
 
-	@Test
-	public void test100Positive() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/lecturer/course/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final String code) {
 
 		Course course;
-		course = this.repository.findCourseByCode("K931");
+		course = this.repository.findCourseByCode(code);
 		String param;
 		param = String.format("id=%d", course.getId());
 

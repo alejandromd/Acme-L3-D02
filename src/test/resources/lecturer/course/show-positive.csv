@@ -1,10 +1,2 @@
 record-index,code,title,summary,retail_price,link
-0,AAA111,English course,The best course,EUR 20.0,
-1,AAP112,이 텍스트는 한국어로 작성되었습니다.,The best course,EUR 20.0,
-2,ATA113,m,The best course,EUR 20.0,
-3,AHA114,este curso tiene unе título que se  alargará hasta  llegar al tamaño máximo,The best course,EUR 20.0,
-4,MSA115,E,The best course,EUR 20.0,
-5,BDR234,cours3,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,EUR 19.0,
-6,BCY234,cours3,这是另一种语言的测试数据的测试文本,EUR 19.0,
-7,ZZZ340,cours3,e,EUR 19.0,
-8,BC999,cours3,Dziękuję,EUR 19.0,https://hola.com
+0,ATA113,m,The best course,EUR 20.00,

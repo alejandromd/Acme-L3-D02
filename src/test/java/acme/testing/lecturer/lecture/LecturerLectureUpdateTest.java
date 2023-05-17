@@ -85,7 +85,7 @@ public class LecturerLectureUpdateTest extends TestHarness {
 	public void test300Hacking() {
 
 		Collection<Lecture> lectures;
-		lectures = this.repository.findLecturesByUsernameInDraftMode("lecturer1");
+		lectures = this.repository.findLecturesByUsername("lecturer1");
 		String param;
 		for (final Lecture lecture : lectures) {
 			param = String.format("id=%d", lecture.getId());
