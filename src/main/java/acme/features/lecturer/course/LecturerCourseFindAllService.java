@@ -51,7 +51,7 @@ public class LecturerCourseFindAllService extends AbstractService<Lecturer, Cour
 		String payload;
 
 		tuple = super.unbind(object, "title", "summary", "retailPrice");
-		payload = String.format("%s;%s", object.getCode(), object.getLink());
+		payload = String.format("%s;%s;%s", object.getCode(), object.getLink(), object.isDraftMode());
 		tuple.put("payload", payload);
 		super.getResponse().setData(tuple);
 	}

@@ -1,7 +1,6 @@
 
 package acme.features.administrator.banner;
 
-import java.time.Instant;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -33,7 +33,7 @@ public class AdministratorBannerDeleteService extends AbstractService<Administra
 		int masterId;
 		masterId = super.getRequest().getData("id", int.class);
 		final Banner banner = this.repository.findBannerById(masterId);
-		final Date date = Date.from(Instant.now());
+		final Date date = MomentHelper.getCurrentMoment();
 		final boolean bool = banner.getDisplayPeriodBegin().before(date) && banner.getDisplayPeriodFinish().after(date);
 		super.getResponse().setAuthorised(!bool);
 	}

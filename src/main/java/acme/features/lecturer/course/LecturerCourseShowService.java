@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import acme.datatypes.Nature;
 import acme.entities.Course;
 import acme.entities.Lecture;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -33,16 +32,16 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
+		boolean status;
 		Course object;
 		int id;
-		Principal principal;
-		int userAccountId;
+		Lecturer lecturer;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		principal = super.getRequest().getPrincipal();
-		userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
+		lecturer = object == null ? null : object.getLecturer();
+		status = object != null && super.getRequest().getPrincipal().hasRole(lecturer);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

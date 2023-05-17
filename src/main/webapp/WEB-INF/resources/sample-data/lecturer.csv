@@ -1,9 +1,9 @@
 key,alma_mater,resume,qualifications,link,key:userAccount
 lecturer-01,Universidad de Sevilla,many years of experience with university students,C1English,null,user-account-lecturer-01
-lecturer-02,ñ,many years of experience with university students,C1English,null,user-account-lecturer-02
-lecturer-03,mensaje de setenta  y cinco caracteres    para el título de lecturer ......,many years of experience with university students,C1English,null,user-account-lecturer-03
+lecturer-02,oñ,many years of experience with university students,C1English,null,user-account-lecturer-02
+lecturer-03,mensaje de setenta y cinco caracteres para el título de este lecturer .....,many years of experience with university students,C1English,null,user-account-lecturer-03
 lecturer-04,Universidad de Sevilla,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,C1English,null,user-account-lecturer-04
-lecturer-05,Universidad de Sevilla,这,C1English,null,user-account-lecturer-05
+lecturer-05,Universidad de Sevilla,这-,C1English,null,user-account-lecturer-05
 lecturer-06,Universidad de Sevilla,many years of experience with university students,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,null,user-account-lecturer-06
 lecturer-07,Universidad de Sevilla,many years of experience with university students,스,null,user-account-lecturer-07
 lecturer-08,Universidad de Sevilla,many years of experience with university students,C1English,https://github.com/alejandromd/Acme-L3-D02,user-account-lecturer-08
