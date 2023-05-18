@@ -1,0 +1,13 @@
+auditRecordIndex,auditingRecordRecordIndex,subject,assessment,periodStartDate,periodEndDate,mark,link
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que. nuncas,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+0,0,,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que.,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente. fdsvds,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que.,,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que.,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:29,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 00:29,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2022/07/30 00:40,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2022/07/30 01:00,2022/07/30 02:01,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,,2021/02/21 02:01,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 01:00,,C,http://www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 02:30,C,http/www.acme.com
+0,0,quiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 01:00,2021/02/21 02:01,---,http://www.acme.com

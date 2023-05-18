@@ -43,7 +43,7 @@ public class AuditorAuditingRecordCreateCorrectionTest extends TestHarness {
 		super.fillInputBoxIn("periodEndDate", periodEndDate);
 		super.fillInputBoxIn("mark", mark);
 		super.fillInputBoxIn("link", link);
-		super.clickOnButton("Confirmation");
+		super.fillInputBoxIn("confirmation", "true");
 		super.clickOnSubmit("Create a correctional auditing record");
 
 		super.checkListingExists();
@@ -83,7 +83,7 @@ public class AuditorAuditingRecordCreateCorrectionTest extends TestHarness {
 		super.fillInputBoxIn("periodEndDate", periodEndDate);
 		super.fillInputBoxIn("mark", mark);
 		super.fillInputBoxIn("link", link);
-		super.clickOnButton("Confirmation");
+		super.fillInputBoxIn("confirmation", "true");
 		super.clickOnSubmit("Create a correctional auditing record");
 		super.checkErrorsExist();
 

@@ -1,0 +1,4 @@
+auditRecordIndex,auditingRecordRecordIndex,subject,assessment,periodStartDate,periodEndDate,mark,link
+4,0,esto es una prueba de una auditing record,esto es una prueba para el assessment de una auditing record,2022/06/25 15:00,2022/06/25 17:00,F_MINUS,
+4,1,esto es una prueba para el sujeto de una auditing record,esto es una prueba para el assessment de una auditing record,2022/06/25 15:00,2022/06/25 17:00,B,
+4,2,esto es una prueba para el sujeto de una auditing record,esto es una prueba para el assessment de una auditing record,2022/06/25 15:00,2022/06/25 17:00,B,https://www.example.com

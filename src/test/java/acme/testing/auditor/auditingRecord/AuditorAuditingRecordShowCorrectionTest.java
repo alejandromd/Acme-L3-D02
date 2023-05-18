@@ -41,7 +41,7 @@ public class AuditorAuditingRecordShowCorrectionTest extends TestHarness {
 		super.checkInputBoxHasValue("periodEndDate", periodEndDate);
 		super.checkInputBoxHasValue("mark", mark);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("correction", "X");
+		super.checkInputBoxHasValue("message", "[X]");
 
 		super.signOut();
 	}
