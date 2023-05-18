@@ -19,4 +19,5 @@
 	<acme:list-column code="any.course.form.label.title" path="title" width="40%"/>
 	<acme:list-column code="any.course.form.label.summary" path="summary" width="40%"/>
 	<acme:list-column code="any.course.form.label.retailPrice" path="retailPrice" width="20%"/>
+	<acme:list-payload path="payload"/>
 </acme:list>

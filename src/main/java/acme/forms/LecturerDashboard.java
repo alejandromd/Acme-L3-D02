@@ -30,7 +30,7 @@ public class LecturerDashboard extends AbstractForm {
 
 	public void calculateCourseAverage(final Collection<Double> values) {
 		Double res;
-		res = 0.0;
+		res = null;
 		if (!values.isEmpty()) {
 			final Double total = values.stream().mapToDouble(Double::doubleValue).sum();
 			res = total / values.size();
@@ -39,18 +39,24 @@ public class LecturerDashboard extends AbstractForm {
 	}
 
 	public void calculateCourseMax(final Collection<Double> values) {
-		final Double max = values.stream().mapToDouble(Double::doubleValue).max().orElse(0.0);
+		Double max;
+		max = null;
+		if (!values.isEmpty())
+			max = values.stream().mapToDouble(Double::doubleValue).max().orElse(0.0);
 		this.maximumTimeOfCourses = max;
 	}
 
 	public void calculateCourseMin(final Collection<Double> values) {
-		final Double min = values.stream().mapToDouble(Double::doubleValue).min().orElse(0.0);
+		Double min;
+		min = null;
+		if (!values.isEmpty())
+			min = values.stream().mapToDouble(Double::doubleValue).min().orElse(0.0);
 		this.minimumTimeOfCourses = min;
 	}
 	public void calculateCourseDev(final Collection<Double> values) {
 		Double res;
 		Double aux;
-		res = 0.0;
+		res = null;
 		if (!values.isEmpty()) {
 			aux = 0.0;
 			for (final Double value : values)

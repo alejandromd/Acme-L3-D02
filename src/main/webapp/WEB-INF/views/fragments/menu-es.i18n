@@ -14,7 +14,7 @@ master.menu.home = Inicio
 master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
-master.menu.list = Listas
+master.menu.list = Autenticado
 master.menu.course = Cursos
 
 # master.menu.anonymous #######################################################
@@ -93,7 +93,7 @@ master.menu.user-account.assistant.update = Actualizar perfil asistente
 # master.menu.any.peep ####################################################
 
 master.menu.any.peep = Peeps
-master.menu.any.peep.list = Lista de peeps
+master.menu.any.peep.list = Ver peeps
 
 # master.menu.lecturer ####################################################
 

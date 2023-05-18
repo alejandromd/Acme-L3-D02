@@ -29,7 +29,7 @@ public class LecturerCourseController extends AbstractController<Lecturer, Cours
 	protected LecturerCourseUpdateService	updateService;
 
 	@Autowired
-	protected LecturerCoursePostService	postService;
+	protected LecturerCoursePublishService	postService;
 
 
 	@PostConstruct

@@ -45,15 +45,15 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 		userAccountId = principal.getAccountId();
 		lecturer = this.repository.findOneLecturerByUserAccountId(userAccountId);
 
-		double averageLectureLearningTime;
-		double maxLectureLearningTime;
-		double minLectureLearningTime;
-		double devLectureLearningTime;
+		Double averageLectureLearningTime;
+		Double maxLectureLearningTime;
+		Double minLectureLearningTime;
+		Double devLectureLearningTime;
 
-		averageLectureLearningTime = this.repository.findAverageLectureLearningTime(lecturer).orElse(0.0);
-		maxLectureLearningTime = this.repository.findMaxLectureLearningTime(lecturer).orElse(0.0);
-		minLectureLearningTime = this.repository.findMinLectureLearningTime(lecturer).orElse(0.0);
-		devLectureLearningTime = this.repository.findLinearDevLectureLearningTime(lecturer).orElse(0.0);
+		averageLectureLearningTime = this.repository.findAverageLectureLearningTime(lecturer).orElse(null);
+		maxLectureLearningTime = this.repository.findMaxLectureLearningTime(lecturer).orElse(null);
+		minLectureLearningTime = this.repository.findMinLectureLearningTime(lecturer).orElse(null);
+		devLectureLearningTime = this.repository.findLinearDevLectureLearningTime(lecturer).orElse(null);
 
 		dashboard.setAverageTimeOfLectures(averageLectureLearningTime);
 		dashboard.setMinimumTimeOfLectures(minLectureLearningTime);

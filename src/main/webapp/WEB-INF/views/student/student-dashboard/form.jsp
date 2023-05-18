@@ -15,6 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 <acme:form>
+
 	<acme:input-textbox code="student.dashboard.form.label.totalActivities" path="totalActivities" readonly="true"/>	
 	<acme:input-textbox code="student.dashboard.form.label.averageActivities" path="averagePeriodOfActivities" readonly="true"/>	
 	<acme:input-textbox code="student.dashboard.form.label.minActivities" path="minimumPeriodOfActivities" readonly="true"/>	
@@ -24,5 +25,6 @@
 	<acme:input-textbox code="student.dashboard.form.label.minLearningTime" path="minimumLearningTime" readonly="true"/>	
 	<acme:input-textbox code="student.dashboard.form.label.maxLearningTime" path="maximunLearningTime" readonly="true"/>	
 	<acme:input-textbox code="student.dashboard.form.label.devLearningTime" path="devitationLearningTime" readonly="true"/>	
-
+	
 </acme:form>
+

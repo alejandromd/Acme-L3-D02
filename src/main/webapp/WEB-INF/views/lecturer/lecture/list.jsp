@@ -19,6 +19,7 @@
 	<acme:list-column code="lecturer.lecture.label.title" path="title" width="40%"/>
 	<acme:list-column code="lecturer.lecture.label.summary" path="summary" width="40%"/>
 	<acme:list-column code="lecturer.lecture.label.estimatedLearningTime" path="estimatedLearningTime" width="20%"/>
+	<acme:list-payload path="payload"/>
 </acme:list>
 
-<acme:button test="${isViewable}" code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>
+<acme:button test="${_command == 'list-all'}" code="lecturer.lecture.button.create" action="/lecturer/lecture/create"/>

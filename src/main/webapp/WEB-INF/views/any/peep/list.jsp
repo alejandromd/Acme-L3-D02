@@ -18,6 +18,7 @@
 <acme:list>
 	<acme:list-column code="any.peep.list.label.moment" path="instantiationMoment" width="20%"/>
 	<acme:list-column code="any.peep.list.label.title" path="title" width="50%"/>
+	<acme:list-payload path="payload"/>
 </acme:list>
 
 <acme:button code="any.peep.list.button.create" action="/any/peep/create"/>

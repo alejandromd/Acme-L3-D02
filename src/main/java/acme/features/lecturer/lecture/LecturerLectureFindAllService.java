@@ -44,10 +44,11 @@ public class LecturerLectureFindAllService extends AbstractService<Lecturer, Lec
 	public void unbind(final Lecture object) {
 		assert object != null;
 		Tuple tuple;
+		String payload;
 
 		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime");
-		super.getResponse().setGlobal("showCreate", false);
-		super.getResponse().setGlobal("isViewable", true);
+		payload = String.format("%s;%s;%s;%s", object.getBody(), object.getLink(), object.getLectureType(), object.isDraftMode());
+		tuple.put("payload", payload);
 		super.getResponse().setData(tuple);
 	}
 

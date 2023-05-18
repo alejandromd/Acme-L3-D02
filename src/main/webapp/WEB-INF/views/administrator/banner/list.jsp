@@ -17,6 +17,7 @@
 
 <acme:list>
 	<acme:list-column code="administrator.banner.list.label.slogan" path="slogan" width="60%"/>
+	<acme:list-payload path="payload"/>
 </acme:list>
 
 <acme:button code="administrator.banner.list.button.create" action="/administrator/banner/create"/>
