@@ -1,0 +1,8 @@
+auditRecordIndex,code,auditingRecordRecordIndex,subject,mark
+0,A274,0,ahora pruebo con la ñ,B
+0,A274,1,e,B
+0,A274,2,esto es una prueba para el sujeto de una auditing record,B
+0,A274,4,"esto es una prueba para el sujeto de una auditing record, donde se comprueb",A_PLUS
+1,ABC230,0,esto es una prueba para el sujeto de una auditing record,B
+1,ABC230,1,esto es una prueba para el sujeto de una auditing record,B
+2,ABC231,0,esto es una prueba para el sujeto de una auditing record,B

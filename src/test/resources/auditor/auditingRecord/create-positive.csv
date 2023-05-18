@@ -1,0 +1,13 @@
+auditRecordIndex,auditingRecordRecordIndex,subject,assessment,periodStartDate,periodEndDate,mark,link
+0,5,quiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+0,6,quiero hacer un texto que sea al menos de 75 caracteres para ver que. Va as,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+0,7,r,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+0,8,shora miramos la ñ,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+0,9,이 텍스트는 한국어로 작성되었습니다.,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+3,0,auiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente. Eston,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+3,1,buiero hacer un texto que sea al menos de 75 caracteres para ver que,w,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+3,2,cuiero hacer un texto que sea al menos de 75 caracteres para ver que,x con ñ,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+3,3,duiero hacer un texto que sea al menos de 75 caracteres para ver que,이 텍스트는 한국어로 작성되었습니다.,2021/02/21 00:30,2021/02/21 01:40,C,http://www.acme.com
+3,4,eaiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:30,C,http://www.acme.com
+3,5,ebiero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2022/07/29 23:59,C,http://www.acme.com
+3,6,ediero hacer un texto que sea al menos de 75 caracteres para ver que,vamos a ver como consigo llegar a los 100 caracteres para ver que esto funciona correctamente.,2021/02/21 00:30,2021/02/21 01:40,C,

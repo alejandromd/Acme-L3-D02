@@ -1,0 +1,6 @@
+auditRecordIndex,auditingRecordRecordIndex,subject,assessment,periodStartDate,periodEndDate,mark,link
+0,0,ahora pruebo con la ñ,esto es una prueba para el assessment de una auditing record,2022/06/25 15:00,2022/06/25 17:00,B,https://www.example.com
+0,1,e,esto es una prueba para el assessment de una auditing record,2022/06/25 15:00,2022/06/25 17:00,B,https://www.example.com
+0,4,"esto es una prueba para el sujeto de una auditing record, donde se comprueb","esto es una prueba para el assessment de una auditing record, donde se comprueba que se pueden poner",2022/06/25 15:00,2022/06/25 17:00,A_PLUS,https://www.example.com
+1,0,esto es una prueba para el sujeto de una auditing record,"esto es una prueba para el assessment de una auditing record, donde se comprueba que se pueden poner",2022/06/25 15:00,2022/06/25 17:00,B,https://www.example.com
+0,3,esto es una prueba para el sujeto de una auditing record,esto es una prueba para el assessment de una auditing record,2022/06/25 15:00,2022/06/25 17:00,B,

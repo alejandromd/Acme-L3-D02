@@ -14,6 +14,7 @@ auditor.audit.form.label.mark = Notas
 
 auditor.audit.form.error.code = El código ya existe
 auditor.audit.form.error.spam = El mensaje es considerado spam
+auditor.audit.form.error.no-auditingRecords = La auditoría no tiene registros de auditoría
 auditor.audit.form.button.auditing-records = Registros de la auditoría
 
 auditor.audit.form.button.delete = Borrar
