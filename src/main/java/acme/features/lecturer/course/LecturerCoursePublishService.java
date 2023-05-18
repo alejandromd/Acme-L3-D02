@@ -12,14 +12,13 @@ import org.springframework.stereotype.Service;
 import acme.datatypes.Nature;
 import acme.entities.Course;
 import acme.entities.Lecture;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 import filter.SpamFilter;
 
 @Service
-public class LecturerCoursePostService extends AbstractService<Lecturer, Course> {
+public class LecturerCoursePublishService extends AbstractService<Lecturer, Course> {
 
 	@Autowired
 	protected LecturerCourseRepository repository;
@@ -36,16 +35,17 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
+		boolean status;
 		Course object;
 		int id;
-		Principal principal;
-		int userAccountId;
+		Lecturer lecturer;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		principal = super.getRequest().getPrincipal();
-		userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		lecturer = object == null ? null : object.getLecturer();
+		status = object != null && object.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -71,6 +71,7 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 
 		lectures = this.repository.findLecturesByCourse(object.getId());
 		super.state(!lectures.isEmpty(), "draftMode", "lecturer.course.error.lecture");
+
 		if (!lectures.isEmpty()) {
 			boolean existHandOn;
 			boolean lecturesInDraftMode;
@@ -80,6 +81,12 @@ public class LecturerCoursePostService extends AbstractService<Lecturer, Course>
 
 			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
 			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course course;
+
+			course = this.repository.findCourseByCode(object.getCode());
+			super.state(course == null || course.equals(object), "code", "lecturer.course.form.error.code-duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 			Double amount;

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import acme.datatypes.Nature;
 import acme.entities.Course;
 import acme.entities.Lecture;
-import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -34,16 +33,17 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
+		boolean status;
 		Course object;
 		int id;
-		Principal principal;
-		int userAccountId;
+		Lecturer lecturer;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findCourseById(id);
-		principal = super.getRequest().getPrincipal();
-		userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		lecturer = object == null ? null : object.getLecturer();
+		status = object != null && object.isDraftMode() && super.getRequest().getPrincipal().hasRole(lecturer);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -64,6 +64,12 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Course course;
+
+			course = this.repository.findCourseByCode(object.getCode());
+			super.state(course == null || course.equals(object), "code", "lecturer.course.form.error.code-duplicated");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 			Double amount;
 

@@ -39,7 +39,11 @@ public class AdministratorBannerServiceFindAll extends AbstractService<Administr
 	public void unbind(final Banner object) {
 		assert object != null;
 		Tuple tuple;
+		String payload;
+
 		tuple = super.unbind(object, "slogan");
+		payload = String.format("%s;%s;%s;%s;%s", object.getInstantiationMoment(), object.getDisplayPeriodBegin(), object.getDisplayPeriodFinish(), object.getPicture(), object.getLinkWeb());
+		tuple.put("payload", payload);
 		super.getResponse().setData(tuple);
 	}
 

@@ -55,9 +55,11 @@ public class AuthenticatedNoteListService extends AbstractService<Authenticated,
 		assert object != null;
 
 		Tuple tuple;
+		String payload;
 
 		tuple = super.unbind(object, "instantiationMoment", "title", "author");
-
+		payload = String.format("%s;%s;%s", object.getMessage(), object.getEmail(), object.getLink());
+		tuple.put("payload", payload);
 		super.getResponse().setData(tuple);
 
 	}
