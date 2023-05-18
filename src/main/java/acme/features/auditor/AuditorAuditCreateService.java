@@ -82,7 +82,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 			super.state(!SpamFilter.antiSpamFilter(object.getStrongPoints(), this.repository.findThreshold()), "strongPoints", "auditor.audit.form.error.spam");
 		if (!super.getBuffer().getErrors().hasErrors("weakPoints"))
 			super.state(!SpamFilter.antiSpamFilter(object.getWeakPoints(), this.repository.findThreshold()), "weakPoints", "auditor.audit.form.error.spam");
-
+		super.state(!object.getCourse().isDraftMode(), "course", "auditor.audit.form.error.course");
 	}
 
 	@Override

@@ -57,7 +57,7 @@ public class AuditorAuditShowTest extends TestHarness {
 		Collection<Audit> audits;
 		String param;
 
-		audits = this.repository.findManyAuditsByAuditorUsername("employer1");
+		audits = this.repository.findManyAuditsByAuditorUsername("auditor1");
 		for (final Audit audit : audits)
 			if (audit.isDraftMode()) {
 				param = String.format("id=%d", audit.getId());
