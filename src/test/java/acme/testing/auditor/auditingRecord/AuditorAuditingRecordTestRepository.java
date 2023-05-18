@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.Audit;
 import acme.entities.auditingRecord.AuditingRecord;
+import acme.framework.repositories.AbstractRepository;
 
-public interface AuditorAuditingRecordTestRepository {
+public interface AuditorAuditingRecordTestRepository extends AbstractRepository {
 
 	@Query("select au from Audit au where au.auditor.userAccount.username = :username")
 	Collection<Audit> findManyAuditsByAuditorUsername(String username);

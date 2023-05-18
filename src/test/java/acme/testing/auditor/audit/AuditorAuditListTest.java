@@ -16,10 +16,9 @@ public class AuditorAuditListTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String course, final String conclusion) {
+	public void test100Positive(final int recordIndex, final String code, final String courseTitle, final String conclusion) {
 		// HINT: this test authenticates as an auditor, lists his or her audits only,
 		// HINT+ and then checks that the listing has the expected data.
-		final String courseTitle = this.repository.findOneCourseByCourseCode(course).getTitle();
 
 		super.signIn("auditor1", "auditor1");
 

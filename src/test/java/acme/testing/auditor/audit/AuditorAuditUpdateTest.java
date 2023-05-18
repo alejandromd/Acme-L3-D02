@@ -35,7 +35,6 @@ public class AuditorAuditUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordIndex, 0, code);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("code", code);
@@ -73,7 +72,6 @@ public class AuditorAuditUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordIndex, 0, code);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("code", code);
@@ -121,4 +119,22 @@ public class AuditorAuditUpdateTest extends TestHarness {
 		}
 	}
 
+	@Test
+	public void test301Hacking() {
+
+		Collection<Audit> audits;
+		String param;
+
+		audits = this.repository.findManyAuditsByAuditorUsername("auditor1");
+		for (final Audit audit : audits)
+			if (!audit.isDraftMode()) {
+				super.signIn("auditor1", "auditor1");
+
+				param = String.format("id=%d", audit.getId());
+
+				super.request("/auditor/audit/update", param);
+				super.checkPanicExists();
+				super.signOut();
+			}
+	}
 }

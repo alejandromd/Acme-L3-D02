@@ -61,7 +61,6 @@ public class AuditorAuditingRecordShowTest extends TestHarness {
 		Collection<AuditingRecord> auditingRecords;
 		String param;
 
-		super.signIn("auditor1", "auditor1");
 		auditingRecords = this.repository.findManyAuditingRecordsByAuditorUsername("auditor1");
 		for (final AuditingRecord auditingRecord : auditingRecords) {
 

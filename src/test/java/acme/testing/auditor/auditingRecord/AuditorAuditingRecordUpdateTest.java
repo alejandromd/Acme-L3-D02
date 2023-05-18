@@ -50,7 +50,6 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 		super.checkColumnHasValue(auditingRecordRecordIndex, 1, mark);
 		super.clickOnListingRecord(auditingRecordRecordIndex);
 
-		super.clickOnListingRecord(auditingRecordRecordIndex);
 		super.checkInputBoxHasValue("subject", subject);
 		super.checkInputBoxHasValue("assessment", assessment);
 		super.checkInputBoxHasValue("periodStartDate", periodStartDate);
@@ -97,7 +96,6 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 		Collection<AuditingRecord> auditingRecords;
 		String param;
 
-		super.signIn("auditor1", "auditor1");
 		auditingRecords = this.repository.findManyAuditingRecordsByAuditorUsername("auditor1");
 		for (final AuditingRecord auditingRecord : auditingRecords) {
 
@@ -130,11 +128,10 @@ public class AuditorAuditingRecordUpdateTest extends TestHarness {
 		Collection<AuditingRecord> auditingRecords;
 		String param;
 
-		super.signIn("auditor1", "auditor1");
 		auditingRecords = this.repository.findManyAuditingRecordsByAuditorUsername("auditor1");
 		for (final AuditingRecord auditingRecord : auditingRecords)
 			if (!auditingRecord.getAudit().isDraftMode()) {
-
+				super.signIn("auditor1", "auditor1");
 				param = String.format("id=%d", auditingRecord.getAudit().getId());
 
 				super.request("/auditor/auditing-record/update", param);

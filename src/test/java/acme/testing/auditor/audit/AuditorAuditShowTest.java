@@ -23,7 +23,7 @@ public class AuditorAuditShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String mark, final String course, final String code, final String courseTitle, final String strongPoints, final String weakPoints, final String conclusion) {
+	public void test100Positive(final int recordIndex, final String course, final String code, final String strongPoints, final String weakPoints, final String conclusion, final String mark) {
 		// HINT: this test signs in as an employer, lists all of the jobs, click on  
 		// HINT+ one of them, and checks that the form has the expected data.
 
@@ -57,7 +57,7 @@ public class AuditorAuditShowTest extends TestHarness {
 		Collection<Audit> audits;
 		String param;
 
-		audits = this.repository.findManyAuditsByAuditorUsername("employer1");
+		audits = this.repository.findManyAuditsByAuditorUsername("auditor1");
 		for (final Audit audit : audits)
 			if (audit.isDraftMode()) {
 				param = String.format("id=%d", audit.getId());

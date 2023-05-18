@@ -1,0 +1,10 @@
+recordIndex,course,code,strongPoints,weakPoints,conclusion,mark
+0,AAA111,A274,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,"[A_PLUS, B, B, B, B]"
+1,KPF511,ABC230,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,"[B, B]"
+2,AAA111,ABC231,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado porque lo he implementado yo asi que no debería de fallar por esos,"[B, B, B]"
+4,AAP112,ABC233,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,人,"[F_MINUS, B, B]"
+5,ATA113,ABC234,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,E,N/A
+8,AHA114,ABC237,人,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,N/A
+9,KPF511,ABC238,E,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,N/A
+10,KPF511,ABC239,Este audit está bien implementado asi que no debería de fallar por esos,Este audit está bien implementado porque lo he implementado yo asi que no debería de fallar por esos,Este audit está bien implementado asi que no debería de fallar por esos,N/A
+11,KPF511,ABC240,Este audit está bien implementado asi que no debería de fallar por esos,Este audit va con ñ,Este audit está bien implementado asi que no debería de fallar por esos,N/A
