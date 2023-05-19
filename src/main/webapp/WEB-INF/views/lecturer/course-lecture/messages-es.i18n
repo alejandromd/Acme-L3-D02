@@ -18,7 +18,7 @@ lecturer.courseLecture.form.error.course.null = Selecciona un curso
 lecturer.courseLecture.form.course.info = Información del curso
 lecturer.courseLecture.form.lecture.info = Información de la lección
 lecturer.courseLecture.form.lecture.delete.info = Eliminar la siguiente lección de un curso que se encuentre en modo borrador
-lecturer.courseLecture.form.lecture.addLecture = Elige una lección para añadirla al curso
+lecturer.courseLecture.form.lecture.addLecture = Elige una lección publicada para añadirla al curso
 lecturer.courseLecture.form.lecture.empty = Para confirmar elige una lección
 
 lecturer.courseLecture.label.title= Título
@@ -35,3 +35,4 @@ lecturer.courseLecture.form.button.create = Crear
 lecturer.courseLecture.form.button.add = Añadir lección
 lecturer.courseLecture.form.button.confirm = Confirmar
 lecturer.courseLecture.form.button.details = Ver detalles de lección
+lecturer.courseLecture.form.button.lectures = Ver lecciones

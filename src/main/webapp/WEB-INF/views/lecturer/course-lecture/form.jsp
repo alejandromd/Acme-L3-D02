@@ -89,6 +89,7 @@
 			</table>
 		<acme:input-select code="lecturer.courseLecture.form.lecture.addLecture" path="lecture" choices="${lectures}"/>
 		<acme:submit code="lecturer.courseLecture.form.button.confirm" action="/lecturer/course-lecture/add?courseId=${courseId}"/>		
+		<acme:button code="lecturer.courseLecture.form.button.lectures" action="/lecturer/lecture/list-all"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

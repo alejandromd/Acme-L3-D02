@@ -61,10 +61,14 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			Lecture lecture;
+
+			lecture = this.repository.findLectureByTitle(object.getTitle());
+			super.state(lecture == null || lecture.equals(object), "title", "lecturer.lecture.form.error.title-duplicated");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))
 			super.state(object.getEstimatedLearningTime() >= 0.01, "estimatedLearningTime", "lecturer.lecture.form.error.estimatedLearningTime");
-		if (!super.getBuffer().getErrors().hasErrors("lectureType"))
-			super.state(!object.getLectureType().equals(Nature.BALANCED), "lectureType", "lecturer.lecture.form.error.nature");
 		if (!super.getBuffer().getErrors().hasErrors("summary"))
 			super.state(!SpamFilter.antiSpamFilter(object.getSummary(), this.repository.findThreshold()), "summary", "lecturer.lecture.error.spam");
 		if (!super.getBuffer().getErrors().hasErrors("title"))

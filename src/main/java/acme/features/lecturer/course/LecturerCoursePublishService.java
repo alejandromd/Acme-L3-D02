@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.CourseType;
 import acme.datatypes.Nature;
 import acme.entities.Course;
 import acme.entities.Lecture;
@@ -121,12 +122,12 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		assert object != null;
 		Tuple tuple;
 		List<Lecture> lectures;
-		Nature nature;
+		CourseType courseType;
 
-		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode");
+		tuple = super.unbind(object, "id", "code", "title", "summary", "retailPrice", "link", "draftMode");
 		lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
-		nature = object.courseTypeNature(lectures);
-		tuple.put("nature", nature);
+		courseType = object.courseTypeNature(lectures);
+		tuple.put("nature", courseType);
 		super.getResponse().setData(tuple);
 	}
 }
