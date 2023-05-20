@@ -12,9 +12,10 @@ lecture-10,Lecture7,First lecture,1.01,first part of theme 1,HANDS_ON,null,false
 lecture-11,Lecture8,First lecture,1.0,f,HANDS_ON,null,false,lecturer-01
 lecture-12,Lecture9,First lecture,1.0,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,HANDS_ON,null,false,lecturer-01
 lecture-13,Lecture10,First lecture,1.0,이 텍스트는 한국어로 작성되었습니다.,HANDS_ON,null,false,lecturer-01
-lecture-14,Lecture11,First lecture,1.0,first part of theme 1,THEORETICAL,null,true,lecturer-01
+lecture-14,Lecture11,First lecture,1.0,first part of theme 1,THEORETICAL,null,false,lecturer-01
 lecture-15,Lecture12,First lecture,1.0,first part of theme 1,THEORETICAL,null,false,lecturer-01
 lecture-16,Lecture13,First lecture,1.0,first part of theme 1,HANDS_ON,https://www.eltiempo.es/sevilla.html,false,lecturer-01
 lecture-17,Lecture14,First lecture,1.0,first part of theme 1,HANDS_ON,https://github.com/alejandromd/Acme-L3-D02,false,lecturer-01
 lecture-18,Lecture15,First lecture,1.0,first part of theme 1,HANDS_ON,null,true,lecturer-01
-lecture-19,Lecture16,First lecture,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-02
+lecture-19,Lecture16,First lecture,1.0,first part of theme 1,HANDS_ON,null,true,lecturer-01
+lecture-20,Lecture17,First lecture,1.0,first part of theme 1,HANDS_ON,null,false,lecturer-02

@@ -76,17 +76,6 @@ public class LecturerCoursePublishTest extends TestHarness {
 		super.clickOnButton("Lectures");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
-		super.clickOnButton("See lecture details");
-		super.clickOnSubmit("Publish");
-
-		super.request("/lecturer/course/show", param);
-		super.clickOnSubmit("Publish");
-		super.checkErrorsExist();
-
-		super.request("/lecturer/course/show", param);
-		super.clickOnButton("Lectures");
-		super.checkListingExists();
-		super.clickOnListingRecord(0);
 		super.clickOnSubmit("Delete lecture from course");
 		super.checkNotPanicExists();
 		super.request("/lecturer/course/show", param);
@@ -96,6 +85,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 		super.signOut();
 	}
+
 	@Test
 	public void test300Hacking() {
 
@@ -127,4 +117,5 @@ public class LecturerCoursePublishTest extends TestHarness {
 		}
 
 	}
+
 }

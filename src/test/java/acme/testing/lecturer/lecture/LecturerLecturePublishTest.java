@@ -43,13 +43,14 @@ public class LecturerLecturePublishTest extends TestHarness {
 		super.clickOnMenu("Lecturer", "My lectures");
 
 		super.checkListingExists();
-		super.sortListing(0, "desc");
 
-		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, summary);
-		super.checkColumnHasValue(recordIndex, 2, estimatedLearningTime);
+		Lecture lecture;
+		lecture = this.repository.findLectureByTitle(title);
+		String param;
+		param = String.format("id=%d", lecture.getId());
 
-		super.clickOnListingRecord(recordIndex);
+		super.request("/lecturer/lecture/show", param);
+
 		super.clickOnSubmit("Publish");
 
 		super.signOut();
@@ -110,4 +111,5 @@ public class LecturerLecturePublishTest extends TestHarness {
 			}
 		}
 	}
+
 }

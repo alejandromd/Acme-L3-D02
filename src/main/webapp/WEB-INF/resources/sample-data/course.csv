@@ -1,11 +1,11 @@
 key,code,title,summary,retail_price,draft_mode,link,key:lecturer
 course-01,AAB111,English course,The best course,EUR 20.0,false,null,lecturer-01
-course-02,AAP112,-이 텍스트는 한국어로 작성되었습니다.,The best course,EUR 20.0,false,null,lecturer-01
+course-02,AAP112,이 텍스트는 한국어로 작성되었습니다.,The best course,EUR 20.0,false,null,lecturer-01
 course-03,ATA113,m,The best course,EUR 20.0,false,null,lecturer-01
 course-04,AHA114,este curso tiene un título que se alargará hasta llegar al tamaño máximo...,The best course,EUR 20.0,false,null,lecturer-01
 course-05,MSA115,E,The best course,EUR 20.0,false,null,lecturer-01
 course-06,BDR234,cours3,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,EUR 20.0,false,null,lecturer-01
-course-07,BCY234,cours3,-这是另一种语言的测试数据的测试文本,EUR 20.0,false,null,lecturer-01
+course-07,BCY234,cours3,这是另一种语言的测试数据的测试文本,EUR 20.0,false,null,lecturer-01
 course-08,ZZZ340,cours3,e,EUR 19.0,false,null,lecturer-01
 course-09,BCR999,cours3,D$$$,EUR 19.0,false,null,lecturer-01
 course-10,BYY234,cours3,ñññ ~$,EUR 19.0,false,null,lecturer-01

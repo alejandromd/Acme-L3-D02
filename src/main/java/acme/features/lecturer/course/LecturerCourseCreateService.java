@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.CourseType;
 import acme.entities.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -92,7 +91,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
-		tuple.put("nature", CourseType.BALANCED);
+		tuple.put("nature", "BALANCED");
 		super.getResponse().setData(tuple);
 	}
 }

@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.CourseType;
 import acme.entities.Course;
 import acme.entities.Lecture;
 import acme.framework.components.models.Tuple;
@@ -60,7 +59,7 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 		assert object != null;
 		Tuple tuple;
 		List<Lecture> lectures;
-		CourseType courseType;
+		String courseType;
 
 		tuple = super.unbind(object, "id", "code", "title", "summary", "retailPrice", "link", "draftMode", "lecturer");
 		lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());

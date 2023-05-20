@@ -9,13 +9,13 @@
 # they accept any liabilities with respect to them.
 
 
-lecturer.course.form.label.totalLectures = Número total de clases
-lecturer.course.form.label.handsOnLectures = Clases prácticas
-lecturer.course.form.label.theoreticalLectures = Clases teóricas
-lecturer.course.form.label.averageTimeOfLectures = Tiempo medio de las clases
-lecturer.course.form.label.deviationTimeOfLectures = Desviación en clases
-lecturer.course.form.label.minimumTimeOfLectures = Tiempo minimo en clases
-lecturer.course.form.label.maximumTimeOfLectures = Tiempo maximo en clases
+lecturer.course.form.label.totalLectures = Número total de lecciones
+lecturer.course.form.label.handsOnLectures = Lecciones prácticas
+lecturer.course.form.label.theoreticalLectures = Lecciones teóricas
+lecturer.course.form.label.averageTimeOfLectures = Tiempo medio de las lecciones
+lecturer.course.form.label.deviationTimeOfLectures = Desviación en lecciones
+lecturer.course.form.label.minimumTimeOfLectures = Tiempo minimo en lecciones
+lecturer.course.form.label.maximumTimeOfLectures = Tiempo maximo en lecciones
 lecturer.course.form.label.averageTimeOfCourses = Tiempo medio de los cursos
 lecturer.course.form.label.deviationTimeOfCourses = Desviación en cursos
 lecturer.course.form.label.minimumTimeOfCourses = Tiempo mínimo en cursos

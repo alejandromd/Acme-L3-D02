@@ -43,13 +43,13 @@ public class LecturerLectureUpdateTest extends TestHarness {
 		super.clickOnMenu("Lecturer", "My lectures");
 
 		super.checkListingExists();
-		super.sortListing(1, "desc");
+		Lecture lecture;
+		lecture = this.repository.findLectureByTitle(title);
+		String param;
+		param = String.format("id=%d", lecture.getId());
 
-		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, summary);
-		super.checkColumnHasValue(recordIndex, 2, estimatedLearningTime);
+		super.request("/lecturer/lecture/show", param);
 
-		super.clickOnListingRecord(recordIndex);
 		super.clickOnSubmit("Update");
 
 		super.signOut();

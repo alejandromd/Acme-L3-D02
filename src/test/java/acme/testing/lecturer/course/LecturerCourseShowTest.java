@@ -19,7 +19,7 @@ public class LecturerCourseShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String title, final String summary, final String retailPrice, final String link) {
+	public void test100Positive(final int recordIndex, final String code, final String title, final String summary, final String retailPrice, final String link, final String draftMode) {
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -27,7 +27,7 @@ public class LecturerCourseShowTest extends TestHarness {
 		super.checkListingExists();
 
 		Course course;
-		course = this.repository.findCourseByCode("ATA113");
+		course = this.repository.findCourseByCode(code);
 		String param;
 		param = String.format("id=%d", course.getId());
 		super.request("/lecturer/course/show", param);
@@ -39,6 +39,7 @@ public class LecturerCourseShowTest extends TestHarness {
 		super.checkInputBoxHasValue("summary", summary);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("link", link);
+		super.checkInputBoxHasValue("draftMode", draftMode);
 
 		super.signOut();
 	}
@@ -78,4 +79,5 @@ public class LecturerCourseShowTest extends TestHarness {
 		}
 
 	}
+
 }

@@ -1,2 +1,8 @@
-record-index,code,title,summary,retail_price,link
-0,ATA113,m,The best course,EUR 20.00,
+record-index,code,title,summary,retail_price,link,draft_mode
+0,ATA113,m,The best course,EUR 20.00,,false
+1,AAB111,English course,The best course,EUR 20.00,,false
+2,ZZZ340,cours3,e,EUR 19.00,,false
+3,BCR999,cours3,D$$$,EUR 19.00,,false
+4,BYY234,cours3,ñññ ~$,EUR 19.00,,false
+5,MSA115,E,The best course,EUR 20.00,,false
+6,BDR234,cours3,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,EUR 20.00,,false

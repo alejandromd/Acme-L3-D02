@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.CourseType;
 import acme.datatypes.Nature;
 import acme.entities.Course;
 import acme.entities.Lecture;
@@ -79,7 +78,6 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 			lecturesInDraftMode = lectures.stream().allMatch(x -> x.isDraftMode() == false);
 			super.state(lecturesInDraftMode, "draftMode", "lecturer.course.error.draftMode");
-
 			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
 			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");
 		}
@@ -122,7 +120,7 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		assert object != null;
 		Tuple tuple;
 		List<Lecture> lectures;
-		CourseType courseType;
+		String courseType;
 
 		tuple = super.unbind(object, "id", "code", "title", "summary", "retailPrice", "link", "draftMode");
 		lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());

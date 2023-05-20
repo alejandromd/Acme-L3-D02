@@ -14,7 +14,6 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.CourseType;
 import acme.datatypes.Nature;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
@@ -63,8 +62,8 @@ public class Course extends AbstractEntity {
 
 
 	// Theoretical courses should be rejected
-	public CourseType courseTypeNature(final List<Lecture> lectures) {
-		CourseType courseType = CourseType.BALANCED;
+	public String courseTypeNature(final List<Lecture> lectures) {
+		String courseType = "BALANCED";
 		if (!lectures.isEmpty()) {
 			int theoretical = 0;
 			int handsOn = 0;
@@ -74,9 +73,9 @@ public class Course extends AbstractEntity {
 				else if (l.getLectureType().equals(Nature.HANDS_ON))
 					handsOn++;
 			if (theoretical > handsOn)
-				courseType = CourseType.THEORETICAL;
+				courseType = "THEORETICAL";
 			else if (handsOn > theoretical)
-				courseType = CourseType.HANDS_ON;
+				courseType = "HANDS_ON";
 		}
 		return courseType;
 	}

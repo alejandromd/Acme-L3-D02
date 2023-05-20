@@ -22,4 +22,7 @@ public interface LecturerLectureTestRepository extends AbstractRepository {
 
 	@Query("select l from Lecture l where l.lecturer.userAccount.username = :username and l.draftMode = true")
 	Collection<Lecture> findLecturesByUsernameInDraftMode(String username);
+
+	@Query("select l from Lecture l where l.title = :title")
+	Lecture findLectureByTitle(String title);
 }
