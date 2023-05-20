@@ -61,16 +61,16 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void validate(final Banner object) {
 		assert object != null;
 
+		if (object.getDisplayPeriodBegin() != null)
+			if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin"))
+				super.state(MomentHelper.isFuture(object.getDisplayPeriodBegin()), "displayPeriodBegin", "administrator.banner.form.error.wrong-displayStart");
+
 		if (object.getDisplayPeriodBegin() != null && object.getDisplayPeriodFinish() != null)
 			if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin")) {
 				Date date;
 				date = MomentHelper.getCurrentMoment();
 				super.state(!(date.after(object.getDisplayPeriodBegin()) && date.before(object.getDisplayPeriodFinish())), "displayPeriodBegin", "administrator.banner.form.error.wrong-update");
 			}
-
-		if (object.getDisplayPeriodBegin() != null)
-			if (!super.getBuffer().getErrors().hasErrors("displayPeriodBegin"))
-				super.state(MomentHelper.isFuture(object.getDisplayPeriodBegin()), "displayPeriodBegin", "administrator.banner.form.error.wrong-displayStart");
 
 		if (object.getDisplayPeriodBegin() != null && object.getDisplayPeriodFinish() != null)
 			if (!super.getBuffer().getErrors().hasErrors("displayPeriodFinish")) {
