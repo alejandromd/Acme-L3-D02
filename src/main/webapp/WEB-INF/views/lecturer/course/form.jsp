@@ -28,21 +28,15 @@
 		<jstl:when test="${_command == 'show' && draftMode == false}">
 			<acme:button code="lecturer.course.lectures" action="/lecturer/course-lecture/list?courseId=${id}"/>			
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|delete') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|publish|update') && draftMode == true}">
 			<acme:button code="lecturer.course.lectures" action="/lecturer/course-lecture/list?courseId=${id}"/>
-			<acme:submit code="lecturer.course.update" action="/lecturer/course/update"/>
+			<acme:submit code="lecturer.course.update" action="/lecturer/course/update?id=${id}"/>
 			<acme:submit code="lecturer.course.delete" action="/lecturer/course/delete"/>
-			<acme:submit code="lecturer.course.publish" action="/lecturer/course/publish"/>
+			<acme:submit code="lecturer.course.publish" action="/lecturer/course/publish?id=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="lecturer.course.create" action="/lecturer/course/create"/>
-		</jstl:when>		
-		<jstl:when test="${_command == 'publish'}">
-			<acme:submit code="lecturer.course.publish" action="/lecturer/course/publish"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'update'}">
-			<acme:submit code="lecturer.course.update" action="/lecturer/course/update"/>
-		</jstl:when>		
+		</jstl:when>			
 	</jstl:choose>
 	
 </acme:form>

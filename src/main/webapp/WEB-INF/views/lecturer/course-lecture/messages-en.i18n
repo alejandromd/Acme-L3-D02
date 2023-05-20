@@ -15,10 +15,11 @@ lecturer.courseLecture.form.lecture.lectureType = Lecture type
 lecturer.courseLecture.form.error.lecture = The lecture is already in the selected course
 lecturer.courseLecture.form.error.course = The selected course is not editable
 lecturer.courseLecture.form.error.course.null = Select a course
+lecturer.courseLecture.form.error.draftMode = Cannot add a lecture in draft mode
 lecturer.courseLecture.form.course.info = Course information
 lecturer.courseLecture.form.lecture.info = Lecture information
 lecturer.courseLecture.form.lecture.delete.info = Delete the next lesson from a course that is in draft mode
-lecturer.courseLecture.form.lecture.addLecture = Choose a lecture to add to the course
+lecturer.courseLecture.form.lecture.addLecture = Choose a published lecture to add to the course
 lecturer.courseLecture.form.lecture.empty = To confirm choose a lecture
 
 lecturer.courseLecture.label.title= Title
@@ -35,3 +36,4 @@ lecturer.courseLecture.form.button.create = Create
 lecturer.courseLecture.form.button.add = Add lecture
 lecturer.courseLecture.form.button.confirm = Confirm
 lecturer.courseLecture.form.button.details = See lecture details
+lecturer.courseLecture.form.button.lectures = See lectures

@@ -19,14 +19,37 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code) {
+	public void test100Positive(final int recordIndex, final String code, final String title, final String summary, final String retailPrice, final String link) {
+
+		super.signIn("lecturer1", "lecturer1");
+
+		super.clickOnMenu("Lecturer", "My courses");
+
+		super.checkListingExists();
+
+		super.clickOnButton("Create");
+
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("summary", summary);
+		super.fillInputBoxIn("retailPrice", retailPrice);
+		super.fillInputBoxIn("link", link);
+
+		super.clickOnSubmit("Create");
+		super.checkNotPanicExists();
 
 		Course course;
 		course = this.repository.findCourseByCode(code);
 		String param;
-		param = String.format("id=%d", course.getId());
+		param = String.format("courseId=%d", course.getId());
 
-		super.signIn("lecturer1", "lecturer1");
+		super.request("/lecturer/course-lecture/add", param);
+
+		super.fillInputBoxIn("lecture", "L");
+		super.clickOnSubmit("Confirm");
+		super.checkNotErrorsExist();
+
+		param = String.format("id=%d", course.getId());
 		super.request("/lecturer/course/show", param);
 		super.clickOnSubmit("Publish");
 		super.checkNotPanicExists();
@@ -76,17 +99,6 @@ public class LecturerCoursePublishTest extends TestHarness {
 		super.clickOnButton("Lectures");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
-		super.clickOnButton("See lecture details");
-		super.clickOnSubmit("Publish");
-
-		super.request("/lecturer/course/show", param);
-		super.clickOnSubmit("Publish");
-		super.checkErrorsExist();
-
-		super.request("/lecturer/course/show", param);
-		super.clickOnButton("Lectures");
-		super.checkListingExists();
-		super.clickOnListingRecord(0);
 		super.clickOnSubmit("Delete lecture from course");
 		super.checkNotPanicExists();
 		super.request("/lecturer/course/show", param);
@@ -96,6 +108,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 		super.signOut();
 	}
+
 	@Test
 	public void test300Hacking() {
 
@@ -127,4 +140,5 @@ public class LecturerCoursePublishTest extends TestHarness {
 		}
 
 	}
+
 }

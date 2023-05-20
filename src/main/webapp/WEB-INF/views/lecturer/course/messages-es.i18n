@@ -26,7 +26,7 @@ lecturer.course.error.price = El precio debe estar entre 0 y 999,999.99
 lecturer.course.error.currency = Divisa inválida, introduce una de las siguientes divisas
 lecturer.course.form.error.code-duplicated = El código esta duplicado
 
-lecturer.course.lectures = Clases
+lecturer.course.lectures = Lecciones
 
 lecturer.course.create = Crear
 lecturer.course.delete = Borrar

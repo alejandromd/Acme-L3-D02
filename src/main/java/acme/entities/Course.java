@@ -62,8 +62,8 @@ public class Course extends AbstractEntity {
 
 
 	// Theoretical courses should be rejected
-	public Nature courseTypeNature(final List<Lecture> lectures) {
-		Nature nature = Nature.BALANCED;
+	public String courseTypeNature(final List<Lecture> lectures) {
+		String courseType = "BALANCED";
 		if (!lectures.isEmpty()) {
 			int theoretical = 0;
 			int handsOn = 0;
@@ -73,11 +73,11 @@ public class Course extends AbstractEntity {
 				else if (l.getLectureType().equals(Nature.HANDS_ON))
 					handsOn++;
 			if (theoretical > handsOn)
-				nature = Nature.THEORETICAL;
+				courseType = "THEORETICAL";
 			else if (handsOn > theoretical)
-				nature = Nature.HANDS_ON;
+				courseType = "HANDS_ON";
 		}
-		return nature;
+		return courseType;
 	}
 
 }

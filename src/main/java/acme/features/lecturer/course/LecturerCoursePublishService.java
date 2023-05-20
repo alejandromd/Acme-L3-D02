@@ -78,7 +78,6 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 			lecturesInDraftMode = lectures.stream().allMatch(x -> x.isDraftMode() == false);
 			super.state(lecturesInDraftMode, "draftMode", "lecturer.course.error.draftMode");
-
 			existHandOn = lectures.stream().anyMatch(x -> x.getLectureType().equals(Nature.HANDS_ON));
 			super.state(existHandOn, "nature", "lecturer.course.error.handsOn");
 		}
@@ -121,12 +120,12 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		assert object != null;
 		Tuple tuple;
 		List<Lecture> lectures;
-		Nature nature;
+		String courseType;
 
-		tuple = super.unbind(object, "code", "title", "summary", "retailPrice", "link", "draftMode");
+		tuple = super.unbind(object, "id", "code", "title", "summary", "retailPrice", "link", "draftMode");
 		lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
-		nature = object.courseTypeNature(lectures);
-		tuple.put("nature", nature);
+		courseType = object.courseTypeNature(lectures);
+		tuple.put("nature", courseType);
 		super.getResponse().setData(tuple);
 	}
 }

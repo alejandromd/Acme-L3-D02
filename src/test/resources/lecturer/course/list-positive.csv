@@ -1,5 +1,6 @@
 record-index,title,summary,retail_price
-0,m,The best course,EUR 20.00
-2,English course,The best course,EUR 20.00
-3,E,The best course,EUR 20.00
-4,cours3,e,EUR 19.00
+1,m,The best course,EUR 20.00
+2,este curso tiene un título que se alargará hasta llegar al tamaño máximo...,The best course,EUR 20.00
+3,English course,The best course,EUR 20.00
+4,E,The best course,EUR 20.00
+5,cours3,e,EUR 19.00

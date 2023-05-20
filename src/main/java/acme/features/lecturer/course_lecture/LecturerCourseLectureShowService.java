@@ -71,6 +71,7 @@ public class LecturerCourseLectureShowService extends AbstractService<Lecturer, 
 		tuple = super.unbind(object, "lecture", "course");
 		super.getResponse().setGlobal("showCreate", course.isDraftMode());
 		super.getResponse().setGlobal("lectureId", lectureId);
+		super.getResponse().setGlobal("id", id);
 
 		super.getResponse().setData(tuple);
 	}

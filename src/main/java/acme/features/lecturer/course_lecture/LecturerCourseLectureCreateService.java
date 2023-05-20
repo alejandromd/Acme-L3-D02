@@ -83,15 +83,20 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 
 		int lectureId;
 		int courseId;
-		CourseLecture lecture = null;
+		CourseLecture courseLecture = null;
 
 		if (object.getLecture() != null) {
+			Lecture lecture;
 			lectureId = object.getLecture().getId();
+			lecture = this.repository.findLectureById(lectureId);
+
+			super.state(!lecture.isDraftMode(), "lecture", "lecturer.courseLecture.form.error.draftMode");
 			courseId = super.getRequest().getData("courseId", int.class);
-			lecture = this.repository.findOneCourseLectureByIds(courseId, lectureId);
+			courseLecture = this.repository.findOneCourseLectureByIds(courseId, lectureId);
 
 			super.state(object.getLecture().getLecturer().equals(object.getCourse().getLecturer()), "lecture", "lecturer.courseLecture.form.error.lecture");
-			super.state(lecture == null, "lecture", "lecturer.courseLecture.form.error.lecture");
+			super.state(courseLecture == null, "lecture", "lecturer.courseLecture.form.error.lecture");
+
 		}
 
 		super.state(object.getLecture() != null, "lecture", "lecturer.courseLecture.form.lecture.empty");
@@ -112,7 +117,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		int lecturerId;
 		Collection<Lecture> lectures;
 		Tuple tuple;
-		SelectChoices choices;
+		final SelectChoices choices;
 		int courseId;
 
 		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();

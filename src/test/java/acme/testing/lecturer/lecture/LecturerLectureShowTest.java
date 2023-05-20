@@ -25,8 +25,13 @@ public class LecturerLectureShowTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "My lectures");
 		super.checkListingExists();
-		super.sortListing(2, "asc");
-		super.clickOnListingRecord(recordIndex);
+
+		Lecture lecture;
+		lecture = this.repository.findLectureByTitle(title);
+		String param;
+		param = String.format("id=%d", lecture.getId());
+
+		super.request("/lecturer/lecture/show", param);
 
 		super.checkFormExists();
 
@@ -73,4 +78,5 @@ public class LecturerLectureShowTest extends TestHarness {
 			super.signOut();
 		}
 	}
+
 }

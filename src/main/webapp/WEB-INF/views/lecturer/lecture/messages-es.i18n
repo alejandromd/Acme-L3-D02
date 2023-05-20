@@ -19,6 +19,7 @@ lecturer.lecture.label.draftMode = Modo borrador
 
 lecturer.lecture.form.error.nature = La naturaleza de una lección no puede ser balanceada
 lecturer.lecture.form.error.estimatedLearningTime = El tiempo de aprendizaje estimado debe ser mayor o igual que 0.01
+lecturer.lecture.form.error.title-duplicated = El título esta duplicado
 
 lecturer.lecture.list.button.add = Añadir lección a un curso
 lecturer.lecture.list.button.delete = Quitar lección de un curso

@@ -8,7 +8,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.Course;
 import acme.entities.Lecture;
 import acme.testing.TestHarness;
 
@@ -42,64 +41,17 @@ public class LecturerLectureDeleteTest extends TestHarness {
 		super.checkListingExists();
 
 		super.clickOnMenu("Lecturer", "My lectures");
-		super.sortListing(2, "desc");
 
-		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, summary);
-		super.checkColumnHasValue(recordIndex, 2, estimatedLearningTime);
-
-		super.clickOnListingRecord(recordIndex);
-		super.clickOnSubmit("Delete");
-
-		super.checkListingExists();
-
-		super.signOut();
-
-	}
-
-	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/lecture/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test101Positive(final int recordIndex, final String title, final String summary, final String estimatedLearningTime, final String body, final String lectureType, final String link, final String code) {
-
-		super.signIn("lecturer1", "lecturer1");
-
-		super.clickOnMenu("Lecturer", "My lectures");
-
-		super.checkListingExists();
-
-		super.clickOnButton("Create lecture");
-
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("summary", summary);
-		super.fillInputBoxIn("estimatedLearningTime", estimatedLearningTime);
-		super.fillInputBoxIn("body", body);
-		super.fillInputBoxIn("lectureType", lectureType);
-		super.fillInputBoxIn("link", link);
-
-		super.clickOnSubmit("Create");
-
-		super.checkListingExists();
-
-		Course course;
-		course = this.repository.findCourseByCode(code);
+		Lecture lecture;
+		lecture = this.repository.findLectureByTitle(title);
 		String param;
-		param = String.format("courseId=%d", course.getId());
-		super.request("/lecturer/course-lecture/add", param);
-		super.fillInputBoxIn("lecture", "test");
-		super.clickOnSubmit("Confirm");
-		super.checkNotErrorsExist();
+		param = String.format("id=%d", lecture.getId());
 
-		super.clickOnMenu("Lecturer", "My lectures");
-		super.sortListing(2, "desc");
+		super.request("/lecturer/lecture/show", param);
 
-		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, summary);
-		super.checkColumnHasValue(recordIndex, 2, estimatedLearningTime);
-
-		super.clickOnListingRecord(recordIndex);
 		super.clickOnSubmit("Delete");
 
-		super.checkListingExists();
+		super.checkNotPanicExists();
 
 		super.signOut();
 

@@ -99,7 +99,7 @@ master.menu.any.peep.list = Ver peeps
 
 master.menu.lecturer = Profesor
 master.menu.lecturer.course = Mis cursos
-master.menu.lecturer.lecture = Mis clases
+master.menu.lecturer.lecture = Mis lecciones
 master.menu.lecturer.dashboard = Tablero de profesor
 
 # master.menu.student ####################################################

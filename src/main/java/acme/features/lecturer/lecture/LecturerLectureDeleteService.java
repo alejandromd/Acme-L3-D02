@@ -1,16 +1,10 @@
 
 package acme.features.lecturer.lecture;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.datatypes.Nature;
-import acme.entities.CourseLecture;
 import acme.entities.Lecture;
-import acme.framework.components.jsp.SelectChoices;
-import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
@@ -70,25 +64,6 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	@Override
 	public void perform(final Lecture object) {
 		assert object != null;
-		Collection<CourseLecture> courseLectures;
-
-		courseLectures = this.repository.findCourseLecturesByLecture(object);
-		for (final CourseLecture cl : courseLectures)
-			this.repository.delete(cl);
 		this.repository.delete(object);
-	}
-
-	@Override
-	public void unbind(final Lecture object) {
-		assert object != null;
-		Tuple tuple;
-
-		tuple = super.unbind(object, "title", "summary", "estimatedLearningTime", "body", "lectureType", "link", "draftMode", "lecturer");
-
-		final SelectChoices choices;
-		choices = SelectChoices.from(Nature.class, object.getLectureType());
-		tuple.put("lectureType", choices.getSelected().getKey());
-		tuple.put("lectureTypes", choices);
-		super.getResponse().setData(tuple);
 	}
 }

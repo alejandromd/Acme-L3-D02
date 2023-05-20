@@ -1,2 +1,9 @@
 record-index,code,title,summary,retail_price,link
 0,DEL011,English course,The best course,EUR 18.5,
+0,DEL012,English course2,The best course,EUR 18.5,
+0,DEL013,E,The best course,EUR 18.5,
+0,DEL014,$$course,The best course,EUR 18.5,
+0,DEL015,English course,r,EUR 18.5,
+0,DEL016,English course,ñp^,EUR 18.5,
+0,DEL017,English course,The best course,USD 18.5,
+0,DEL018,English course,The best course,GBP 170.7,

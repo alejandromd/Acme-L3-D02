@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.CourseLecture;
-import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
@@ -74,14 +73,5 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		for (final CourseLecture cl : courseLectures)
 			this.repository.delete(cl);
 		this.repository.delete(object);
-	}
-
-	@Override
-	public void unbind(final Course object) {
-		assert object != null;
-		Tuple tuple;
-
-		tuple = super.unbind(object, "instantiationMoment", "endPeriod", "heading", "summary", "startPeriod", "retailPrice", "link");
-		super.getResponse().setData(tuple);
 	}
 }

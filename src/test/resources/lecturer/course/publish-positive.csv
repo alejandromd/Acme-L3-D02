@@ -1,2 +1,8 @@
-record-index,code
-0,K931
+record-index,code,title,summary,retail_price,link
+0,P111,algorithms,The best course,EUR 18.5,
+0,P112,-$$$dcdc,The best course,EUR 18.9,
+0,P113,a,The best course,EUR 18.4,
+0,P114,añadiendo este mensaje al resumen de la asignatura hasta  llegar al maximo.,The best course,EUR 18.45,
+0,P115,`+ko,The best course,EUR 18.47,
+0,P116,bachillerato,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,EUR 18.53,
+0,P118,canvas,$+++0%&$,GBP 22.0,https://hola.com

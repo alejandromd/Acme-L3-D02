@@ -1,2 +1,7 @@
 record-index,title,summary,estimated_learning_time,body,lecture_type,link
-0,Lecture1,First lecture,0.01,first part of theme 1,HANDS_ON,
+0,Lecture5,First lecture,0.01,first part of theme 1,HANDS_ON,
+1,Lecture6,First lecture,2.99,first part of theme 1,HANDS_ON,
+2,Lecture7,First lecture,1.01,first part of theme 1,HANDS_ON,
+3,Lecture8,First lecture,1.00,f,HANDS_ON,
+4,Lecture9,First lecture,1.00,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,HANDS_ON,
+5,mensaje de setenta y cinco caracteres para comprobar el maximo de atributos,First lecture,1.00,first part of theme 1,HANDS_ON,

@@ -4,10 +4,9 @@ record-index,title,summary,estimated_learning_time,body,lecture_type,link
 2,mensaje de setenta  y cinco caracteres    para el título de lecture .......,First lecture,,first part of theme 1,HANDS_ON,
 3,L,First lecture,1.0,,---,
 4,este curso tiene unе título que se  alargará hasta  llegar al tamaño máximoo,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,1.0,first part of theme 1,HANDS_ON,
-5,Lecture1,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811...,1.0,first part of theme 1,HANDS_ON,
-6,Lecture1,First lecture,-2.99,first part of theme 1,THEORETICAL,
-7,Lecture1,First lecture,2.99,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811...,THEORETICAL,
-8,Lecture1,First lecture,2.99,first part of theme 1,BALANCED,
+5,create10,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811...,1.0,first part of theme 1,HANDS_ON,
+6,create11,First lecture,-2.99,first part of theme 1,THEORETICAL,
+7,Lecture12,First lecture,2.99,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811...,THEORETICAL,
 9,nigeria,First lecture,2.99,first part of theme 1,HANDS_ON,
-10,Lecture1,nigeria,2.99,first part of theme 1,HANDS_ON,
-11,Lecture1,First lecture,2.99,nigeria,HANDS_ON,https://hola.com
+10,create13,nigeria,2.99,first part of theme 1,HANDS_ON,
+11,create14,First lecture,2.99,nigeria,HANDS_ON,https://hola.com

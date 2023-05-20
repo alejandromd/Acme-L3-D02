@@ -19,6 +19,7 @@ lecturer.lecture.label.draftMode = Draft mode
 
 lecturer.lecture.form.error.nature = The nature of a lecture can't be BALANCED
 lecturer.lecture.form.error.estimatedLearningTime = The estimated learning time must be bigger or equal to 0.01
+lecturer.lecture.form.error.title-duplicated = The title is duplicated
 
 lecturer.lecture.list.button.add = Add lecture to a course
 lecturer.lecture.list.button.delete = Remove lecture from a course
