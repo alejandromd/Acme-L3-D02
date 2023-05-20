@@ -7,4 +7,4 @@ record-index,title,summary,estimated_learning_time,body,lecture_type,link
 5,create4,este mensaje va a tener 100 caracteres para añadirlo a los datos de prueba de lecture 123455677811..,0.09,first part of theme 1,HANDS_ON,
 6,create5,-이 텍스트는 한국어로 작성되었습니다.,0.09,first part of theme 1,HANDS_ON,
 7,create6,First lecture,0.88,first part of theme 1,HANDS_ON,
-8,create7,First lecture,0.09,first part of theme 1,THEORETICAL,
+8,create7,First lecture,0.09,first part of theme 1,THEORETICAL,https://hola.com
