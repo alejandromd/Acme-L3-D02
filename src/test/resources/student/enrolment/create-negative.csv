@@ -1,0 +1,8 @@
+record-index,code,motivation,goals,course
+0,,,,---
+1,hola,L,Improve your mathematical skills,cours3
+2,NG123,,Improve your mathematical skills,cours3
+3,NG124,!@#$%&/()=?¿,,cours3
+4,NG125,hola,Improve your mathematical skills,---
+5,NG127,este curso tiene unе título que se alargará hasta llegar al tamaño máxiimo,Este mensaje tiene cien caracteres usado para validar cadenas con cien de longitud maximo y minimoss.....,cours3
+6,NG1288,Learn Math,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,cours3

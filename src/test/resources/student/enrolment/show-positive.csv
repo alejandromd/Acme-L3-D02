@@ -1,0 +1,7 @@
+record-index,code,motivation,goals,draft_mode,course,workTime,holder_name,lower_nibble
+0,AAA111,Learn English,Improve your English level,true,English course,14,Student1,1234
+1,AAA222,Learn English,Improve your English level,false,English course,0,,
+2,AAA333,Learn English,Improve your English level,false,English course,0,,
+3,AAA444,Learn English,Improve your English level,true,English course,0,,
+4,AAA555,Learn English,Improve your English level,true,English course,0,,
+5,AAA666,Learn English,Improve your English level,true,English course,0,,
