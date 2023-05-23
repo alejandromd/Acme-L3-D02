@@ -33,12 +33,10 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 		boolean status;
 		int masterId;
 		Tutorial tutorial;
-		Assistant assistant;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		tutorial = this.repository.findOneTutorialById(masterId);
-		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(assistant);
+		status = tutorial != null && (!tutorial.isDraftMode() || super.getRequest().getPrincipal().hasRole(tutorial.getAssistant()));
 
 		super.getResponse().setAuthorised(status);
 	}
