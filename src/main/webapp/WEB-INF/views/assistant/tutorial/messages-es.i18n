@@ -13,9 +13,11 @@ assistant.tutorial.list.label.code = Código
 assistant.tutorial.list.label.title = Título
 assistant.tutorial.list.label.course = Curso
 
+assistant.tutorial.form.error.no-sessions = El tutorial necesita al menos una sesión para publicarse
 assistant.tutorial.form.error.code-duplicated = Ya existen un tutorial con este código
 assistant.tutorial.form.error.spam = El texto es considerado como spam
 
+assistant.tutorial.form.button.tutorialSession = Ver sesiones
 assistant.tutorial.button.create = Crear
 
 assistant.tutorial.form.button.create = Crear

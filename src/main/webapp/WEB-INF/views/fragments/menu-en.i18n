@@ -64,6 +64,7 @@ master.menu.auditor.audit = Audits
 # master.menu.assistant ####################################################
 master.menu.assistant = Assistant
 master.menu.assistant.list-my-tutorials = Tutorials
+master.menu.assistant.dashboard = Dashboard
 
 # master.menu.authenticated ####################################################
 

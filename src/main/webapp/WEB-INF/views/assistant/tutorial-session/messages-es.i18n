@@ -25,7 +25,7 @@ assistant.tutorialSession.form.button.update = Actualizar
 assistant.tutorialSession.form.button.delete = Eliminar
 assistant.tutorialSession.form.button.create = Crear
 
-assistant.tutorialSession.form.error.start-not-ahead = La fecha de inicio debe ser un día por delante de la fecha actual
+assistant.tutorialSession.form.error.start-not-ahead = La fecha de inicio debe ser, al menos, un día posterior a la fecha actual
 assistant.tutorialSession.form.error.end-not-after = La fecha de fin debe ser posterior a la fecha de inicio
 assistant.tutorialSession.form.error.invalid-duration = La duracion de la sesión debe ser de entre una y cinco horas
 assistant.tutorialSession.form.error.spam = El texto es considerado como spam

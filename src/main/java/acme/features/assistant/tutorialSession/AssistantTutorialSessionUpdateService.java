@@ -1,6 +1,9 @@
 
 package acme.features.assistant.tutorialSession;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +41,7 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 
 		sessionId = super.getRequest().getData("id", int.class);
 		tutorial = this.repository.findOneTutorialBySessionId(sessionId);
-		status = tutorial != null && !tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -66,8 +69,10 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startTimestamp")) {
-			final int daysBetween = (int) MomentHelper.computeDuration(MomentHelper.getCurrentMoment(), object.getStartTimestamp()).toDays();
-			super.state(daysBetween > 1, "startTimestamp", "assistant.tutorialSession.form.error.start-not-ahead");
+			Date minimumDeadline;
+
+			minimumDeadline = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfter(object.getStartTimestamp(), minimumDeadline), "startTimestamp", "assistant.tutorialSession.form.error.start-not-ahead");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endTimestamp"))
