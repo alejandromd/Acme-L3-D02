@@ -1,6 +1,9 @@
 
 package acme.features.assistant.tutorialSession;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +41,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		tutorial = this.repository.findOneTutorialById(masterId);
-		status = tutorial != null && !tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -70,15 +73,19 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("startTimestamp")) {
-			final int daysBetween = (int) MomentHelper.computeDuration(MomentHelper.getCurrentMoment(), object.getStartTimestamp()).toDays();
-			super.state(daysBetween > 1, "startTimestamp", "assistant.tutorialSession.form.error.start-not-ahead");
+			Date minimumDeadline;
+
+			minimumDeadline = MomentHelper.deltaFromCurrentMoment(1, ChronoUnit.DAYS);
+			super.state(MomentHelper.isAfter(object.getStartTimestamp(), minimumDeadline), "startTimestamp", "assistant.tutorialSession.form.error.start-not-ahead");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endTimestamp"))
 			super.state(MomentHelper.isBefore(object.getStartTimestamp(), object.getEndTimestamp()), "endTimestamp", "assistant.tutorialSession.form.error.end-not-after");
 
 		if (!super.getBuffer().getErrors().hasErrors("startTimestamp") && !super.getBuffer().getErrors().hasErrors("endTimestamp")) {
-			final int hoursBetween = (int) MomentHelper.computeDuration(object.getStartTimestamp(), object.getEndTimestamp()).toHours();
+			Integer hoursBetween;
+
+			hoursBetween = (int) MomentHelper.computeDuration(object.getStartTimestamp(), object.getEndTimestamp()).toHours();
 			super.state(hoursBetween >= 1 && hoursBetween <= 5, "endTimestamp", "assistant.tutorialSession.form.error.invalid-duration");
 		}
 

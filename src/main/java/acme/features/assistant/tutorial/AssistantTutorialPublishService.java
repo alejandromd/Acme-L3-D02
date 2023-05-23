@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Tutorial;
+import acme.entities.tutorialSession.TutorialSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -74,11 +75,14 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 	public void validate(final Tutorial object) {
 		assert object != null;
 
+		final Collection<TutorialSession> sessions = this.repository.findManySessionsByTutorialId(object.getId());
+		super.state(!sessions.isEmpty(), "code", "assistant.tutorial.form.error.no-sessions");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Tutorial existing;
 
 			existing = this.repository.findOneTutorialByCode(object.getCode());
-			super.state(existing == null, "code", "assistant.tutorial.form.error.code-duplicated");
+			super.state(existing == null || existing.equals(object), "code", "assistant.tutorial.form.error.code-duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))

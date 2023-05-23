@@ -61,7 +61,7 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 
 		choices = SelectChoices.from(SessionType.class, object.getType());
 
-		tuple = super.unbind(object, "title", "type", "startTimestamp", "endTimestamp", "furtherInfo");
+		tuple = super.unbind(object, "title", "informativeAbstract", "type", "startTimestamp", "endTimestamp", "furtherInfo");
 		tuple.put("masterId", object.getTutorial().getId());
 		tuple.put("draftMode", object.getTutorial().isDraftMode());
 		tuple.put("types", choices);
