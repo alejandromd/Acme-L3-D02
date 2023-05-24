@@ -15,7 +15,7 @@ public class AnyPeepShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/peep/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String instantiation, final String title, final String nick, final String message, final String email, final String link) {
+	public void test100Positive(final int recordIndex, final String title, final String nick, final String message, final String email, final String instantiation, final String link) {
 		// HINT: this test signs in as an employer, lists all of the jobs, click on  
 		// HINT+ one of them, and checks that the form has the expected data.
 
@@ -24,14 +24,13 @@ public class AnyPeepShowTest extends TestHarness {
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 
-		super.checkInputBoxHasValue("instantiation", instantiation);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("nick", nick);
 		super.checkInputBoxHasValue("message", message);
 		super.checkInputBoxHasValue("email", email);
+		super.checkInputBoxHasValue("instantiationMoment", instantiation);
 		super.checkInputBoxHasValue("link", link);
 
-		super.signOut();
 	}
 
 	@Test
