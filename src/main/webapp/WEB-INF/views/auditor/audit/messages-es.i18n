@@ -21,3 +21,5 @@ auditor.audit.form.button.delete = Borrar
 auditor.audit.form.button.update = Actualizar
 auditor.audit.form.button.publish = Publicar
 auditor.audit.form.button.create = Crear
+auditor.audit.error.audit = Debe haber al menos un registro de auditoria
+auditor.audit.form.draftMode = Modo borrador
