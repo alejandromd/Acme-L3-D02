@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.Audit;
+import acme.entities.auditingRecord.AuditingRecord;
 import acme.testing.TestHarness;
 
 public class AuditorAuditPublishTest extends TestHarness {
@@ -88,6 +89,7 @@ public class AuditorAuditPublishTest extends TestHarness {
 			if (!audit.isDraftMode()) {
 				params = String.format("id=%d", audit.getId());
 				super.request("/auditor/audit/publish", params);
+				super.checkPanicExists();
 			}
 		super.signOut();
 	}
@@ -105,6 +107,27 @@ public class AuditorAuditPublishTest extends TestHarness {
 		for (final Audit audit : audits) {
 			params = String.format("id=%d", audit.getId());
 			super.request("/auditor/audit/publish", params);
+			super.checkPanicExists();
+		}
+		super.signOut();
+	}
+	@Test
+	public void test303Hacking() {
+		// HINT: this test tries to publish an audit that wasn't registered by the principal,
+		// HINT+ be it published or unpublished.
+
+		Collection<Audit> audits;
+		String params;
+
+		super.signIn("auditor1", "auditor1");
+		audits = this.repository.findManyAuditsByAuditorUsername("auditor1");
+		for (final Audit audit : audits) {
+			final Collection<AuditingRecord> auditingRecords = this.repository.findManyAuditingRecordsByAuditId(audit.getId());
+			if (auditingRecords.isEmpty()) {
+				params = String.format("id=%d", audit.getId());
+				super.request("/auditor/audit/publish", params);
+				super.checkPanicExists();
+			}
 		}
 		super.signOut();
 	}
