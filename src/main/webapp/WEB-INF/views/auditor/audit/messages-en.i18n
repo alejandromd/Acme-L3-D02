@@ -15,8 +15,10 @@ auditor.audit.form.error.code = The code already exists
 auditor.audit.form.error.spam = The message is considered spam
 auditor.audit.form.error.no-auditingRecords = The audit has no auditing records
 auditor.audit.form.button.auditing-records = Auditing records
+auditor.audit.error.audit = There must be at least one Auditing record
 
 auditor.audit.form.button.delete = Delete
 auditor.audit.form.button.update = Update
 auditor.audit.form.button.publish = Publish
 auditor.audit.form.button.create = Create
+auditor.audit.form.draftMode = Draft Mode

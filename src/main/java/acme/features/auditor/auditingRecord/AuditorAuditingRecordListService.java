@@ -65,10 +65,14 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 	public void unbind(final AuditingRecord object) {
 		assert object != null;
 
+		String message;
+		message = "[X]";
+
 		Tuple tuple;
 
 		tuple = super.unbind(object, "subject", "mark");
-
+		if (object.isCorrection())
+			tuple.put("message", message);
 		super.getResponse().setData(tuple);
 	}
 

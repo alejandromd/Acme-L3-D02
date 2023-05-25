@@ -263,7 +263,7 @@ Course
 + code: String {NotBlank, Unique, Pattern(“[A-Z]{1,3}\\d{3}”)}
 + title: String {NotBlank, Length(max = 75)}
 + summary: String {NotBlank, Length(max = 100)}
-+ courseType: Nature {NotNull}
++ /courseType: String {NotNull}
 + retailPrice: Money {NotNull}
 + draftMode: boolean
 + link: String {URL}

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Audit;
 import acme.entities.Course;
+import acme.entities.auditingRecord.AuditingRecord;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -41,12 +42,14 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 		Principal principal;
 		int userId;
 		boolean status;
+		Collection<AuditingRecord> auditingRecords;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
 		principal = super.getRequest().getPrincipal();
 		userId = principal.getAccountId();
-		status = object.getAuditor().getUserAccount().getId() == userId && object.isDraftMode();
+		auditingRecords = this.repository.findManyAuditingRecordsByAuditId(object.getId());
+		status = !auditingRecords.isEmpty() && object != null && object.getAuditor().getUserAccount().getId() == userId && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -65,8 +68,6 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	@Override
 	public void bind(final Audit object) {
 		assert object != null;
-
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
 
 	}
 
