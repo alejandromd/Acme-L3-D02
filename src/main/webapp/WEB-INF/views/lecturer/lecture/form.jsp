@@ -22,10 +22,14 @@
 	<acme:input-textbox code="lecturer.lecture.label.body" path="body"/>	
 	<acme:input-select code="lecturer.lecture.label.lectureType" path="lectureType" choices="${lectureTypes}"/>	
 	<acme:input-textbox code="lecturer.lecture.label.link" path="link"/>
-	<acme:input-textbox code="lecturer.lecture.label.draftMode" path="draftMode" readonly="true"/>
 	
 	<jstl:choose>
+			<jstl:when test="${_command == 'show' && draftMode == false}">
+			<acme:input-textbox code="lecturer.lecture.label.draftMode" path="draftMode" readonly="true"/>
+    	</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
+			<acme:input-textbox code="lecturer.lecture.label.draftMode" path="draftMode" readonly="true"/>
+			
 			<acme:submit code="lecturer.lecture.form.button.update" action="/lecturer/lecture/update"/>
 			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture/delete"/>
 			<acme:submit code="lecturer.lecture.form.button.publish" action="/lecturer/lecture/publish"/>

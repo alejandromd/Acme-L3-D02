@@ -73,7 +73,7 @@ public class LecturerCourseShowTest extends TestHarness {
 			super.signOut();
 
 			super.signIn("lecturer1", "lecturer1");
-			super.request("/lecturer/course/update", param);
+			super.request("/lecturer/course/show", param);
 			super.checkNotPanicExists();
 			super.signOut();
 		}
