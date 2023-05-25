@@ -42,12 +42,14 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 		Principal principal;
 		int userId;
 		boolean status;
+		Collection<AuditingRecord> auditingRecords;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
 		principal = super.getRequest().getPrincipal();
 		userId = principal.getAccountId();
-		status = object != null && object.getAuditor().getUserAccount().getId() == userId && object.isDraftMode();
+		auditingRecords = this.repository.findManyAuditingRecordsByAuditId(object.getId());
+		status = !auditingRecords.isEmpty() && object != null && object.getAuditor().getUserAccount().getId() == userId && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -67,17 +69,11 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void bind(final Audit object) {
 		assert object != null;
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
-
 	}
 
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
-		Collection<AuditingRecord> auditingRecords;
-
-		auditingRecords = this.repository.findManyAuditingRecordsByAuditId(object.getId());
-		super.state(!auditingRecords.isEmpty(), "draftMode", "auditor.audit.error.audit");
 
 	}
 

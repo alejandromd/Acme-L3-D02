@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Audit;
 import acme.entities.Course;
+import acme.entities.auditingRecord.AuditingRecord;
 import acme.entities.auditingRecord.Mark;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
@@ -77,10 +78,14 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		Collection<Mark> marks;
 		String markList;
 		int auditId;
+		boolean auditingEmpty;
+		Collection<AuditingRecord> auditingRecords;
 
 		courses = this.repository.findCoursesNotInDraftMode();
 		auditId = object.getId();
 		marks = this.repository.findMarkByAuditId(auditId);
+		auditingRecords = this.repository.findManyAuditingRecordsByAuditId(object.getId());
+		auditingEmpty = auditingRecords.isEmpty();
 
 		if (marks.isEmpty())
 			markList = "N/A";
@@ -93,6 +98,7 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		tuple.put("course", choice.getSelected().getKey());
 		tuple.put("courses", choice);
 		tuple.put("mark", markList);
+		tuple.put("auditingEmpty", auditingEmpty);
 
 		super.getResponse().setData(tuple);
 

@@ -20,11 +20,11 @@
 	<acme:input-textbox code="auditor.audit.form.label.code" path="code"/>	
 	<acme:input-textbox code="auditor.audit.form.label.strongPoints" path="strongPoints"/>	
 	<acme:input-textbox code="auditor.audit.form.label.weakPoints" path="weakPoints"/>
-	<acme:input-textbox code="auditor.audit.form.label.conclusion" path="conclusion"/>	
-	<acme:input-textbox code="auditor.audit.form.draftMode" path="draftMode" readonly="true"/>	
+	<acme:input-textbox code="auditor.audit.form.label.conclusion" path="conclusion"/>
 		
 	<jstl:if test="${_command == 'show'}">
 			<acme:input-textbox code="auditor.audit.form.label.mark" path="mark" readonly="true"/>
+			<acme:input-textbox code="auditor.audit.form.draftMode" path="draftMode" readonly="true"/>
 	</jstl:if>
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && draftMode == false}">
@@ -34,11 +34,11 @@
 			<acme:button code="auditor.audit.form.button.auditing-records" action="/auditor/auditing-record/list?masterId=${id}"/>
 			<acme:submit code="auditor.audit.form.button.update" action="/auditor/audit/update"/>
 			<acme:submit code="auditor.audit.form.button.delete" action="/auditor/audit/delete"/>
-			<acme:submit code="auditor.audit.form.button.publish" action="/auditor/audit/publish"/>
+			<acme:submit test="${auditingEmpty == false}" code="auditor.audit.form.button.publish" action="/auditor/audit/publish"/>	
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.audit.form.button.create" action="/auditor/audit/create"/>
-		</jstl:when>		
+		</jstl:when>	
 	</jstl:choose>
 	
 </acme:form>
