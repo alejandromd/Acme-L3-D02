@@ -62,7 +62,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		if (!super.getBuffer().getErrors().hasErrors("title")) {
 			Lecture lecture;
 
-			lecture = this.repository.findLectureByTitle(object.getTitle());
+			lecture = this.repository.findLectureByTitle(object.getTitle(), object.getLecturer());
 			super.state(lecture == null || lecture.equals(object), "title", "lecturer.lecture.form.error.title-duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("estimatedLearningTime"))

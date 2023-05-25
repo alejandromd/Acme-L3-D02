@@ -42,6 +42,6 @@ public interface LecturerLectureRepository extends AbstractRepository {
 	@Query("select sc.threshold from SpamConfig sc")
 	Double findThreshold();
 
-	@Query("select l from Lecture l where l.title = :title")
-	Lecture findLectureByTitle(String title);
+	@Query("select l from Lecture l where l.title = :title and l.lecturer = :lecturer")
+	Lecture findLectureByTitle(String title, Lecturer lecturer);
 }
