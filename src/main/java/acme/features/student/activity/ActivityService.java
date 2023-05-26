@@ -36,7 +36,7 @@ public class ActivityService extends AbstractService<Student, Activity> {
 		object = this.repository.findActivityById(id);
 		final int userId = super.getRequest().getPrincipal().getAccountId();
 
-		super.getResponse().setAuthorised(object.getEnrolment().getStudent().getUserAccount().getId() == userId);
+		super.getResponse().setAuthorised(!object.getEnrolment().getDraftMode() && object.getEnrolment().getStudent().getUserAccount().getId() == userId);
 	}
 
 	@Override
@@ -58,9 +58,8 @@ public class ActivityService extends AbstractService<Student, Activity> {
 
 		s = SelectChoices.from(Nature.class, object.getActivityType());
 
-		tuple = super.unbind(object, "title", "summary", "startPeriod", "endPeriod", "link");
+		tuple = super.unbind(object, "title", "summary", "startPeriod", "endPeriod", "link", "draftMode");
 		tuple.put("enrolment", object.getEnrolment().getId());
-		tuple.put("draftMode", object.getEnrolment().getDraftMode());
 		tuple.put("activityTypes", s);
 		tuple.put("activityType", s.getSelected().getKey());
 

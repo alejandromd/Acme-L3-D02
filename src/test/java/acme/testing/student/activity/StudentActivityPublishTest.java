@@ -11,14 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.Activity;
 import acme.testing.TestHarness;
 
-public class StudentActivityUpdateTest extends TestHarness {
+public class StudentActivityPublishTest extends TestHarness {
 
 	@Autowired
 	protected StudentActivityTestRepository repository;
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/activity/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int eRecordIndex, final int aRecordIndex, final String title, final String summary, final String activityType, final String startPeriod, final String endPeriod, final String link) {
 
 		super.signIn("student1", "student1");
@@ -29,8 +29,8 @@ public class StudentActivityUpdateTest extends TestHarness {
 
 		super.clickOnListingRecord(eRecordIndex);
 		super.clickOnButton("Activities");
-		super.checkListingExists();
-		super.clickOnListingRecord(aRecordIndex);
+
+		super.clickOnButton("Create");
 
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("summary", summary);
@@ -39,16 +39,28 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.fillInputBoxIn("endPeriod", endPeriod);
 		super.fillInputBoxIn("link", link);
 
-		super.clickOnSubmit("Update");
+		super.clickOnSubmit("Create");
+
+		super.checkListingExists();
+
+		super.clickOnMenu("Students", "My enrolments");
+		super.sortListing(0, "asc");
+
+		super.clickOnListingRecord(eRecordIndex);
+		super.clickOnButton("Activities");
+
+		super.clickOnListingRecord(aRecordIndex);
+		super.clickOnSubmit("Publish");
 
 		super.checkNotPanicExists();
 
 		super.signOut();
 
+
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/activity/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int eRecordIndex, final int aRecordIndex, final String title, final String summary, final String activityType, final String startPeriod, final String endPeriod, final String link) {
 
 		super.signIn("student1", "student1");
@@ -69,7 +81,7 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.fillInputBoxIn("endPeriod", endPeriod);
 		super.fillInputBoxIn("link", link);
 
-		super.clickOnSubmit("Update");
+		super.clickOnSubmit("Publish");
 		super.checkErrorsExist();
 
 		super.signOut();
@@ -89,18 +101,18 @@ public class StudentActivityUpdateTest extends TestHarness {
 			super.checkLinkExists("Sign in");
 
 			super.signIn("administrator", "administrator");
-			super.request("/student/activity/update", param);
+			super.request("/student/activity/publish", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("student2", "student2");
-			super.request("/student/activity/update", param);
+			super.request("/student/activity/publish", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			if (!a.getDraftMode()) {
 				super.signIn("student1", "student1");
-				super.request("/student/activity/update", param);
+				super.request("/student/activity/publish", param);
 				super.checkPanicExists();
 				super.signOut();
 			}

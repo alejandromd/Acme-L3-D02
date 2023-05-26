@@ -1,7 +1,11 @@
 
 package acme.features.student.enrolment;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +14,7 @@ import acme.entities.Course;
 import acme.entities.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 import filter.SpamFilter;
@@ -59,8 +64,18 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
+		String cardNumber;
+		String lowerNibble;
 
-		super.bind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
+		cardNumber = super.getRequest().getData("cardNumber", String.class);
+
+		super.bind(object, "code", "motivation", "goals", "holderName");
+
+		if (cardNumber.length() == 16) {
+			lowerNibble = cardNumber.substring(12);
+			object.setLowerNibble(lowerNibble);
+		}
+
 	}
 
 	@Override
@@ -81,11 +96,37 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 			super.state(!holderName.equals(""), "holderName", "student.enrolment.form.error.null-holderName");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("lowerNibble")) {
-			String lowerNibble;
+		if (!super.getBuffer().getErrors().hasErrors("cardNumber")) {
+			String creditCardNumber;
 
-			lowerNibble = super.getRequest().getData("lowerNibble", String.class);
-			super.state(lowerNibble.matches("\\d{4}"), "lowerNibble", "student.enrolment.form.error.wrong-lowerNibble");
+			creditCardNumber = super.getRequest().getData("cardNumber", String.class);
+			super.state(creditCardNumber.matches("\\d{16}"), "cardNumber", "student.enrolment.form.error.wrong-cardNumber");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
+			String expiryDate;
+			final DateFormat format = new SimpleDateFormat("MM/yy");
+			format.setLenient(false);
+			Date date = null;
+
+			expiryDate = super.getRequest().getData("expiryDate", String.class);
+			super.state(expiryDate.matches("\\d{2}/\\d{2}"), "expiryDate", "student.enrolment.form.error.wrong-expiryDate");
+
+			if (expiryDate.matches("\\d{2}/\\d{2}")) {
+				try {
+					date = format.parse(expiryDate);
+				} catch (final ParseException e) {
+					e.printStackTrace();
+				}
+				super.state(MomentHelper.isFuture(date), "expiryDate", "student.enrolment.form.error.card-expired");
+			}
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("cvc")) {
+			String cvc;
+
+			cvc = super.getRequest().getData("cvc", String.class);
+			super.state(cvc.matches("\\d{3}"), "cvc", "student.enrolment.form.error.wrong-cvc");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("motivation"))
@@ -107,13 +148,29 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void unbind(final Enrolment object) {
 		assert object != null;
 		Tuple tuple;
+		String cardNumber;
+		String lowerNibble;
+		String expiryDate;
+		String cvc;
+
+		cardNumber = super.getRequest().getData("cardNumber", String.class);
+		expiryDate = super.getRequest().getData("expiryDate", String.class);
+		cvc = super.getRequest().getData("cvc", String.class);
 
 		final Collection<Course> courses = this.repository.findPublishedCourses();
 		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
+		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName");
 		tuple.put("course", s.getSelected().getKey());
 		tuple.put("courses", s);
+		tuple.put("cardNumber", cardNumber);
+		tuple.put("expiryDate", expiryDate);
+		tuple.put("cvc", cvc);
+
+		if (cardNumber.length() == 16) {
+			lowerNibble = cardNumber.substring(12);
+			tuple.put("lowerNibble", lowerNibble);
+		}
 
 		super.getResponse().setData(tuple);
 	}

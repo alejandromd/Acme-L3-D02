@@ -54,6 +54,8 @@ public class Activity extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	protected Boolean			draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 

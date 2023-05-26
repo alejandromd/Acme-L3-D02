@@ -36,7 +36,7 @@ public class ActivityFindAllService extends AbstractService<Student, Activity> {
 
 		final int id = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
-		status = enrolment != null && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		status = enrolment != null && !enrolment.getDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
 		super.getResponse().setAuthorised(status);
 	}

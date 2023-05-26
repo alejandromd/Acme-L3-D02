@@ -19,7 +19,7 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/finalise-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String course, final String holderName, final String lowerNibble) {
+	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String course, final String holderName, final String cardNumber, final String expiryDate, final String cvc) {
 
 		super.signIn("student1", "student1");
 
@@ -31,8 +31,6 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("holderName", holderName);
-		super.fillInputBoxIn("lowerNibble", lowerNibble);
 
 		super.clickOnSubmit("Create");
 		super.checkNotPanicExists();
@@ -42,16 +40,21 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 		String param;
 		param = String.format("id=%d", enrolment.getId());
 		super.request("/student/enrolment/show", param);
-		super.checkInputBoxHasValue("holderName", holderName);
-		super.checkInputBoxHasValue("lowerNibble", lowerNibble);
+
+		super.fillInputBoxIn("holderName", holderName);
+		super.fillInputBoxIn("cardNumber", cardNumber);
+		super.fillInputBoxIn("expiryDate", expiryDate);
+		super.fillInputBoxIn("cvc", cvc);
 		super.clickOnSubmit("Finalise");
+		
 		super.checkNotPanicExists();
+
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/finalise-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String motivation, final String goals, final String course, final String holderName, final String lowerNibble) {
+	public void test200Negative(final int recordIndex, final String holderName, final String cardNumber, final String expiryDate, final String cvc) {
 
 		super.signIn("student1", "student1");
 
@@ -61,12 +64,10 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
 		param = String.format("id=%d", enrolment.getId());
 		super.request("/student/enrolment/show", param);
 
-		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("motivation", motivation);
-		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("holderName", holderName);
-		super.fillInputBoxIn("lowerNibble", lowerNibble);
+		super.fillInputBoxIn("cardNumber", cardNumber);
+		super.fillInputBoxIn("expiryDate", expiryDate);
+		super.fillInputBoxIn("cvc", cvc);
 
 		super.clickOnSubmit("Finalise");
 
