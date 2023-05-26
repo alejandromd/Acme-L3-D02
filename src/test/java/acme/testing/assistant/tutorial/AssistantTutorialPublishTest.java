@@ -21,13 +21,13 @@ public class AssistantTutorialPublishTest extends TestHarness {
 	@CsvFileSource(resources = "/assistant/tutorial/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code) {
 		// HINT: this test authenticates as an assistant, lists his or her tutorials,
-		// HINT: then selects one of them, and publishes it.
+		// HINT+ then selects one of them, and publishes it.
 
 		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Assistant", "Tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 
 		super.clickOnListingRecord(recordIndex);
@@ -45,7 +45,7 @@ public class AssistantTutorialPublishTest extends TestHarness {
 
 		super.clickOnMenu("Assistant", "Tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.clickOnListingRecord(recordIndex);
@@ -91,7 +91,7 @@ public class AssistantTutorialPublishTest extends TestHarness {
 		Collection<Tutorial> tutorials;
 		String params;
 
-		super.signIn("assistant1", "assitant1");
+		super.signIn("assistant1", "assistant1");
 		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
 		for (final Tutorial tutorial : tutorials)
 			if (!tutorial.isDraftMode()) {
@@ -104,12 +104,12 @@ public class AssistantTutorialPublishTest extends TestHarness {
 	@Test
 	public void test302Hacking() {
 		// HINT: this test tries to publish a tutorial that wasn't registered by the principal,
-		// HINT:  be it published or unpublished.
+		// HINT+ be it published or unpublished.
 
 		Collection<Tutorial> tutorials;
 		String params;
 
-		super.signIn("assistant1", "assitant1");
+		super.signIn("assistant1", "assistant1");
 		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
 		for (final Tutorial tutorial : tutorials) {
 			params = String.format("id=%d", tutorial.getId());

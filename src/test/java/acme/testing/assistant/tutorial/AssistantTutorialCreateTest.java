@@ -18,11 +18,11 @@ public class AssistantTutorialCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String informativeAbstract, final String goals, final String course) {
 		// HINT: this test authenticates as an auditor and then lists his or her
-		// HINT: tutorials, creates a new one, and check that it's been created properly
+		// HINT+ tutorials, creates a new one, and check that it's been created properly
 
 		final String courseTitle = this.repository.findOneCourseByCourseCode(course).getTitle();
 
-		super.signIn("assist8", "assist8");
+		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Assistant", "Tutorials");
 		super.checkListingExists();
@@ -60,7 +60,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200negative(final int recordIndex, final String code, final String title, final String informativeAbstract, final String goals, final String course) {
-		super.signIn("assist8", "assist8");
+		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Assistant", "Tutorials");
 		super.clickOnButton("Create");
@@ -81,7 +81,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 	@Test
 	public void test300Hacking() {
 		// HINT: this test tries to create a tutorial using principals with
-		// HINT: inappropiate roles.
+		// HINT+ inappropiate roles.
 
 		super.checkLinkExists("Sign in");
 		super.request("/assistant/tutorial/create");

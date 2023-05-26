@@ -17,14 +17,14 @@ public class AssistantTutorialListTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String courseTitle) {
-		// HINT: this test authenticates as an auditor, list his or her tutorials only,
-		// HINT: and then checks that the listing has the expected data.
+		// HINT: this test authenticates as an assistant, list his or her tutorials only,
+		// HINT+ and then checks that the listing has the expected data.
 
-		super.signIn("assistant2", "assistant2");
+		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Assistant", "Tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
@@ -36,7 +36,7 @@ public class AssistantTutorialListTest extends TestHarness {
 	@Test
 	public void test200Negative() {
 		// HINT: there aren't any negative tests for this feature since it's a listing that
-		// HINT: doesn't involve entering any data into any forms.
+		// HINT+ doesn't involve entering any data into any forms.
 	}
 
 	@Test

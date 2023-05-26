@@ -1,0 +1,11 @@
+indexRecord,key,code,title,informative_abstract,goals,course
+0,AB123,01-Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",AAB111
+0,,01-Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",AAB111
+0,ABC1231,01-Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",AAB111
+0,A666,,Esto es un tutorial de prueba,"Aprender, Formación integral",AAB111
+0,A666,01-Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son :(,Esto es un tutorial de prueba,"Aprender, Formación integral",AAB111
+0,A666,01-учебник по тестированию,,"Aprender, Formación integral",AAB111
+0,A666,01-учебник по тестированию,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100. Y ahora los hemos superado.,"Aprender, Formación integral",AAB111
+0,A666,01-учебник по тестированию,учебник по тестированию,,AAB111
+0,A666,01-учебник по тестированию,учебник по тестированию,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100. Y ahora los hemos superado.,AAB111
+0,A666,01-учебник по тестированию,учебник по тестированию,учебник по тестированию,---
