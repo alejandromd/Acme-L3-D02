@@ -490,7 +490,8 @@ Activity
 + activityType: Nature {NotNull}
 + startTimestamp: Date {NotNull, Temporal(spec = TIMESTAMP)}
 + endTimestamp: Date {NotNull, Temporal(spec = TIMESTAMP)}
-+ link: String {URL}</panel_attributes>
++ link: String {URL}
++ draftMode: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
