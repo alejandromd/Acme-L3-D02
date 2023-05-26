@@ -21,4 +21,5 @@
 	<acme:input-textbox code="authenticated.tutorial.form.label.abstract" path="informativeAbstract"/>	
 	<acme:input-textbox code="authenticated.tutorial.form.label.goals" path="goals"/>	
 	<acme:input-textbox code="authenticated.tutorial.form.label.assistant" path="assistant"/>
+	<acme:input-textbox code="authenticated.tutorial.form.label.estimatedTime" path="estimatedTime"/>
 </acme:form>

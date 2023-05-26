@@ -1,0 +1,8 @@
+tutorialRecordIndex,code,sessionRecordIndex,title,type,startTimestamp,endTimestamp
+0,ABC123,0,01-Sesión prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30
+0,ABC123,1,02-S,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30
+0,ABC123,2,03-Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30
+0,ABC123,3,04-nnn,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30
+0,ABC123,4,05-пробный текст,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30
+3,ABC321,0,01-Sesión prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30
+3,ABC321,1,02-Sesión prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30

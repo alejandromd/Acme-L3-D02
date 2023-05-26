@@ -79,8 +79,10 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 			super.state(MomentHelper.isBefore(object.getStartTimestamp(), object.getEndTimestamp()), "endTimestamp", "assistant.tutorialSession.form.error.end-not-after");
 
 		if (!super.getBuffer().getErrors().hasErrors("startTimestamp") && !super.getBuffer().getErrors().hasErrors("endTimestamp")) {
-			final int hoursBetween = (int) MomentHelper.computeDuration(object.getStartTimestamp(), object.getEndTimestamp()).toHours();
-			super.state(hoursBetween >= 1 && hoursBetween <= 5, "endTimestamp", "assistant.tutorialSession.form.error.invalid-duration");
+			Integer hoursBetween;
+
+			hoursBetween = (int) MomentHelper.computeDuration(object.getStartTimestamp(), object.getEndTimestamp()).toMinutes();
+			super.state(hoursBetween >= 60 && hoursBetween <= 300, "endTimestamp", "assistant.tutorialSession.form.error.invalid-duration");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))

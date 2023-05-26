@@ -23,12 +23,12 @@ public class AssistantSessionUpdateTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.clickOnButton("Show tutorials");
+		super.clickOnButton("Show sessions");
 		super.checkListingExists();
 		super.clickOnListingRecord(sessionRecordIndex);
 		super.checkFormExists();
@@ -65,12 +65,12 @@ public class AssistantSessionUpdateTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.clickOnButton("Show tutorials");
+		super.clickOnButton("Show sessions");
 		super.checkListingExists();
 		super.clickOnListingRecord(sessionRecordIndex);
 		super.checkFormExists();

@@ -21,13 +21,13 @@ public class AssistantSessionShowTest extends TestHarness {
 	@CsvFileSource(resources = "/assistant/tutorialSession/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int tutorialRecordIndex, final int sessionRecordIndex, final String title, final String informativeAbstract, final String type, final String startTimestamp, final String endTimestamp, final String furtherInfo) {
 		// HINT: this test signs in as an assistant, lists his or her sessions, selects
-		// HINT: one of them and checks that it's as expected.
+		// HINT+ one of them and checks that it's as expected.
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.clickOnListingRecord(tutorialRecordIndex);
 		super.clickOnButton("Show sessions");
 		super.checkListingExists();
@@ -47,7 +47,7 @@ public class AssistantSessionShowTest extends TestHarness {
 	@Test
 	public void test200Negative() {
 		// HINT: there's no negative test case for this listing, since it doesn't
-		// HINT: involve filling in any forms.
+		// HINT+ involve filling in any forms.
 	}
 
 	@Test

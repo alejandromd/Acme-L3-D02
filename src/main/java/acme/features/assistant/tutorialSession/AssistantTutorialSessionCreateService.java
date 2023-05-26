@@ -85,8 +85,8 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		if (!super.getBuffer().getErrors().hasErrors("startTimestamp") && !super.getBuffer().getErrors().hasErrors("endTimestamp")) {
 			Integer hoursBetween;
 
-			hoursBetween = (int) MomentHelper.computeDuration(object.getStartTimestamp(), object.getEndTimestamp()).toHours();
-			super.state(hoursBetween >= 1 && hoursBetween <= 5, "endTimestamp", "assistant.tutorialSession.form.error.invalid-duration");
+			hoursBetween = (int) MomentHelper.computeDuration(object.getStartTimestamp(), object.getEndTimestamp()).toMinutes();
+			super.state(hoursBetween >= 60 && hoursBetween <= 300, "endTimestamp", "assistant.tutorialSession.form.error.invalid-duration");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))

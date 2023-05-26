@@ -21,16 +21,16 @@ public class AssistantSessionCreateTest extends TestHarness {
 	@CsvFileSource(resources = "/assistant/tutorialSession/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int tutorialRecordIndex, final int sessionRecordIndex, final String title, final String informativeAbstract, final String type, final String startTimestamp, final String endTimestamp, final String furtherInfo) {
 		// HINT: this test authenticates as an assistant, list his or her tutorials, navigates
-		// HINT: to their sessions, and checks that they have the expected data.
+		// HINT+ to their sessions, and checks that they have the expected data.
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.clickOnButton("Show Sessions");
+		super.clickOnButton("Show sessions");
 
 		super.clickOnButton("Create");
 		super.fillInputBoxIn("title", title);
@@ -42,7 +42,7 @@ public class AssistantSessionCreateTest extends TestHarness {
 		super.clickOnSubmit("Create");
 
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.checkColumnHasValue(sessionRecordIndex, 0, title);
 		super.checkColumnHasValue(sessionRecordIndex, 1, type);
 		super.checkColumnHasValue(sessionRecordIndex, 2, startTimestamp);
@@ -66,7 +66,7 @@ public class AssistantSessionCreateTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 

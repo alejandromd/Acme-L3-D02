@@ -25,7 +25,7 @@ public class AssistantTutorialPublishTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
@@ -43,7 +43,7 @@ public class AssistantTutorialPublishTest extends TestHarness {
 	public void test200Negative(final int recordIndex, final String code) {
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
 

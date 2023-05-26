@@ -1,4 +1,4 @@
-indexRecord,key,code,title,informative_abstract,goals,course
+indexRecord,code,title,informative_abstract,goals,course
 0,ABC123,01-Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",AAB111
 1,AB123,02-Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",AAB111
 2,A123,03-Tutorial de prueba,Esto es un tutorial de prueba,"Aprender, Formación integral",AAP112

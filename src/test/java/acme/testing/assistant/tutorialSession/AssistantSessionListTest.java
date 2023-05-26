@@ -25,13 +25,14 @@ public class AssistantSessionListTest extends TestHarness {
 
 		super.signIn("assistant1", "assistant1");
 
-		super.clickOnMenu("Assistant", "Tutorials");
+		super.clickOnMenu("Assistant", "List my tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 		super.checkColumnHasValue(tutorialRecordIndex, 0, code);
 		super.clickOnListingRecord(tutorialRecordIndex);
 		super.checkInputBoxHasValue("code", code);
 		super.clickOnButton("Show sessions");
+
 		super.checkListingExists();
 		super.checkColumnHasValue(sessionRecordIndex, 0, title);
 		super.checkColumnHasValue(sessionRecordIndex, 1, type);
@@ -45,13 +46,13 @@ public class AssistantSessionListTest extends TestHarness {
 	@Test
 	public void test200Negative() {
 		// HINT: there's no negative test case for this listing, since it doesn't
-		// HINT: involve filling in any forms.
+		// HINT+ involve filling in any forms.
 	}
 
 	@Test
 	public void test300Hacking() {
 		// HINT: this test tries to list the sessions of an assistant
-		// HINT: using a principal that didn't create it. 
+		// HINT+ using a principal that didn't create it. 
 
 		Collection<Tutorial> tutorials;
 		String param;
