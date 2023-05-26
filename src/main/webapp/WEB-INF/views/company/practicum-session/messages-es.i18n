@@ -1,24 +1,40 @@
-company.practicumSession.list.label.title = Título
-company.practicumSession.list.label.recap = Resumen
-company.practicumSession.list.label.duration: Duración (en horas)
-company.practicumSession.list.label.link = Link
-company.practicumSession.list.button.create: Crear
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
 
-company.practicumSession.form.label.title = Título
-company.practicumSession.form.label.recap = Resumen
-company.practicumSession.form.label.startTime: Tiempo de inicio
-company.practicumSession.form.label.endTime: Tiempo de fin
-company.practicumSession.form.label.link = Link
-company.practicumSession.form.button.update = Actualizar
-company.practicumSession.form.button.delete = Borrar
-company.practicumSession.form.button.create = Crear
+company.practicum-session.list.label.endDate = Fecha fin
+company.practicum-session.list.label.title = Título
+company.practicum-session.list.label.startDate = Fecha inicio
 
-company.practicumSession.list.label.duration = Duración
+company.practicum-session.list.button.create.addendum = Crear una sesión adenda
+company.practicum-session.list.button.create = Crear una sesión práctica
 
-company.practicum-session.form.error.start-period = La fecha de inicio debe estar al menos una semana por delante del momento actual
-company.practicum-session.form.error.end-period = La fecha de fin debe estar al menos una semana por delante de la fecha de inicio
+company.practicum-session.form.label.practicum = Práctica
+company.practicum-session.form.label.title = Título
+company.practicum-session.form.label.link = Más información
+company.practicum-session.form.label.summary = Resumen
+company.practicum-session.form.label.endDate = Fecha fin
+company.practicum-session.form.button.createAddendum = Crear sesión Addendum
+company.practicum-session.form.label.startDate = Fecha inicio
 
-company.session.form.error.end-before-start = La fecha de fin debe ser posterior a la fecha de inicio
 
-company.practicum-session.form.message.addendum = Sesión de adenda
-company.practicum-session.list.button.create.addendum = Crear sesión de adenda
+company.practicum-session.form.button.delete = Eliminar
+company.practicum-session.form.button.publish = Publicar
+company.practicum-session.form.button.create = Crear
+company.practicum-session.form.button.update = Actualizar
+
+
+company.practicum-session.form.label.confirmation = Confirme
+company.practicum-session.form.message.addendum = Estás creando una sesión Addendum
+
+company.practicum-session.validation.confirmation = Debe marcar la casilla de confirmación
+company.practicum-session.validation.startDate.error.AtLeastOneWeekAntiquity = La Fecha inicio debe comenzar al menos una semana después del momento actual
+company.practicum-session.validation.practicum.error.AddendumUsed = Esta practica ya tiene una sesión Addendum
+company.practicum-session.validation.practicum.error.Published = Esta práctica no es un borrador ya
+company.practicum-session.validation.endDate.error.AtLeastOneWeekDuration = La Fecha fin debe establecerse al menos una semana después de la Fecha inicio

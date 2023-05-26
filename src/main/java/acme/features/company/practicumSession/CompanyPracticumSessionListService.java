@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.company.practicum;
+package acme.features.company.practicumSession;
 
 import java.util.Collection;
 
@@ -24,51 +24,55 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumListService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumSessionListService extends AbstractService<Company, PracticumSession> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumRepository repository;
+	protected CompanyPracticumSessionRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
+		boolean status;
 
-		super.getResponse().setChecked(true);
+		status = super.getRequest().hasData("practicumId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
+		boolean status;
+		final Practicum practicum;
+		final int practicumId;
 
-		super.getResponse().setAuthorised(true);
+		practicumId = super.getRequest().getData("practicumId", int.class);
+		practicum = this.repository.findOnePracticaById(practicumId);
+		status = practicum != null && super.getRequest().getPrincipal().getActiveRoleId() == practicum.getCompany().getId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<Practicum> object;
-		int companyId;
+		Collection<PracticumSession> object;
+		int practicumId;
 
-		companyId = super.getRequest().getPrincipal().getActiveRoleId();
-		object = this.repository.findPracticumByCompanyId(companyId);
+		practicumId = super.getRequest().getData("practicumId", int.class);
+		object = this.repository.findManySessionsByPracticumId(practicumId);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final PracticumSession object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		final Collection<PracticumSession> practicumSessions;
-
-		practicumSessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
-		final Double et = object.estimatedTime(practicumSessions);
-
-		tuple = super.unbind(object, "code", "title", "summary", "goals");
-		tuple.put("estimatedTime", et);
+		tuple = super.unbind(object, "title", "summary", "initialPeriod", "finalPeriod", "draftMode", "addendum");
 
 		super.getResponse().setData(tuple);
 	}
