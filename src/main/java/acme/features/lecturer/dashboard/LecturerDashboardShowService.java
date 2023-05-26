@@ -62,10 +62,33 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 
 		Collection<Double> courseEstimatedLearningTime;
 		courseEstimatedLearningTime = this.repository.findEstimatedLearningTimeByCourse(lecturer);
-		dashboard.calculateCourseAverage(courseEstimatedLearningTime);
-		dashboard.calculateCourseMax(courseEstimatedLearningTime);
-		dashboard.calculateCourseMin(courseEstimatedLearningTime);
-		dashboard.calculateCourseDev(courseEstimatedLearningTime);
+
+		Double averageCourse;
+		averageCourse = null;
+		Double maxCourse;
+		maxCourse = null;
+		Double minCourse;
+		minCourse = null;
+		Double deviationCourse;
+		deviationCourse = null;
+		Double aux;
+
+		if (!courseEstimatedLearningTime.isEmpty()) {
+			final Double total = courseEstimatedLearningTime.stream().mapToDouble(Double::doubleValue).sum();
+			averageCourse = total / courseEstimatedLearningTime.size();
+
+			maxCourse = courseEstimatedLearningTime.stream().mapToDouble(Double::doubleValue).max().orElse(0.0);
+			minCourse = courseEstimatedLearningTime.stream().mapToDouble(Double::doubleValue).min().orElse(0.0);
+
+			aux = 0.0;
+			for (final Double value : courseEstimatedLearningTime)
+				aux += Math.pow(value - averageCourse, 2);
+			deviationCourse = Math.sqrt(aux / courseEstimatedLearningTime.size());
+		}
+		dashboard.setAverageTimeOfCourses(averageCourse);
+		dashboard.setMaximumTimeOfCourses(maxCourse);
+		dashboard.setMinimumTimeOfCourses(minCourse);
+		dashboard.setDeviationTimeOfCourses(deviationCourse);
 
 		//total lectures
 		Integer handsOnLectures;
