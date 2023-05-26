@@ -51,7 +51,7 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 		final Course course = this.repository.findCourseById(super.getRequest().getData("course", int.class));
 		object.setCourse(course);
 
-		super.bind(object, "code", "motivation", "goals", "holderName", "lowerNibble");
+		super.bind(object, "code", "motivation", "goals");
 	}
 
 	@Override
@@ -60,7 +60,6 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Enrolment enrolment;
-
 			enrolment = this.repository.findEnrolmentByCode(object.getCode());
 			super.state(enrolment == null || enrolment.equals(object), "code", "student.enrolment.form.error.code-duplicated");
 		}
@@ -68,10 +67,6 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 			super.state(!SpamFilter.antiSpamFilter(object.getMotivation(), this.repository.findThreshold()), "motivation", "student.enrolment.error.spam");
 		if (!super.getBuffer().getErrors().hasErrors("goals"))
 			super.state(!SpamFilter.antiSpamFilter(object.getGoals(), this.repository.findThreshold()), "goals", "student.enrolment.error.spam");
-		if (!super.getBuffer().getErrors().hasErrors("holderName"))
-			if (object.getHolderName() != "")
-				super.state(!SpamFilter.antiSpamFilter(object.getHolderName(), this.repository.findThreshold()), "holderName", "student.enrolment.error.spam");
-
 	}
 
 	@Override
@@ -88,7 +83,7 @@ public class EnrolmentCreateService extends AbstractService<Student, Enrolment> 
 		final Collection<Course> courses = this.repository.findPublishedCourses();
 		final SelectChoices s = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
+		tuple = super.unbind(object, "code", "motivation", "goals");
 		tuple.put("course", s.getSelected().getKey());
 		tuple.put("courses", s);
 

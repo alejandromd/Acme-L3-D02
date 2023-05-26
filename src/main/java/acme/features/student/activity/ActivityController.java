@@ -28,6 +28,9 @@ public class ActivityController extends AbstractController<Student, Activity> {
 	@Autowired
 	protected ActivityDeleteService		deleteActivity;
 
+	@Autowired
+	protected ActivityPublishService	publishActivity;
+
 
 	@PostConstruct
 	protected void initialise() {
@@ -36,6 +39,7 @@ public class ActivityController extends AbstractController<Student, Activity> {
 		super.addBasicCommand("create", this.createActivity);
 		super.addBasicCommand("update", this.updateActivity);
 		super.addBasicCommand("delete", this.deleteActivity);
+		super.addCustomCommand("publish", "update", this.publishActivity);
 
 	}
 

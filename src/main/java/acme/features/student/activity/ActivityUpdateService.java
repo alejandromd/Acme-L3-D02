@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import acme.datatypes.Nature;
 import acme.entities.Activity;
-import acme.entities.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -33,11 +32,11 @@ public class ActivityUpdateService extends AbstractService<Student, Activity> {
 	@Override
 	public void authorise() {
 		boolean status;
-		Enrolment enrolment;
+		Activity object;
 
 		final int id = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findEnrolmentByActivityId(id);
-		status = enrolment != null && !enrolment.getDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		object = this.repository.findActivityById(id);
+		status = object.getEnrolment() != null && !object.getEnrolment().getDraftMode() && object.getDraftMode() && super.getRequest().getPrincipal().hasRole(object.getEnrolment().getStudent());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -86,9 +85,8 @@ public class ActivityUpdateService extends AbstractService<Student, Activity> {
 
 		final SelectChoices s = SelectChoices.from(Nature.class, object.getActivityType());
 
-		tuple = super.unbind(object, "title", "summary", "startPeriod", "endPeriod", "link");
+		tuple = super.unbind(object, "title", "summary", "startPeriod", "endPeriod", "link", "draftMode");
 		tuple.put("enrolmentId", object.getEnrolment().getId());
-		tuple.put("draftMode", object.getEnrolment().getDraftMode());
 		tuple.put("activityTypes", s);
 		tuple.put("activityType", s.getSelected().getKey());
 

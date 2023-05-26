@@ -14,10 +14,12 @@ student.activity.form.label.type = Activity Type:
 student.activity.form.label.startDate = Start period:
 student.activity.form.label.endDate = End period:
 student.activity.form.label.moreInfo = Link for further information:
+student.activity.form.label.draftMode = Draft mode:
 
 student.activity.form.button.create = Create
 student.activity.form.button.update = Update
 student.activity.form.button.delete = Delete
+student.activity.form.button.publish = Publish
 
 student.activity.form.error.wrong-dates = The end period must be after the start period
 

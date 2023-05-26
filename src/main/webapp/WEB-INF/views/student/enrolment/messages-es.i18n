@@ -14,7 +14,9 @@ student.enrolment.form.label.goals = Objetivos:
 student.enrolment.form.label.course = Curso:
 student.enrolment.form.label.workTime = Tiempo de trabajo (en horas):
 student.enrolment.form.label.holderName = Nombre en la tarjeta:
-student.enrolment.form.label.lowerNibble = Últimos 4 digitos:
+student.enrolment.form.label.cardNumber = Número de tarjeta(16 dígitos):
+student.enrolment.form.label.expiryDate = Fecha de expiración:
+student.enrolment.form.label.cvc = CVC:
 student.enrolment.form.label.draftMode = Modo borrador:
 
 student.enrolment.form.message.creditCard = Introduce una trajeta de crédito válida para finalizar la inscripción:
@@ -27,7 +29,10 @@ student.enrolment.form.button.create = Crear
 
 student.enrolment.form.error.null-holderName = Introduce un nombre para la tarjeta
 student.enrolment.form.error.code-duplicated = Este código está duplicado
-student.enrolment.form.error.wrong-lowerNibble = Debes introducir 4 digitos
+student.enrolment.form.error.wrong-cardNumber = El número de la tarjeta debe tener 16 dígitos
+student.enrolment.form.error.wrong-expiryDate = Introduce una fecha válida
+student.enrolment.form.error.card-expired = La tarjeta esta caducada
+student.enrolment.form.error.wrong-cvc = Introduce un cvc válido
 
 student.enrolment.list.label.code = Código
 student.enrolment.list.label.motivation = Motivación

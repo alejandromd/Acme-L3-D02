@@ -14,10 +14,12 @@ student.activity.form.label.type = Tipo:
 student.activity.form.label.startDate = Fecha de inicio:
 student.activity.form.label.endDate = Fecha de fin:
 student.activity.form.label.moreInfo = Más información: 
+student.activity.form.label.draftMode = Modo borrador:
 
 student.activity.form.button.create = Crear
 student.activity.form.button.update = Actualizar
 student.activity.form.button.delete = Borrar
+student.activity.form.button.publish = Publicar
 
 student.activity.form.error.wrong-dates = La fecha de fin debe ser posterior a la fecha de inicio
 

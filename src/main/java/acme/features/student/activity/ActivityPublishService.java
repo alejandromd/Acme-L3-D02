@@ -8,11 +8,13 @@ import acme.datatypes.Nature;
 import acme.entities.Activity;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
+import filter.SpamFilter;
 
 @Service
-public class ActivityDeleteService extends AbstractService<Student, Activity> {
+public class ActivityPublishService extends AbstractService<Student, Activity> {
 
 	@Autowired
 	protected ActivityRepository repository;
@@ -59,13 +61,20 @@ public class ActivityDeleteService extends AbstractService<Student, Activity> {
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
+			super.state(MomentHelper.isBefore(object.getStartPeriod(), object.getEndPeriod()), "endPeriod", "student.activity.form.error.wrong-dates");
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!SpamFilter.antiSpamFilter(object.getTitle(), this.repository.findThreshold()), "title", "student.activity.error.spam");
+		if (!super.getBuffer().getErrors().hasErrors("summary"))
+			super.state(!SpamFilter.antiSpamFilter(object.getSummary(), this.repository.findThreshold()), "summary", "student.activity.error.spam");
 	}
 
 	@Override
 	public void perform(final Activity object) {
 		assert object != null;
-
-		this.repository.delete(object);
+		object.setDraftMode(false);
+		this.repository.save(object);
 	}
 
 	@Override

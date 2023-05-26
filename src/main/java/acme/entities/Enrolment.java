@@ -46,6 +46,7 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 75)
 	protected String			holderName;
 
+	@Pattern(regexp = "\\d{4}")
 	protected String			lowerNibble;
 
 	// Derived attributes -----------------------------------------------------

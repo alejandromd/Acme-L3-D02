@@ -52,6 +52,7 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 
 		object = new Activity();
 		object.setEnrolment(enrolment);
+		object.setDraftMode(true);
 
 		super.getBuffer().setData(object);
 	}
@@ -93,7 +94,6 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 
 		tuple = super.unbind(object, "title", "summary", "startPeriod", "endPeriod", "link");
 		tuple.put("enrolmentId", super.getRequest().getData("enrolmentId", int.class));
-		tuple.put("draftMode", object.getEnrolment().getDraftMode());
 		tuple.put("activityTypes", s);
 		tuple.put("activityType", s.getSelected().getKey());
 

@@ -22,11 +22,15 @@
 	<acme:input-moment code="student.activity.form.label.startDate" path="startPeriod"/>
 	<acme:input-moment code="student.activity.form.label.endDate" path="endPeriod"/>	
 	<acme:input-url code="student.activity.form.label.moreInfo" path="link"/>
+	<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<acme:input-textbox code="student.activity.form.label.draftMode" path="draftMode" readonly="true"/>
+	</jstl:if>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
 			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
+			<acme:submit code="student.activity.form.button.publish" action="/student/activity/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="student.activity.form.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>
