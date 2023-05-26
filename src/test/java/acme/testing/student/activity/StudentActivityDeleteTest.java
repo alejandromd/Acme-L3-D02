@@ -86,7 +86,7 @@ public class StudentActivityDeleteTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			if (a.getEnrolment().getDraftMode()) {
+			if (!a.getDraftMode()) {
 				super.signIn("student1", "student1");
 				super.request("/student/activity/delete", param);
 				super.checkPanicExists();

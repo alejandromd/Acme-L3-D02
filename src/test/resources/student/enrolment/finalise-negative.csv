@@ -1,6 +1,6 @@
-record-index,code,motivation,goals,course,holderName,lowerNibble
-2,FN123,prueba,Improve your mathematical skills,cours3,Student 1,12
-2,FN124,prueba,Improve your mathematical skills,cours3,,
-2,FN125,prueba,Improve your mathematical skills,cours3,--%%44//,123
-2,FN126,prueba,Improve your mathematical skills,cours3,,1234
-2,FN127,prueba,Improve your mathematical skills,cours3,Student 1,
+record-index,holderName,cardNumber,expiryDate,cvc
+2,,,,
+2,,1234567890123456,12/23,123
+2,Student 1,123456789,12/23,123
+2,Student 1,1234567890123456,12/12,123
+2,Student 1,1234567890123456,12/23,hola

@@ -78,6 +78,13 @@ public class StudentActivityShowTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
+			if (a.getEnrolment().getDraftMode()) {
+				super.signIn("student1", "student1");
+				super.request("/student/activity/show", param);
+				super.checkPanicExists();
+				super.signOut();
+			}
+
 		}
 	}
 

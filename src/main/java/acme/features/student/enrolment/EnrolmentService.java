@@ -65,7 +65,7 @@ public class EnrolmentService extends AbstractService<Student, Enrolment> {
 
 		final int workTime = this.getWorkTime(object);
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName", "lowerNibble");
+		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "holderName");
 		tuple.put("course", s.getSelected().getKey());
 		tuple.put("courses", s);
 		tuple.put("student", object.getStudent().getUserAccount().getUsername());

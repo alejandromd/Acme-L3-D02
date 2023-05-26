@@ -45,7 +45,7 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 		super.signIn("student1", "student1");
 
 		Enrolment enrolment;
-		enrolment = this.repository.findEnrolmentByCode("AAA888");
+		enrolment = this.repository.findEnrolmentByCode("AAA777");
 		String param;
 		param = String.format("id=%d", enrolment.getId());
 		super.request("/student/enrolment/show", param);

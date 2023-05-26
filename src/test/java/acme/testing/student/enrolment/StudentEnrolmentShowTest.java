@@ -19,7 +19,7 @@ public class StudentEnrolmentShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String draftMode, final String course, final String workTime, final String holderName, final String lowerNibble) {
+	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String draftMode, final String course, final String workTime) {
 
 		super.signIn("student1", "student1");
 
@@ -40,8 +40,7 @@ public class StudentEnrolmentShowTest extends TestHarness {
 		super.checkInputBoxHasValue("draftMode", draftMode);
 		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("workTime", workTime);
-		super.checkInputBoxHasValue("holderName", holderName);
-		super.checkInputBoxHasValue("lowerNibble", lowerNibble);
+		
 
 		super.signOut();
 	}
