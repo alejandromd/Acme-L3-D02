@@ -650,7 +650,7 @@ Tutorial
 + abstract: String {NotBlank, Length(max = 100)}
 + goals: String {NotBlank, Length(max = 100)}
 + draftMode: boolean
-+ / estimatedTime: Double</panel_attributes>
++ / estimatedTime: Double {transient}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
