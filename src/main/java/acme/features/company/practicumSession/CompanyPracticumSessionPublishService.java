@@ -28,7 +28,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumSessionCreateAddendumService extends AbstractService<Company, PracticumSession> {
+public class CompanyPracticumSessionPublishService extends AbstractService<Company, PracticumSession> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -39,23 +39,35 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 
 	@Override
 	public void check() {
+		boolean status;
 
-		super.getResponse().setChecked(true);
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
+		boolean status;
+		Company company;
+		PracticumSession session;
+		int sessionId;
 
-		super.getResponse().setAuthorised(true);
+		sessionId = super.getRequest().getData("id", int.class);
+		session = this.repository.findOneSessionById(sessionId);
+		company = session == null ? null : session.getPracticum().getCompany();
+		status = session != null && session.isDraftMode() && super.getRequest().getPrincipal().hasRole(company);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		PracticumSession object;
+		int id;
 
-		object = new PracticumSession();
-		object.setAddendum(true);
-		object.setDraftMode(true);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneSessionById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -63,13 +75,23 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 	@Override
 	public void bind(final PracticumSession object) {
 		assert object != null;
+
+		int practicumId;
+		Practicum practicum;
+
+		practicumId = super.getRequest().getData("practicum", int.class);
+		practicum = this.repository.findOnePracticaById(practicumId);
+
 		super.bind(object, "title", "summary", "link", "initialPeriod", "finalPeriod");
 
+		object.setPracticum(practicum);
 	}
 
 	@Override
 	public void validate(final PracticumSession object) {
 		assert object != null;
+
+		//Date Validations
 
 		final Date inicial = super.getRequest().getData("initialPeriod", Date.class);
 		final Date f_final = super.getRequest().getData("finalPeriod", Date.class);
@@ -82,23 +104,20 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 		final boolean final_bool = f_final.getTime() >= finalValido.getTime();
 		super.state(final_bool, "finalPeriod", "company.practicum-session.validation.endDate.error.AtLeastOneWeekDuration");
 
-		boolean confirm;
-		confirm = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirm, "confirmation", "company.practicum-session.validation.confirmation");
-
+		//Practicum Validation
 		final Collection<Practicum> practicas;
-		Collection<PracticumSession> addendums;
-		final SelectChoices choices;
+		final SelectChoices select;
 		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		practicas = this.repository.findManyPublishedPracticaByCompanyId(companyId);
-		choices = SelectChoices.from(practicas, "code", object.getPracticum());
+		practicas = this.repository.findManyPrivatePracticaByCompanyId(companyId);
+		select = SelectChoices.from(practicas, "code", object.getPracticum());
 
-		final int selectedId = Integer.parseInt(choices.getSelected().getKey());
-		addendums = this.repository.findAddendumSessionsByPracticumId(selectedId);
+		final int selectedId = Integer.parseInt(select.getSelected().getKey());
+		final Practicum selectedPracticum = this.repository.findOnePracticaById(selectedId);
 
-		final boolean valid = addendums.size() == 0;
-		super.state(valid, "practicum", "company.practicum-session.validation.practicum.error.AddendumUsed");
+		final boolean valid = selectedPracticum.getDraftMode();
+		super.state(valid, "practicum", "company.practicum-session.validation.practicum.error.Published");
+
 	}
 
 	@Override
@@ -115,15 +134,13 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 		final SelectChoices select;
 		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		practicas = this.repository.findManyPublishedPracticaByCompanyId(companyId);
+		practicas = this.repository.findManyPrivatePracticaByCompanyId(companyId);
 		select = SelectChoices.from(practicas, "code", object.getPracticum());
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "summary", "initialPeriod", "finalPeriod", "draftMode", "addendum", "link");
 		tuple.put("practicum", select.getSelected().getKey());
 		tuple.put("practica", select);
-		tuple.put("confirmation", false);
-		tuple.put("practicumId", super.getRequest().getData("practicumId", int.class));
 
 		super.getResponse().setData(tuple);
 	}

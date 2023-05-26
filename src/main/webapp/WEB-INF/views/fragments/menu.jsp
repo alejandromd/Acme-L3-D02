@@ -29,11 +29,6 @@
 			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
-			<acme:menu-suboption code="master.menu.company.practicum" action="/company/practicum/list"/>
-			<acme:menu-separator/>
-		</acme:menu-option>
-		
 
 		<acme:menu-option code="master.menu.list" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.course" action="/any/course/list"/>

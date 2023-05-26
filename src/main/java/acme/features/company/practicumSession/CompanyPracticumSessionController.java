@@ -10,39 +10,42 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.company.practicum;
+package acme.features.company.practicumSession;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.Practicum;
+import acme.entities.PracticumSession;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Company;
 
 @Controller
-public class CompanyPracticumController extends AbstractController<Company, Practicum> {
+public class CompanyPracticumSessionController extends AbstractController<Company, PracticumSession> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumListService		listService;
+	protected CompanyPracticumSessionListService			listService;
 
 	@Autowired
-	protected CompanyPracticumShowService		showService;
+	protected CompanyPracticumSessionShowService			showService;
 
 	@Autowired
-	protected CompanyPracticumCreateService		createService;
+	protected CompanyPracticumSessionCreateService			createService;
 
 	@Autowired
-	protected CompanyPracticumUpdateService		updateService;
+	protected CompanyPracticumSessionCreateAddendumService	createAddendumService;
 
 	@Autowired
-	protected CompanyPracticumDeleteService		deleteService;
+	protected CompanyPracticumSessionDeleteService			deleteService;
 
 	@Autowired
-	protected CompanyPracticumPublishService	publishService;
+	protected CompanyPracticumSessionUpdateService			updateService;
+
+	@Autowired
+	protected CompanyPracticumSessionPublishService			publishService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -52,8 +55,10 @@ public class CompanyPracticumController extends AbstractController<Company, Prac
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
+		super.addCustomCommand("create-addendum", "create", this.createAddendumService);
 		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("update", this.updateService);
 		super.addCustomCommand("publish", "update", this.publishService);
+
 	}
 }
