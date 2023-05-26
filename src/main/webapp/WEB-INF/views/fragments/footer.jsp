@@ -43,7 +43,7 @@
 <jstl:if test="${banner != null}">
 	<div class="panel-body" style="margin: 1em 0em 1em 0em; text-align: center;">	
 		<a href="${banner.linkWeb}" target="_blank">
-			<img src="${banner.picture}" alt="${banner.slogan}" class="img-fluid rounded" style="border-style: solid;"/>
+			<img src="${banner.picture}" alt="${banner.slogan}" class="img-fluid rounded" style="border-style: solid; height: 15vh"/>
 		</a>
 	</div>
 </jstl:if>

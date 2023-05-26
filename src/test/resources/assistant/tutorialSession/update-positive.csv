@@ -1,0 +1,15 @@
+tutorialRecordIndex,sessionRecordIndex,title,informativeAbstract,type,startTimestamp,endTimestamp,furtherInfo
+0,0,01,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,0,01-Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,0,01-Sesión de prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,0,01-пробный текст,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,1,02-S,E,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,1,02-S,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,1,02-S,краткое описание теста,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,2,03-Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son,Esto es una sesión de prueba,THEORY,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,3,04-nnn,Esto es una sesión de prueba,HANDS_ON,2022/08/01 00:00,2022/08/01 01:30,https://www.informatica.us.es
+0,3,04-nnn,Esto es una sesión de prueba,HANDS_ON,2022/08/01 00:00,2022/08/01 03:15,https://www.informatica.us.es
+0,3,04-nnn,Esto es una sesión de prueba,HANDS_ON,2022/08/01 00:00,2022/08/01 05:00,https://www.informatica.us.es
+0,3,04-nnn,Esto es una sesión de prueba,HANDS_ON,2023/08/01 00:00,2023/08/01 05:00,https://www.informatica.us.es
+0,3,04-nnn,Esto es una sesión de prueba,HANDS_ON,2023/12/09 00:00,2023/12/09 05:00,https://www.informatica.us.es
+0,4,05-пробный текст,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,

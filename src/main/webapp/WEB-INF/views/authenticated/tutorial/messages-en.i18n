@@ -18,3 +18,4 @@ authenticated.tutorial.form.label.title = Title
 authenticated.tutorial.form.label.abstract = Abstract
 authenticated.tutorial.form.label.goals = Goals
 authenticated.tutorial.form.label.assistant = Assistant
+authenticated.tutorial.form.label.estimatedTime = Estimated time

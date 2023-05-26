@@ -20,9 +20,10 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 
 	@Override
 	public void check() {
-		boolean probe;
-		probe = super.getRequest().hasData("courseId", int.class);
-		super.getResponse().setChecked(probe);
+		boolean status;
+
+		status = super.getRequest().hasData("masterId", int.class);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -33,7 +34,9 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 	@Override
 	public void load() {
 		Collection<Tutorial> objects;
-		final int courseId = super.getRequest().getData("courseId", int.class);
+		int courseId;
+
+		courseId = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findTutorialsByCourseId(courseId);
 		super.getBuffer().setData(objects);
 	}
@@ -41,8 +44,11 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 	@Override
 	public void unbind(final Tutorial object) {
 		assert object != null;
+
 		Tuple tuple;
+
 		tuple = super.unbind(object, "code", "title", "informativeAbstract");
+
 		super.getResponse().setData(tuple);
 	}
 

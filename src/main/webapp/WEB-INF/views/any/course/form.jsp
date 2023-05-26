@@ -25,7 +25,7 @@
 	
 	<acme:check-access test="isAuthenticated()">
 		<acme:button code="any.audit.form.button.list" action="/authenticated/audit/list?masterId=${id}"/>
-		<acme:button code="any.tutorials.form.button.list" action="/authenticated/tutorial/list?courseId=${id}"/>
+		<acme:button code="any.tutorials.form.button.list" action="/authenticated/tutorial/list?masterId=${id}"/>
 	</acme:check-access>
 	
 </acme:form>
