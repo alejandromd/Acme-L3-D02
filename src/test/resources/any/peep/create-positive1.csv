@@ -5,3 +5,7 @@ record-index,title,nick,message,email,link
 3,Este mensaje tiene setenta y cinco caracteres se usa para validar mensajes.,Alex,This is my first peep,alex@acme.com,
 4,First peep,Alex,This is my first peep,alex@acme.com,
 5,First peep,Alex,This is my first peep,alex@acme.com,
+6,First peep,Este mensaje tiene setenta y cinco caracteres se usa para validar mensajes.,This is my first peep,alex@acme.com,
+7,First peep,A,This is my first peep,alex@acme.com,
+8, First peep,Alex,T,alex@acme.com,
+9, First peep,Alex,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,alex@acme.com,
