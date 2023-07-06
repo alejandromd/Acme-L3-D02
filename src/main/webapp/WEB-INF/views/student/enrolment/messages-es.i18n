@@ -15,7 +15,7 @@ student.enrolment.form.label.course = Curso:
 student.enrolment.form.label.workTime = Tiempo de trabajo (en horas):
 student.enrolment.form.label.holderName = Nombre en la tarjeta:
 student.enrolment.form.label.cardNumber = Número de tarjeta(16 dígitos):
-student.enrolment.form.label.expiryDate = Fecha de expiración:
+student.enrolment.form.label.expiryDate = Fecha de expiración (MM/AA):
 student.enrolment.form.label.cvc = CVC:
 student.enrolment.form.label.draftMode = Modo borrador:
 
