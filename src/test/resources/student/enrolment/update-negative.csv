@@ -1,8 +1,15 @@
-record-index,code,motivation,goals,course
-0,,,,---
-1,hola,L,Improve your mathematical skills,cours3
-2,UN122,,Improve your mathematical skills,cours3
-3,UN134,hola,,cours3
-4,UN167,adios,Improve your mathematical skills,---
-5,UN1334,este curso tiene unе título que se alargará hasta llegar al tamaño máxiimosssss,Este mensaje tiene cien caracteres usado para validar cadenas con cien de longitud maximo y minimoss,cours3
-6,234,Learn Math,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación........,cours3
+record-index,code,motivation,goals,course,holderName,cardNumber,expiryDate,cvc
+0,,,,---,,,,
+1,hola,L,Improve your mathematical skills,cours3,,,,
+2,UN122,,Improve your mathematical skills,cours3,,,,
+3,UN134,hola,,cours3,,,,
+4,UN167,adios,Improve your mathematical skills,---,,,,
+5,UN1334,este curso tiene unе título que se alargará hasta llegar al tamaño máxiimosssss,Este mensaje tiene cien caracteres usado para validar cadenas con cien de longitud maximo y minimoss,cours3,,,,
+6,UP234,Learn Math,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación........,cours3,,,,
+7,UN140,prueba,Improve your mathematical skills,cours3,sex,,,
+8,UN141,,Improve your mathematical skills,cours3,,122345,,
+9,UN142,,Improve your mathematical skills,cours3,,hola,,
+10,UN143,,Improve your mathematical skills,cours3,,,hola,
+11,UN144,,Improve your mathematical skills,cours3,,,21/08,
+12,UN145,,Improve your mathematical skills,cours3,,,08/21,
+13,UN146,,Improve your mathematical skills,cours3,,,,hola

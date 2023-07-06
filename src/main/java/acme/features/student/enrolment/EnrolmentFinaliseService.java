@@ -105,21 +105,39 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 
 		if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
 			String expiryDate;
-			final DateFormat format = new SimpleDateFormat("MM/yy");
-			format.setLenient(false);
 			Date date = null;
 
 			expiryDate = super.getRequest().getData("expiryDate", String.class);
-			super.state(expiryDate.matches("\\d{2}/\\d{2}"), "expiryDate", "student.enrolment.form.error.wrong-expiryDate");
 
-			if (expiryDate.matches("\\d{2}/\\d{2}")) {
-				try {
-					date = format.parse(expiryDate);
-				} catch (final ParseException e) {
-					e.printStackTrace();
+			if (super.getRequest().getLocale().toString().equals("es")) {
+				final DateFormat format = new SimpleDateFormat("MM/yy");
+				format.setLenient(false);
+				super.state(expiryDate.matches("\\d{2}/\\d{2}") && expiryDate.matches("(0?[1-9]|[1][0-2])/[0-9]+"), "expiryDate", "student.enrolment.form.error.wrong-expiryDate");
+
+				if (expiryDate.matches("\\d{2}/\\d{2}") && expiryDate.matches("(0?[1-9]|[1][0-2])/[0-9]+")) {
+					try {
+						date = format.parse(expiryDate);
+					} catch (final ParseException e) {
+						e.printStackTrace();
+					}
+					super.state(MomentHelper.isFuture(date), "expiryDate", "student.enrolment.form.error.card-expired");
 				}
-				super.state(MomentHelper.isFuture(date), "expiryDate", "student.enrolment.form.error.card-expired");
+			} else {
+				final DateFormat format = new SimpleDateFormat("yy/MM");
+				format.setLenient(false);
+				super.state(expiryDate.matches("\\d{2}/\\d{2}") && expiryDate.matches("[0-9]+/(0?[1-9]|[1][0-2])"), "expiryDate", "student.enrolment.form.error.wrong-expiryDate");
+
+				if (expiryDate.matches("\\d{2}/\\d{2}") && expiryDate.matches("[0-9]+/(0?[1-9]|[1][0-2])")) {
+					try {
+						date = format.parse(expiryDate);
+					} catch (final ParseException e) {
+						e.printStackTrace();
+					}
+					super.state(MomentHelper.isFuture(date), "expiryDate", "student.enrolment.form.error.card-expired");
+				}
+
 			}
+
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("cvc")) {
