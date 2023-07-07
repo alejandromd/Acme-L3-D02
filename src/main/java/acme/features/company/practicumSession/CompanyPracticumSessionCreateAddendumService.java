@@ -32,7 +32,7 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanySessionRepository repository;
+	protected CompanyPracticumSessionRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -54,8 +54,8 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 		PracticumSession object;
 
 		object = new PracticumSession();
-		object.setDraftMode(true);
 		object.setAddendum(true);
+		object.setDraftMode(true);
 
 		super.getBuffer().setData(object);
 	}
@@ -63,16 +63,7 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 	@Override
 	public void bind(final PracticumSession object) {
 		assert object != null;
-
-		int practicumId;
-		Practicum practicum;
-
-		practicumId = super.getRequest().getData("practicum", int.class);
-		practicum = this.repository.findOnePracticumById(practicumId);
-
-		super.bind(object, "title", "summary", "link", "startDate", "endDate");
-
-		object.setPracticum(practicum);
+		super.bind(object, "title", "summary", "link", "initialPeriod", "finalPeriod");
 
 	}
 
@@ -80,28 +71,28 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 	public void validate(final PracticumSession object) {
 		assert object != null;
 
-		final Date startDate = super.getRequest().getData("startDate", Date.class);
-		final Date endDate = super.getRequest().getData("endDate", Date.class);
-		final Date availableStart = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
-		final Date availableEnd = MomentHelper.deltaFromMoment(startDate, 7, ChronoUnit.DAYS);
+		final Date inicial = super.getRequest().getData("initialPeriod", Date.class);
+		final Date f_final = super.getRequest().getData("finalPeriod", Date.class);
+		final Date inicioValido = MomentHelper.deltaFromCurrentMoment(7, ChronoUnit.DAYS);
+		final Date finalValido = MomentHelper.deltaFromMoment(inicial, 7, ChronoUnit.DAYS);
 
-		final boolean validStart = startDate.getTime() >= availableStart.getTime();
-		super.state(validStart, "startDate", "company.practicum-session.validation.startDate.error.AtLeastOneWeekAntiquity");
+		final boolean inicio_bool = inicial.getTime() >= inicioValido.getTime();
+		super.state(inicio_bool, "initialPeriod", "company.practicum-session.validation.startDate.error.AtLeastOneWeekAntiquity");
 
-		final boolean validEnd = endDate.getTime() >= availableEnd.getTime();
-		super.state(validEnd, "endDate", "company.practicum-session.validation.endDate.error.AtLeastOneWeekDuration");
+		final boolean final_bool = f_final.getTime() >= finalValido.getTime();
+		super.state(final_bool, "finalPeriod", "company.practicum-session.validation.endDate.error.AtLeastOneWeekDuration");
 
-		boolean confirmation;
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "company.practicum-session.validation.confirmation");
+		boolean confirm;
+		confirm = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirm, "confirmation", "company.practicum-session.validation.confirmation");
 
-		final Collection<Practicum> practica;
+		final Collection<Practicum> practicas;
 		Collection<PracticumSession> addendums;
 		final SelectChoices choices;
 		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		practica = this.repository.findManyPublishedPracticaByCompanyId(companyId);
-		choices = SelectChoices.from(practica, "code", object.getPracticum());
+		practicas = this.repository.findManyPublishedPracticaByCompanyId(companyId);
+		choices = SelectChoices.from(practicas, "code", object.getPracticum());
 
 		final int selectedId = Integer.parseInt(choices.getSelected().getKey());
 		addendums = this.repository.findAddendumSessionsByPracticumId(selectedId);
@@ -120,18 +111,19 @@ public class CompanyPracticumSessionCreateAddendumService extends AbstractServic
 	@Override
 	public void unbind(final PracticumSession object) {
 		assert object != null;
-		final Collection<Practicum> practica;
-		final SelectChoices choices;
+		final Collection<Practicum> practicas;
+		final SelectChoices select;
 		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		practica = this.repository.findManyPublishedPracticaByCompanyId(companyId);
-		choices = SelectChoices.from(practica, "code", object.getPracticum());
+		practicas = this.repository.findManyPublishedPracticaByCompanyId(companyId);
+		select = SelectChoices.from(practicas, "code", object.getPracticum());
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "summary", "startDate", "endDate", "draftMode", "addendum", "link");
-		tuple.put("practicum", choices.getSelected().getKey());
-		tuple.put("practica", choices);
+		tuple = super.unbind(object, "title", "summary", "initialPeriod", "finalPeriod", "draftMode", "addendum", "link");
+		tuple.put("practicum", select.getSelected().getKey());
+		tuple.put("practica", select);
 		tuple.put("confirmation", false);
+		tuple.put("practicumId", super.getRequest().getData("practicumId", int.class));
 
 		super.getResponse().setData(tuple);
 	}

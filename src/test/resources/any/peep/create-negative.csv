@@ -5,3 +5,8 @@ record-index,title,nick,message,email,link
 3,First Peep,Alex,Este mensaje tiene cien caracteres usado para validar cadenas de cien caracteres de longitud maximaaaaaaaa,alex@acme.com,
 4,First peep,Alex,This is my first peep,hola,
 5,First peep,Alex,This is my first peep,alex@acme.com,hola
+6,,prueba, este no es mi primer peep, junior@gmail.com, 
+7,Mi segundo peep,,este es el mensaje del peep,juan@gmail.com,
+8, sex, nick, mensaje, junior@gmail.com,
+9, Mi tercer peep, sex, mensaje, alberto@gmail.com,
+10, Mi cuarto peep, el titulo de mi peep, sex, alberto@gmail.com,

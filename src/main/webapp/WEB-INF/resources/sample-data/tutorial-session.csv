@@ -1,16 +1,26 @@
 key,title,informative_abstract,type,start_timestamp,end_timestamp,further_info,key:tutorial
-tutorial-session-01,Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-01
-tutorial-session-02,S,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-01
-tutorial-session-03,Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son 75.,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-02
-tutorial-session-04,产权证明,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-02
-tutorial-session-05,пробный текст,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-03
-tutorial-session-06,Sesión prueba,E,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-04
-tutorial-session-07,Sesión prueba,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-05
-tutorial-session-08,Sesión prueba,测试摘要,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-10
-tutorial-session-09,Sesión prueba,краткое описание теста,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-10
-tutorial-session-10,Sesión prueba,Esto es una sesión de prueba,THEORY,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-10
-tutorial-session-11,Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 03:30,2023/09/05 05:30,https://www.informatica.us.es,tutorial-11
-tutorial-session-12,Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/04 23:59,2023/09/05 02:30,https://www.informatica.us.es,tutorial-12
-tutorial-session-13,Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/02/28 12:00,2023/02/28 14:00,https://www.informatica.us.es,tutorial-13
-tutorial-session-14,Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://github.com/alejandromd/Acme-L3-D02,tutorial-14
-tutorial-session-15,Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,null,tutorial-15
+tutorial-session-01,01-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-01
+tutorial-session-02,02-S,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-01
+tutorial-session-03,03-Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-01
+tutorial-session-04,04-nnn,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-01
+tutorial-session-05,05-пробный текст,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-01
+tutorial-session-06,01-Sesión prueba,E,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-04
+tutorial-session-07,02-Sesión prueba,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-04
+tutorial-session-08,01-Sesión prueba,测试摘要,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-05
+tutorial-session-09,02-Sesión prueba,краткое описание теста,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-05
+tutorial-session-10,01-Sesión prueba,Esto es una sesión de prueba,THEORY,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-09
+tutorial-session-11,02-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 03:30,2023/09/05 05:30,https://www.informatica.us.es,tutorial-09
+tutorial-session-12,01-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/04 23:59,2023/09/05 02:30,https://www.informatica.us.es,tutorial-10
+tutorial-session-13,02-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/02/28 12:00,2023/02/28 14:00,https://www.informatica.us.es,tutorial-10
+tutorial-session-14,01-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://github.com/alejandromd/Acme-L3-D02,tutorial-14
+tutorial-session-15,01-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,null,tutorial-15
+tutorial-session-16,01-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-06
+tutorial-session-17,02-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-06
+tutorial-session-18,03-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-06
+tutorial-session-19,04-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-06
+tutorial-session-20,05-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-06
+tutorial-session-21,01-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-07
+tutorial-session-22,02-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-07
+tutorial-session-23,03-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-07
+tutorial-session-24,04-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-07
+tutorial-session-25,05-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es,tutorial-07

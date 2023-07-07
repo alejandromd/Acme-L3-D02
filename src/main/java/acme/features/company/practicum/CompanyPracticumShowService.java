@@ -1,3 +1,14 @@
+/*
+ * AuthenticatedConsumerController.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.company.practicum;
 
@@ -6,18 +17,22 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.Course;
 import acme.entities.Practicum;
 import acme.entities.PracticumSession;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
 public class CompanyPracticumShowService extends AbstractService<Company, Practicum> {
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -33,11 +48,11 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 	public void authorise() {
 		boolean status;
 		int practicumId;
-		Practicum practicum;
+		final Practicum practicum;
 
 		practicumId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findPracticumById(practicumId);
-		status = practicum != null && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		practicum = this.repository.findOnePracticumById(practicumId);
+		status = practicum != null && super.getRequest().getPrincipal().getActiveRoleId() == practicum.getCompany().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -46,29 +61,34 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 	public void load() {
 		Practicum object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findPracticumById(id);
+		object = this.repository.findOnePracticumById(id);
 
 		super.getBuffer().setData(object);
+
 	}
 
 	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;
+		final SelectChoices select;
+		final Collection<Course> courses;
+
+		courses = this.repository.findAllCourses();
+		select = SelectChoices.from(courses, "code", object.getCourse());
+
+		final Collection<PracticumSession> practicumSessions;
+
+		practicumSessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
+		final Double estimatedTime = object.estimatedTime(practicumSessions);
 
 		Tuple tuple;
-		int id;
-		Collection<PracticumSession> sessions;
-		int nHours;
-
-		id = super.getRequest().getData("id", int.class);
-
-		sessions = this.repository.findPracticumSessionsByPracticumId(id);
-
-		nHours = sessions.stream().mapToInt(s -> (int) MomentHelper.computeDuration(s.getInitialPeriod(), s.getFinalPeriod()).toHours()).sum();
 
 		tuple = super.unbind(object, "code", "title", "summary", "goals", "draftMode");
-		tuple.put("totalTime", nHours);
+		tuple.put("courses", select);
+		tuple.put("estimatedTime", estimatedTime);
+		tuple.put("course", select.getSelected().getKey());
 
 		super.getResponse().setData(tuple);
 	}

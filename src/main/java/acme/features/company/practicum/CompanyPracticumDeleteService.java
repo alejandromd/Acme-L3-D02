@@ -45,26 +45,26 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 	@Override
 	public void authorise() {
+		Company c;
 		boolean status;
 		int practicumId;
 		Practicum practicum;
-		Company company;
 
 		practicumId = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findPracticumById(practicumId);
-		company = practicum == null ? null : practicum.getCompany();
-		status = practicum != null && practicum.getDraftMode() && super.getRequest().getPrincipal().hasRole(company);
+		practicum = this.repository.findOnePracticumById(practicumId);
+		c = practicum == null ? null : practicum.getCompany();
+		status = practicum != null && practicum.getDraftMode() && super.getRequest().getPrincipal().hasRole(c);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Practicum object;
 		int id;
+		Practicum object;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findPracticumById(id);
+		object = this.repository.findOnePracticumById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -73,11 +73,11 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	public void bind(final Practicum object) {
 		assert object != null;
 
-		int courseId;
 		Course course;
+		int courseId;
 
 		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
+		course = this.repository.findOneCourseById(courseId);
 
 		super.bind(object, "code", "title", "summary", "goals", "estimatedTime");
 
@@ -94,10 +94,10 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
-		Collection<PracticumSession> sessions;
+		Collection<PracticumSession> practicumSessions;
 
-		sessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
-		this.repository.deleteAll(sessions);
+		practicumSessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
+		this.repository.deleteAll(practicumSessions);
 
 		this.repository.delete(object);
 	}
@@ -106,24 +106,24 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	public void unbind(final Practicum object) {
 		assert object != null;
 
+		Double et;
 		Collection<Course> courses;
-		SelectChoices choices;
-		Collection<PracticumSession> sessions;
-		Double estimatedTime;
 		Tuple tuple;
+		SelectChoices select;
+		Collection<PracticumSession> practicumSessions;
 
-		sessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
-		estimatedTime = 0.;
-		if (!sessions.isEmpty())
-			estimatedTime = object.estimatedTime(sessions);
+		practicumSessions = this.repository.findPracticumSessionsByPracticumId(object.getId());
+		et = 0.;
+		if (!practicumSessions.isEmpty())
+			et = object.estimatedTime(practicumSessions);
 
 		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "code", object.getCourse());
+		select = SelectChoices.from(courses, "code", object.getCourse());
 
 		tuple = super.unbind(object, "code", "title", "summary", "goals", "draftMode");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
-		tuple.put("estimatedTime", estimatedTime);
+		tuple.put("course", select.getSelected().getKey());
+		tuple.put("courses", select);
+		tuple.put("estimatedTime", et);
 
 		super.getResponse().setData(tuple);
 	}

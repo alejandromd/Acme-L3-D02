@@ -1,0 +1,16 @@
+tutorialRecordIndex,sessionRecordIndex,title,informativeAbstract,type,startTimestamp,endTimestamp,furtherInfo
+0,5,06-Sesión prueba,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,6,07,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,7,08-Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,8,09-пробный текст,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+0,9,10-пробный текст,Esto es una sesión de prueba,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+1,0,01-Sesión de prueba,E,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+1,1,02-Sesión de prueba,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100.,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+1,2,03-Sesión de prueba,краткое описание теста,HANDS_ON,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+1,3,04-Sesión de prueba,краткое описание теста,THEORY,2023/09/05 15:30,2023/09/05 17:30,https://www.informatica.us.es
+1,4,05-Sesión de prueba,краткое описание теста,THEORY,2022/08/01 00:00,2022/08/01 01:00,https://www.informatica.us.es
+1,5,06-Sesión de prueba,краткое описание теста,THEORY,2022/08/01 00:00,2022/08/01 02:00,https://www.informatica.us.es
+1,6,07-Sesión de prueba,краткое описание теста,THEORY,2022/08/01 00:00,2022/08/01 03:00,https://www.informatica.us.es
+1,7,08-Sesión de prueba,краткое описание теста,THEORY,2022/08/01 00:00,2022/08/01 04:00,https://www.informatica.us.es
+1,8,09-Sesión de prueba,краткое описание теста,THEORY,2022/08/01 00:00,2022/08/01 05:00,https://www.informatica.us.es
+1,9,10-Sesión de prueba,краткое описание теста,THEORY,2022/08/01 00:00,2022/08/01 05:00,

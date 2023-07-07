@@ -1,0 +1,14 @@
+recordIndex,code,title,informativeAbstract,goals,course
+0,AAA,Tutorial de prueba,Esto es un tutorial de prueba,prueba,ZZZ340
+0,001,Tutorial de prueba,Esto es un tutorial de prueba,prueba,ZZZ340
+0,AAAA001,Tutorial de prueba,Esto es un tutorial de prueba,prueba,ZZZ340
+0,AAA0001,Tutorial de prueba,Esto es un tutorial de prueba,prueba,ZZZ340
+0,A1,Tutorial de prueba,Esto es un tutorial de prueba,prueba,ZZZ340
+0,,Tutorial de prueba,Esto es un tutorial de prueba,prueba,ZZZ340
+0,A001,,Esto es un tutorial de prueba,prueba,ZZZ340
+0,A001,Este texto tiene 42 caracteres. Faltan treinta y tres. ¡Exacto!. Ya son 75. Y ahora los hemos superado.,Esto es un tutorial de prueba,prueba,ZZZ340
+0,A001,Tutorial de prueba,,prueba,ZZZ340
+0,A001,Tutorial de prueba,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100. Y ahora los hemos superado.,prueba,ZZZ340
+0,A001,Tutorial de prueba,Esto es un tutorial de prueba,,ZZZ340
+0,A001,Tutorial de prueba,Esto es un tutorial de prueba,Este interesante resumen tiene 66 caracteres. Faltan treinta y tres mas uno. ¡Correcto!. Ya son 100. Y ahora los hemos superado.,ZZZ340
+0,A001,Tutorial de prueba,Esto es un tutorial de prueba,prueba,---
