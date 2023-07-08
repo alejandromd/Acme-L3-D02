@@ -19,7 +19,7 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String course) {
+	public void test100Positive(final int recordIndex, final String code, final String motivation, final String goals, final String course, final String holderName, final String cardNumber, final String expiryDate, final String cvc) {
 
 		super.signIn("student1", "student1");
 
@@ -32,6 +32,10 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
 		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("holderName", holderName);
+		super.fillInputBoxIn("cardNumber", cardNumber);
+		super.fillInputBoxIn("expiryDate", expiryDate);
+		super.fillInputBoxIn("cvc", cvc);
 		super.clickOnSubmit("Update");
 
 		super.checkNotErrorsExist();
@@ -41,7 +45,7 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/student/enrolment/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String motivation, final String goals, final String course) {
+	public void test200Negative(final int recordIndex, final String code, final String motivation, final String goals, final String course, final String holderName, final String cardNumber, final String expiryDate, final String cvc) {
 		super.signIn("student1", "student1");
 
 		Enrolment enrolment;
@@ -54,6 +58,10 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 		super.fillInputBoxIn("motivation", motivation);
 		super.fillInputBoxIn("goals", goals);
 		super.fillInputBoxIn("course", course);
+		super.fillInputBoxIn("holderName", holderName);
+		super.fillInputBoxIn("cardNumber", cardNumber);
+		super.fillInputBoxIn("expiryDate", expiryDate);
+		super.fillInputBoxIn("cvc", cvc);
 
 		super.clickOnSubmit("Update");
 

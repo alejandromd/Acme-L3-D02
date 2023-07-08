@@ -1,6 +1,10 @@
-record-index,code,motivation,goals,course
-7,UP122,prueba,Improve your mathematical skills,cours3
-2,UP124,prueba,Improve your mathematical skills,cours3
-3,UP125,prueba,Improve your mathematical skills,cours3
-5,UP127,prueba,Improve your mathematical skills,cours3
-6,UP128,prueba,Improve your mathematical skills,cours3
+record-index,code,motivation,goals,course,holderName,cardNumber,expiryDate,cvc
+7,UP122,prueba,Improve your mathematical skills,cours3,,,,
+2,UP124,Este mensaje tiene setenta y cinco caracteres se usa para validar mensajes.,Improve your mathematical skills,cours3,,,,
+3,UP125,prueba,esta es una descripción de prueba que va a contener 100 caracteres para comprobar la implementación.,cours3,,,,
+5,UP127,prueba,Improve your mathematical skills,cours3,hola,,,
+6,UP128,prueba,Improve your mathematical skills,cours3,,1234567890123456,,
+7,UP129,prueba,Improve your mathematical skills,cours3,hola,,23/12,
+7,UP130,prueba,Improve your mathematical skills,cours3,hola,,23/12,123
+7,UP131,¿¿teg83&&,Improve your mathematical skills,cours3,hola,,23/12,123
+7,UP132,prueba,(/=$$$245,cours3,hola,,23/12,123

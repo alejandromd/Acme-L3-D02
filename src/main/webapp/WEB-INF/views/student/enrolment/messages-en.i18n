@@ -15,7 +15,7 @@ student.enrolment.form.label.course = Course:
 student.enrolment.form.label.workTime = Work time (in hours):
 student.enrolment.form.label.holderName = Holder name:
 student.enrolment.form.label.cardNumber = Card number(16 digits):
-student.enrolment.form.label.expiryDate = Expiration Date:
+student.enrolment.form.label.expiryDate = Expiration Date (YY/MM):
 student.enrolment.form.label.cvc = CVC:
 student.enrolment.form.label.draftMode = Draft mode:
 
